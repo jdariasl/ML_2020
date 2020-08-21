@@ -73,7 +73,3 @@ Julián D. Arias Londoño
 julian.ariasl@udea.edu.co
 
 Profesor Titular
-
-
-
-

@@ -6,8 +6,24 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import cross_val_score
 from sklearn.svm import SVC
+from matplotlib.patches import Ellipse
+from sklearn.neighbors import KernelDensity
 
 # coding=utf-8
+def plot_ellipse(ax, mu ,sigma, color='k'):
+
+    vals, vecs = np.linalg.eigh(sigma)
+    
+    x , y = vecs[:, 0]
+    theta = np.degrees(np.arctan2(y,x))
+    
+    w,h = 4* np.sqrt(vals)
+    
+    ax.tick_params(axis='both',which='major',labelsize=20)
+    ellipse = Ellipse(mu,w,h,theta,color=color)
+    ellipse.set_alpha(0.2)
+    ax.add_artist(ellipse)
+
 def mapFeature(X1, X2, degree = 6):
 
     Nm = X1.shape[0]       
@@ -28,10 +44,10 @@ def plotDecisionBoundary(w, X, Y):
 
     if X.shape[1] <= 3:
         # Only need 2 points to define a line, so choose two endpoints
-        plot_x = [np.min(X[:,1])-2,  np.max(X[:,1])+2];
+        plot_x = [np.min(X[:,1])-2,  np.max(X[:,1])+2]
 
         # Calculate the decision boundary line
-        plot_y = (-1/w[3])*(w[2]*plot_x + w[1]);
+        plot_y = (-1/w[3])*(w[2]*plot_x + w[1])
 
         # Plot, and adjust axes for better viewing
         plt.plot(plot_x, plot_y,color = 'black',label = 'Frontera de decision')
@@ -41,10 +57,10 @@ def plotDecisionBoundary(w, X, Y):
         #axis([30, 100, 30, 100])
     else:
         #Here is the grid range
-        u = np.linspace(-1, 1.5, num=50);
-        v = np.linspace(-1, 1.5, num =50);
+        u = np.linspace(-1, 1.5, num=50)
+        v = np.linspace(-1, 1.5, num =50)
 
-        z = np.zeros([len(u), len(v)]);
+        z = np.zeros([len(u), len(v)])
         #Evaluate z = theta*x over the grid
         for i in range(len(u)):
             for j in range(len(v)):
@@ -72,7 +88,7 @@ def StandardLogisticRegression(X,Y,lam=0):
     plt.plot(Error)
     plt.title("Error de entrenamiento")
     plt.xlabel("Iteraciones")
-    plotDecisionBoundary(w, Xent, Y);
+    plotDecisionBoundary(w, Xent, Y)
 
 def PrintOverfittingReg():
     print(__doc__)
@@ -152,6 +168,106 @@ def PrintOverfittingClassify():
         plt.title('SVC gamma={:.2f}'.format(gamma))
     plt.show()
 
+def Fronteras(clf_ini,N,Rep):
+    Cov = np.identity(2) * 1.1
+    Cov2 = np.array([[1.1,0.5],[0.5,1.1]])
+    Mean = [1.1,2.1]
+    Mean2 = [4.1,4.1]
+    plt.figure(figsize=(15,5))
+    plt.subplot(121)
+    for i in range(Rep):
+        clf = clf_ini
+        x, y  = np.random.multivariate_normal(Mean, Cov, N).T
+        x2, y2  = np.random.multivariate_normal(Mean2, Cov2, N).T
+        X = np.r_[np.c_[x,y],np.c_[x2,y2]]
+        Y = np.r_[np.ones((N,1)),np.zeros((N,1))]
+        clf.fit(X,Y.flatten())
+        if i == 0:
+            plt.scatter(X[:,0],X[:,1],c=Y.flatten(), cmap='Set2',alpha=0.5)
+
+        h = .02  # step size in the mesh
+        # create a mesh to plot in
+        x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+        y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+        xx, yy = np.meshgrid(np.arange(x_min, x_max, h),np.arange(y_min, y_max, h))
+
+        # Plot the decision boundary. For that, we will assign a color to each
+        # point in the mesh [x_min, m_max]x[y_min, y_max].
+        Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+
+        # Put the result into a color plot
+        Z = Z.reshape(xx.shape)
+        plt.contour(xx, yy, Z, colors='k',linewidths=0.5)
+    plt.title('Fronteras para N='+str(N))
+    plt.xlabel('$x_1$')
+    plt.ylabel('$x_2$')
+    plt.grid()
+    plt.subplot(122)
+    N = N*10
+    for i in range(Rep):
+        clf = clf_ini
+        x, y  = np.random.multivariate_normal(Mean, Cov, N).T
+        x2, y2  = np.random.multivariate_normal(Mean2, Cov2, N).T
+        X = np.r_[np.c_[x,y],np.c_[x2,y2]]
+        Y = np.r_[np.ones((N,1)),np.zeros((N,1))]
+        clf.fit(X,Y.flatten())
+        if i == 0:
+            plt.scatter(X[:,0],X[:,1],c=Y.flatten(), cmap='Set2',alpha=0.5)
+
+        h = .02  # step size in the mesh
+        # create a mesh to plot in
+        x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+        y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+        xx, yy = np.meshgrid(np.arange(x_min, x_max, h),np.arange(y_min, y_max, h))
+
+        # Plot the decision boundary. For that, we will assign a color to each
+        # point in the mesh [x_min, m_max]x[y_min, y_max].
+        Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+
+        # Put the result into a color plot
+        Z = Z.reshape(xx.shape)
+        plt.contour(xx, yy, Z, colors='k',linewidths=0.5)
+    plt.title('Fronteras para N='+str(N))
+    plt.xlabel('$x_1$')
+    plt.ylabel('$x_2$')
+    plt.grid()
+
+class Kernel_classifier:
+    def __init__(self, bandwidth=1.0):
+        self.h = bandwidth
+        self.n_class = 2
+        self.clfs = []
+        
+    def fit(self,X,Y):
+        classes=np.unique(Y)
+        self.n_class = classes.shape[0]
+        for k in range(self.n_class):
+            self.clfs.append(KernelDensity(bandwidth=self.h))
+            X_tem = X[Y==k,:]
+            self.clfs[k].fit(X_tem)
+            
+    def predict(self,X):
+        pred = np.zeros((X.shape[0],self.n_class))
+        for k in range(self.n_class):
+            pred[:,k] = self.clfs[k].score_samples(X)
+        predict_class = np.argmax(pred,axis=1)
+        return predict_class 
+
+class PolynomialLinearRegression:
+    def __init__(self, degree):
+        self.degree = degree
+        self.model = LinearRegression()
+        
+    def fit(self, X,y):
+        self.model.fit(np.vander(X, self.degree + 1), y)
+        
+    def predict(self, X):
+        return self.model.predict(np.vander(X, self.degree + 1))
+
+    def score(self, X, y):
+        # rmse
+        return np.sqrt(np.mean((y-self.predict(X))**2))
+        
 def main():
     print("Module Loaded")
 if __name__ == '__main__':

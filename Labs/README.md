@@ -54,6 +54,7 @@ Al inicio de cada notebook, notarán el siguiente icono:
 
 Al hacer click, les abrirá automaticamente la herramienta con el correspondiente notebook. Por ejemplo al hacer clic en la anterior icono, se deberá abrir automaticamente [el notebook introductorio que revisaremos en nuestra primera sesión](https://github.com/jdariasl/ML_2020/blob/master/Labs/Intro/Intro.ipynb).
 
+Al inicar colab, es muy importante, que lo primero que hagas es dar clic en Copiar en Drive (Copy to Drive).
 
 # Comentarios finales
 

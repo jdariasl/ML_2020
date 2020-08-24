@@ -29,8 +29,7 @@ def intro_grade_example(func):
     else:
         return (False)
 
-
-GRADER_INTRO_LAB = Grader()
+GRADER_INTRO_LAB = Grader("intro")
 test1 = Tester()
 GRADER_INTRO_LAB.add_test("ejercicio1", intro_grade_example)
     

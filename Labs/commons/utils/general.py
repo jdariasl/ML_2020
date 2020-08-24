@@ -4,18 +4,19 @@ class Laboratory():
 
     def __init__ (self, data_path, code_path):
 
-        self.data_path = data_path
-        self.code_path = code_path
+        self.data_path = data_paths
+        self.code_path = code_paths
         self.repo_path = "https://github.com/jdariasl/ML_2020/blob/labs/Labs/commons/utils/"
         print("lab configured")
 
 
     def download_github_code(self, path):
         filename = path.rsplit("/")[-1]
-        os.system(f"wget {self.repo_path}{path}/{filename} -O")
+        os.system(f"wget {self.repo_path}{path} -O {filename}")
 
     def download_files(self):
-        pass
+        for d in data_paths + code_path:
+            self.download_github_code(d)
 
     def install_libraries(self):
         os.system("pip install gspread")
@@ -25,6 +26,7 @@ class Laboratory():
         self.install_libraries()
         print("downloading files")
         self.download_files()
+        print("lab configured")
 
 class Grader ():
 
@@ -55,6 +57,9 @@ class Test():
         else:
             return("nok")
 
-
-
 def configure_intro():
+    data = []
+    code = ["intro.py"]
+    intro_lab = Laboratory(data, code)
+    intro_lab.configure()
+    from intro import *

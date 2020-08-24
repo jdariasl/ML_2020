@@ -31,6 +31,7 @@ def intro_grade_example(func):
 
 
 GRADER_INTRO_LAB = Grader()
+test1 = Tester()
 GRADER_INTRO_LAB.add_test("ejercicio1", intro_grade_example)
     
 

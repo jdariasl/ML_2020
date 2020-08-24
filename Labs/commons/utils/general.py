@@ -44,15 +44,23 @@ class Laboratory():
 
 class Grader():
 
-    def __init__(self):
+    def __init__(self, name):
         self.tests = {}
         self.results = {}
+        self.lab_name = lab_name
 
     def add_test(self, name, test_to_add):
         self.tests[name] = test_to_add
 
-    def run_test(self, name):
-        results[name] = self.tests[name].run_test()
+    def run_test(self, name, f_to_test):
+        if name not in  results:
+            print("verifica el orden de ejecucion de tu notebook!",  
+                 "parece que no has ejecutado en el orden correcto",
+                 "si tienes una duda, consultalo con el profesor, preguntando por",
+                 f"{lab_name} para el test {name}")
+            return None
+
+        results[name] = self.tests[name].run_test(f_to_test)
 
     def check_tests(self):
         if not( len(self.tests.keys()) == len(self.results.keys()) ):
@@ -68,13 +76,12 @@ class Grader():
 
 class Tester():
 
-    def __init__(self, name, func_for_testing, func_to_test):
+    def __init__(self, name, func_for_testing):
         self.func_for_testing = func_for_testing
-        self.f_to_test = f_to_test
         self.name = name
-
-    def run_test(self):
-        res = self.func_for_testing(self.func_to_test)
+    
+    def run_test(self, func_to_test):
+        res = self.func_for_testing(func_to_test)
         if (res):
             return ("ok")
         else:

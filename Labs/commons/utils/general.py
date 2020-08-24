@@ -4,7 +4,7 @@ class Laboratory():
 
     def __init__ (self, data_paths, code_paths):
 
-        self.data_path = data_paths
+        self.data_path = [f"data/{data}" for data in data_paths]
         self.code_path = code_paths
         self.repo_path = "https://raw.githubusercontent.com/jdariasl/ML_2020/labs/Labs/commons/utils/"
         print("lab configuration started")
@@ -58,7 +58,8 @@ class Test():
             return("nok")
 
 def configure_intro():
-    data = []
+    data = ['bank.csv']
     code = ["intro.py"]
     intro_lab = Laboratory(data, code)
     intro_lab.configure()
+    print(f"execute import {code} from *")

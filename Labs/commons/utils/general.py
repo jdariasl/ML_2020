@@ -12,7 +12,7 @@ class Laboratory():
 
     def download_github_code(self, path):
         filename = path.rsplit("/")[-1]
-        os.system("wget https://raw.githubusercontent.com/hse-aml/natural-language-processing/master/{} -O {}".format(path, filename))
+        os.system(f"wget {self.repo_path}{path}/{filename} -O")
 
     def download_files(self):
         pass
@@ -54,4 +54,7 @@ class Test():
             return ("ok")
         else:
             return("nok")
-        
+
+
+
+def configure_intro():

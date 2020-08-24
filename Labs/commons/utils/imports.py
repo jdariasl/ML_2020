@@ -6,6 +6,11 @@ Este archivo es generado automaticamente.
 # cualquier alteración del archivo
 # puede generar una mala calficacion o configuracion
 # que puede repercutir negativamente en la 
-# calificacion del laboratorio!!!!!
+# calificacion del laboratorio
 
 """
+
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from general import Tester, Grader

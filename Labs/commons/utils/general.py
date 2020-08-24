@@ -2,12 +2,12 @@ import os
 
 class Laboratory():
 
-    def __init__ (self, data_path, code_path):
+    def __init__ (self, data_paths, code_paths):
 
         self.data_path = data_paths
         self.code_path = code_paths
-        self.repo_path = "https://github.com/jdariasl/ML_2020/blob/labs/Labs/commons/utils/"
-        print("lab configured")
+        self.repo_path = "https://raw.githubusercontent.com/jdariasl/ML_2020/labs/Labs/commons/utils/"
+        print("lab configuration started")
 
 
     def download_github_code(self, path):
@@ -15,7 +15,7 @@ class Laboratory():
         os.system(f"wget {self.repo_path}{path} -O {filename}")
 
     def download_files(self):
-        for d in data_paths + code_path:
+        for d in self.data_path + self.code_path:
             self.download_github_code(d)
 
     def install_libraries(self):
@@ -62,4 +62,3 @@ def configure_intro():
     code = ["intro.py"]
     intro_lab = Laboratory(data, code)
     intro_lab.configure()
-    from intro import *

@@ -155,11 +155,9 @@ def unknow_error(func):
 ### -------------------------
 ### configuration for each lab
 ###---------------------------
-##
+## intro
 def configure_intro():
     data = ['bank.csv']
     code = ["intro.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
-    print(f"execute import {code} from *")
-    return(intro_lab_object)

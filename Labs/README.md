@@ -4,7 +4,8 @@ En este sección del repositorio, se encuentran los [notebooks](https://jupyter.
 
 En la primera celda de cada notebook tendra ciertos archivos de configuración, que les permitira ir evaluando cada ejercicio propuesto.
 
-De igual manera, en cada notebook, van encontrar un link a un [Google Form](https://www.google.com/intl/es-419_co/forms/about/)donde deberán responder preguntas abiertas relacionadas con el desarrollo de cada sesión de laboratorio.
+De igual manera, en cada notebook, van encontrar un link formularios, con preguntas abiertas. Que deberán ser respondidas casi siempre con los resultados del laboratorio, con información vista en clase o algunas veces con alguna pequeña investigación relacionada con la tematica de la sesión.
+
 
 # Estructura de laboratorios
 En esta carpeta podrán encontrar las siguientes carpetas:
@@ -12,38 +13,36 @@ En esta carpeta podrán encontrar las siguientes carpetas:
 -Intro:
     - primera_sesion.ipynb: notebook con la introducción de conceptos claves para el desarollo de todas nuestras sesiones. Este notebook sera detallado en nuestra primera sesión de laboratorio.
 - Lab1:
-    - lab1_parte1.ipynb: sesión de laboratorio de gradiente descendete en regresión.
-    - lab1_parte2.ipynb: sesión de laboratorio de gradiente descendete en clasificación
+    - lab1_parte1.ipynb: gradiente descendete en un modelo de regresión.
+    - lab1_parte2.ipynb: gradiente descendete en un modelo de clasificación
 
 - Lab2:
-    - lab2_parte1.ipynb: sesión de laboratorio de gradiente descendete en regresión.
-    - lab2_parte2.ipynb: sesión de laboratorio de gradiente descendete en clasificación
+    - lab2_parte1.ipynb: KNN para un problema de regresión.
+    - lab2_parte2.ipynb: KNN para un problema de clasificacion vs una mezcla de gaussinas.
 
 - Lab3:
-    - lab3_parte1.ipynb: sesión de laboratorio de gradiente descendete en regresión.
-    - lab3_parte2.ipynb: sesión de laboratorio de gradiente descendete en clasificación
+    - lab3_parte1.ipynb: comnparación de metodos de clusterizacion K-means vs mezcla de gaussinas.
+    - lab3_parte2.ipynb: comparación de árboles de decisión (Decision Tree-DT), bosques aleatorios (random forest-RF) y árboles con potenciación del gradiente (Gradient Boosted Tree - GBT).
 
 - Lab4:
-    - lab4_parte1.ipynb: sesión de laboratorio de gradiente descendete en regresión.
-    - lab4_parte2.ipynb: sesión de laboratorio de gradiente descendete en clasificación
+    - lab4_parte1.ipynb: redes neuronales - perceptrón multicapa (mMltiLayer Perceptron-MLP) .
+    - lab4_parte2.ipynb: regularización de modelos.
 
 - Lab5:
-    - lab5_parte1.ipynb: sesión de laboratorio de gradiente descendete en regresión.
-    - lab5_parte2.ipynb: sesión de laboratorio de gradiente descendete en clasificación
+    - lab5_parte1.ipynb: redes neuronales de recurrentes.
+    - lab5_parte2.ipynb: Maquinas de soporte vectorial (Support Vector Machine-SVM)
 
 - Lab6:
-    - lab6_parte1.ipynb: sesión de laboratorio de gradiente descendete en regresión.
-    - lab6_parte2.ipynb: sesión de laboratorio de gradiente descendete en clasificación
+    - lab6_parte1.ipynb: selección de caracteristicas
+    - lab6_parte2.ipynb: Análisis de componentes principales y fisher  
 
 - Extra:
-    - despligue_modelos.ipynb: sesión para desplegar tu modelo para ser usado por un sistema externo
-
+    - despligue_modelos.ipynb: practica para desplegar un modelo.
 
 Existen 2 carpetas adicionales a las descritas anteriormente, cuyo contenido no es ncesario entenderlo para el desarrollo del curso.
 
-- commons: carpeta con diferentes archivos de configuracion. No hay necesidad de entender el contenido de estos y no es necesario la exploración para el correcto del desarrollo del curso.
-- data: carpeta donde esta almacenado los diferentes datasets que usaremos en el curso. Igual que la anterior no es necesario entender ningun contenido, cada notebook del laboratorio tendra la configuración apropiada para el desarollo de este mismo 
-
+- commons: carpeta con diferentes archivos de configuracion.
+- data: carpeta donde esta almacenado los diferentes datasets que usaremos en el curso.  cada notebook del laboratorio tendra la configuración apropiada para el desarollo de este mismo, incluyendo seleccionar el conjunto de datos apropiado de esta base de datos.
 
 
 # Guia conectar github y Google Colab
@@ -58,7 +57,7 @@ Al inicar colab, es muy importante, que lo primero que hagas es dar clic en Copi
 
 # Comentarios finales
 
-Finalmente, les deseso mucho exito y aprendizaje en esta clase. Traten de aprovechar al maximo los espacios que tenemos, estos  están construido para afinzar sus conocimiento teoricos y los puedan aplicar para solucionar problemas que tratan de acercase a contextos que pueden encontrar en su futura vida profesional en este interesante campo.
+Finalmente, les deseso mucho exito y aprendizaje. Traten de aprovechar al maximo los espacios que tenemos, estos  están construidos para afinzar sus conocimientos teoricos y para que de la misma manera los puedan aplicar para solucionar problemas que tratan de acercase a contextos que pueden encontrar en su futura vida profesional en este interesante campo.
 
 ----
 

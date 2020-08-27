@@ -4,14 +4,18 @@ Este archivo es generado automaticamente.
 ###### NO MODIFICAR #########
 
 # cualquier alteración del archivo
-# puede generar una mala calficacion o configuracion
+# puede generar una mala calificación o configuracion
 # que puede repercutir negativamente en la 
-# calificacion del laboratorio!!!!!
+# calificación del laboratorio!!!!!
 
+###### NO MODIFICAR #########
 """
 
-
 import os
+import functools
+import traceback
+import time
+import pandas as pd
 
 class Laboratory():
 
@@ -34,6 +38,8 @@ class Laboratory():
 
     def install_libraries(self):
         os.system("pip install gspread")
+        # for avoid a bug qith seaborn
+        os.system("pip install matplotlib<3.3.1")
     
     def configure(self):
         print("installing libraries")
@@ -44,7 +50,7 @@ class Laboratory():
 
 class Grader():
 
-    def __init__(self, name):
+    def __init__(self, lab_name):
         self.tests = {}
         self.results = {}
         self.lab_name = lab_name
@@ -53,14 +59,14 @@ class Grader():
         self.tests[name] = test_to_add
 
     def run_test(self, name, f_to_test):
-        if name not in  results:
+        if name not in self.tests:
             print("verifica el orden de ejecucion de tu notebook!",  
                  "parece que no has ejecutado en el orden correcto",
                  "si tienes una duda, consultalo con el profesor, preguntando por",
-                 f"{lab_name} para el test {name}")
+                 f"FALLA en '{self.lab_name}-{name}'")
             return None
 
-        results[name] = self.tests[name].run_test(f_to_test)
+        self.results[name] = self.tests[name].run_test(f_to_test)
 
     def check_tests(self):
         if not( len(self.tests.keys()) == len(self.results.keys()) ):
@@ -73,31 +79,83 @@ class Grader():
 
         print("Todo se ve ok. Asegurate de responder las preguntas en el formualario y envialo",
               "¡buen trabajo!")
+    
+    def grade(self):
+        pass
+        
 
 class Tester():
 
-    def __init__(self, name, func_for_testing):
+    def __init__(self, func_for_testing):
         self.func_for_testing = func_for_testing
-        self.name = name
     
     def run_test(self, func_to_test):
         res = self.func_for_testing(func_to_test)
         if (res):
+            print("TEST EXITOSO!")
             return ("ok")
         else:
+            print("FALLIDO. revisa tu funcion. Sigue las instrucciones del notebook. Si tienes alguna duda pregunta!")
             return("nok")
 
-def is_func(f):
-    import types
-    res = isinstance(f, types.FunctionType)
-    if not (res):
-        print("Revisa tu funcion!!!", 
-             "parace ser que no creaste una funcion," , 
-             "presta atencion a las instrucciones, o pregunta al profesor!")
-    return (res)
+### Utils
+class Utils():
+
+    def __init__(self):
+            pass
+
+    def is_func_tester(self, f):
+        import types
+        res = isinstance(f, types.FunctionType)
+        if not (res):
+            print("....¡Revisa tu codigo!....", 
+                "parace ser que no creaste una funcion," , 
+                "presta atención a las instrucciones, o pregunta al profesor")
+        return (res)
+
+    def is_dataframe_tester(self, df):
+        test = isinstance(df, pd.DataFrame)
+        if not (test):
+            print("recuerda que debes devolver un pandas DataFrame")
+            return(False)
+        else:
+            return(True)
+        
+    def test_columns_len(self, df, test_len):
+        return (len(df.columns) == test_len)
+
+    def test_conditions_and_methods(self, test_msgs):
+        """ test the values of dict and return the msj (key) if the test is false """
+        for msj,test in test_msgs.items():
+            if not(test):
+                print(msj)
+                return(False)
+        return (True)
 
 
+### decorators
+def unknow_error(func):
+    """decorates functions to return the original error"""
+    @functools.wraps(func)
+    def wrapper (*args, **kwargs):
+        ut = Utils()
+        if not ut.is_func_tester(func):
+            return False
+        try:
+            return (func(*args, **kwargs))
+        except Exception as e: 
+            print("...error inesperado....\n ", "es muy probable que tengas un error de sintaxis \n", 
+            "...puedas que tengas una variable definida erroneamente dentro de la funcion... \n"
+            "...este es el stack retornado...")
+            traceback.print_exc()
+            return False
+    return (wrapper)
+
+
+### -------------------------
 ### configuration for each lab
+###---------------------------
+##
 def configure_intro():
     data = ['bank.csv']
     code = ["intro.py"]

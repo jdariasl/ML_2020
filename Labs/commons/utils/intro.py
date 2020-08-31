@@ -13,9 +13,6 @@ Este archivo es generado automaticamente.
 
 from imports import *
 
-# for examples of exercise
-matriz_a_for =  np.array(range(100)).reshape((10,10))
-matriz_b_for = 2*np.ones((1,10))
 
 def genarete_data():
     xtrain1 = np.random.rand(3,3)
@@ -78,6 +75,10 @@ def intro_grade_example(func):
         print("Lo siento. revisa tu implementación.")
         return (False)
 
+
+# for examples of exercise
+matriz_a_for =  np.array(range(100)).reshape((10,10))
+matriz_b_for = 2*np.ones((1,10))
 GRADER_INTRO_LAB = Grader("intro")
 test1 = Tester(intro_grade_example)
 GRADER_INTRO_LAB.add_test("ejercicio1", test1)

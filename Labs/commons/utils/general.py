@@ -37,7 +37,7 @@ class Laboratory():
             self.download_github_code(d)
 
     def install_libraries(self):
-        os.system("pip install gspread")
+        os.system("pip install gspread ")
         # for avoid a bug qith seaborn
         os.system("pip install matplotlib<3.3.1")
     
@@ -77,7 +77,7 @@ class Grader():
             print("algunos de los test no estan ok. Verifica antes de enviar el formulario")
             return None
 
-        print("Todo se ve ok. Asegurate de responder las preguntas en el formualario y envialo",
+        print("Todo se ve ok. Asegurate de responder las preguntas abiertas y envia e archivo al formulario",
               "¡buen trabajo!")
     
     def grade(self):
@@ -132,6 +132,34 @@ class Utils():
                 return(False)
         return (True)
 
+    def are_np_equal(self, x1,x2):
+        """ compare if 2 numpy arrays are equal """
+        try: 
+            comparison = x1 == x2
+            equal_arrays = comparison.all()
+            if not(equal_arrays):
+                print("un test fallido por que estos dos arrays no son iguales", x1,"\n--\n", x2)
+            return (equal_arrays)
+        except AttributeError:
+            print("un test fallido por que estos dos arrays no son iguales",x1,"\n--\n", x2)
+            return (False)
+        except Exception as e:
+            raise e
+
+    def test_experimento(self, func, xtrain, ytrain, shape_val=None, col_val= None,  **kwargs):
+
+        df1 = func(xtrain, xtrain, ytrain, ytrain, **kwargs)
+        shape_test = df1.shape == shape_val
+        cols_test = list(df1.columns) == col_val
+
+        tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
+                'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,
+                'Revisa tu implementación\n el df no tiene las columnas requeridas': cols_test}
+                
+        test_res = self.test_conditions_and_methods(tests)
+        return (test_res)
+
+
 
 ### decorators
 def unknow_error(func):
@@ -146,11 +174,10 @@ def unknow_error(func):
         except Exception as e: 
             print("...error inesperado....\n ", "es muy probable que tengas un error de sintaxis \n", 
             "...puedas que tengas una variable definida erroneamente dentro de la funcion... \n"
-            "...este es el stack retornado...")
+            "...este es el stack retornado...\n .... \n")
             traceback.print_exc()
             return False
     return (wrapper)
-
 
 ### -------------------------
 ### configuration for each lab
@@ -159,5 +186,13 @@ def unknow_error(func):
 def configure_intro():
     data = ['bank.csv']
     code = ["intro.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()
+
+
+## intro
+def configure_lab1_p1():
+    data = ['AirQuality.data']
+    code = ["lab1.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()

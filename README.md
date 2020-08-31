@@ -1,2 +1,2 @@
 # ML_2020
-New version a my Machine Learning Introductory Course.
+New version of my Machine Learning Introductory Course.

@@ -39,9 +39,9 @@ En esta carpeta podrán encontrar las siguientes carpetas:
 - Extra:
     - despligue_modelos.ipynb: practica para desplegar un modelo.
 
-Existen 2 carpetas adicionales a las descritas anteriormente, cuyo contenido no es ncesario entenderlo para el desarrollo del curso.
+Existen 2 carpetas adicionales a las descritas anteriormente, cuyo contenido no es necesario entenderlo para el desarrollo del curso.
 
-- commons: carpeta con diferentes archivos de configuracion.
+- commons: carpeta con diferentes archivos de configuración.
 - data: carpeta donde esta almacenado los diferentes datasets que usaremos en el curso.  cada notebook del laboratorio tendra la configuración apropiada para el desarollo de este mismo, incluyendo seleccionar el conjunto de datos apropiado de esta base de datos.
 
 
@@ -49,7 +49,7 @@ Existen 2 carpetas adicionales a las descritas anteriormente, cuyo contenido no 
 
 Al inicio de cada notebook, notarán el siguiente icono:
 
-<a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/labs/Intro/Intro.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/Intro/Intro.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 Al hacer click, les abrirá automaticamente la herramienta con el correspondiente notebook. Por ejemplo al hacer clic en la anterior icono, se deberá abrir automaticamente [el notebook introductorio que revisaremos en nuestra primera sesión](https://github.com/jdariasl/ML_2020/blob/master/labs/Intro/Intro.ipynb).
 
@@ -57,7 +57,7 @@ Al inicar colab, es muy importante, que lo primero que hagas es dar clic en Copi
 
 # Comentarios finales
 
-Finalmente, les deseso mucho exito y aprendizaje. Traten de aprovechar al maximo los espacios que tenemos, estos  están construidos para afinzar sus conocimientos teoricos y para que de la misma manera los puedan aplicar para solucionar problemas que tratan de acercase a contextos que pueden encontrar en su futura vida profesional en este interesante campo.
+Finalmente, les deseso mucho exito y aprendizaje. Traten de aprovechar al maximo los espacios que tenemos, estos  están construidos para afianzar sus conocimientos teoricos y para que de la misma manera los puedan aplicar para solucionar problemas que tratan de acercase a contextos que pueden encontrar en su futura vida profesional en este interesante campo.
 
 ----
 
@@ -71,5 +71,3 @@ Profesor laboratorio
 Julián D. Arias Londoño
 
 julian.ariasl@udea.edu.co
-
-Profesor Titular

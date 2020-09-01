@@ -16,6 +16,8 @@ import functools
 import traceback
 import time
 import pandas as pd
+import numpy as np
+import sklearn
 
 class Laboratory():
 
@@ -40,7 +42,8 @@ class Laboratory():
         os.system("pip install gspread ")
         # for avoid a bug qith seaborn
         os.system("pip install matplotlib<3.3.1")
-    
+        os.system("pip install scikit-learn==0.23")
+
     def configure(self):
         print("installing libraries")
         self.install_libraries()
@@ -135,13 +138,16 @@ class Utils():
     def are_np_equal(self, x1,x2):
         """ compare if 2 numpy arrays are equal """
         try: 
-            comparison = x1 == x2
-            equal_arrays = comparison.all()
+            #comparison = x1 == x2
+            #equal_arrays = comparison.all()
+            equal_arrays = np.allclose(x1,x2)
             if not(equal_arrays):
-                print("un test fallido por que estos dos arrays no son iguales", x1,"\n--\n", x2)
+                print("un test fallido por que estos dos arrays no son iguales \n", x1,"\n--\n", x2)
+                #print("un test fallido revisa tu funcion.")
             return (equal_arrays)
         except AttributeError:
-            print("un test fallido por que estos dos arrays no son iguales",x1,"\n--\n", x2)
+            print("un test fallido por que estos dos arrays no son iguales \n",x1,"\n--\n", x2)
+            #print("un test fallido revisa tu funcion.")
             return (False)
         except Exception as e:
             raise e
@@ -158,6 +164,62 @@ class Utils():
                 
         test_res = self.test_conditions_and_methods(tests)
         return (test_res)
+
+    def test_experimento_train_test(self, func, xtrain, ytrain, xtest, ytest, shape_val=None, col_val= None,  **kwargs):
+
+        df1 = func(xtrain, xtest, ytrain, ytest, **kwargs)
+        shape_test = df1.shape == shape_val
+        cols_test = list(df1.columns) == col_val
+
+        t1 = (df1['error_entreamiento'] == df1['error_prueba']).sum() != df1.shape[0]
+
+        tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
+                'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,
+                'Revisa tu implementación\n el df no tiene las columnas requeridas': cols_test,
+                'Recuerda que debes retornar el error de entrenamiento y de pruebas': t1}
+                
+        test_res = self.test_conditions_and_methods(tests)
+        return (test_res)
+
+    def get_data_from_scatter(self,ax):
+        collects= ax.collections
+        datax = []
+        for coll in collects:
+            datax.append(coll.get_offsets().data)
+        
+        return (np.vstack(datax))
+
+    def get_org_data(self,x,y):
+        datax = []
+        for coll in np.unique(y):
+            datax.append(x[np.ravel(y) == coll, :])
+        return (np.vstack(datax))
+
+    #generate linear separable datasets
+    def get_linear_separable_dataset(self, ext = True):
+        from sklearn.datasets import make_classification, make_gaussian_quantiles
+        X, Y  = make_classification(n_samples=50, n_features= 2, n_informative=2, n_redundant=0,
+                            n_clusters_per_class=1, class_sep = 1, random_state= 8)
+        if ext:
+            unos = np.array([np.ones(X.shape[0])])
+            X = np.concatenate((unos.T, X), axis=1)
+            X = X.reshape(X.shape[0], X.shape[1])
+            Y = Y.reshape(np.size(Y), 1)
+        return (X,Y)
+
+    def get_nolinear_separable_dataset(self, ext = True):
+        from sklearn.datasets import make_gaussian_quantiles
+        X, Y  = make_gaussian_quantiles(n_samples=50, n_features= 2, n_classes = 2, random_state= 10)
+        if ext:
+            unos = np.array([np.ones(X.shape[0])])
+            X = np.concatenate((unos.T, X), axis=1)
+            X = X.reshape(X.shape[0], X.shape[1])
+            Y = Y.reshape(np.size(Y), 1)
+        return (X,Y)
+
+    def is_inc_dec(self, error, increasing = True):
+        e=np.ravel(error)
+        return ( (e[1:] >= e[:-1]).all() if increasing else (e[1:] <= e[:-1]).all()  )
 
 
 
@@ -190,9 +252,15 @@ def configure_intro():
     intro_lab_object.configure()
 
 
-## intro
 def configure_lab1_p1():
     data = ['AirQuality.data']
+    code = ["lab1.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()
+
+
+def configure_lab1_p2():
+    data = ['DatosClases.mat']
     code = ["lab1.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()

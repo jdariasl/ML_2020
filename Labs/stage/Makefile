@@ -1,7 +1,7 @@
 lab = lab1
-parte = parte1
+parte = parte2
 lab_notebook = $(lab)_$(parte).ipynb
-data = AirQuality.data
+data = DatosClases.mat
 
 clean:
 	rm -f *.ipynb

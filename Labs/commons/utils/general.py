@@ -135,12 +135,12 @@ class Utils():
                 return(False)
         return (True)
 
-    def are_np_equal(self, x1,x2):
+    def are_np_equal(self, x1,x2, neg = False):
         """ compare if 2 numpy arrays are equal """
         try: 
             #comparison = x1 == x2
             #equal_arrays = comparison.all()
-            equal_arrays = np.allclose(x1,x2)
+            equal_arrays = np.allclose(x1,x2) if not neg else  not(np.allclose(x1,x2))
             if not(equal_arrays):
                 print("un test fallido por que estos dos arrays no son iguales \n", x1,"\n--\n", x2)
                 #print("un test fallido revisa tu funcion.")
@@ -161,6 +161,26 @@ class Utils():
         tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
                 'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,
                 'Revisa tu implementación\n el df no tiene las columnas requeridas': cols_test}
+                
+        test_res = self.test_conditions_and_methods(tests)
+        return (test_res)
+
+    def test_experimento_oneset(self, func, col_error=None,  shape_val=None, col_val= None,  **kwargs):
+
+        df1 = func (**kwargs)
+        shape_test = df1.shape == shape_val
+        cols_test = list(df1.columns) == col_val
+        error_t = True
+        for c_e in col_error:
+            error_t = (df1[c_e].nunique() > 1) and (error_t)
+        
+        if len(col_error)>1:
+            error_t = error_t and not(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
+
+        tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
+                'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,
+                'Revisa tu implementación\n el df no tiene las columnas requeridas': cols_test,
+                 'El error es constante,o no se están retornando las columnas adecuadas revisa tu implementacion' : error_t }
                 
         test_res = self.test_conditions_and_methods(tests)
         return (test_res)

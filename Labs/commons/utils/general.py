@@ -26,7 +26,7 @@ class Laboratory():
         self.data_path = [f"data/{data}" for data in data_paths]
         self.code_path = code_paths
         self.commons = ['imports.py']
-        self.repo_path = "https://raw.githubusercontent.com/jdariasl/ML_2020/labs/Labs/commons/utils/"
+        self.repo_path = "https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/"
         print("lab configuration started")
 
 

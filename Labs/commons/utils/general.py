@@ -290,3 +290,4 @@ def configure_lab2():
     code = ["lab2.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
+

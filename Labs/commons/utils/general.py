@@ -271,16 +271,20 @@ def configure_intro():
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
 
-
 def configure_lab1_p1():
     data = ['AirQuality.data']
     code = ["lab1.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
 
-
 def configure_lab1_p2():
     data = ['DatosClases.mat']
     code = ["lab1.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()
+
+def configure_lab2():
+    data = []
+    code = ["lab2.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()

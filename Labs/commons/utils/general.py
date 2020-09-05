@@ -176,6 +176,8 @@ class Utils():
         
         if len(col_error)>1:
             error_t = error_t and not(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
+        else:
+            error_t = True
 
         tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
                 'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,

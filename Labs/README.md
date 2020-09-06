@@ -17,15 +17,15 @@ En esta carpeta podrán encontrar las siguientes carpetas:
     - lab1_parte2.ipynb: gradiente descendete en un modelo de clasificación
 
 - lab2:
-    - lab2_parte1.ipynb: KNN para un problema de regresión.
-    - lab2_parte2.ipynb: KNN para un problema de clasificacion vs una mezcla de gaussinas.
+    - lab2_parte1.ipynb: KNN para un problema de clasificación.
+    - lab2_parte2.ipynb: KNN para un problema de regresión
 
 - lab3:
     - lab3_parte1.ipynb: comnparación de metodos de clusterizacion K-means vs mezcla de gaussinas.
     - lab3_parte2.ipynb: comparación de árboles de decisión (Decision Tree-DT), bosques aleatorios (random forest-RF) y árboles con potenciación del gradiente (Gradient Boosted Tree - GBT).
 
 - lab4:
-    - lab4_parte1.ipynb: redes neuronales - perceptrón multicapa (mMltiLayer Perceptron-MLP) .
+    - lab4_parte1.ipynb: redes neuronales - perceptrón multicapa (MultiLayer Perceptron-MLP) .
     - lab4_parte2.ipynb: regularización de modelos.
 
 - lab5:
@@ -45,7 +45,7 @@ Existen 2 carpetas adicionales a las descritas anteriormente, cuyo contenido no 
 - data: carpeta donde esta almacenado los diferentes datasets que usaremos en el curso.  cada notebook del laboratorio tendra la configuración apropiada para el desarollo de este mismo, incluyendo seleccionar el conjunto de datos apropiado de esta base de datos.
 
 
-# Guia conectar github y Google Colab
+# Guia conectar github, Google Colab y luego Google Drive
 
 Al inicio de cada notebook, notarán el siguiente icono:
 
@@ -53,7 +53,7 @@ Al inicio de cada notebook, notarán el siguiente icono:
 
 Al hacer click, les abrirá automaticamente la herramienta con el correspondiente notebook. Por ejemplo al hacer clic en la anterior icono, se deberá abrir automaticamente [el notebook introductorio que revisaremos en nuestra primera sesión](https://github.com/jdariasl/ML_2020/blob/master/labs/Intro/Intro.ipynb).
 
-Al inicar colab, es muy importante, que lo primero que hagas es dar clic en Copiar en Drive (Copy to Drive).
+Al inicar colab, es muy importante, **que lo primero que hagas es dar clic en Copiar en Drive (Copy to Drive).**
 
 # Comentarios finales
 

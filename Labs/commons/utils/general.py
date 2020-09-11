@@ -291,3 +291,9 @@ def configure_lab2():
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
 
+def configure_lab3():
+    data = []
+    code = ["lab3.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()
+

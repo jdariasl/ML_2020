@@ -16,6 +16,7 @@ from sklearn.decomposition import PCA
 import seaborn as sns
 from sklearn.model_selection import KFold, ShuffleSplit, StratifiedKFold
 from sklearn.mixture import GaussianMixture
+from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
 

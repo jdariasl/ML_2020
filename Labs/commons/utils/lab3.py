@@ -18,6 +18,9 @@ from sklearn.model_selection import KFold, ShuffleSplit, StratifiedKFold
 from sklearn.mixture import GaussianMixture
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+
 
 
 def plot_digits(data):
@@ -129,11 +132,100 @@ def test_experimentar_kmeans(func):
     return (res)
 
 def part_1 ():
-#cargamos la bd iris desde el dataset de sklearn
+    #cargamos la bd iris desde el dataset de sklearn
     GRADER = Grader("lab3_part1")
     GRADER.add_test("ejercicio1", Tester(test_get_muestras_by_cv))
     GRADER.add_test("ejercicio2", Tester(test_GMMClassifierTrain))
     GRADER.add_test("ejercicio3", Tester(test_GMMClassfierVal))
     GRADER.add_test("ejercicio4", Tester(test_experimentar))
     GRADER.add_test("ejercicio5", Tester(test_experimentar_kmeans))
+    return(GRADER)
+
+
+cols_errs = ['eficiencia de entrenamiento','eficiencia de prueba']
+
+def generate_data():
+    yy = np.random.choice(2, 30)
+    xx = np.vstack([np.random.rand(15, 3), 2*np.random.rand(15, 3)])
+    return (xx, yy)
+
+@unknow_error
+def test_experimentar_dt(func):
+    xx, yy = generate_data()
+    depths = [3,5,10]
+    cols = ['profunidad del arbol', 'eficiencia de entrenamiento',
+            'desviacion estandar entrenamiento', 'eficiencia de prueba',
+            'desviacion estandar prueba']
+    res = ut.test_experimento_oneset(func,  shape_val=(len(depths), 5), 
+                                    col_error = cols_errs,
+                                    col_val=cols,
+                                    X = xx, Y=yy,
+                                    depths = depths,
+                                    normalize = True)
+    code_to_look = ['DecisionTreeClassifier', 'max_depth=', ".fit", ".predict"]
+    res2 = ut.check_code(code_to_look, func)
+
+    return (res and res2)
+
+@unknow_error
+def test_experimentar_rf(func):
+    xx, yy = generate_data()
+    trees = [3,5,10]
+    num_vars = [1,2,3]
+    cols = ['número de arboles', 'variables para la selección del mejor umbral',
+       'eficiencia de entrenamiento', 'desviacion estandar entrenamiento',
+       'eficiencia de prueba', 'desviacion estandar prueba']
+   
+    res = ut.test_experimento_oneset(func,  shape_val=(len(trees)*len(num_vars), 6), 
+                                    col_error = cols_errs,
+                                    col_val=cols,
+                                    X = xx, Y=yy,
+                                    num_trees = trees,
+                                    numero_de_variables = num_vars)
+    code_to_look = ['RandomForestClassifier', 'n_estimators=', 'max_features=',  ".fit", ".predict"]
+    res2 = ut.check_code(code_to_look, func)
+    return (res and res2)
+
+@unknow_error
+def test_experimentar_gbt(func):
+    xx, yy = generate_data()
+    trees = [3,5,10]
+    cols = ['número de arboles', 'eficiencia de entrenamiento',
+       'desviacion estandar entrenamiento', 'eficiencia de prueba',
+       'desviacion estandar prueba']
+    res = ut.test_experimento_oneset(func,  shape_val=(len(trees), len(cols)), 
+                                    col_error = cols_errs,
+                                    col_val=cols,
+                                    X = xx, Y=yy,
+                                    num_trees = trees)
+    code_to_look = ['GradientBoostingClassifier', 'n_estimators=',  ".fit", ".predict"]
+    res2 = ut.check_code(code_to_look, func)
+    return (res and res2)
+
+@unknow_error
+def test_time_rf_training(func):
+    xx, yy = generate_data()
+    trees = [3,5,10]
+    num_vars = [1,2,3]
+    cols = ['número de arboles', 'variables para la selección del mejor umbral',
+       'tiempo de entrenamiento']
+    res = ut.test_experimento_oneset(func,  shape_val=(len(trees)*len(num_vars), len(cols)), 
+                                    col_error = ['tiempo de entrenamiento'],
+                                    col_val=cols,
+                                    X = xx, Y=yy,
+                                    num_trees = trees,
+                                    numero_de_variables = num_vars)
+    code_to_look = ['RandomForestClassifier', 'n_estimators=', "max_features=", " time.clock()",  ".fit"]
+    res2 = ut.check_code(code_to_look, func)
+    return (res and res2)
+
+
+
+def part_2 ():
+    #cargamos la bd iris desde el dataset de sklearn
+    GRADER = Grader("lab3_part2")
+    GRADER.add_test("ejercicio1", Tester(test_experimentar_dt))
+    GRADER.add_test("ejercicio2", Tester(test_experimentar_rf))
+    GRADER.add_test("ejercicio3", Tester(test_experimentar_gbt))
+    GRADER.add_test("ejercicio4", Tester(test_time_rf_training))
     return(GRADER)

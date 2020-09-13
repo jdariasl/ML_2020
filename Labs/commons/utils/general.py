@@ -18,6 +18,7 @@ import time
 import pandas as pd
 import numpy as np
 import sklearn
+import inspect
 
 class Laboratory():
 
@@ -242,6 +243,14 @@ class Utils():
     def is_inc_dec(self, error, increasing = True):
         e=np.ravel(error)
         return ( (e[1:] >= e[:-1]).all() if increasing else (e[1:] <= e[:-1]).all()  )
+
+    def check_code (self, code_to_look, func):
+        tests = [c not in inspect.getsource(func) for c in code_to_look]
+        if np.any(tests):
+            print ("recuerda usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)!")
+            return (False)
+        else:
+            return(True)
 
 
 

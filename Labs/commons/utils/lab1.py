@@ -205,10 +205,16 @@ def test_ejercicio_2_p2(func):
         f = func(xx, yy)
         t1 = (len(f.axes)) == 1 and len(f.axes[0].collections)>= cl
         t2 = ut.are_np_equal(ut.get_data_from_scatter(f.axes[0]), ut.get_org_data(xx,yy))
-        tests = {'Recuerda que debes graficas las dos clases': t1,
-                'Recuerda que la debe graficar los valores de x y y. y debe ser los colores':  t2}
-        test_res = ut.test_conditions_and_methods(tests)
-    return (test_res)
+
+        if t2 : 
+            tests = {'Recuerda que debes graficas las dos clases': t1,
+                    'Recuerda que la debe graficar los valores de x y y. y debe ser los colores':  t2}
+            test_res = ut.test_conditions_and_methods(tests)
+            return (test_res)
+        else:
+            code_to_look = ['scatter', 'X[:,1]', "X[:,2]", "c=Y"]
+            res2 = ut.check_code(code_to_look, func)
+            return (res2)
 
 @unknow_error
 def test_sigmoide(func):

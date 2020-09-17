@@ -251,7 +251,7 @@ def logistic_regression(X, W):
 @unknow_error
 def test_gradiente_descendente_logistic_poly(func):
     xtrain, x, ytrain, y, wr1, wr2 = genarete_data2()
-    x_g = potenciaPolinomio(x,4)
+    x_g = potenciaPolinomio(x,3)
     wr2 = np.zeros((1,x_g.shape[1]))
     wr2 = wr2.reshape(np.size(wr2), 1)
    
@@ -264,7 +264,7 @@ def test_gradiente_descendente_logistic_poly(func):
     wr2 = wr2-0.01*(np.dot(x_g.T, logistic_regression(x_g,wr2) - y))/x_g.shape[0]
 
     tests = {'revisa tu implementacion, el test 1 fallo ': t1,
-             'revisa tu implementacion, el test 2 fallo':  ut.are_np_equal(wr2, func(x,y,4,0.01, 2)) }
+             'revisa tu implementacion, el test 2 fallo':  ut.are_np_equal(wr2, func(x,y,3,0.01, 2)) }
     test_res = ut.test_conditions_and_methods(tests)
 
     return (test_res)

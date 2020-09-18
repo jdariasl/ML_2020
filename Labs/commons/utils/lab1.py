@@ -276,8 +276,6 @@ def test_exp1_part2(func):
     xl,yl = ut.get_nolinear_separable_dataset()
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(xl, yl, test_size=0.2, random_state=10)
-
-
     res = ut.test_experimento_train_test(func, xtrain=X_train, xtest=X_test,
                               ytrain=y_train, ytest = y_test,
                               shape_val=(len(tasas)*len(grados), 4),

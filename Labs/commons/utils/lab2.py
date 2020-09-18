@@ -84,7 +84,9 @@ def test_exp(func):
                                     col_val=['k-vecinos', 'error de prueba'],
                                     X = xx, Y=yy,
                                     ks = ks)
-    return (res)
+    code_to_look = ['parzenClass', "ErrorClas"]
+    res2 = ut.check_code(code_to_look, func, "recuerda usar las funciones anteriores!")
+    return (res and res2)
 
 @unknow_error
 def test_parzenClass(func):
@@ -133,7 +135,9 @@ def test_parzen_exp(func):
                                     col_val=['ancho de ventana', 'error de prueba(media)', 'error de prueba(desviación estandar)'],
                                     X = xx, Y=yy,
                                     hs = hs)
-    return (res)
+    code_to_look = ['parzenClass', "ErrorClas"]
+    res2 = ut.check_code(code_to_look, func, "recuerda usar las funciones anteriores!")
+    return (res and res2)
 
 
 def part_1 ():
@@ -200,7 +204,9 @@ def test_knn_reg_exp(func):
                                     col_val=['k-vecinos', 'error de prueba(media)', 'error de prueba(desviación estandar)'],
                                     X = xx, Y=yy,
                                     ks = ks)
-    return (res)
+    code_to_look = ['KNN_regresion', "MAPE"]
+    res2 = ut.check_code(code_to_look, func, "recuerda usar las funciones anteriores!")
+    return (res and res2)
 
 @unknow_error
 def test_KNN_regresion_parzen(func):
@@ -239,8 +245,10 @@ def test_knn_reg_exp_parzen(func):
     t2 = func(xx, yy, [1, 2])['muestras en conjunto de pruebas (media)'].mean() != 2.25
     if t2:
         print("revisa tu, implementación, recuerda que debes usar la función para validación")
-    
-    return (res and not(t2))
+
+    code_to_look = ['Nadaraya_Watson', "MAPE"]
+    res2 = ut.check_code(code_to_look, func, "recuerda usar las funciones anteriores!")
+    return (res and not(t2) and res2)
 
 
 

@@ -220,7 +220,6 @@ def test_time_rf_training(func):
     return (res and res2)
 
 
-
 def part_2 ():
     #cargamos la bd iris desde el dataset de sklearn
     GRADER = Grader("lab3_part2")

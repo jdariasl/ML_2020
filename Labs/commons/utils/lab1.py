@@ -277,14 +277,18 @@ def test_exp1_part2(func):
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(xl, yl, test_size=0.2, random_state=10)
 
+
     res = ut.test_experimento_train_test(func, xtrain=X_train, xtest=X_test,
                               ytrain=y_train, ytest = y_test,
                               shape_val=(len(tasas)*len(grados), 4),
                               col_val=['grado','tasa de aprendizaje', 'error_entreamiento'	, 'error_prueba'],
+                              col_error = ['error_entreamiento'	, 'error_prueba'],
                               tasas = tasas, 
                               grados= grados)
+    code_to_look = ['evaluar_modelo']
+    res2 = ut.check_code(code_to_look, func, "recuerda usar las funciones anteriores!")
                                  
-    return (res)
+    return (res and res2)
 
 @unknow_error
 def test_numero_de_errores(func):

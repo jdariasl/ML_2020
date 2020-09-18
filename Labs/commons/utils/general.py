@@ -178,7 +178,7 @@ class Utils():
         if len(col_error)>1:
             error_t = error_t and not(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
         else:
-            error_t = True
+            error_t = error_t
 
         tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
                 'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,
@@ -188,18 +188,22 @@ class Utils():
         test_res = self.test_conditions_and_methods(tests)
         return (test_res)
 
-    def test_experimento_train_test(self, func, xtrain, ytrain, xtest, ytest, shape_val=None, col_val= None,  **kwargs):
+    def test_experimento_train_test(self, func, xtrain, ytrain, xtest, ytest, shape_val=None, col_val= None, col_error=None, **kwargs):
 
         df1 = func(xtrain, xtest, ytrain, ytest, **kwargs)
         shape_test = df1.shape == shape_val
         cols_test = list(df1.columns) == col_val
 
         t1 = (df1['error_entreamiento'] == df1['error_prueba']).sum() != df1.shape[0]
+        error_t = True
+        for c_e in col_error:
+            error_t = (df1[c_e].nunique() > 1) and (error_t)
 
         tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
                 'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,
                 'Revisa tu implementación\n el df no tiene las columnas requeridas': cols_test,
-                'Recuerda que debes retornar el error de entrenamiento y de pruebas': t1}
+                'Recuerda que debes retornar el error de entrenamiento y de pruebas': t1,
+                'El error es constante,o no se están retornando las columnas adecuadas revisa tu implementacion' : error_t }
                 
         test_res = self.test_conditions_and_methods(tests)
         return (test_res)
@@ -244,10 +248,10 @@ class Utils():
         e=np.ravel(error)
         return ( (e[1:] >= e[:-1]).all() if increasing else (e[1:] <= e[:-1]).all()  )
 
-    def check_code (self, code_to_look, func):
+    def check_code (self, code_to_look, func, msg = "recuerda usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)!"):
         tests = [c not in inspect.getsource(func) for c in code_to_look]
         if np.any(tests):
-            print ("recuerda usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)!")
+            print (msg)
             return (False)
         else:
             return(True)
@@ -303,6 +307,13 @@ def configure_lab2():
 def configure_lab3():
     data = []
     code = ["lab3.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()
+
+
+def configure_lab4():
+    data = []
+    code = ["lab4.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
 

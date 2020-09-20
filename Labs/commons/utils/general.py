@@ -54,10 +54,11 @@ class Laboratory():
 
 class Grader():
 
-    def __init__(self, lab_name):
+    def __init__(self, lab_name, num_questions = 4):
         self.tests = {}
         self.results = {}
         self.lab_name = lab_name
+        self.num_questions = num_questions
 
     def add_test(self, name, test_to_add):
         self.tests[name] = test_to_add
@@ -248,10 +249,22 @@ class Utils():
         e=np.ravel(error)
         return ( (e[1:] >= e[:-1]).all() if increasing else (e[1:] <= e[:-1]).all()  )
 
-    def check_code (self, code_to_look, func, msg = "recuerda usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)!"):
-        tests = [c not in inspect.getsource(func) for c in code_to_look]
+    def get_source_safe(self,func):
+        codes = inspect.getsource(func)
+        # remove docs
+        codes = codes.split('\n')
+        codes = "".join([c for c in codes if not(c.startswith("#")) ])
+        codes = codes.replace(' ', '')
+        return(codes)
+
+    
+    def check_code (self, code_to_look, func, msg = "recuerda usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)!", debug=False):
+        
+        tests = [c not in self.get_source_safe(func) for c in code_to_look]
         if np.any(tests):
             print (msg)
+            if debug:
+                print(tests)
             return (False)
         else:
             return(True)
@@ -312,7 +325,7 @@ def configure_lab3():
 
 
 def configure_lab4():
-    data = []
+    data = ["AirQuality.data"]
     code = ["lab4.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()

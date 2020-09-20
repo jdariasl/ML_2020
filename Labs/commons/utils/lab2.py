@@ -246,8 +246,8 @@ def test_knn_reg_exp_parzen(func):
     if t2:
         print("revisa tu, implementación, recuerda que debes usar la función para validación")
 
-    code_to_look = ['Nadaraya_Watson', "MAPE"]
-    res2 = ut.check_code(code_to_look, func, "recuerda usar las funciones anteriores!")
+    code_to_look = ['Nadaraya_Watson', "MAPE", "[train", "[test"]
+    res2 = ut.check_code(code_to_look, func, "recuerda usar las funciones anteriores y las sugeridas!")
     return (res and not(t2) and res2)
 
 

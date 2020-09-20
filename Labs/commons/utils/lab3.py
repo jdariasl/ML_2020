@@ -129,6 +129,9 @@ def test_experimentar_kmeans(func):
                                     col_val=cols,
                                     X = xx, Y=yy,
                                     numero_clusters = nc)
+    
+    code_to_look = ['KMeans', ".fit", ".predict"]
+    res2 = ut.check_code(code_to_look, func)
     return (res)
 
 def part_1 ():

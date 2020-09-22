@@ -84,7 +84,7 @@ def test_exp(func):
                                     col_val=['k-vecinos', 'error de prueba'],
                                     X = xx, Y=yy,
                                     ks = ks)
-    code_to_look = ['parzenClass', "ErrorClas"]
+    code_to_look = ['KNN_Clasificacion', "ErrorClas"]
     res2 = ut.check_code(code_to_look, func, "recuerda usar las funciones anteriores!")
     return (res and res2)
 

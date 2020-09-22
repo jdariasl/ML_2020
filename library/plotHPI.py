@@ -213,7 +213,7 @@ def HisPlot():
     ax.set_ylabel("Tasa de impuesto")
     ax.set_zlabel("HPI x10^3")
     
-def knn_un(n_neighbors):
+def knn_un(n_neighbors=2):
     zdata = output[0:100].values
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values*1000000
@@ -241,14 +241,14 @@ def knn_un(n_neighbors):
     
     return ax
    
-def knn_n(n_neighbors):
+def knn_n(n_neighbors=2):
     zdata = output[0:100].values
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values*1000000
     X = np.c_[xdata.reshape(100,1),ydata.reshape(100,1)]
     scaler = StandardScaler()
     Xn = scaler.fit_transform(X)
-    neigh = KNeighborsRegressor(n_neighbors=2, algorithm = 'brute')
+    neigh = KNeighborsRegressor(n_neighbors=n_neighbors, algorithm = 'brute')
     neigh.fit(Xn, zdata.reshape(100,1))
     x1 = np.linspace(np.min(xdata), np.max(xdata), num=20)
     x2 = np.linspace(np.min(ydata), np.max(ydata), num=20)

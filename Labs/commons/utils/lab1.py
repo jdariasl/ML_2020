@@ -55,8 +55,8 @@ def test_ejercicio_1(func):
 def test_ejercicio_2(func):
     xtrain1, x, ytrain, y, wr1, _ = genarete_data()
     def ww (w):
-        some = np.dot(x.T, (np.sum((np.dot(x,w)- y)**2, axis = 1, keepdims = True)/(2*( x.shape[0]))))
-        return (w-0.001*some/(x.shape[0]))
+        some = (np.sum(x*(np.dot(x,w) - y.reshape((x.shape[0],1))), axis = 0, keepdims = True)/((x.shape[0]))) .T
+        return (w-0.001*some)
     wr1= ww(wr1)
     wr1= ww(wr1)
     w1 = func(x, y, 0.001, 2)
@@ -71,10 +71,10 @@ def test_ejercicio_2(func):
 def test_ejercicio_3(func):
     xtrain1, x, ytrain, y, wr1, wr2 = genarete_data()
     est = np.dot(x,wr1)
-    te = np.sum((est.reshape(y.shape[0],1) - y.reshape(y.shape[0],1))**2)/(2*y.shape[0])
+    te = np.sum((est.reshape(y.shape[0],1) - y.reshape(y.shape[0],1))**2)/(y.shape[0])
 
     est2 = np.dot(xtrain1,wr2)
-    te2 = np.sum((est2.reshape(ytrain.shape[0],1) - ytrain.reshape(ytrain.shape[0],1))**2)/(2*ytrain.shape[0])
+    te2 = np.sum((est2.reshape(ytrain.shape[0],1) - ytrain.reshape(ytrain.shape[0],1))**2)/(ytrain.shape[0])
 
     error = func(wr1, X_to_test = x,  Y_True = y)
     error2 = func(wr2, X_to_test = xtrain1,  Y_True = ytrain)
@@ -94,8 +94,8 @@ def test_ejercicio_4(func):
     wr1 = wr1.reshape(np.size(wr1), 1)
 
     def ww (w):
-        some = np.dot(x_g2.T, (np.sum((np.dot(x_g2,w)- y)**2, axis = 1, keepdims = True)/(2*( x_g2.shape[0]))))
-        return (w-0.001*some/(x_g2.shape[0]))
+        some = (np.sum(x_g2*(np.dot(x_g2,w) - y.reshape((x.shape[0],1))), axis = 0, keepdims = True)/((x_g2.shape[0]))) .T
+        return (w-0.001*some)
     wr1= ww(wr1)
     wr1= ww(wr1)
     w1 = func(x, y, 0.001, 2, 3)
@@ -119,10 +119,10 @@ def test_ejercicio_5(func):
     wr2 = wr2.reshape(np.size(wr2), 1)
 
     est = np.dot(x_g,wr1)
-    te = np.sum((est.reshape(y.shape[0],1) - y.reshape(y.shape[0],1))**2)/(2*y.shape[0])
+    te = np.sum((est.reshape(y.shape[0],1) - y.reshape(y.shape[0],1))**2)/(y.shape[0])
 
     est2 = np.dot(xtrain_g,wr2)
-    te2 = np.sum((est2.reshape(ytrain.shape[0],1) - ytrain.reshape(ytrain.shape[0],1))**2)/(2*ytrain.shape[0])
+    te2 = np.sum((est2.reshape(ytrain.shape[0],1) - ytrain.reshape(ytrain.shape[0],1))**2)/(ytrain.shape[0])
 
     error = func(wr1, X_to_test = x,  Y_True = y, grado = 3)
     error2 = func(wr2, X_to_test = xtrain1,  Y_True = ytrain, grado = 3)
@@ -205,10 +205,16 @@ def test_ejercicio_2_p2(func):
         f = func(xx, yy)
         t1 = (len(f.axes)) == 1 and len(f.axes[0].collections)>= cl
         t2 = ut.are_np_equal(ut.get_data_from_scatter(f.axes[0]), ut.get_org_data(xx,yy))
-        tests = {'Recuerda que debes graficas las dos clases': t1,
-                'Recuerda que la debe graficar los valores de x y y. y debe ser los colores':  t2}
-        test_res = ut.test_conditions_and_methods(tests)
-    return (test_res)
+
+        if t2 : 
+            tests = {'Recuerda que debes graficas las dos clases': t1,
+                    'Recuerda que la debe graficar los valores de x y y. y debe ser los colores':  t2}
+            test_res = ut.test_conditions_and_methods(tests)
+            return (test_res)
+        else:
+            code_to_look = ['scatter', 'X[:,1]', "X[:,2]", "c=Y"]
+            res2 = ut.check_code(code_to_look, func)
+            return (res2)
 
 @unknow_error
 def test_sigmoide(func):
@@ -245,7 +251,7 @@ def logistic_regression(X, W):
 @unknow_error
 def test_gradiente_descendente_logistic_poly(func):
     xtrain, x, ytrain, y, wr1, wr2 = genarete_data2()
-    x_g = potenciaPolinomio(x,4)
+    x_g = potenciaPolinomio(x,3)
     wr2 = np.zeros((1,x_g.shape[1]))
     wr2 = wr2.reshape(np.size(wr2), 1)
    
@@ -258,7 +264,7 @@ def test_gradiente_descendente_logistic_poly(func):
     wr2 = wr2-0.01*(np.dot(x_g.T, logistic_regression(x_g,wr2) - y))/x_g.shape[0]
 
     tests = {'revisa tu implementacion, el test 1 fallo ': t1,
-             'revisa tu implementacion, el test 2 fallo':  ut.are_np_equal(wr2, func(x,y,4,0.01, 2)) }
+             'revisa tu implementacion, el test 2 fallo':  ut.are_np_equal(wr2, func(x,y,3,0.01, 2)) }
     test_res = ut.test_conditions_and_methods(tests)
 
     return (test_res)
@@ -270,15 +276,17 @@ def test_exp1_part2(func):
     xl,yl = ut.get_nolinear_separable_dataset()
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(xl, yl, test_size=0.2, random_state=10)
-
     res = ut.test_experimento_train_test(func, xtrain=X_train, xtest=X_test,
                               ytrain=y_train, ytest = y_test,
                               shape_val=(len(tasas)*len(grados), 4),
                               col_val=['grado','tasa de aprendizaje', 'error_entreamiento'	, 'error_prueba'],
+                              col_error = ['error_entreamiento'	, 'error_prueba'],
                               tasas = tasas, 
                               grados= grados)
+    code_to_look = ['evaluar_modelo']
+    res2 = ut.check_code(code_to_look, func, "recuerda usar las funciones anteriores!")
                                  
-    return (res)
+    return (res and res2)
 
 @unknow_error
 def test_numero_de_errores(func):

@@ -18,6 +18,7 @@ import time
 import pandas as pd
 import numpy as np
 import sklearn
+import inspect
 
 class Laboratory():
 
@@ -26,7 +27,7 @@ class Laboratory():
         self.data_path = [f"data/{data}" for data in data_paths]
         self.code_path = code_paths
         self.commons = ['imports.py']
-        self.repo_path = "https://raw.githubusercontent.com/jdariasl/ML_2020/labs/Labs/commons/utils/"
+        self.repo_path = "https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/"
         print("lab configuration started")
 
 
@@ -53,10 +54,11 @@ class Laboratory():
 
 class Grader():
 
-    def __init__(self, lab_name):
+    def __init__(self, lab_name, num_questions = 4):
         self.tests = {}
         self.results = {}
         self.lab_name = lab_name
+        self.num_questions = num_questions
 
     def add_test(self, name, test_to_add):
         self.tests[name] = test_to_add
@@ -135,12 +137,12 @@ class Utils():
                 return(False)
         return (True)
 
-    def are_np_equal(self, x1,x2):
+    def are_np_equal(self, x1,x2, neg = False):
         """ compare if 2 numpy arrays are equal """
         try: 
             #comparison = x1 == x2
             #equal_arrays = comparison.all()
-            equal_arrays = np.allclose(x1,x2)
+            equal_arrays = np.allclose(x1,x2) if not neg else  not(np.allclose(x1,x2))
             if not(equal_arrays):
                 print("un test fallido por que estos dos arrays no son iguales \n", x1,"\n--\n", x2)
                 #print("un test fallido revisa tu funcion.")
@@ -165,18 +167,44 @@ class Utils():
         test_res = self.test_conditions_and_methods(tests)
         return (test_res)
 
-    def test_experimento_train_test(self, func, xtrain, ytrain, xtest, ytest, shape_val=None, col_val= None,  **kwargs):
+    def test_experimento_oneset(self, func, col_error=None,  shape_val=None, col_val= None,  **kwargs):
+
+        df1 = func (**kwargs)
+        shape_test = df1.shape == shape_val
+        cols_test = list(df1.columns) == col_val
+        error_t = True
+        for c_e in col_error:
+            error_t = (df1[c_e].nunique() > 1) and (error_t)
+        
+        if len(col_error)>1:
+            error_t = error_t and not(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
+        else:
+            error_t = error_t
+
+        tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
+                'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,
+                'Revisa tu implementación\n el df no tiene las columnas requeridas': cols_test,
+                 'El error es constante,o no se están retornando las columnas adecuadas revisa tu implementacion' : error_t }
+                
+        test_res = self.test_conditions_and_methods(tests)
+        return (test_res)
+
+    def test_experimento_train_test(self, func, xtrain, ytrain, xtest, ytest, shape_val=None, col_val= None, col_error=None, **kwargs):
 
         df1 = func(xtrain, xtest, ytrain, ytest, **kwargs)
         shape_test = df1.shape == shape_val
         cols_test = list(df1.columns) == col_val
 
         t1 = (df1['error_entreamiento'] == df1['error_prueba']).sum() != df1.shape[0]
+        error_t = True
+        for c_e in col_error:
+            error_t = (df1[c_e].nunique() > 1) and (error_t)
 
         tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
                 'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,
                 'Revisa tu implementación\n el df no tiene las columnas requeridas': cols_test,
-                'Recuerda que debes retornar el error de entrenamiento y de pruebas': t1}
+                'Recuerda que debes retornar el error de entrenamiento y de pruebas': t1,
+                'El error es constante,o no se están retornando las columnas adecuadas revisa tu implementacion' : error_t }
                 
         test_res = self.test_conditions_and_methods(tests)
         return (test_res)
@@ -221,6 +249,26 @@ class Utils():
         e=np.ravel(error)
         return ( (e[1:] >= e[:-1]).all() if increasing else (e[1:] <= e[:-1]).all()  )
 
+    def get_source_safe(self,func):
+        codes = inspect.getsource(func)
+        # remove docs
+        codes = codes.split('\n')
+        codes = "".join([c for c in codes if not(c.startswith("#")) ])
+        codes = codes.replace(' ', '')
+        return(codes)
+
+    
+    def check_code (self, code_to_look, func, msg = "recuerda usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)!", debug=False):
+        
+        tests = [c not in self.get_source_safe(func) for c in code_to_look]
+        if np.any(tests):
+            print (msg)
+            if debug:
+                print(tests)
+            return (False)
+        else:
+            return(True)
+
 
 
 ### decorators
@@ -251,16 +299,34 @@ def configure_intro():
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
 
-
 def configure_lab1_p1():
     data = ['AirQuality.data']
     code = ["lab1.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
 
-
 def configure_lab1_p2():
     data = ['DatosClases.mat']
     code = ["lab1.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
+
+def configure_lab2():
+    data = []
+    code = ["lab2.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()
+
+def configure_lab3():
+    data = []
+    code = ["lab3.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()
+
+
+def configure_lab4():
+    data = ["AirQuality.data"]
+    code = ["lab4.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()
+

@@ -167,17 +167,20 @@ class Utils():
         test_res = self.test_conditions_and_methods(tests)
         return (test_res)
 
-    def test_experimento_oneset(self, func, col_error=None,  shape_val=None, col_val= None,  **kwargs):
+    def test_experimento_oneset(self, func, col_error=None, shape_val=None, col_val= None,   return_df = False, **kwargs):
 
         df1 = func (**kwargs)
         shape_test = df1.shape == shape_val
+        #print( df1.shape, shape_val)
         cols_test = list(df1.columns) == col_val
         error_t = True
         for c_e in col_error:
             error_t = (df1[c_e].nunique() > 1) and (error_t)
         
+        #print(df1)
         if len(col_error)>1:
             error_t = error_t and not(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
+            #print(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
         else:
             error_t = error_t
 
@@ -187,7 +190,10 @@ class Utils():
                  'El error es constante,o no se están retornando las columnas adecuadas revisa tu implementacion' : error_t }
                 
         test_res = self.test_conditions_and_methods(tests)
-        return (test_res)
+        if return_df:
+            return(test_res, df1)
+        else:
+            return (test_res)
 
     def test_experimento_train_test(self, func, xtrain, ytrain, xtest, ytest, shape_val=None, col_val= None, col_error=None, **kwargs):
 
@@ -224,10 +230,10 @@ class Utils():
         return (np.vstack(datax))
 
     #generate linear separable datasets
-    def get_linear_separable_dataset(self, ext = True):
+    def get_linear_separable_dataset(self,random_state = 10, ext = True):
         from sklearn.datasets import make_classification, make_gaussian_quantiles
         X, Y  = make_classification(n_samples=50, n_features= 2, n_informative=2, n_redundant=0,
-                            n_clusters_per_class=1, class_sep = 1, random_state= 8)
+                            n_clusters_per_class=1, class_sep = 1, random_state= random_state)
         if ext:
             unos = np.array([np.ones(X.shape[0])])
             X = np.concatenate((unos.T, X), axis=1)
@@ -235,9 +241,9 @@ class Utils():
             Y = Y.reshape(np.size(Y), 1)
         return (X,Y)
 
-    def get_nolinear_separable_dataset(self, ext = True):
+    def get_nolinear_separable_dataset(self, random_state = 10, ext = True):
         from sklearn.datasets import make_gaussian_quantiles
-        X, Y  = make_gaussian_quantiles(n_samples=50, n_features= 2, n_classes = 2, random_state= 10)
+        X, Y  = make_gaussian_quantiles(n_samples=50, n_features= 2, n_classes = 2, random_state= random_state)
         if ext:
             unos = np.array([np.ones(X.shape[0])])
             X = np.concatenate((unos.T, X), axis=1)

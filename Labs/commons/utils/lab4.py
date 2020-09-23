@@ -242,7 +242,7 @@ def test_train_size_experiments(func):
                                     Y = yy , 
                                     sk_estimator = m,
                                     train_pcts = train_pcts)
-    code_to_look = ['test_size=1-train_pct', 'diff_train_test', 'random_state=10'] 
+    code_to_look = ['diff_train_test', 'random_state=10'] 
     res2 = ut.check_code(code_to_look, func)
 
     if not(ut.is_inc_dec(df['tamaño de entrenamiento'].values , increasing = True )):
@@ -254,7 +254,7 @@ def test_train_size_experiments(func):
 
 
 def part_2():
-    GRADER = Grader("lab4_part2", num_questions = 4)
+    GRADER = Grader("lab4_part2", num_questions = 5)
     GRADER.add_test("ejercicio1", Tester(test_diff_train_test))
     GRADER.add_test("ejercicio2", Tester(test_exp_mlp_early_stop))
     GRADER.add_test("ejercicio3", Tester(test_exp_mlp_l2))

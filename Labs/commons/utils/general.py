@@ -85,8 +85,38 @@ class Grader():
         print("Todo se ve ok. Asegurate de responder las preguntas abiertas y envia e archivo al formulario",
               "¡buen trabajo!")
     
-    def grade(self):
-        pass
+    def grade(self, worksheet = None, int_range = None, num_questions = None, lab_obj = None):
+        
+        if worksheet is None:
+            print("uso del docente")
+            return(None)
+
+        open_questions = num_questions
+
+        if self.num_questions == 4:
+            open_questions = num_questions
+        elif num_questions is None:
+            open_questions = self.num_questions
+        else:
+            open_questions = num_questions
+
+        # register the students
+        int_list = worksheet.range(*int_range)
+        int_list[0].value =  lab_obj.codigo_integrante_1
+        int_list[1].value =  lab_obj.codigo_integrante_2
+        # register code_excercises
+        total_q_code_ex = num_questions + len(self.results)
+        answer_range = (int_range[0], int_range[1], int_range[2]+2, int_range[3]+2+total_q_code_ex)
+        ans_list = worksheet.range(*answer_range)
+        for n,(k,v) in enumerate (self.results.items()):
+            ans_list[n] = f'{k}:{v}'
+        
+        for nn in range(1, open_questions+1):
+            ans = eval(f"{lab_obj.__name__}.respuesta_{n}")
+            ans_list[n+nn] = ans
+        
+        
+
         
 
 class Tester():

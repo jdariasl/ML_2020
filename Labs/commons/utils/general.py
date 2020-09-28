@@ -113,7 +113,7 @@ class Grader():
             ans_list[n] = f'{k}:{v}'
         
         for nn in range(1, open_questions+1):
-            ans = eval(f"{lab_obj.__name__}.respuesta_{n}")
+            ans = eval(f"lab_obj.respuesta_{n}")
             ans_list[n+nn] = ans
         
         

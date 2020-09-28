@@ -104,17 +104,20 @@ class Grader():
         int_list = worksheet.range(*int_range)
         int_list[0].value =  lab_obj.codigo_integrante_1
         int_list[1].value =  lab_obj.codigo_integrante_2
+        worksheet.update_cells(int_list)
         # register code_excercises
         total_q_code_ex = num_questions + len(self.results)
 
         answer_range = (int_range[0],int_range[1]+2, int_range[2], int_range[3]+2+total_q_code_ex)
         ans_list = worksheet.range(*answer_range)
         for n,(k,v) in enumerate (self.results.items()):
-            ans_list[n] = f'{k}:{v}'
+            ans_list[n].value = f'{k}:{v}'
         
         for nn in range(1, open_questions+1):
             ans = eval(f"lab_obj.respuesta_{n}")
-            ans_list[n+nn] = ans
+            ans_list[n+nn].value = ans
+            
+        worksheet.update_cells(ans_list)
         
         
 

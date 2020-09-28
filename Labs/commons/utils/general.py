@@ -103,8 +103,8 @@ class Grader():
         print("resgister students")
         # register the students
         int_list = worksheet.range(*int_range)
-        int_list[0].value =  lab_obj.codigo_integrante_1
-        int_list[1].value =  lab_obj.codigo_integrante_2
+        int_list[0].value =  ''.join([s for s in  lab_obj.codigo_integrante_1.strip() if s.isdigit()]) 
+        int_list[1].value =  ''.join([s for s in  lab_obj.codigo_integrante_2.strip() if s.isdigit()]) 
         worksheet.update_cells(int_list)
         # register code_excercises
         total_q_code_ex = num_questions + len(self.results)
@@ -114,10 +114,11 @@ class Grader():
         for n,(k,v) in enumerate (self.results.items()):
             ans_list[n].value = f'{k}:{v}'
         print("resgister open exercises")
+        idx = 0
         for nn in range(1, open_questions+1):
-            ans = eval(f"lab_obj.respuesta_{nn}")
-            
-            ans_list[n+nn].value = ans
+            ans = eval(f"lab_obj.respuesta_{nn}").strip().decode('latin1')
+            ans_list[n+nn+idx].value = ans if ans !='' else 'no respuesta'
+            idx = idx+1
 
         worksheet.update_cells(ans_list)
         

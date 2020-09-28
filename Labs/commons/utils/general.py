@@ -115,7 +115,8 @@ class Grader():
             ans_list[n].value = f'{k}:{v}'
         print("resgister open exercises")
         for nn in range(1, open_questions+1):
-            ans = eval(f"lab_obj.respuesta_{n}")
+            ans = eval(f"lab_obj.respuesta_{nn}")
+            
             ans_list[n+nn].value = ans
 
         worksheet.update_cells(ans_list)

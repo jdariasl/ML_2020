@@ -117,11 +117,13 @@ class Grader():
         print("resgister open exercises")
 
         for nn in range(1, open_questions+1):
-            ans = eval(f"lab_obj.respuesta_{nn}").strip().encode('latin1')
+            ans = eval(f"lab_obj.respuesta_{nn}").strip()
             if nn == 1:
                 ans_list[n+nn].value = ans if ans !='' else 'no respuesta'
             else:
                 ans_list[n+nn+1].value = ans if ans !='' else 'no respuesta'
+        
+        print("this is the ans list \n", ans_list)
 
         worksheet.update_cells(ans_list)
         

@@ -110,6 +110,7 @@ class Grader():
         total_q_code_ex = num_questions*2 + len(self.results)
         print("resgister cod exercises")
         answer_range = (int_range[0],int_range[1]+2, int_range[2], int_range[3]+2+total_q_code_ex)
+        print ("******", answer_range, "******")
         ans_list = worksheet.range(*answer_range)
         for n,(k,v) in enumerate (self.results.items()):
             ans_list[n].value = f'{k}:{v}'

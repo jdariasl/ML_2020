@@ -107,9 +107,9 @@ class Grader():
         int_list[1].value =  ''.join([s for s in  lab_obj.codigo_integrante_2.strip() if s.isdigit()]) 
         worksheet.update_cells(int_list)
         # register code_excercises
-        total_q_code_ex = num_questions + len(self.results)
+        total_q_code_ex = num_questions*2 + len(self.results)
         print("resgister cod exercises")
-        answer_range = (int_range[0],int_range[1]+2, int_range[2], int_range[3]+2+total_q_code_ex*2)
+        answer_range = (int_range[0],int_range[1]+2, int_range[2], int_range[3]+2+total_q_code_ex)
         ans_list = worksheet.range(*answer_range)
         for n,(k,v) in enumerate (self.results.items()):
             ans_list[n].value = f'{k}:{v}'

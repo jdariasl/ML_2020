@@ -115,15 +115,16 @@ class Grader():
         for n,(k,v) in enumerate (self.results.items()):
             ans_list[n].value = f'{k}:{v}'
         print("resgister open exercises")
-
+        idx = 1
         for nn in range(1, open_questions+1):
             ans = eval(f"lab_obj.respuesta_{nn}").strip()
             if nn == 1:
                 ans_list[n+nn].value = ans if ans !='' else 'no respuesta'
             else:
-                ans_list[n+nn+1].value = ans if ans !='' else 'no respuesta'
+                ans_list[n+nn+idx].value = ans if ans !='' else 'no respuesta'
+                idx = idx+1
         
-        print("this is the ans list \n", ans_list)
+        #print("this is the ans list \n", ans_list)
 
         worksheet.update_cells(ans_list)
         

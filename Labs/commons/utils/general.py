@@ -105,7 +105,7 @@ class Grader():
 
         print("resgister code exercises")
         for n,(k,v) in enumerate (self.tests.items()):
-            ans_list[n].value = f'{k}:{self.results[k]}' if k in self.results[k] else f'{k}:nok'
+            ans_list[n].value = f'{k}:{self.results[k]}' if k in self.results else f'{k}:nok'
         print("resgister open exercises")
         # add a blank cell after each answer
         idx = 1

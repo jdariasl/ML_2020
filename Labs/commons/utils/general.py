@@ -85,46 +85,36 @@ class Grader():
         print("Todo se ve ok. Asegurate de responder las preguntas abiertas y envia e archivo al formulario",
               "¡buen trabajo!")
     
-    def grade(self, worksheet = None, int_range = None, num_questions = None, lab_obj = None):
+    def grade(self, worksheet = None, int_range = None, students = None,  open_asnwers = None):
         
         if worksheet is None:
             print("uso del docente")
             return(None)
-
-        open_questions = num_questions
-
-        if self.num_questions == 4:
-            open_questions = num_questions
-        elif num_questions is None:
-            open_questions = self.num_questions
-        else:
-            open_questions = num_questions
-
+    
         print("resgister students")
         # register the students
         int_list = worksheet.range(*int_range)
-        int_list[0].value =  ''.join([s for s in  lab_obj.codigo_integrante_1.strip() if s.isdigit()]) 
-        int_list[1].value =  ''.join([s for s in  lab_obj.codigo_integrante_2.strip() if s.isdigit()]) 
+        int_list[0].value =  ''.join([s for s in  students[0].strip() if s.isdigit()]) 
+        int_list[1].value =  ''.join([s for s in  students[1].strip() if s.isdigit()]) 
         worksheet.update_cells(int_list)
+
         # register code_excercises
-        total_q_code_ex = num_questions*2 + len(self.results)
+        total_q_code_ex = len(open_asnwers)*2 + len(self.results)
         print("resgister cod exercises")
         answer_range = (int_range[0],int_range[1]+2, int_range[2], int_range[3]+2+total_q_code_ex)
-        print ("******", answer_range, "******")
         ans_list = worksheet.range(*answer_range)
+
         for n,(k,v) in enumerate (self.results.items()):
             ans_list[n].value = f'{k}:{v}'
         print("resgister open exercises")
         idx = 1
-        for nn in range(1, open_questions+1):
-            ans = eval(f"lab_obj.respuesta_{nn}").strip()
-            if nn == 1:
-                ans_list[n+nn].value = ans if ans !='' else 'no respuesta'
+        for nn, o_ans in enumerate (open_asnwers):
+
+            if nn == 0:
+                ans_list[n+nn+1].value = o_ans if o_ans.strip() !='' else 'no respuesta'
             else:
-                ans_list[n+nn+idx].value = ans if ans !='' else 'no respuesta'
+                ans_list[n+nn+1+idx].value = o_ans if o_ans.strip() !='' else 'no respuesta'
                 idx = idx+1
-        
-        #print("this is the ans list \n", ans_list)
 
         worksheet.update_cells(ans_list)
         

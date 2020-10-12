@@ -369,3 +369,10 @@ def configure_lab4():
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
 
+
+def configure_lab5_1():
+    data = ["international-airline-passengers.csv"]
+    code = ["lab5.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()
+

@@ -297,7 +297,7 @@ class Utils():
         return(codes)
 
     
-    def check_code (self, code_to_look, func, msg = "recuerda usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)!", debug=False):
+    def check_code (self, code_to_look, func, msg = "*** recordar usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)! ***", debug=False):
         
         tests = [c not in self.get_source_safe(func) for c in code_to_look]
         if np.any(tests):
@@ -376,3 +376,9 @@ def configure_lab5_1():
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
 
+
+def configure_lab5_2():
+    data = ["AirQuality.data"]
+    code = ["lab5.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()

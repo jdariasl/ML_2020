@@ -218,7 +218,7 @@ def test_time_rf_training(func):
                                     X = xx, Y=yy,
                                     num_trees = trees,
                                     numero_de_variables = num_vars)
-    code_to_look = ['RandomForestClassifier', 'n_estimators=', "max_features=", " time.clock()",  ".fit"]
+    code_to_look = ['RandomForestClassifier', 'n_estimators=', "max_features=", "time.clock()",  ".fit"]
     res2 = ut.check_code(code_to_look, func)
     return (res and res2)
 

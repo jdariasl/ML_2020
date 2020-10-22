@@ -230,7 +230,7 @@ def experiementarSVC(func):
 
 
 def part_2 ():
-    GRADER = Grader("lab5_part1", num_questions = 4)
+    GRADER = Grader("lab5_part2", num_questions = 4)
     db = np.loadtxt('AirQuality.data',delimiter='\t')  # Assuming tab-delimiter
     db = db.reshape(9357,13)
     db = db[0:2000, :]

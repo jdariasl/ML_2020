@@ -382,3 +382,9 @@ def configure_lab5_2():
     code = ["lab5.py"]
     intro_lab_object = Laboratory(data, code)
     intro_lab_object.configure()
+
+def configure_lab6():
+    data = ['DB_Fetal_Cardiotocograms.txt']
+    code = ["lab6.py"]
+    intro_lab_object = Laboratory(data, code)
+    intro_lab_object.configure()

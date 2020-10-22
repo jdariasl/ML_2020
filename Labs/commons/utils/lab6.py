@@ -40,7 +40,7 @@ def test_entrenamiento_sin_seleccion_caracteristicas(function):
     tests = {'*** No se retorno el modelo entrenado ***': isinstance(a[0], sklearn.svm._classes.SVC) ,
              '*** No se retorno el error ***': a[1]>0.25,
              '*** No se retorno el desviacion estandar del error ***':  isinstance(a[2], float) and a[1]!=a[2],
-             "*** No se retorno el tiempo de entrenamiento***": isinstance(a[3], float) and a[3]<=0.001
+             "*** No se retorno el tiempo de entrenamiento***": isinstance(a[3], float) and a[3]<=0.1
              }
 
     test_res = ut.test_conditions_and_methods(tests)
@@ -66,7 +66,7 @@ def test_recursive_feature_elimination_wrapper(function):
           '*** debes retornar la mascara del modelo RFE ***': a[1].sum() == 1,
           '*** retornar el ranking de los features ***':  (a[2] == np.array([1,2,3])).all(),
           "*** No se retorno el modelo interno***": isinstance(a[3], sklearn.svm._classes.SVC),
-          "*** No se retorno el tiempo de entrenamiento ***": isinstance(a[4], float) and a[4]<=0.01
+          "*** No se retorno el tiempo de entrenamiento ***": isinstance(a[4], float) and a[4]<=0.1
             }
 
   test_res = ut.test_conditions_and_methods(tests)

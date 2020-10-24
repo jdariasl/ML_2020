@@ -125,11 +125,81 @@ def part_1 ():
 
 @unknow_error
 def test_entrenamiento_pca_seleccion_caracteristicas(function):
-  return True
+    """
+    Esta función determina si el estudiante logró utilizar la función planteada
+    """
+    code_to_look = ['StandardScaler()', 'PCA', "n_components=", "pca.fit_transform", 
+                    "pca.transform", ".fit", ".predict", "n_splits=5", "accuracy_score", "np.mean", "np.std"]
+    res2 = ut.check_code(code_to_look, function, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
+
+    xx = np.array([[-1,0,0.0], [-1,-1,0.0], [1,1,0.1], [1,0.5,0.1], [0.1,0.1,0]])
+    yy = np.array([1,1,2,2,2])
+    a = function(1,xx, yy)
+
+    tests = {'***  hay un error en la funcion, revisa si se esta aplicando la media o el pca es entrenado y usado para transformar ***': a[0] == 0.8 and a[1] == 0.4,
+            "*** No se retorno el tiempo de entrenamiento ***": isinstance(a[2], float) and a[2]<=0.1}
+
+    test_res = ut.test_conditions_and_methods(tests)
+    return(test_res and res2)
 
 @unknow_error
-def test_pca_benchmark(function):
-  return True
+def test_experimentar_PCA(function):
+    xx, yy = generate_data(is_class=True)
+    n_feats = [1,2]
+    cols = ['CON_SEL','NUM_VAR','ERROR_VALIDACION','IC_STD_VALIDACION','T_EJECUCION']
+    cols_errs = ['ERROR_VALIDACION', 'IC_STD_VALIDACION']
+
+    res = ut.test_experimento_oneset(function,  shape_val=(len(n_feats)+1, len(cols)), 
+                                    col_error = cols_errs,
+                                    col_val=cols,
+                                    X = xx,
+                                    Y = yy,
+                                    n_feats = n_feats,
+                                    return_df = False)
+    code_to_look = ['entrenamiento_sin_seleccion_caracteristicas', 'entrenamiento_pca_ext_caracteristicas'] 
+    res2 = ut.check_code(code_to_look, function, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
+
+    return(res and res2)
+
+
+@unknow_error
+def test_entrenamiento_lda_ext_caracteristicas(function):
+    """
+    Esta función determina si el estudiante logró utilizar la función planteada
+    """
+    code_to_look = ['StandardScaler()', 'LinearDiscriminantAnalysis', "n_components=", "lda.fit_transform", 
+                    "lda.transform", ".fit", ".predict", 
+                    "n_splits=5", "accuracy_score", "np.mean", "np.std"]
+  
+    res2 = ut.check_code(code_to_look, function, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
+
+    xx = np.array([[-1,0,0.0], [-1,-1,0.0], [1,1,0.1], [1,0.5,0.1], [0.1,0.1,0]])
+    yy = np.array([1,1,2,2,2])
+    a = function(1,xx, yy)
+    tests = {'***  hay un error en la funcion, revisa si se esta aplicando la media o el pca es entrenado y usado para transformar ***': a[0] == 0.4 and np.round(a[1],4) == 0.4899,
+            "*** No se retorno el tiempo de entrenamiento ***": isinstance(a[2], float) and a[2]<=0.1}
+
+    test_res = ut.test_conditions_and_methods(tests)
+    return(test_res and res2)
+
+@unknow_error
+def test_experimentar_LDA(function):
+    xx, yy = generate_data(is_class=True)
+    n_feats = [1,2]
+    cols = ['CON_SEL','NUM_VAR','ERROR_VALIDACION','IC_STD_VALIDACION','T_EJECUCION']
+    cols_errs = ['ERROR_VALIDACION', 'IC_STD_VALIDACION']
+
+    res = ut.test_experimento_oneset(function,  shape_val=(len(n_feats)+1, len(cols)), 
+                                    col_error = cols_errs,
+                                    col_val=cols,
+                                    X = xx,
+                                    Y = yy,
+                                    n_feats = n_feats,
+                                    return_df = False)
+    code_to_look = ['entrenamiento_sin_seleccion_caracteristicas', 'entrenamiento_lda_ext_caracteristicas'] 
+    res2 = ut.check_code(code_to_look, function, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
+
+    return(res and res2)
 
 
 def part_2 ():
@@ -145,7 +215,9 @@ def part_2 ():
     for i in Y:
         Y_l.append(int(i))
     Y = np.asarray(Y_l)
-    GRADER.add_test("ejercicio5", Tester(test_entrenamiento_pca_seleccion_caracteristicas))
-    GRADER.add_test("ejercicio6", Tester(test_pca_benchmark))
+    GRADER.add_test("ejercicio1", Tester(test_entrenamiento_pca_seleccion_caracteristicas))
+    GRADER.add_test("ejercicio2", Tester(test_experimentar_PCA))
+    GRADER.add_test("ejercicio3", Tester(test_entrenamiento_lda_ext_caracteristicas))
+    GRADER.add_test("ejercicio4", Tester(test_experimentar_LDA))
 
     return(GRADER, X, Y)

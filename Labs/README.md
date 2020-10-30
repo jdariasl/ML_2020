@@ -37,7 +37,8 @@ En esta carpeta podrán encontrar las siguientes carpetas:
     - lab6_parte2.ipynb: Análisis de componentes principales y fisher  
 
 - Extra:
-    - despligue_modelos.ipynb: practica para desplegar un modelo.
+    - Basic_Preprocessing_FeatureEngineering.ipynb: practica de transformación de datos
+    - despligue_modelos: practica para desplegar un modelo a productivo.
 
 Existen 2 carpetas adicionales a las descritas anteriormente, cuyo contenido no es necesario entenderlo para el desarrollo del curso.
 

@@ -116,14 +116,16 @@ def part_1 ():
     return(GRADER, dataset)
 
 
-def predict_svr(x, y, kernel, gamma, param_reg):
+def predict_svr(x_train, y_train, x_test, kernel, gamma, param_reg):
     params = {'kernel': kernel, 'gamma': gamma, 'C': param_reg}
     scaler = StandardScaler()
-    X_train = scaler.fit_transform(x)
+    X_train = scaler.fit_transform(x_train)
+    x_test = scaler.transform(x_test)
     print("*** calculando predicciones ***")
-    md = SVR(**params).fit(X_train,y)
-    ypred= md.predict(X_train)
+    md = SVR(**params).fit(X_train,y_train)
+    ypred= md.predict(x_test)
     return(ypred)
+
 
 @unknow_error
 def test_clean_data(func):

@@ -135,9 +135,11 @@ def test_clean_data(func):
     to_impute = np.hstack([to_remove[:,0:12], np.array([[10]])])
     db = np.vstack((db[0:3,:], to_remove, to_impute))
     xx, yy = func(db)
+    #print("it is shape", xx.shape)
     tests = {'No se están removiendo valores faltantes en variable de respuesta': yy.shape[0] == db.shape[0] - 1,
              'no se estan imputando los valores': ut.are_np_equal(np.round(np.mean(xx, axis = 0)), np.round(xx[-1])),
-             'no se estan removiendo todos los valores faltantes': not((xx==-200).any())
+             'no se estan removiendo todos los valores faltantes': not((xx==-200).any()),
+             'cuidado estas retornando diferentes shapes de X. Leer las instrucciones.': xx.shape[1] == 12
              }
 
     test_res = ut.test_conditions_and_methods(tests)
@@ -154,7 +156,7 @@ def experiementarSVR(func):
     cols= ['kernel', 'gamma', 'param_reg', 'error de prueba (promedio)',
        'error de prueba (intervalo de confianza)', '% de vectores de soporte']
 
-    cols_errs =['error de prueba (promedio)']
+    cols_errs =['error de prueba (promedio)', 'error de prueba (intervalo de confianza)']
 
     res, df_r = ut.test_experimento_oneset(func,  
                                     shape_val=(len(ks)*len(gs)*len(cs), len(cols)), 

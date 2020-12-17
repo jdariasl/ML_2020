@@ -1,0 +1,4 @@
+flask
+flask-wtf
+scikit-learn
+gunicorn

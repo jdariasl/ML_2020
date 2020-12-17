@@ -1,22 +1,31 @@
   
-from flask import Flask, render_template, session, redirect, url_for, session
+from flask import Flask, render_template, redirect, url_for, session
 from flask_wtf import FlaskForm
 from wtforms import TextField,SubmitField
 from wtforms.validators import NumberRange
 import numpy as np
 from joblib import load
+import os
 
 app = Flask(__name__)
 
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
+
+
 
 ###
-# Re factoriznado
-# para obtener el etiqueta
+# Cargar el archivo del modelo
+# verificar que es el mismo nombre
+# o realizar el cambio que haya lugar
 ###
-
-# Cargando Pipeline
 flower_model = load("clasificador.joblib")
 
+
+###
+# Funcion que factoriza 
+# la prediccion
+###
 def return_prediction(model,sample_json):
     
     s_len = sample_json['sepal_length']
@@ -26,13 +35,12 @@ def return_prediction(model,sample_json):
 
     flower = [[s_len,s_wid,p_len,p_wid]]
 
-    flower = model.predict(flower)
+    species = model.predict(flower)
 
     classes = np.array(['setosa', 'versicolor', 'virginica'])
 
-    class_ind = model.predict_classes(flower)
 
-    return classes[class_ind][0]
+    return classes[species][0]
 
 ##
 # Creacion del
@@ -56,9 +64,10 @@ def index():
 
     # Create instance of the form.
     form = FlowerForm()
-    # If the form is valid on submission (we'll talk about validation next)
+
     if form.validate_on_submit():
         # Grab the data from the breed on the form.
+        print(form)
 
         session['sep_len'] = form.sep_len.data
         session['sep_wid'] = form.sep_wid.data
@@ -77,7 +86,7 @@ def index():
 def prediction():
 
     content = {}
-
+    print(session.keys())
     content['sepal_length'] = float(session['sep_len'])
     content['sepal_width'] = float(session['sep_wid'])
     content['petal_length'] = float(session['pet_len'])

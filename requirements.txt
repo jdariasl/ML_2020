@@ -1,0 +1,6 @@
+jupyter-book>=0.7.0b
+matplotlib
+numpy
+scikit-learn
+pandas
+

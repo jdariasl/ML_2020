@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio 1 - Parte 2 &#8212; 2020 Introducción al Machine Learning</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Course information
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U1_description.html">
+   U1. INTRODUCCIÓN AL MACHINE LEARNING
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html">
+     Introducción al Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#modelos-a-partir-de-datos">
+     Modelos a partir de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#tipos-de-problemas-supervisados">
+     Tipos de problemas supervisados
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html">
+     <font color="blue">
+      Modelos básicos de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html#font-color-blue-pensemos-ahora-en-el-problema-de-clasificacion-font">
+     <font color="blue">
+      Pensemos ahora en el problema de clasificación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2003%20-%20Funciones%20discriminantes%20Gausianas.html">
+     Modelos de clasificación empleando funciones de densidad Gausianas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U1_IntroLabs.html">
+   INTRODUCCIÓN A PYTHON Y NUMPY
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U2_description.html">
+   U2. MODELOS NO PARÁMETRICOS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2004%20-%20Modelos%20no%20Param%C3%A9tricos.html">
+     Modelos no parámetricos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U3_description.html">
+   U3. COMPLEJIDAD DE MODELOS Y VALIDACIÓN
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2005%20-%20M%C3%A9tricas%20de%20error.html">
+     <font color="blue">
+      Métricas de evaluación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html">
+     <font color="blue">
+      Complejidad de modelos
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-metodologias-de-validacion-font">
+     <font color="blue">
+      Metodologías de validación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-curva-de-aprendizaje-font">
+     <font color="blue">
+      Curva de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2007%20-%20Regularizaci%C3%B3n.html">
+     Sobreajuste y Regularización
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U4_description.html">
+   U4. APRENDIZAJE NO SUPERVISADO
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2008%20-%20Modelos%20de%20Mezclas%20de%20Gausianas.html">
+     Modelos de Mezcla de Funciones Gaussianas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2009%20-%20Unsupervised%20Learning.html">
+     Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2009%20-%20Unsupervised%20Learning.html#referencias-generales">
+     Referencias Generales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2009%20-%20Unsupervised%20Learning.html#metodos-jerarquicos-aglomerativos">
+     Métodos jerárquicos/aglomerativos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2009%20-%20Unsupervised%20Learning.html#metodos-de-clustering">
+     Métodos de clustering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U5_description.html">
+   U5. MODELOS DE ÁRBOLES Y ENSAMBLES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2010%20-%20%C3%81rboles%20de%20Decisi%C3%B3n%2C%20Voting%2C%20Bagging%2C%20Random%20Forest.html">
+     Árboles de decisión
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2011%20-%20Boosting%2C%20Stacking.html">
+     Boosting
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U6_description.html">
+   U6. REDES NEURONALES ARTIFICIALES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html">
+     Redes Neuronales Artificiales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2013%20-%20Mapas%20Auto-Organizables.html">
+     Mapas Auto-Organizables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2014%20-%20Redes%20Neuronales%20Recurrentes.html">
+     Redes Neuronales Recurrentes
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U7_description.html">
+   U7. MÁQUINAS DE VECTORES DE SOPORTE
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html">
+     Máquinas de Soporte Vectorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html#regresion-por-vectores-de-soporte">
+     Regresión por vectores de soporte
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U8_description.html">
+   U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Labs/lab1/lab1_parte2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/prueba/blob/master/content/Labs/lab1/lab1_parte2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Laboratorio 1 - Parte 2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1-contextualizacion-del-problema">
+   Ejercicio 1: Contextualización del problema
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-2-entrenamiento">
+   Ejercicio 2: entrenamiento
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-3-experimentar">
+   Ejercicio 3: Experimentar
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/lab1/lab1_parte2.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras alamancenar tu progreso</strong></p>
+<p>Nota: no olvide ir ejecutando las celdas de código de arriba hacia abajo para que no tenga errores de importación de librerías o por falta de definición de variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#configuración del laboratorio</span>
+<span class="c1"># Ejecuta esta celda!</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="o">!</span>wget https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py -O general.py
+<span class="kn">from</span> <span class="nn">general</span> <span class="kn">import</span> <span class="n">configure_lab1_p2</span>
+<span class="n">configure_lab1_p2</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">lab1</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">GRADER</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">part_2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="laboratorio-1-parte-2">
+<h1>Laboratorio 1 - Parte 2<a class="headerlink" href="#laboratorio-1-parte-2" title="Permalink to this headline">¶</a></h1>
+<p><strong>Regresión logística</strong></p>
+</div>
+<div class="section" id="ejercicio-1-contextualizacion-del-problema">
+<h1>Ejercicio 1: Contextualización del problema<a class="headerlink" href="#ejercicio-1-contextualizacion-del-problema" title="Permalink to this headline">¶</a></h1>
+<p>En esta sesión de laboratorio, vamos a resolver un problema de clasificación. Los variables que vamos a usar ya se encuentran cargadas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tienes ya cargadas las siguientes variables:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;conjunto de datos, muestra </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="p">:]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; muestra de etiquetas a predecir </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejercicio de Codigo</span>
+<span class="k">def</span> <span class="nf">clases_muestras_carac</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Esta funcion es encargada retornar el numero clases, muestras </span>
+<span class="sd">        y caracteristicas del conjunto de datos X y Y</span>
+
+<span class="sd">        X: matriz numpy con el conjunto de datos para entrenamiento</span>
+<span class="sd">        Y: matriz numpy con el conjunto de etiquetas</span>
+<span class="sd">        retorna:</span>
+<span class="sd">            numero de clases (int/float)</span>
+<span class="sd">            numero de muestras (int/float)</span>
+<span class="sd">            numero de caracteristicas (int/float)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">##Pista: es de utilidad el metodo np.unique ?</span>
+    <span class="n">N</span><span class="p">,</span><span class="n">nf</span> <span class="o">=</span>
+    <span class="n">clases</span> <span class="o">=</span> 
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">nf</span><span class="p">,</span><span class="n">clases</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio1&quot;</span><span class="p">,</span> <span class="n">clases_muestras_carac</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En los problemas de clasificación, que lo permiten, es de utilidad visualizar los datos. De esta manera uno puede determinar que modelos o algortimos pueden tener mejor rendimiento. En la siguiente función, debera, graficar los datos usando la función <a class="reference external" href="https://matplotlib.org/gallery/shapes_and_collections/scatter.html">scatter</a> de matplotlib.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejercicio de Codigo</span>
+<span class="k">def</span> <span class="nf">scatter_plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Esta funcion es encargada de graficar usando un scatter plot</span>
+<span class="sd">       un problema de clasificacion.</span>
+
+<span class="sd">        X: matriz numpy con el conjunto de datos para entrenamiento.</span>
+<span class="sd">           esta debera ser usada para los ejes del grafico. puede asumir</span>
+<span class="sd">           que solo va tener dos columnas</span>
+<span class="sd">        Y: matriz numpy con el conjunto de etiquetas. Debera se usada</span>
+<span class="sd">           para mostrar en diferentes colores, las etiquetas de cada una</span>
+<span class="sd">           de las muestras</span>
+<span class="sd">        retorna:</span>
+<span class="sd">            grafica matplotlib</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## puedes accerder con plt al funcion adecuacada</span>
+    <span class="c1">## Pista: recuerda como indexar matrices</span>
+    <span class="c1">## Pista: recuerda el uso de np.ravel</span>
+
+    <span class="c1"># para mostrar el grafico</span>
+    <span class="n">figure</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+   
+    <span class="k">return</span> <span class="p">(</span><span class="n">figure</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="c1"># ignora los graficos que se muestran </span>
+<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio2&quot;</span><span class="p">,</span> <span class="n">scatter_plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown  ¿El problema es linealmente separable? justifique su respuesta </span>
+<span class="n">respuesta_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-2-entrenamiento">
+<h1>Ejercicio 2: entrenamiento<a class="headerlink" href="#ejercicio-2-entrenamiento" title="Permalink to this headline">¶</a></h1>
+<p>En este laboratorio se va a realizar un procedimiento análogo al laboratorio anterior, pero con el modelo de <em>regresión logística</em> que sirve para resolver problemas de clasificación (en principio biclase).</p>
+<p>Analice los siguientes métodos a la luz de la teoría vista para el modelo de regresión logística:</p>
+<ol class="simple">
+<li><p>función de activación (<font color='blue'>sigmoidal</font>),</p></li>
+<li><p>modelo de regresión logística (<font color='blue'>logistic_regression</font>),</p></li>
+<li><p>potencia del polinomio</p></li>
+<li><p>el cálculo del error en clasificación (<font color='blue'>error_logistic</font>)</p></li>
+<li><p>el gradiente descendente.</p></li>
+</ol>
+<p>Luego de recordar estos conceptos. Complete la función sigmoidal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejercicio de Código</span>
+<span class="k">def</span> <span class="nf">sigmoidal</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Función de activación Sigmoidal</span>
+
+<span class="sd">    z: es la varible a la que se le va aplicar el sigmoide.</span>
+<span class="sd">       es un array numpy de uan sola dimension</span>
+<span class="sd">    retorna: el valor del sigmiode</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#Complete la siguiente línea con el código para calcular la salida de la función sigmoidal</span>
+    <span class="n">s</span> <span class="o">=</span> 
+    
+    <span class="k">return</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio3&quot;</span><span class="p">,</span> <span class="n">sigmoidal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El la siguiente celda se sugiere la implementación, de los siguientes conceptos:</p>
+<ol class="simple">
+<li><p>modelo de regresión logística (<font color='blue'>logistic_regression</font>),</p></li>
+<li><p>potencia del polinomio</p></li>
+<li><p>el cálculo del error en clasificación (<font color='blue'>error_logistic</font>)</p></li>
+</ol>
+<p>comprenda que hacen estas funciones y ejecute la celda para cargar las funciones, para porder usarlas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;calcula la regresión logistica</span>
+<span class="sd">    X: los valores que corresponden a las caractersiticas</span>
+<span class="sd">    W: son los pesos usadados para realizar la regresión</span>
+<span class="sd">    retorna: valor estimado por la regresion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#Con np.dot se realiza el producto matricial. Aquí X (extendida) tiene dim [Nxd] y W es dim [dx1]</span>
+    <span class="n">Yest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">Y_lest</span> <span class="o">=</span> <span class="n">sigmoidal</span><span class="p">(</span><span class="n">Yest</span><span class="p">)</span>
+    <span class="c1">#Se asignan los valores a 1 o 0 según el modelo de regresión logística definido</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">Y_lest</span><span class="p">:</span>
+        
+        <span class="k">if</span> <span class="n">tag</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">Y_lest</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">tag</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">Y_lest</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="n">pos</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">return</span> <span class="n">Y_lest</span>    <span class="c1">#Y estimado: Esta variable contiene ya tiene la salida de sigm(f(X,W))</span>
+
+<span class="k">def</span> <span class="nf">potenciaPolinomio</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">grado</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;calcula la potencia del polinomio</span>
+<span class="sd">    X: los valores que corresponden a las caractersiticas</span>
+<span class="sd">    grado: esl grado para realizar la potencia al polinomio</span>
+<span class="sd">    retorna: el valor de X despues elevarlo al grado del polinimoo indicado</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">X2</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">grado</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">grado</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">Xadd</span> <span class="o">=</span> <span class="n">X</span><span class="o">**</span><span class="n">i</span>
+            <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">X2</span><span class="p">,</span> <span class="n">Xadd</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">X2</span>
+
+<span class="k">def</span> <span class="nf">error_logistic</span><span class="p">(</span><span class="n">Y_lest</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;calculo del error logistico</span>
+<span class="sd">       Si es diferente el Y_estimado con el Y_real cuenta como un error</span>
+<span class="sd">       Y_lest: numpy array con los valores de etiquetas estimadas</span>
+<span class="sd">       Y:  numpy array  valor con los valores reales de las etiquetas</span>
+<span class="sd">       retorna: error de clasificación -- numpy array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">ye</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Y_lest</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ye</span> <span class="o">!=</span> <span class="n">y</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="n">error</span> <span class="o">=</span> <span class="n">error</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>De igual manera, debemos extender nuestro conjunto de datos. Comprende que hace  la siguiente celda de código y ejecutala. <strong>Muy importante ejecutar SOLA UNA vez.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Aca llamamos la funcion creada anteriormente</span>
+<span class="c1"># para obtener el numero muestras y caractersiticas</span>
+<span class="n">muestras</span><span class="p">,</span><span class="n">caracterisitcas</span><span class="p">,</span><span class="n">num_clases</span> <span class="o">=</span> <span class="n">clases_muestras_carac</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="c1">#Extendemos la matriz de X para el parámetro independiente</span>
+<span class="n">unos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">muestras</span><span class="p">)])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">unos</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">muestras</span><span class="p">,</span> <span class="n">caracterisitcas</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>recordando lo aprendido anteriormente, dividimos nuestro cojunto de datos y normalizamos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dejamos algunas muestras para el proceso de entrenamiento y otras para evaluar qué tan bueno fue el aprendizaje del modelo</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">muestras</span>
+<span class="n">ind</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">Xtrain</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">0.7</span><span class="o">*</span><span class="n">N</span><span class="p">))],:]</span>
+<span class="n">Xtest</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">0.7</span><span class="o">*</span><span class="n">N</span><span class="p">)):</span><span class="n">N</span><span class="p">],:]</span>
+<span class="n">Ytrain</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">0.7</span><span class="o">*</span><span class="n">N</span><span class="p">))]]</span>
+<span class="n">Ytest</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">0.7</span><span class="o">*</span><span class="n">N</span><span class="p">)):</span><span class="n">N</span><span class="p">]]</span>
+<span class="c1"># normalizamos</span>
+<span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span> <span class="o">=</span> <span class="n">normalizar</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora vamos a completar el código de la regla de actualización de los parámetros del algoritmo de <font color='blue'>gradiente_descedente</font>:</p>
+<div class="math notranslate nohighlight">
+\[w_j(iter) = w_j(iter-1) - \eta \frac{\partial E(w)}{\partial w_j}\]</div>
+<p>recordar que</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial E(w)}{\partial w_j} = \frac{\partial E({\bf{w}})}{\partial w_j} = \frac{1}{N}\sum_{i=1}^{N}\left( f({\bf{x}}_i,{\bf{w}}) - y_i\right) \frac{\partial }{\partial w_j} f({\bf{x}}_i, {\bf{w}})\]</div>
+<p>Recuerda que debe usar las funciones ya implementadas y no usar <strong>ninguna otra libreria</strong>, adicional a las librerias ya pre-cargadas como numpy.</p>
+<p>Adicionalmente, dentro de nuestra función, <strong>vamos incluir una transformación polinómica</strong>.</p>
+<p>Nota: Para el problema de clasificación tenga presente que si ya implementó la regla de actualización de parámetros para el modelo de regresión polinomial múltiple, este punto es trivial, puesto que sólo tiene que incluir la función sigmoidal tal como lo vimos en la teoría.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de codigo</span>
+<span class="k">def</span> <span class="nf">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">grado</span><span class="p">,</span><span class="n">eta</span><span class="p">,</span> <span class="n">iteraciones</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gradiente descendente para regresión lineal múltiple</span>
+<span class="sd">    X: Matriz de datos extendida</span>
+<span class="sd">    Y: vector con los valores a predecir</span>
+<span class="sd">    W: Vector de parámetros del modelo</span>
+<span class="sd">    eta: Taza de aprendizaje</span>
+<span class="sd">    grado: grado para usar en la transformacion polinomica</span>
+<span class="sd">    iteraciones: numero de iteraciones maxima</span>
+
+<span class="sd">    retorna: W el valor de de los parametros de regresión polinomica</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">X2</span> <span class="o">=</span> <span class="n">potenciaPolinomio</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">grado</span><span class="p">)</span>
+    <span class="c1">#Tomamos el número de variables del problema leugo de la transformacion</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1">#Tomamos el número de muestras de la base de datos</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>   
+    <span class="c1">#Inicializamos el vector de parámetros</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">W</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+   
+   
+    <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iteraciones</span><span class="p">):</span>
+       
+        <span class="c1">#Aquí debe completar el código con la regla de actualización de los parámetros W para regresión</span>
+        <span class="c1">#logística. Tenga en cuenta los nombres de las variables ya creadas: W, X, Y</span>
+        <span class="n">Y_estimado</span> <span class="o">=</span> <span class="n">logistic_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
+
+        <span class="n">W</span> <span class="o">=</span> 
+
+
+    <span class="c1">#Error en clasificación  </span>
+    <span class="n">Y_estimado</span> <span class="o">=</span> <span class="n">logistic_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">error_clasificacion</span> <span class="o">=</span> <span class="n">error_logistic</span><span class="p">(</span><span class="n">Y_estimado</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error despues de finalizar la iteraciones&quot;</span><span class="p">,</span> <span class="n">error_clasificacion</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">W</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio4&quot;</span><span class="p">,</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente se sugiere la siguiente funcion para evaluar el error del modelo. Entienda su funcionamiento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluar_modelo</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X_to_test</span><span class="p">,</span> <span class="n">Y_True</span><span class="p">,</span> <span class="n">grado</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; funcion que evalua un modelo de regresión usando el error cuadratico medio</span>
+
+<span class="sd">    W: es un matriz con los parametros del modelo entrenados</span>
+<span class="sd">    X_to_test: conjunto de datos para usar en el evaluamiento del modelo</span>
+<span class="sd">    Y_True: valores reales para usar en el evaluamiento del modelo</span>
+<span class="sd">    grado: valor del polinomio a usar</span>
+
+<span class="sd">    retorna: el de clasificación.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">X2</span> <span class="o">=</span> <span class="n">potenciaPolinomio</span><span class="p">(</span><span class="n">X_to_test</span><span class="p">,</span><span class="n">grado</span><span class="p">)</span>
+    <span class="n">Y_estimado</span> <span class="o">=</span> <span class="n">logistic_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">error_clasificacion</span> <span class="o">=</span> <span class="n">error_logistic</span><span class="p">(</span><span class="n">Y_estimado</span><span class="p">,</span><span class="n">Y_True</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">error_clasificacion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-3-experimentar">
+<h1>Ejercicio 3: Experimentar<a class="headerlink" href="#ejercicio-3-experimentar" title="Permalink to this headline">¶</a></h1>
+<p>Con la función implementada vamos a entrenar un modelo y calcular su error de entrenamiento</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">error_test</span> <span class="o">=</span> <span class="n">evaluar_modelo</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error en el conjunto de pruebas&quot;</span><span class="p">,</span> <span class="n">error_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En nuestro primer experimento vamos a evaluar el rendimiento del modelo usando varias tasas de aprendizaje y grados de polinimios. Vamos a dejar por ahora un numero de iteraciones fijas = 50. Para ello completa la siguiente función.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## ejercicio de codigo</span>
+<span class="k">def</span> <span class="nf">experimentar</span> <span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">tasas</span><span class="p">,</span> <span class="n">grados</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; funcion para realizar experimentos.</span>
+<span class="sd">    Xtrain: conjunto de datos</span>
+<span class="sd">    Xtest:</span>
+<span class="sd">    Ytrain:</span>
+<span class="sd">    Ytest:</span>
+<span class="sd">    tasas: Es una lista con los valores númericos de tasas de aprendizaje </span>
+<span class="sd">        para realizar los experimentos</span>
+<span class="sd">    grados: Es una lista con los valores númericos de grados </span>
+<span class="sd">        para realizar los experimentos</span>
+<span class="sd">    retorna: un dataframe con el resultados de los experimentos</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">numero_iter</span> <span class="o">=</span> <span class="mi">50</span>
+
+    <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># indice</span>
+    <span class="k">for</span> <span class="n">eta</span> <span class="ow">in</span> <span class="n">tasas</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">grado</span> <span class="ow">in</span> <span class="n">grados</span><span class="p">:</span>
+            <span class="n">W</span> <span class="o">=</span> 
+            <span class="n">error_entrenamiento</span> <span class="o">=</span> 
+            <span class="n">error_prueba</span> <span class="o">=</span> 
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;grado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grado</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;tasa de aprendizaje&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">eta</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error_entreamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">error_entrenamiento</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error_prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">error_prueba</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio5&quot;</span><span class="p">,</span> <span class="n">experimentar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tasas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.001</span><span class="p">]</span>
+<span class="n">grados</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">resultados</span> <span class="o">=</span> <span class="n">experimentar</span> <span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">tasas</span><span class="p">,</span> <span class="n">grados</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># para ver los resultados</span>
+<span class="n">resultados</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown  ¿con base a los resultados anteriores, qué efecto tiene el grado en los errores de entrenamiento y de prueba? justifique</span>
+<span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown  ¿es normal que los errores de entrenamiento y prueba sean diferentes? justifique</span>
+<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En los problemas de clasificación, es muy importante entender el numero de muestras que el modelo clasifico mal. Esto es necesario observarlo tanto en entrenamiento como en pruebas. Vamos crear una función para esto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de codigo</span>
+<span class="k">def</span> <span class="nf">numero_de_errores</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">grado</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;función que cuenta los errores de un modelo de regresión logistica</span>
+<span class="sd">    W: vector con los parametros de un modelo de regresión logistica</span>
+<span class="sd">       previamente entrenado</span>
+<span class="sd">    X: conjunto de datos a usar (numpy matrix)</span>
+<span class="sd">    Y: conjunto con las etiquetas verdaderas. (numpy array)</span>
+<span class="sd">    grado: grado usado en el modelo de regresión logistica</span>
+<span class="sd">    retorna: numero de errores (int/float) </span>
+<span class="sd">            (es decir el numero de veces que la etiqueta predicha es diferente a la etiqueta real)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">X2</span> <span class="o">=</span> <span class="n">potenciaPolinomio</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">grado</span><span class="p">)</span>
+    <span class="n">Y_estimado</span> <span class="o">=</span> <span class="n">logistic_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">numero_errores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Y_estimado</span><span class="o">!=</span><span class="n">Y</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">numero_errores</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio6&quot;</span><span class="p">,</span> <span class="n">numero_de_errores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, use la función. Entrene nuevamente un modelo con los mejores parametros obtenidos y calcule cuantas muestras quedaron mal clasificadas. Tanto en el conjunto de entrenamiento y de prueba.</p>
+<p>Si hay parametros empatados, el modelo que tenga menos parametros deberia ser el mejor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># puedes usar el siguiente código para ordenar los resultados y ver los 3 primeros</span>
+<span class="c1"># resultados, usa esta salida, para ver cuales fueron los mejores parámetros</span>
+<span class="n">resultados</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;error_prueba&#39;</span><span class="p">,</span> <span class="s1">&#39;grado&#39;</span><span class="p">],</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">W</span> <span class="o">=</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="n">grado</span> <span class="o">=</span>  <span class="p">,</span><span class="n">eta</span> <span class="o">=</span> <span class="p">,</span> <span class="n">iteraciones</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;estos son los pesos para el modelo entrenando </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_errores_entrenamiento</span> <span class="o">=</span>  <span class="n">numero_de_errores</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Xtrain</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">num_errores_prueba</span> <span class="o">=</span>  <span class="n">numero_de_errores</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;muestras mal clasificadas en entrenamiento&quot;</span><span class="p">,</span> <span class="n">num_errores_entrenamiento</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;muestras mal clasificadas en pruebas&quot;</span><span class="p">,</span> <span class="n">num_errores_prueba</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown ¿por qué se uso el error de prueba para ordenar la tabla de resultados en lugar del error de entrenamiento?</span>
+<span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown Escribe aqui el numero de muestras que quedaron mal clasificadas en el conjunto de entrenamiento y de pruebas. ¿como calificarias el modelo entrenado?</span>
+<span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown Escriba el modelo completo con sus variables y coeficientes de f(**x**,**w**) con la mejor frontera de decisión que encontró. usa los valores del último W entrenado. Recuerda tener presente el grado del polinomio</span>
+<span class="n">respuesta_6</span> <span class="o">=</span> <span class="s2">&quot;0.0x1 + 1.0x1**2 + 2.0x2 + 3.0x2**3&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">check_tests</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Integrantes</span>
+<span class="n">codigo_integrante_1</span> <span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">codigo_integrante_2</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>  <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>esta linea de codigo va fallar, es de uso exclusivo del los profesores</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">grade</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Labs/lab1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-51547737-2', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

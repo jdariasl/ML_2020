@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redes Neuronales Recurrentes &#8212; 2020 Introducción al Machine Learning</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="U7. MÁQUINAS DE VECTORES DE SOPORTE" href="titles/U7_description.html" />
+    <link rel="prev" title="Mapas Auto-Organizables" href="Clase%2013%20-%20Mapas%20Auto-Organizables.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Course information
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U1_description.html">
+   U1. INTRODUCCIÓN AL MACHINE LEARNING
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html">
+     Introducción al Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#modelos-a-partir-de-datos">
+     Modelos a partir de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#tipos-de-problemas-supervisados">
+     Tipos de problemas supervisados
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html">
+     <font color="blue">
+      Modelos básicos de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html#font-color-blue-pensemos-ahora-en-el-problema-de-clasificacion-font">
+     <font color="blue">
+      Pensemos ahora en el problema de clasificación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2003%20-%20Funciones%20discriminantes%20Gausianas.html">
+     Modelos de clasificación empleando funciones de densidad Gausianas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U1_IntroLabs.html">
+   INTRODUCCIÓN A PYTHON Y NUMPY
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U2_description.html">
+   U2. MODELOS NO PARÁMETRICOS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2004%20-%20Modelos%20no%20Param%C3%A9tricos.html">
+     Modelos no parámetricos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U3_description.html">
+   U3. COMPLEJIDAD DE MODELOS Y VALIDACIÓN
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2005%20-%20M%C3%A9tricas%20de%20error.html">
+     <font color="blue">
+      Métricas de evaluación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html">
+     <font color="blue">
+      Complejidad de modelos
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-metodologias-de-validacion-font">
+     <font color="blue">
+      Metodologías de validación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-curva-de-aprendizaje-font">
+     <font color="blue">
+      Curva de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2007%20-%20Regularizaci%C3%B3n.html">
+     Sobreajuste y Regularización
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U4_description.html">
+   U4. APRENDIZAJE NO SUPERVISADO
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2008%20-%20Modelos%20de%20Mezclas%20de%20Gausianas.html">
+     Modelos de Mezcla de Funciones Gaussianas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html">
+     Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#referencias-generales">
+     Referencias Generales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#metodos-jerarquicos-aglomerativos">
+     Métodos jerárquicos/aglomerativos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#metodos-de-clustering">
+     Métodos de clustering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U5_description.html">
+   U5. MODELOS DE ÁRBOLES Y ENSAMBLES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2010%20-%20%C3%81rboles%20de%20Decisi%C3%B3n%2C%20Voting%2C%20Bagging%2C%20Random%20Forest.html">
+     Árboles de decisión
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2011%20-%20Boosting%2C%20Stacking.html">
+     Boosting
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="titles/U6_description.html">
+   U6. REDES NEURONALES ARTIFICIALES
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html">
+     Redes Neuronales Artificiales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2013%20-%20Mapas%20Auto-Organizables.html">
+     Mapas Auto-Organizables
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Redes Neuronales Recurrentes
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U7_description.html">
+   U7. MÁQUINAS DE VECTORES DE SOPORTE
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html">
+     Máquinas de Soporte Vectorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html#regresion-por-vectores-de-soporte">
+     Regresión por vectores de soporte
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U8_description.html">
+   U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/Clase 14 - Redes Neuronales Recurrentes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/prueba/blob/master/content/Clase 14 - Redes Neuronales Recurrentes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julian-d-arias-londono">
+   Julián D. Arias Londoño
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backpropagation-through-time-bptt">
+   Backpropagation through time (BPTT)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#redes-neuronales-recurrentes-bidireccionales">
+   Redes Neuronales Recurrentes Bidireccionales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#long-short-term-memory-rnn-lstm">
+   Long Short Term Memory RNN (LSTM)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exponential-weighted-average">
+   Exponential Weighted Average
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="redes-neuronales-recurrentes">
+<h1>Redes Neuronales Recurrentes<a class="headerlink" href="#redes-neuronales-recurrentes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="julian-d-arias-londono">
+<h2>Julián D. Arias Londoño<a class="headerlink" href="#julian-d-arias-londono" title="Permalink to this headline">¶</a></h2>
+<p>Profesor Asociado<br />
+Departamento de Ingeniería de Sistemas<br />
+Universidad de Antioquia, Medellín, Colombia<br />
+<a class="reference external" href="mailto:julian&#46;ariasl&#37;&#52;&#48;udea&#46;edu&#46;co">julian<span>&#46;</span>ariasl<span>&#64;</span>udea<span>&#46;</span>edu<span>&#46;</span>co</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las redes neuronales recurrentes (En inglés Recurrent Neural Networks - RNN) son una familia de redes neuronales para procesar datos secuenciales, las cuales se basan en el principio de compartir parámetros a lo largo de diferentes partes del modelo, lo que permite aplicar el modelo a datos con estructuras diferentes (por ejemplo diferentes longitudes) y generalizar sobre ellos. Si por el contrario se tuviera un párametro para cada índice de tiempo, no se podría generalizar a longitudes de secuencias no vistas durante el entrenamiento, o compartir patrones detectados por el modelo a lo largo de diferentes longitudes de secuencias y posiciones en el tiempo; dicha propiedad es particularmente importante cuando una pieza de información específica puede ocurrir en múltiples posiciones dentro de una secuencia [1].</p>
+<p>La red permanece Feed-forward pero mantiene el estado interno a través de nodos de contexto los cuales influencian la capa oculta en entradas subsecuentes. Existen diferentes arquitecturas de RNN, las más conocidas son (Figura tomada de <a href="https://www.ibm.com/developerworks/library/cc-cognitive-recurrent-neural-networks/index.html">Link</a>.):</p>
+<p><img alt="alt text" src="../_images/RNN2.png" /></p>
+<p>Las RNN pueden resolver diferentes paradigmas de aprendizaje, es decir, tienen la capacidad de ajustarse a diferentes configuraciones en los datos. El diagrama construido por <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Andrej Karpathy</a> representa muy bien dicha capacidad:</p>
+<p><img alt="alt text" src="../_images/RNN-Topol.jpeg" /></p>
+<p>El primer caso corresponde a una MLP convencional en la cual se tiene una salida por cada entrada y no existe información compartida a través de las capas ocultas. El segundo caso corresponde a un problema en el que a una entrada, el modelo debe producir una salida compuesta de varios elementos, como por ejemplo un sistema al cual se le presente una imágen y proporcione como salida una descripción o listado de los objetos en la imágen (problema conocido como caption generation). La tercera opción corresponde a un problema en el que al sistema se le presenta una secuencia y el modelo debe proporcionar una única salida para toda la secuencia, por ejemplo en el problema de <em>Sentiment Analysis</em>, usualmente el objetivo es que el sistema catalogue un texto como positivo o negativo. El cuarto caso corresponde a problemas en los que la entrada es una secuencia y la salida otra, sin que necesariamente ambas secuencias deban tener la misma longitud (esta configuración también se conoce como sequence-to-sequence). Un ejemplo de este tipo de paradigmas se presenta en la traducción automática de textos en la que la oración en el lenguaje original puede tener un número mayor o menor de palabras que en el lenguaje objetivo. El quinto caso corresponde a un problema en el que para cada entrada el sistema debe proporcionar una salida (la longitud de las secuencias entrada y salida es la misma), a este tipo de paradigmas corresponde la predicción de series de tiempo, el etiquetado morfosintáctico, varias tareas en Bioinformática, entre otros.</p>
+<p>La arquitectura Elman de las RNN es la más comunmente usada. De acuerdo con la notación definida en la primera figura, la descripción matemática de una red de este tipo con una sola capa oculta y una capa de salida estaría dada por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}{\bf{a}}^{(t)} = {\bf{b}} + {\bf{V}}{\bf{h}}^{(t-1)} + {\bf{U}}{\bf{x}}^{(t)},\\ {\bf{h}}^{(t)} = \tanh({\bf{a}}^{(t)}), \\ {\bf{o}}^{(t)} = {\bf{c}} + {\bf{W}}{\bf{h}}^{(t)}\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\bf{V}\)</span> corresponde a la matriz de pesos que conectan la salida de una neurona en el tiempo anterior para usarla como entrada en el tiempo actual. <span class="math notranslate nohighlight">\(\bf{U}\)</span> es la matriz de pesos para las entradas de la red y <span class="math notranslate nohighlight">\(\bf{W}\)</span> es la matriz de pesos que conecta el estado de la neurona interna con la neurona de la capa de salida. <span class="math notranslate nohighlight">\(\bf{b}\)</span> y <span class="math notranslate nohighlight">\(\bf{c}\)</span> son vectores con los términos independientes de la capa oculta y la capa de salida respectivamente. La salida <span class="math notranslate nohighlight">\({\bf{y}}^{(t)}\)</span> de la red estará determinada por la función de activación aplicada sobre los valores <span class="math notranslate nohighlight">\({\bf{o}}^{(t)}\)</span>.</p>
+</div>
+<div class="section" id="backpropagation-through-time-bptt">
+<h2>Backpropagation through time (BPTT)<a class="headerlink" href="#backpropagation-through-time-bptt" title="Permalink to this headline">¶</a></h2>
+<p>Para incorporar las habilidades descritas, una RNN incluye la capacidad de mantener memoria interna y usar la información almacenada a través de lazos de realimentación y de esa manera darle soporte al modelamiento temporal, es decir, a la condición de dependencia estadística de observaciones consecutivas. Como se puede observar en la siguiente figura, la salida de las neuronas en la capa oculta, es usada nuevamente como entrada a la misma capa. Figura tomada de <a href="https://future-tech-association.org/2018/01/16/kotoba_kioku_tech/">Link</a>.</p>
+<p><img alt="alt text" src="../_images/RNN3.png" /></p>
+<p>El entrenamiento de una RNN puede realizarse usando el algoritmo Backpropagation descrito en clases anteriores, teniendo en cuenta  el modelo desdoblado mostrado en la primera figura. Es decir, es necesario propagar la red hacia adelante, almacenar todas las salidas parciales de las diferentes neuronas en cada una de las capas y tiempos <span class="math notranslate nohighlight">\(t\)</span>, y a partir de la función de costo definida, propagar el error hacia atrás. La pérdida total para una secuencia de valores <span class="math notranslate nohighlight">\(\bf{x}\)</span> y su correspondiente secuencia de salida <span class="math notranslate nohighlight">\(\bf{y}\)</span> (tenga en cuenta que la red puede tener múltiples salidas, entonces cada salida corresponde a un vector), corresponderá entonces a la suma de las pérdidas para cada uno de los tiempos en la secuencia. La función de costo de la red será entonces:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}L(\{ {\bf{x}}^{(1)},{\bf{x}}^{(2)},\cdots,{\bf{x}}^{(\tau)} \}, \{ {\bf{y}}^{(1)},{\bf{y}}^{(2)},\cdots,{\bf{y}}^{(\tau)} \}) \\
+L = \sum_t L^{(t)}\end{split}\]</div>
+<p>Dependiendo del tipo de problema a resolver, la función de pérdida puede ser el error cuadrático medio, o en problemas de clasificación el negativo de la verosimilitud <span class="math notranslate nohighlight">\(L^{(t)} = -\log Pmodel (\hat{y}^{(t)} |\{{\bf{x}}^{(1)},\cdots,{\bf{x}}^{(t)}  \})\)</span>, donde <span class="math notranslate nohighlight">\(Pmodel(\cdot)\)</span> corresponde a la probabilidad asignada por el modelo a la salida de la red que para el tiempo <span class="math notranslate nohighlight">\((t)\)</span> debería estar en uno. Se asume en este caso que la función de actividación de la capa salida corresponde a una función softmax, la cual garantiza que la salida de la red pueda ser interpretada como una probablidad. Uno de los problemas del algoritmo BPTT es que las operaciones de forward y backward del algoritmo no son paralelizables por su interdepedencia, lo que hace al algoritmo completamente secuencial.</p>
+<p>En primer lugar debemos estimar el gradiente de la función de costo con respecto a las salidas de la red en un tiempo cualquiera <span class="math notranslate nohighlight">\((t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(\nabla_{{\bf{o}}^{(t)}}L)_i = \frac{\partial L}{\partial o_i^{(t)}} = \frac{\partial L}{\partial L^{(t)}} \frac{\partial L^{(t)}}{\partial o_i^{(t)}} = \hat{y}_i^{(t)} - 1 \\ \nabla_{{\bf{o}}^{(t)}}L = {\bf{y}}^{(t)} \odot ({\bf{\hat{y}}}^{(t)} - {\bf{1}} )\end{split}\]</div>
+<p>En la expresión anterior <span class="math notranslate nohighlight">\(\odot\)</span> representa el producto Hadamard, es decir el producto punto a punto entre los vectores. Note que el único objetivo es mostrar que el gradiente es un vector que sólo puede tomar valor diferente de cero en la posición que corresponde a la salida deseada en el tiempo <span class="math notranslate nohighlight">\((t)\)</span>, los demás valores son cero. A partir de la expresión anterior, podemos comenzar entonces el ciclo de propagación hacia atrás a partir del final de la secuencia. En el tiempo final <span class="math notranslate nohighlight">\(\tau\)</span>, <span class="math notranslate nohighlight">\({\bf{h}}^{(\tau)}\)</span> sólo tiene a <span class="math notranslate nohighlight">\({\bf{o}}^{(\tau)}\)</span> como descendiente, por lo tanto su gradiente es simple:</p>
+<div class="math notranslate nohighlight">
+\[ \nabla_{{\bf{h}}^{(\tau)}} L = {\bf{W}}^T\nabla_{{\bf{o}}^{(\tau)}}L\]</div>
+<p>A partir de este punto se puede comenzar a iterar hacia atrás para propagar los gradientes a través del tiempo, desde <span class="math notranslate nohighlight">\(t=\tau-1\)</span> hasta <span class="math notranslate nohighlight">\(t = 1\)</span>. Hay que tener en cuenta que ahora <span class="math notranslate nohighlight">\({\bf{h}}^{(t)}\)</span> (para <span class="math notranslate nohighlight">\(t &lt; \tau\)</span>) tiene dos descendientes <span class="math notranslate nohighlight">\({\bf{o}}^{(t)}\)</span> y <span class="math notranslate nohighlight">\({\bf{h}}^{(t+1)}\)</span>. Su gradiente está dado por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \nabla_{{\bf{h}}^{(t)}}L = \left( \frac{\partial {\bf{h}}^{(t+1)}}{\partial {\bf{h}}^{(t)}}\right)^T(\nabla_{{\bf{h}}^{(t+1)}} L) + \left(\frac{\partial {\bf{o}}^{(t)}}{\partial {\bf{h}}^{(t)}}\right)^T(\nabla_{{\bf{o}}^{(t)}}L) \\
+\nabla_{{\bf{h}}^{(t)}}L = {\bf{V}}^T(\nabla_{{\bf{h}}^{(t+1)}} L)\text{diag} \left( 1 - \left( {\bf{h}}^{(t+1)} \right)^2\right) + {\bf{W}}^T(\nabla_{{\bf{o}}^{(t)}}L)\end{split}\]</div>
+<p>Una vez se obtienen los gradientes de los nodos internos, se pueden obtener los gradientes de los parámetros, teniendo en cuenta que estos se comparten a lo largo del tiempo:</p>
+<div class="math notranslate nohighlight">
+\[ \nabla_{\bf{c}} L = \sum_t \left(\frac{\partial {\bf{o}}^{t}}{\partial {\bf{c}}}\right)^T \nabla_{{\bf{o}}^{(t)}}L\]</div>
+<div class="math notranslate nohighlight">
+\[ \nabla_{\bf{b}} L = \sum_t \left(\frac{\partial {\bf{h}}^{t}}{\partial {\bf{b}}}\right)^T \nabla_{{\bf{h}}^{(t)}}L = \sum_t \text{diag}\left( 1 - \left( {\bf{h}}^{(t)} \right)^2\right)\nabla_{{\bf{h}}^{(t)}} L \]</div>
+<div class="math notranslate nohighlight">
+\[\nabla_{{\bf W}}L = \sum_t \sum_i \left(  \frac{\partial L}{\partial o_i^{(t)}} \right)^T \nabla_{{\bf W}} o_i^{(t)} = \sum_t (\nabla_{{\bf{o}}^{(t)}}L){\bf{h}}^{(t)^T}\]</div>
+<div class="math notranslate nohighlight">
+\[\nabla_{\bf V}L = \sum_t \text{diag}\left( 1 - \left( {\bf{h}}^{(t)} \right)^2\right)(\nabla_{{\bf{h}}^{(t)}} L){\bf{h}}^{(t-1)^T}\]</div>
+<div class="math notranslate nohighlight">
+\[ \nabla_{\bf U}L = \sum_t \text{diag}\left( 1 - \left( {\bf{h}}^{(t)} \right)^2\right)(\nabla_{{\bf{h}}^{(t)}} L){\bf{x}}^{(t)^T} \]</div>
+<p>Una vez calculados los gradientes se puede proceder a actualizar los parámetros usando la regla del gradiente descendente o similar. Veamos un ejemplo de aplicación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">Example of use Elman recurrent network</span>
+<span class="sd">=====================================</span>
+
+<span class="sd">Task: Detect the amplitudes</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">neurolab</span> <span class="k">as</span> <span class="nn">nl</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create train samples</span>
+<span class="n">i1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">i2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Create network with 2 layers</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">nl</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">newelm</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">nl</span><span class="o">.</span><span class="n">trans</span><span class="o">.</span><span class="n">TanSig</span><span class="p">(),</span> <span class="n">nl</span><span class="o">.</span><span class="n">trans</span><span class="o">.</span><span class="n">PureLin</span><span class="p">()])</span>
+<span class="c1"># Set initialized functions and init</span>
+<span class="n">net</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">initf</span> <span class="o">=</span> <span class="n">nl</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">InitRand</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">initf</span><span class="o">=</span> <span class="n">nl</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">InitRand</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="c1"># Train network</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">goal</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="c1"># Simulate network</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">sim</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+<span class="c1"># Plot result</span>
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch number&#39;</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Train error (default MSE)&#39;</span><span class="p">)</span>
+
+<span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">80</span><span class="p">))</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">80</span><span class="p">))</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;train target&#39;</span><span class="p">,</span> <span class="s1">&#39;net output&#39;</span><span class="p">])</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch: 100; Error: 0.25121219195;
+Epoch: 200; Error: 0.0754892838743;
+Epoch: 300; Error: 0.120768353064;
+Epoch: 400; Error: 0.0752163347489;
+Epoch: 500; Error: 0.0640042835346;
+The maximum number of train epochs is reached
+</pre></div>
+</div>
+<img alt="../_images/Clase 14 - Redes Neuronales Recurrentes_31_1.png" src="../_images/Clase 14 - Redes Neuronales Recurrentes_31_1.png" />
+</div>
+</div>
+<p>Cuando las series a partir de las cuales se entrena la RNN son muy extensas en longitud, el entrenamiento de la red se puede hacer muy lento y además aumentar considerablemente los requerimientos en memoria, porque es necesario propagar toda la red en el tiempo, almacenar los resultados parciales de cada tiempo para posteriormente realizar la etapa Backward del algoritmo y comenzar con la siguiente época. Por esa razón, en el caso de RNN también se suele usar un procedimiento similar al entrenamiento mini-batch, en el que se propaga la red hacia adelante hasta un tiempo intermedio <span class="math notranslate nohighlight">\((t)\)</span>, se realiza la etapa Backward, y por lo tanto la actualización de los parámetros de la red, y se continua la propagación hacia adelante a partir del tiempo <span class="math notranslate nohighlight">\((t + 1)\)</span>. De esta manera se acelera la convergencia de la red y se disminuyen los requerimientos en memoria. A esta versión del algoritmo de entrenamiento se le conoce como <b>Truncated BPTT</b>.</p>
+</div>
+<div class="section" id="redes-neuronales-recurrentes-bidireccionales">
+<h2>Redes Neuronales Recurrentes Bidireccionales<a class="headerlink" href="#redes-neuronales-recurrentes-bidireccionales" title="Permalink to this headline">¶</a></h2>
+<p>En algunos problemas la información necesaria para hacer la predicción en un punto de la secuencia, implica conocer información del pasado, pero también del futuro. Por ejemplo en problemas de reconocimiento de voz o traducción, es usual que se requiera conocer la información de la secuencia completa. Las Bidirectional RNN (BRNN) corresponden a una modificación de las RNN en las que se incluye una capa adicional que en lugar de transmitir la información del tiempo <span class="math notranslate nohighlight">\((t)\)</span> al tiempo <span class="math notranslate nohighlight">\((t + 1)\)</span>, lo hace al contrario. Las dos capas ocultas en este caso no tiene interconexión entre ellas, pero si con la capa de salida.</p>
+<p><img alt="alt text" src="../_images/RNN_arc_3.png" /></p>
+<p>Este tipo de arquitecturas se emplean tanto en casos en los que para cada entrada se requiere producir una salida, como en casos en los que se desea producir una única salida para toda la secuencia.</p>
+</div>
+<div class="section" id="long-short-term-memory-rnn-lstm">
+<h2>Long Short Term Memory RNN (LSTM)<a class="headerlink" href="#long-short-term-memory-rnn-lstm" title="Permalink to this headline">¶</a></h2>
+<p>El principal problema de las RNN convencionales es su incapacidad para aprender dependencias de orden superior en los datos, es decir, que el modelo capture información que le permita determinar la influencia que tiene un dato visto por el modelo hace varios tiempos atrás con respecto a la salida del modelo en el tiempo actual. Incluso, que pueda capturar depdencias cortas y dependencias largas al mismo tiempo. Esto sucede debido a que si se analizan con detenimiento las funciones de actualización de los parámetros, la matriz <span class="math notranslate nohighlight">\(\bf{V}\)</span> que contiene los pesos de los lazos de realimentación se multiplica así misma <span class="math notranslate nohighlight">\((\tau-1)\)</span> veces, lo que implica que si sus valores son inferiores a cero, terminan desvaneciendose y si son muy grandes, terminarán divergiendo. A este hecho se suma que la aplicación consecutiva de múltiples funciones de activación, terminan por desvaner el resultado.</p>
+<p><img alt="alt text" src="../_images/sigmoid_vanishing_gradient.png" /></p>
+<p>Este problema ha sido estudiado ampliamente y se han propuesto múltiples alternativas desde finales de los años 80 y comienzos de los 90. De todas las arquitecturas propuestas, la de mayor éxito es una en la que se reemplazan los perceptrones por otro tipo de unidades básicas, llamadas celulas. Las redes neuronales recurrentes compuestas por dichas célculas se conocen con el nombre de Long-Short-Term-Memory Neural Networks (LSTM). Las LSTM fueron propuestas en 1997 y tienen la capacidad de aprender dependencias de tiempo corto, largo y así mismo de decir cuándo olvidar.</p>
+<p><img alt="alt text" src="../_images/LSTM2.jpeg" /></p>
+</div>
+<div class="section" id="exponential-weighted-average">
+<h2>Exponential Weighted Average<a class="headerlink" href="#exponential-weighted-average" title="Permalink to this headline">¶</a></h2>
+<p>Las LSTM usan como principio el promedio acumulado conocido como Exponential Weighted Moving Average (EWMA) y que originalmente fue propuesto para unas unidades conocidas como “Leaky Units”. El EWMA tiene en cuenta más o menos información del pasado, de acuerdo con un parámetero. La regla de acumulación está dada por: <span class="math notranslate nohighlight">\(\mu^{(t)} \leftarrow \beta \mu^{(t-1)} + (1 - \beta)\upsilon^{(t)}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="c1"># make a hat function, and add noise</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Raw&#39;</span> <span class="p">)</span>
+ 
+<span class="n">Beta1</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">Beta2</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">200</span><span class="p">):</span>
+    <span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Beta1</span><span class="o">*</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Beta1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Beta2</span><span class="o">*</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Beta2</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="c1"># regular EWMA, with bias against trend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;EWMA, Beta = 0.8&#39;</span> <span class="p">)</span>
+ 
+<span class="c1"># &quot;corrected&quot; (?) EWMA</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x2</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;EWMA, Beta = 0.5&#39;</span> <span class="p">)</span>
+ 
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1">#savefig( &#39;ewma_correction.png&#39;, fmt=&#39;png&#39;, dpi=100 )</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Clase 14 - Redes Neuronales Recurrentes_44_0.png" src="../_images/Clase 14 - Redes Neuronales Recurrentes_44_0.png" />
+</div>
+</div>
+<p>Como se puede observar en la gráfica anterior, el parámetro <span class="math notranslate nohighlight">\(\beta\)</span> controla si la salida del promedio toma más en cuenta el dato actual (línea roja), o el histórico (línea azul).</p>
+<p>Las LSTM usan el mismo principio para controlar el nivel de memoria o de dependencia en el tiempo, pero en lugar de usar un parámetro constante, definen <b>compuertas</b> que son entrenadas como parte del algoritmo de entrenamiento y que deciden cuándo mantener y cuándo olvidar la información precedente. Una celula LSTM contiene tres compuertas, que se representan en la gráfica por la letra <span class="math notranslate nohighlight">\(\sigma\)</span>, las cuales representan funciones sigmoide que garantizan que dichos valores están en el intervalo <span class="math notranslate nohighlight">\((0,1)\)</span>. Adicionalmente, una célula LSTM define una variable adicional llamada <b>estado</b>. Las tres compuertas le permiten a la célula olvidar su estado o no, escribir o no, y leer o no.</p>
+<p><img alt="alt text" src="../_images/LSTM2.png" /></p>
+<p>Usando la notación de la gráfica anterior, para el tiempo <span class="math notranslate nohighlight">\(t\)</span> y la célula <span class="math notranslate nohighlight">\(l\)</span>, la célula estará descrita por las siguientes funciones:</p>
+<div class="math notranslate nohighlight">
+\[f_l^{(t)} = \sigma \left( b_l^f + \sum_j U_{l,j}^f x_j^{(t)} + \sum_j V_{l,j}^f h_j^{(t-1)}\right)\]</div>
+<div class="math notranslate nohighlight">
+\[ c_l^{(t)} = f_l^{(t)}c_l^{(t-1)} + i_l^{(t)}\tanh \left( b_l^c + \sum_j U_{l,j}^c x_j^{(t)} + \sum_j V_{l,j}^c h_j^{(t-1)} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[i_l^{(t)} = \sigma \left( b_l^i + \sum_j U_{l,j}^i x_j^{(t)} + \sum_j V_{l,j}^i h_j^{(t-1)}\right)\]</div>
+<div class="math notranslate nohighlight">
+\[h_l^{(t)} = \tanh(c_l^{(t)})o_l^{(t)}\]</div>
+<div class="math notranslate nohighlight">
+\[o_l^{(t)} = \sigma \left( b_l^o + \sum_j U_{l,j}^o x_j^{(t)} + \sum_j V_{l,j}^o h_j^{(t-1)}\right)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(c_l^{(t)}\)</span> es el estado de la célula en el tiempo <span class="math notranslate nohighlight">\(t\)</span>, por lo tanto la compuerta <span class="math notranslate nohighlight">\(f_l^{(t)}\)</span> controla cuánto debe recordar la célula de su estado anterior <span class="math notranslate nohighlight">\(c_l^{(t-1)}\)</span>. Por otro lado, <span class="math notranslate nohighlight">\(i_l^{(t)}\)</span> es una compuerta que controla cuánta influencia tendrá la información actual (entrada <span class="math notranslate nohighlight">\(x^{(t)}\)</span> y salida anterior <span class="math notranslate nohighlight">\(h^{(t-1)}\)</span>) en el estado actual de la célula. La compuerta <span class="math notranslate nohighlight">\(o_l^{(t)}\)</span> por su parte controla el nivel de activación de la salida.</p>
+<p>El conjunto completo de parámetros que deben ser ajustados es entonces <span class="math notranslate nohighlight">\({\bf{V}}^f, {\bf{U}}^f, {\bf{b}}^f, {\bf{V}}^c, {\bf{U}}^c, {\bf{b}}^c, {\bf{V}}^i, {\bf{U}}^i, {\bf{b}}^i, {\bf{V}}^o, {\bf{U}}^o, {\bf{b}}^o\)</span>. Al igual que con las RNN, también se pueden construir arquitecturas bidireccionales usando LSTMs. Pueden consultar el siguiente turorial: <a class="reference external" href="https://machinelearningmastery.com/develop-bidirectional-lstm-sequence-classification-python-keras/">https://machinelearningmastery.com/develop-bidirectional-lstm-sequence-classification-python-keras/</a></p>
+<p>Ejemplo (tomade: <a class="reference external" href="https://machinelearningmastery.com/time-series-prediction-lstm-recurrent-neural-networks-python-keras/">https://machinelearningmastery.com/time-series-prediction-lstm-recurrent-neural-networks-python-keras/</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;DataFiles/international-airline-passengers.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="n">skipfooter</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Clase 14 - Redes Neuronales Recurrentes_57_0.png" src="../_images/Clase 14 - Redes Neuronales Recurrentes_57_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">LSTM</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python2.7/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">values</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="c1"># normalize the dataset</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="c1"># split into train and test sets</span>
+<span class="n">train_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.67</span><span class="p">)</span>
+<span class="n">test_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">-</span> <span class="n">train_size</span>
+<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">train_size</span><span class="p">,:],</span> <span class="n">dataset</span><span class="p">[</span><span class="n">train_size</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">),:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(96, 48)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert an array of values into a dataset matrix</span>
+<span class="k">def</span> <span class="nf">create_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">look_back</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+	<span class="n">dataX</span><span class="p">,</span> <span class="n">dataY</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">-</span><span class="n">look_back</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+		<span class="n">a</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">look_back</span><span class="p">),</span> <span class="mi">0</span><span class="p">]</span>
+		<span class="n">dataX</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+		<span class="n">dataY</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">look_back</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+	<span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataX</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataY</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reshape into X=t and Y=t+1</span>
+<span class="n">look_back</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+<span class="n">testX</span><span class="p">,</span> <span class="n">testY</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+
+<span class="c1"># reshape input to be [samples, time steps, features]</span>
+<span class="n">trainX</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">trainX</span><span class="p">,</span> <span class="p">(</span><span class="n">trainX</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">trainX</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">testX</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">testX</span><span class="p">,</span> <span class="p">(</span><span class="n">testX</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">testX</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create and fit the LSTM network</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/100
+ - 1s - loss: 0.0474
+Epoch 2/100
+ - 0s - loss: 0.0240
+Epoch 3/100
+ - 0s - loss: 0.0180
+Epoch 4/100
+ - 0s - loss: 0.0167
+Epoch 5/100
+ - 0s - loss: 0.0158
+Epoch 6/100
+ - 0s - loss: 0.0151
+Epoch 7/100
+ - 0s - loss: 0.0143
+Epoch 8/100
+ - 0s - loss: 0.0132
+Epoch 9/100
+ - 0s - loss: 0.0123
+Epoch 10/100
+ - 0s - loss: 0.0114
+Epoch 11/100
+ - 0s - loss: 0.0105
+Epoch 12/100
+ - 0s - loss: 0.0096
+Epoch 13/100
+ - 0s - loss: 0.0086
+Epoch 14/100
+ - 0s - loss: 0.0077
+Epoch 15/100
+ - 0s - loss: 0.0068
+Epoch 16/100
+ - 0s - loss: 0.0061
+Epoch 17/100
+ - 0s - loss: 0.0053
+Epoch 18/100
+ - 0s - loss: 0.0047
+Epoch 19/100
+ - 0s - loss: 0.0039
+Epoch 20/100
+ - 0s - loss: 0.0035
+Epoch 21/100
+ - 0s - loss: 0.0031
+Epoch 22/100
+ - 0s - loss: 0.0028
+Epoch 23/100
+ - 0s - loss: 0.0025
+Epoch 24/100
+ - 0s - loss: 0.0024
+Epoch 25/100
+ - 0s - loss: 0.0023
+Epoch 26/100
+ - 0s - loss: 0.0022
+Epoch 27/100
+ - 0s - loss: 0.0022
+Epoch 28/100
+ - 0s - loss: 0.0022
+Epoch 29/100
+ - 0s - loss: 0.0021
+Epoch 30/100
+ - 0s - loss: 0.0021
+Epoch 31/100
+ - 0s - loss: 0.0021
+Epoch 32/100
+ - 0s - loss: 0.0021
+Epoch 33/100
+ - 0s - loss: 0.0021
+Epoch 34/100
+ - 0s - loss: 0.0021
+Epoch 35/100
+ - 0s - loss: 0.0020
+Epoch 36/100
+ - 0s - loss: 0.0021
+Epoch 37/100
+ - 0s - loss: 0.0021
+Epoch 38/100
+ - 0s - loss: 0.0021
+Epoch 39/100
+ - 0s - loss: 0.0021
+Epoch 40/100
+ - 0s - loss: 0.0021
+Epoch 41/100
+ - 0s - loss: 0.0021
+Epoch 42/100
+ - 0s - loss: 0.0021
+Epoch 43/100
+ - 0s - loss: 0.0020
+Epoch 44/100
+ - 0s - loss: 0.0021
+Epoch 45/100
+ - 0s - loss: 0.0021
+Epoch 46/100
+ - 0s - loss: 0.0021
+Epoch 47/100
+ - 0s - loss: 0.0020
+Epoch 48/100
+ - 0s - loss: 0.0021
+Epoch 49/100
+ - 0s - loss: 0.0021
+Epoch 50/100
+ - 0s - loss: 0.0021
+Epoch 51/100
+ - 0s - loss: 0.0021
+Epoch 52/100
+ - 0s - loss: 0.0021
+Epoch 53/100
+ - 0s - loss: 0.0020
+Epoch 54/100
+ - 0s - loss: 0.0019
+Epoch 55/100
+ - 0s - loss: 0.0021
+Epoch 56/100
+ - 0s - loss: 0.0020
+Epoch 57/100
+ - 0s - loss: 0.0021
+Epoch 58/100
+ - 0s - loss: 0.0020
+Epoch 59/100
+ - 0s - loss: 0.0019
+Epoch 60/100
+ - 0s - loss: 0.0022
+Epoch 61/100
+ - 0s - loss: 0.0021
+Epoch 62/100
+ - 0s - loss: 0.0021
+Epoch 63/100
+ - 0s - loss: 0.0021
+Epoch 64/100
+ - 0s - loss: 0.0020
+Epoch 65/100
+ - 0s - loss: 0.0021
+Epoch 66/100
+ - 0s - loss: 0.0020
+Epoch 67/100
+ - 0s - loss: 0.0020
+Epoch 68/100
+ - 0s - loss: 0.0020
+Epoch 69/100
+ - 0s - loss: 0.0021
+Epoch 70/100
+ - 0s - loss: 0.0021
+Epoch 71/100
+ - 0s - loss: 0.0021
+Epoch 72/100
+ - 0s - loss: 0.0020
+Epoch 73/100
+ - 0s - loss: 0.0021
+Epoch 74/100
+ - 0s - loss: 0.0020
+Epoch 75/100
+ - 0s - loss: 0.0021
+Epoch 76/100
+ - 0s - loss: 0.0021
+Epoch 77/100
+ - 0s - loss: 0.0021
+Epoch 78/100
+ - 0s - loss: 0.0020
+Epoch 79/100
+ - 0s - loss: 0.0021
+Epoch 80/100
+ - 0s - loss: 0.0020
+Epoch 81/100
+ - 0s - loss: 0.0020
+Epoch 82/100
+ - 0s - loss: 0.0021
+Epoch 83/100
+ - 0s - loss: 0.0021
+Epoch 84/100
+ - 0s - loss: 0.0021
+Epoch 85/100
+ - 0s - loss: 0.0021
+Epoch 86/100
+ - 0s - loss: 0.0020
+Epoch 87/100
+ - 0s - loss: 0.0022
+Epoch 88/100
+ - 0s - loss: 0.0020
+Epoch 89/100
+ - 0s - loss: 0.0020
+Epoch 90/100
+ - 0s - loss: 0.0021
+Epoch 91/100
+ - 0s - loss: 0.0020
+Epoch 92/100
+ - 0s - loss: 0.0020
+Epoch 93/100
+ - 0s - loss: 0.0020
+Epoch 94/100
+ - 0s - loss: 0.0020
+Epoch 95/100
+ - 0s - loss: 0.0020
+Epoch 96/100
+ - 0s - loss: 0.0020
+Epoch 97/100
+ - 0s - loss: 0.0020
+Epoch 98/100
+ - 0s - loss: 0.0021
+Epoch 99/100
+ - 0s - loss: 0.0021
+Epoch 100/100
+ - 0s - loss: 0.0020
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.callbacks.History at 0x7f3d27051f90&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make predictions</span>
+<span class="n">trainPredict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">trainX</span><span class="p">)</span>
+<span class="n">testPredict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">testX</span><span class="p">)</span>
+<span class="c1"># invert predictions</span>
+<span class="n">trainPredict</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">trainPredict</span><span class="p">)</span>
+<span class="n">trainY</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="n">trainY</span><span class="p">])</span>
+<span class="n">testPredict</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">testPredict</span><span class="p">)</span>
+<span class="n">testY</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="n">testY</span><span class="p">])</span>
+<span class="c1"># calculate root mean squared error</span>
+<span class="n">trainScore</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">trainY</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">trainPredict</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Train Score: </span><span class="si">%.2f</span><span class="s1"> RMSE&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">trainScore</span><span class="p">))</span>
+<span class="n">testScore</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">testY</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">testPredict</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test Score: </span><span class="si">%.2f</span><span class="s1"> RMSE&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">testScore</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train Score: 23.26 RMSE
+Test Score: 47.68 RMSE
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trainPredictPlot</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">trainPredictPlot</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">trainPredictPlot</span><span class="p">[</span><span class="n">look_back</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">trainPredict</span><span class="p">)</span><span class="o">+</span><span class="n">look_back</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">trainPredict</span>
+<span class="c1"># shift test predictions for plotting</span>
+<span class="n">testPredictPlot</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">testPredictPlot</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">testPredictPlot</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">trainPredict</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">look_back</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">testPredict</span>
+<span class="c1"># plot baseline and predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trainPredictPlot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">testPredictPlot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Clase 14 - Redes Neuronales Recurrentes_64_0.png" src="../_images/Clase 14 - Redes Neuronales Recurrentes_64_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bibliografia">
+<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
+<p>[1] Googfellow, I.; Bengio, Y.; Courville, A. “Deep Learning”, The MIT Press, Cambridge, MA, USA, 2016.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Clase%2013%20-%20Mapas%20Auto-Organizables.html" title="previous page">Mapas Auto-Organizables</a>
+    <a class='right-next' id="next-link" href="titles/U7_description.html" title="next page">U7. MÁQUINAS DE VECTORES DE SOPORTE</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-51547737-2', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

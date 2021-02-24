@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobreajuste y Regularización &#8212; 2020 Introducción al Machine Learning</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="U4. APRENDIZAJE NO SUPERVISADO" href="titles/U4_description.html" />
+    <link rel="prev" title="Complejidad de modelos" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Course information
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U1_description.html">
+   U1. INTRODUCCIÓN AL MACHINE LEARNING
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html">
+     Introducción al Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#modelos-a-partir-de-datos">
+     Modelos a partir de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#tipos-de-problemas-supervisados">
+     Tipos de problemas supervisados
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html">
+     <font color="blue">
+      Modelos básicos de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html#font-color-blue-pensemos-ahora-en-el-problema-de-clasificacion-font">
+     <font color="blue">
+      Pensemos ahora en el problema de clasificación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2003%20-%20Funciones%20discriminantes%20Gausianas.html">
+     Modelos de clasificación empleando funciones de densidad Gausianas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U1_IntroLabs.html">
+   INTRODUCCIÓN A PYTHON Y NUMPY
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U2_description.html">
+   U2. MODELOS NO PARÁMETRICOS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2004%20-%20Modelos%20no%20Param%C3%A9tricos.html">
+     Modelos no parámetricos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="titles/U3_description.html">
+   U3. COMPLEJIDAD DE MODELOS Y VALIDACIÓN
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2005%20-%20M%C3%A9tricas%20de%20error.html">
+     <font color="blue">
+      Métricas de evaluación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html">
+     <font color="blue">
+      Complejidad de modelos
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-metodologias-de-validacion-font">
+     <font color="blue">
+      Metodologías de validación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-curva-de-aprendizaje-font">
+     <font color="blue">
+      Curva de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Sobreajuste y Regularización
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U4_description.html">
+   U4. APRENDIZAJE NO SUPERVISADO
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2008%20-%20Modelos%20de%20Mezclas%20de%20Gausianas.html">
+     Modelos de Mezcla de Funciones Gaussianas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html">
+     Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#referencias-generales">
+     Referencias Generales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#metodos-jerarquicos-aglomerativos">
+     Métodos jerárquicos/aglomerativos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#metodos-de-clustering">
+     Métodos de clustering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U5_description.html">
+   U5. MODELOS DE ÁRBOLES Y ENSAMBLES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2010%20-%20%C3%81rboles%20de%20Decisi%C3%B3n%2C%20Voting%2C%20Bagging%2C%20Random%20Forest.html">
+     Árboles de decisión
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2011%20-%20Boosting%2C%20Stacking.html">
+     Boosting
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U6_description.html">
+   U6. REDES NEURONALES ARTIFICIALES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html">
+     Redes Neuronales Artificiales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2013%20-%20Mapas%20Auto-Organizables.html">
+     Mapas Auto-Organizables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2014%20-%20Redes%20Neuronales%20Recurrentes.html">
+     Redes Neuronales Recurrentes
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U7_description.html">
+   U7. MÁQUINAS DE VECTORES DE SOPORTE
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html">
+     Máquinas de Soporte Vectorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html#regresion-por-vectores-de-soporte">
+     Regresión por vectores de soporte
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U8_description.html">
+   U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/Clase 07 - Regularización.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/prueba/blob/master/content/Clase 07 - Regularización.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julian-d-arias-londono">
+   Julián D. Arias Londoño
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sobreajuste">
+   Sobreajuste
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parada-anticipada">
+     Parada anticipada
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regularizacion">
+   Regularización
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-maldicion-de-la-dimensionalidad">
+   La maldición de la dimensionalidad
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="sobreajuste-y-regularizacion">
+<h1>Sobreajuste y Regularización<a class="headerlink" href="#sobreajuste-y-regularizacion" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget --no-cache -O init.py -q https://raw.githubusercontent.com/jdariasl/ML_2020/master/init.py
+<span class="kn">import</span> <span class="nn">init</span><span class="p">;</span> <span class="n">init</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">force_download</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="julian-d-arias-londono">
+<h2>Julián D. Arias Londoño<a class="headerlink" href="#julian-d-arias-londono" title="Permalink to this headline">¶</a></h2>
+<p>Profesor Asociado<br />
+Departamento de Ingeniería de Sistemas<br />
+Universidad de Antioquia, Medellín, Colombia<br />
+<a class="reference external" href="mailto:julian&#46;ariasl&#37;&#52;&#48;udea&#46;edu&#46;co">julian<span>&#46;</span>ariasl<span>&#64;</span>udea<span>&#46;</span>edu<span>&#46;</span>co</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sobreajuste">
+<h2>Sobreajuste<a class="headerlink" href="#sobreajuste" title="Permalink to this headline">¶</a></h2>
+<p>El sobreajuste es un fenómeno que puede ocurrir en el ajuste de modelos estadísticos o de aprendizaje automático, en el que el modelo se aprende muy bien la respuesta a las muestras que han sido usadas durante el entrenamiento, pero no captura la estructura subyacente de los datos, razón por la cual no puede <b>generalizar</b> correctamente, es decir, hacer predicciones precisas sobre nuevas muestras. El comportamiento opuesto al sobreajuste es el <b>subajuste</b>, en cuyo caso el modelo no puede ajustarse a los datos de entrenamiento. Ningunos de los dos comportamientos es deseado, ya que en ninguno de los dos casos el modelo adquiere la capacidad de realizar predicciones apropiadas.</p>
+<p>Para identificar que un modelo se ha sobreajustado es importante que durante la validación se estimen las medidas de desempeño tanto en el conjunto de entrenamiento como en el de test. Si se obtienen errores de entrenamiento muy bajos (0 a proximadamente 0), pero en el conjunto de test se obtienen errores muy altos, el modelo se ha sobreajustado. Si tanto en el conjunto de entrenamiento como en el de test, los errores son altos y en proporciones similares, entonces el modelo está subajustado. En este caso es posible que algún parámetro en el modelo no haya permitido un mejor ajuste del mismo (por ejemplo un nivel de profundidad muy pequeño en un árbol de decisión), que en el caso de algoritmos de entrenamiento iterativos, el número máximo de iteraciones no haya sido suficiente, o que definitvamente el modelo escogido no tiene la flexibildiad suficiente para adpatarse a la estructura subyacente de los datos con losq ue está siendo entrenado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">library.regularization</span> <span class="k">as</span> <span class="nn">reg</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">PrintOverfittingReg</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+<img alt="../_images/Clase 07 - Regularización_5_1.png" src="../_images/Clase 07 - Regularización_5_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">PrintOverfittingClassify</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Clase 07 - Regularización_6_0.png" src="../_images/Clase 07 - Regularización_6_0.png" />
+</div>
+</div>
+<p><b>Causas del sobreajuste</b>:</p>
+<p>De manera general el sobreajuste puede presentarse por las siguientes razones:</p>
+<ul class="simple">
+<li><p>Muestras de entrenamiento muy ruidosas</p></li>
+<li><p>Un modelo demasiado complejo que se ajuste al ruido</p></li>
+</ul>
+<p>y/o</p>
+<ul class="simple">
+<li><p>Un conjunto de entrenamiento pequeño</p></li>
+<li><p>Un espacio de características de muy alta dimensión</p></li>
+</ul>
+<p>El ruido en los datos puede provenir de diferentes fuentes dependiendo del origen de los mismos, por ejemplo en datos provenientes de sensores (como en aplicaciones que usan el acelerómetro o el giroscopio de los smartphones), el rudio puede provenir por alteraciones en las mediciones debida a movimientos indeceados, o en el reconocimiento de voz, por ruidos captados por el micrófono y que no son en realidad la voz de la persona que está hablando al sistema. Cuando los datos provienen de bases de datos estructuradas, podemos tener ruido cuando, por ejemplo, algún campo contiene información desactualizada sobre un usuario. En problemas supervisados, el ruido también puede estar en presente en la variable de salida; algunas aplicaciones que usan etiquetas obtenidas desde internet, por ejemplo captchas, podrían eventualmente tener problemas con etiquetas ruidosas.</p>
+<p>Sin embargo, el sobreajuste se presenta no sólo cuando existe ruido en los datos, sino cuando usamos un modelo suficientemente flexible para adapatarse a dicho ruido. Por ejemplo, una regresión logística que use un polinomio de grado 1, no podrá sobreajustarse nunca, porque su flexibilidad está limitada a un número de parámetros bajo (<span class="math notranslate nohighlight">\(d+1\)</span>). Sin embargo, modelos con mayor flexibilidad, es decir, con un número de parámetros mayor son más susceptibles al sobreajuste. Por lo tanto, una de las alternativas para evitar el sobreajuste es precisamente reducir la flexibilidad del modelo, limitando el rango de posibles valores que pueden tomar sus parámetros.</p>
+<div class="section" id="parada-anticipada">
+<h3>Parada anticipada<a class="headerlink" href="#parada-anticipada" title="Permalink to this headline">¶</a></h3>
+<p>El problema del sobreajuste debe ser abordado desde diferente frentes. El primero de ellos es utilizar una metodología de validación apropiada. Hasta el momento nosotros hemos discutido la necesidad de dividir el conjunto de muestras en dos conjuntos (Entrenamiento y Validación) y repetir el proceso de entrenamiento y validación varias veces. Sin embargo, en problemas en los que debemos seleccionar hiperparámetros de los modelos, es decir, parámetros que no se ajustan durante el entrenamiento sino que típicamente escogemos a partir de evaluar el error durante la validación, es necesario hacer una partición en tres subconjuntos: <b> Entrenamiento, Validación y Test </b>.</p>
+<ul class="simple">
+<li><p>Entrenamiento: es el subconjunto utilizado para ajustar los parámetros del modelo elejido.</p></li>
+<li><p>Validación: es un subconjunto utilizado para evitar el sobreajuste y decidir cuándo detener el entrenamiento o para seleccionar los hiperparámetros del modelo. En alguna literatura en inglés, a este subconjunto también se le llama “Development”.</p></li>
+<li><p>Test: es un subconjunto utilizado para evaluar la capacidad de generalización del modelos entrenado.</p></li>
+</ul>
+<p>De esa manera podemos garantizar que el conjunto de test no ha sido usado ni para el ajuste de los parámetros del modelo, ni para la selección de los hiperparámetros del mismo. En todos los casos, se deben hacer varias repeticiones usando metodologı́as como validación cruzada o bootstrapping, para obtener medidas de desempeño ± IC.</p>
+<p>Adicionalmente, en modelos muy flexibles que cuentan con un número de parámetros muy elevado (por ejemplo en las redes neuronales artificiales), se suele usar una estrategia para evitar el sobreajuste llamada parada anticipada. Esta estrategia consiste en evaluar el error en el conjunto de entrenamiento y el error en el conjunto de validación durante cada época o iteración del algoritmo de entrenamiento, cuando el error de validación deja de reducirse, aunque el error de entrenamiento continúe disminuyendo, el algoritmo de entrenamiento se detiene. Esto evita que el algoritmo continúe ajustándose a los datos de entrenamiento, pero deje de representar la estructura subyacente en los datos del problema que se está modelando.</p>
+<img src="./Images/ParadaAnticipada.png" alt="ParadaAnticipada" width="600"/><p>En Sklearn:</p>
+<p><strong>early_stopping: bool</strong>, default=False</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Whether to use early stopping to terminate training when validation score is not improving. If set to true, it will automatically set aside 10% of training data as validation and terminate training when validation score is not improving by at least tol for n_iter_no_change consecutive epochs. The split is stratified, except in a multilabel setting. Only effective when solver=&#39;sgd&#39; or &#39;adam&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="regularizacion">
+<h2>Regularización<a class="headerlink" href="#regularizacion" title="Permalink to this headline">¶</a></h2>
+<p>La regularización es un método matemático que permite reducir los efectos del ruido en problemas inversos imponiendo algún tipo de restricción en la función objetivo. Particularmente en el caso de la regresión lineal se determinó que cuando se presenta sobreajuste los coeficientes del polinomio tienden a aumentar en maginitud. La función objetivo
+regularizada está dada por:</p>
+<div class="math notranslate nohighlight">
+\[E({\bf{w}}) = \frac{1}{2}\sum_{i=1}^{N}\left( y_i - f({\bf{x}}_i,{\bf{w}})\right) ^2 + \frac{\lambda}{2}\|{\bf{w}}\|^2\]</div>
+<p>Entre mayor sea el valor de <span class="math notranslate nohighlight">\(\lambda\)</span>, mayor será la penalización por complejidad del modelo.</p>
+<p>Dado un conjunto de datos de entrenamiento <span class="math notranslate nohighlight">\(\{({\bf{x}}_i,y_i)\}_{i=1}^{N}\)</span>, siendo <span class="math notranslate nohighlight">\({\bf{x}}_i\)</span> un vector que contiene todas las características de la muestra <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(y_i\)</span> el correspondiente valor de la variable que se desea predecir a partir de <span class="math notranslate nohighlight">\({\bf{x}}_i\)</span>,  la regla de actualización de pesos regularizada para el algoritmo de gradiente estará dada por:
+$<span class="math notranslate nohighlight">\(w_j = w_j - \eta \left( \lambda w_j + \sum_{i=1}^{N} \left( f({\bf{x}}_i,{\bf{w}}) - y_i\right)x_{ij} \right)  \)</span>$</p>
+<p>La solución analítica regularizada para el problema de regresión está dada por:
+$<span class="math notranslate nohighlight">\({\bf{w}} = \left( {\bf{X}}^T {\bf{X}} + \lambda {\bf{I}} \right)^{-1} {\bf{X}}^T {\bf{Y}}\)</span>$</p>
+<p>Para la regresión logística, la regla de actualización de pesos toma una forma similar a la anterior, con la diferencia de que como ya hemos estudiado, la función de costo para el entrenamiento se deriva de la aplicación del criterio de máxima verosimilitud sobre una distribución bernoulli, y la probabilidad de que una muestra pertenezca a la clase 1 se estima a través de la función sigmoide evaluada en la función polinomial, es decir la probabilidad de que <span class="math notranslate nohighlight">\({\bf{x}}_i\)</span> pertenezca a la clase 1 es igual a <span class="math notranslate nohighlight">\(g(f({\bf{x}}_i,{\bf{w}}))\)</span>, donde <span class="math notranslate nohighlight">\(g(\cdot)\)</span> es la función sigmoidal. La regla de actualización de pesos en este caso está dada por:</p>
+<div class="math notranslate nohighlight">
+\[w_j = w_j - \eta \left( \lambda w_j + \sum_{i=1}^{N} \left( g\left(f({\bf{x}}_i,{\bf{w}})\right) - y_i\right)x_{ij} \right)  \]</div>
+<p><strong>Veamos un ejemplo</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&quot;DataFiles/ex2data2.txt&quot;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]];</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">Y</span><span class="o">.</span><span class="n">flat</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">X</span><span class="p">[</span><span class="n">Y</span><span class="o">.</span><span class="n">flat</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">Y</span><span class="o">.</span><span class="n">flat</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">X</span><span class="p">[</span><span class="n">Y</span><span class="o">.</span><span class="n">flat</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4f7a8f8fd0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/Clase 07 - Regularización_16_1.png" src="../_images/Clase 07 - Regularización_16_1.png" />
+</div>
+</div>
+<p>Veamos la frontera que produce una regresión logística estándar, en este caso para un polinomio de grado 6.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">StandardLogisticRegression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error= 0.17924839740742132
+</pre></div>
+</div>
+<img alt="../_images/Clase 07 - Regularización_18_1.png" src="../_images/Clase 07 - Regularización_18_1.png" />
+<img alt="../_images/Clase 07 - Regularización_18_2.png" src="../_images/Clase 07 - Regularización_18_2.png" />
+</div>
+</div>
+<p>Veamos ahora que sucede si usamos la version regularizada dándole un valor a <span class="math notranslate nohighlight">\(\lambda\)</span> diferente de cero:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">StandardLogisticRegression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">lam</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error= 0.2507583326384995
+</pre></div>
+</div>
+<img alt="../_images/Clase 07 - Regularización_20_1.png" src="../_images/Clase 07 - Regularización_20_1.png" />
+<img alt="../_images/Clase 07 - Regularización_20_2.png" src="../_images/Clase 07 - Regularización_20_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">StandardLogisticRegression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">lam</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error= 0.33604518076771783
+</pre></div>
+</div>
+<img alt="../_images/Clase 07 - Regularización_21_1.png" src="../_images/Clase 07 - Regularización_21_1.png" />
+<img alt="../_images/Clase 07 - Regularización_21_2.png" src="../_images/Clase 07 - Regularización_21_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">StandardLogisticRegression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">lam</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error= 0.39341073848662333
+</pre></div>
+</div>
+<img alt="../_images/Clase 07 - Regularización_22_1.png" src="../_images/Clase 07 - Regularización_22_1.png" />
+<img alt="../_images/Clase 07 - Regularización_22_2.png" src="../_images/Clase 07 - Regularización_22_2.png" />
+</div>
+</div>
+<p>La restricción que estamos usando en el término de regularización corresponde a la norma <span class="math notranslate nohighlight">\(L_2\)</span> del vector <span class="math notranslate nohighlight">\(\bf{w}\)</span>. También es posible usar otro tipo de normas, entre ellas la norma <span class="math notranslate nohighlight">\(L_1\)</span> es también muy usada, ya que garantiza no sólo que la magnitud de los pesos en el vector <span class="math notranslate nohighlight">\(\bf{w}\)</span> no se desboder, sino que además causa que algunos de los pesos tomen un valor de cero. La regresión con este tipo de regularización se conoce como LASSO y será analizada en detalle más adelante en el curso.</p>
+<img src="./Images/L1L2.png" alt="ParadaAnticipada" width="600"/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">datasets</span>
+<span class="n">diabetes</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diabetes</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.03807591  0.05068012  0.06169621 ... -0.00259226  0.01990842
+  -0.01764613]
+ [-0.00188202 -0.04464164 -0.05147406 ... -0.03949338 -0.06832974
+  -0.09220405]
+ [ 0.08529891  0.05068012  0.04445121 ... -0.00259226  0.00286377
+  -0.02593034]
+ ...
+ [ 0.04170844  0.05068012 -0.01590626 ... -0.01107952 -0.04687948
+   0.01549073]
+ [-0.04547248 -0.04464164  0.03906215 ...  0.02655962  0.04452837
+  -0.02593034]
+ [-0.04547248 -0.04464164 -0.0730303  ... -0.03949338 -0.00421986
+   0.00306441]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">=</span><span class="n">linear_model</span><span class="o">.</span><span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">diabetes</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">diabetes</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0.          -0.         471.03873321 136.50710814  -0.
+  -0.         -58.3195488    0.         408.02332435   0.        ]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="la-maldicion-de-la-dimensionalidad">
+<h2>La maldición de la dimensionalidad<a class="headerlink" href="#la-maldicion-de-la-dimensionalidad" title="Permalink to this headline">¶</a></h2>
+<p>El segundo par de razones listadas previamente y que pueden causar sobreajuste, configuran un problema conocido como la <b>Maldición de la Dimensionalidad</b> y que se presenta cuando el espacio de características tiene una dimensión muy grande, pero el número de muestras disponible en la base de datos es pequeño, en cuyo caso el espacio entre muestras suele ser muy grande y los modelos tienden a memorizar las salidas para las pocas muestras de entrenamiento con las que se cuenta. Entre mayor sea el número de variables, mayor debería ser el número de muestras para evitar que este problema se presente. Debido a que en la actualidad en muchos sectores de aplicación se cuenta con grandes volúmenes de información, ya no se discute muy a menudo sobre la maldición de la dimensionalidad; sin embargo, existen problemas en los que construir una base de datos con un número grande de muestras sigue siendo un problema. Por ejemplo, en el desarrollo de sistemas de apoyo diagnóstico, la maldición de la dimensionalidad sigue siendo tenida en cuenta porque para algunos tipos de enfermedades, aún no existen bancos de datos con información proveniente de un gran número de pacientes.</p>
+<p>En problemas en los que se debe lidiar con la maldición de la dimensionalidad, la alternativa es reducir el número de variables, evaluando la capacidad predictiva de las variables, de tal manera que se pueda obtener un subconjunto de características más pequeño, pero que conserve la capacidad predictiva del conjunto de variables original. En la clase sobre Selección de características abordaremos en detalle este problema y estudiaremos las técnicas que pueden ser empleadas para tal fin.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html" title="previous page"><font color='blue'>Complejidad de modelos </font></a>
+    <a class='right-next' id="next-link" href="titles/U4_description.html" title="next page">U4. APRENDIZAJE NO SUPERVISADO</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-51547737-2', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

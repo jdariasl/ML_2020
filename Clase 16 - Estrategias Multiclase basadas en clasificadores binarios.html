@@ -56,6 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Laboratorio 5 - Parte 1. Redes recurrentes" href="Labs/lab5/lab5_parte1.html" />
+    <link rel="prev" title="Máquinas de Soporte Vectorial" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -92,7 +94,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="titles/U1_description.html">
    U1. INTRODUCCIÓN AL MACHINE LEARNING
@@ -323,11 +325,11 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="titles/U7_description.html">
    U7. MÁQUINAS DE VECTORES DE SOPORTE
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html">
      Máquinas de Soporte Vectorial
@@ -336,6 +338,21 @@
    <li class="toctree-l2">
     <a class="reference internal" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html#regresion-por-vectores-de-soporte">
      Regresión por vectores de soporte
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     One vs all (one vs the rest)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#one-vs-one-all-vs-all">
+     One vs One (All vs All)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#clasificacion-jerarquica">
+     Clasificación jerárquica
     </a>
    </li>
    <li class="toctree-l2">
@@ -357,6 +374,31 @@
    U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS
   </a>
   <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2017%20-%20Selecci%C3%B3n%20de%20Caracter%C3%ADsticas.html">
+     Selección de Características
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2018%20-%20Lasso%20y%20redes%20el%C3%A1sticas.html">
+     LASSO (Least Absolute Shrinkage and Selection Operator)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2018%20-%20Lasso%20y%20redes%20el%C3%A1sticas.html#elastic-nets">
+     Elastic Nets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2019%20-%20An%C3%A1lisis%20de%20Componentes%20Principales.html">
+     Reducción de dimensión: Análisis de Componentes Principales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2020%20-%20An%C3%A1lisis%20Discriminante%20de%20Fisher.html">
+     Reducción de dimensión: Análisis Discriminante de Fisher
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Labs/lab6/lab6_parte1.html">
      Laboratorio 6 - Parte 1: Reducción de dimensión y Selección de características
@@ -430,7 +472,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios .ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -457,7 +499,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios .ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -571,7 +613,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _2_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _2_0.png" />
+<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_2_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_2_0.png" />
 </div>
 </div>
 <p>Ahora usando la clase OneVsRestClassifier</p>
@@ -590,7 +632,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _4_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _4_0.png" />
+<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_4_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_4_0.png" />
 </div>
 </div>
 <p>Los clasificadores base pueden ser de cualquier tipo, por lo que las fronteras no tienen que ser lineales.</p>
@@ -609,7 +651,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _6_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _6_0.png" />
+<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_6_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_6_0.png" />
 </div>
 </div>
 <p>El número de clasificadores <span class="math notranslate nohighlight">\(N_e\)</span> que deben ser entrenados es igual al número de clases <span class="math notranslate nohighlight">\(N_c\)</span>. Como desventaja es importante tener en cuenta que muy posiblemente cada clasificador se entrene sobre una base de datos desbalanceada, por lo que es necesario tener en cuenta medidas correctivas a ese respecto.</p>
@@ -754,7 +796,7 @@ hello welcome to new york. enjoy it here and london too =&gt; london, new york
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _16_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _16_0.png" />
+<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_16_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_16_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -771,7 +813,7 @@ hello welcome to new york. enjoy it here and london too =&gt; london, new york
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _17_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _17_0.png" />
+<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_17_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_17_0.png" />
 </div>
 </div>
 <p>El número de clasificadores que es necesario entrenar en este caso es igual a:</p>
@@ -868,7 +910,7 @@ hello welcome to new york. enjoy it here and london too =&gt; london, new york
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _25_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios _25_0.png" />
+<img alt="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_25_0.png" src="_images/Clase 16 - Estrategias Multiclase basadas en clasificadores binarios_25_0.png" />
 </div>
 </div>
 </div>
@@ -901,6 +943,8 @@ hello welcome to new york. enjoy it here and london too =&gt; london, new york
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html" title="previous page">Máquinas de Soporte Vectorial</a>
+    <a class='right-next' id="next-link" href="Labs/lab5/lab5_parte1.html" title="next page">Laboratorio 5 - Parte 1. Redes recurrentes</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

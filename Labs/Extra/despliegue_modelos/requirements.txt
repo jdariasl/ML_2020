@@ -1,0 +1,4 @@
+flask
+flask-wtf
+scikit-learn==0.22.2.post1
+gunicorn

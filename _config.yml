@@ -1,0 +1,20 @@
+# Book settings
+# template from https://github.com/executablebooks/github-action-demo
+title: 2020 Introducción al Machine Learning
+author: <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas
+logo: Images/fudea.jpg
+
+repository:
+   url: https://github.com/jdariasl/ML_2020
+   branch: master
+
+launch_buttons:
+  binderhub_url: ""
+  colab_url: https://colab.research.google.com
+
+html:
+  google_analytics_id: "UA-51547737-2"
+
+execute:
+  execute_notebooks         : off
+

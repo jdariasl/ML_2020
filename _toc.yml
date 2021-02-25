@@ -1,0 +1,59 @@
+- file: intro
+
+- file: titles/U1_description
+  sections:
+    - file: "Clase 01 - Introducción al Machine Learning"
+    - file: "Clase 02 - Regresión lineal y regresión logística"
+    - file: "Clase 03 - Funciones discriminantes Gausianas"
+- file: "titles/U1_IntroLabs"
+  sections:
+    - file: "Labs/Intro/Intro"
+    - file: "Labs/lab1/lab1_parte1"
+    - file: "Labs/lab1/lab1_parte2"
+- file: titles/U2_description
+  sections:
+    - file: "Clase 04 - Modelos no Paramétricos"
+    - file: "Labs/lab2/lab2_parte1"
+    - file: "Labs/lab2/lab2_parte2"
+- file: titles/U3_description
+  sections:
+    - file: "Clase 05 - Métricas de error"
+    - file: "Clase 06 - Complejidad de modelos, sobreajuste y metodologías de validación"
+    - file: "Clase 07 - Regularización"
+- file: titles/U4_description
+  sections:
+    - file: "Clase 08 - Modelos de Mezclas de Gausianas"
+    - file: 'Clase 09 - Unsupervised Learning'
+    - file: "Labs/lab3/lab3_parte1"
+- file: titles/U5_description
+  sections:
+    - file: "Clase 10 - Árboles de Decisión, Voting, Bagging, Random Forest"
+    - file: "Clase 11 - Boosting, Stacking"
+    - file: "Labs/lab3/lab3_parte2"
+- file: titles/U6_description
+  sections:
+    - file: "Clase 12 - Redes Neuronales Artificiales"
+    - file: "Clase 13 - Mapas Auto-Organizables"
+    - file: "Clase 14 - Redes Neuronales Recurrentes"
+    - file: "Labs/lab4/lab4_parte1"
+    - file: "Labs/lab4/lab4_parte2"
+- file: titles/U7_description
+  sections:
+    - file: "Clase 15 - Máquinas de Véctores de Soporte"
+    - file: "Labs/lab5/lab5_parte1"
+    - file: "Labs/lab5/lab5_parte2"
+- file: titles/U8_description
+  sections:
+    - file: "Clase 16 - Selección de Características"
+    - file: "Clase 17 - Lasso y redes elásticas"
+    - file: "Clase 18 - Análisis de Componentes Principales"
+    - file: "Clase 19 - Análisis Discriminante de Fisher"
+    - file: "Labs/lab6/lab6_parte1"
+    - file: "Labs/lab6/lab6_parte2"
+- file: titles/U9_description
+  sections:
+    - file: "Labs/Extra/Basic_Preprocessing_FeatureEngineering"
+    - file: "Labs/Extra/DespliegueModelos"
+
+
+

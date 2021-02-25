@@ -50,7 +50,9 @@
     - file: "Clase 19 - Análisis Discriminante de Fisher"
     - file: "Labs/lab6/lab6_parte1"
     - file: "Labs/lab6/lab6_parte2"
-
+- file: titles/U9_description
+    - file: "Labs/Extra/Basic_Preprocessing_FeatureEngineering.ipynb"
+    - file: "Labs/Extra/DespliegueModelos.ipynb"
 
 
 

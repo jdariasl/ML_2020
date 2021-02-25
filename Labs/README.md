@@ -24,8 +24,8 @@ En esta carpeta podrán encontrar las siguientes carpetas:
     - lab2_parte2.ipynb: KNN para un problema de regresión
 
 - lab3:
-    - lab3_parte1.ipynb: comnparación de metodos de clusterizacion K-means vs mezcla de gaussinas.
-    - lab3_parte2.ipynb: comparación de árboles de decisión (Decision Tree-DT), bosques aleatorios (random forest-RF) y árboles con potenciación del gradiente (Gradient Boosted Tree - GBT).
+    - lab3_parte1.ipynb: comparación de metodos de clusterizacion K-means vs mezcla de gaussinas.
+    - lab3_parte2.ipynb: comparación de metodos basados en árboles de decisión (Decision Tree-DT), bosques aleatorios (random forest-RF) y árboles con potenciación del gradiente (Gradient Boosted Tree - GBT).
 
 - lab4:
     - lab4_parte1.ipynb: redes neuronales - perceptrón multicapa (MultiLayer Perceptron-MLP) .

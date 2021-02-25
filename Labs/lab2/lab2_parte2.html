@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laboratorio 2 - Parte 2 &#8212; 2020 Introducción al Machine Learning</title>
+    <title>Laboratorio 2 - Parte 2. KNN para un problema de regresión &#8212; 2020 Introducción al Machine Learning</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="U3. COMPLEJIDAD DE MODELOS Y VALIDACIÓN" href="../../titles/U3_description.html" />
-    <link rel="prev" title="Laboratorio 2 - Parte 1" href="lab2_parte1.html" />
+    <link rel="prev" title="Laboratorio 2 - Parte 1. KNN para un problema de clasificación" href="lab2_parte1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -150,30 +150,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab1/lab1_parte1.html">
-     Laboratorio 1 - Parte 1
-     <strong>
-      Regresión polinomial múltiple
-     </strong>
+     Laboratorio 1 - Parte 1 Regresión polinomial múltiple
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab1/lab1_parte2.html">
-     Laboratorio 1 - Parte 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-1-contextualizacion-del-problema">
-     Ejercicio 1: Contextualización del problema
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-2-entrenamiento">
-     Ejercicio 2: entrenamiento
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-3-experimentar">
-     Ejercicio 3: Experimentar
+     Laboratorio 1 - Parte 2. Regresión logística
     </a>
    </li>
   </ul>
@@ -192,12 +174,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="lab2_parte1.html">
-     Laboratorio 2 - Parte 1
+     Laboratorio 2 - Parte 1. KNN para un problema de clasificación
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Laboratorio 2 - Parte 2
+     Laboratorio 2 - Parte 2. KNN para un problema de regresión
     </a>
    </li>
   </ul>
@@ -278,7 +260,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab3/lab3_parte1.html">
-     Laboratorio 3 - Parte 1
+     Laboratorio 3 - Parte 1. Comparación de metodos de clusterización
     </a>
    </li>
   </ul>
@@ -302,7 +284,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab3/lab3_parte2.html">
-     Laboratorio 3 - Parte 2
+     Laboratorio 3 - Parte 2. Comparación de metodos basados en árboles
     </a>
    </li>
   </ul>
@@ -331,12 +313,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab4/lab4_parte1.html">
-     Laboratorio 4 - Parte 1
+     Laboratorio 4 - Parte 1. Redes neuronales - perceptrón multicapa
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab4/lab4_parte2.html">
-     Laboratorio 4 - Parte 2
+     Laboratorio 4 - Parte 2. Regularización de modelos.
     </a>
    </li>
   </ul>
@@ -360,12 +342,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab5/lab5_parte1.html">
-     Laboratorio 5 - Parte 1: Redes recurrentes
+     Laboratorio 5 - Parte 1. Redes recurrentes
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab5/lab5_parte2.html">
-     Laboratorio 5 - Parte 2 Máquinas de Vectores de Soporte
+     Laboratorio 5 - Parte 2. Máquinas de Vectores de Soporte
     </a>
    </li>
   </ul>
@@ -385,6 +367,25 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../lab6/lab6_parte2.html">
      Laboratorio 6 - Parte 2: Reducción de dimensión PCA y LDA
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U9_description.html">
+   U9. SESIONES EXTRA DE LABORATORIO
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Extra/Basic_Preprocessing_FeatureEngineering.html">
+     Preprocesamiento e Ingeniería de características
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Extra/DespliegueModelos.html">
+     Despliegue de modelos en ambientes productivos
     </a>
    </li>
   </ul>
@@ -513,8 +514,7 @@
         
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/lab2/lab2_parte2.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras alamancenar tu progreso</strong></p>
+  <p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras alamancenar tu progreso</strong></p>
 <p>Nota: no olvide ir ejecutando las celdas de código de arriba hacia abajo para que no tenga errores de importación de librerías o por falta de definición de variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -532,28 +532,9 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2020-11-03 23:18:46--  https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.192.133, 151.101.128.133, 151.101.64.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.192.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 14117 (14K) [text/plain]
-Saving to: ‘general.py’
-
-general.py          100%[===================&gt;]  13,79K  --.-KB/s    in 0,02s   
-
-2020-11-03 23:18:47 (636 KB/s) - ‘general.py’ saved [14117/14117]
-
-lab configuration started
-installing libraries
-downloading files
-lab configured
-</pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="laboratorio-2-parte-2">
-<h1>Laboratorio 2 - Parte 2<a class="headerlink" href="#laboratorio-2-parte-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="laboratorio-2-parte-2-knn-para-un-problema-de-regresion">
+<h1>Laboratorio 2 - Parte 2. KNN para un problema de regresión<a class="headerlink" href="#laboratorio-2-parte-2-knn-para-un-problema-de-regresion" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="ejercicio-1-contextualizacion-del-problema">
 <h2>Ejercicio 1: Contextualización del problema<a class="headerlink" href="#ejercicio-1-contextualizacion-del-problema" title="Permalink to this headline">¶</a></h2>
 <p>Para el problema de regresion usaremos la base de datos ‘The Boston Housing Dataset’, cuya descripción <a class="reference external" href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html">pueden encontrarla aqui</a>. La información ya esta cargada dentro del notebook</p>
@@ -564,25 +545,6 @@ lab configured
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;¿el resultado de esta instrucción que información nos brinda?&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;¿el resultado de esta instrucción que información nos brinda?&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;¿el resultado de esta instrucción que información nos brinda?&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>muestra de los 3 primeros renglones de x:
- [[6.3200e-03 1.8000e+01 2.3100e+00 0.0000e+00 5.3800e-01 6.5750e+00
-  6.5200e+01 4.0900e+00 1.0000e+00 2.9600e+02 1.5300e+01 3.9690e+02
-  4.9800e+00]
- [2.7310e-02 0.0000e+00 7.0700e+00 0.0000e+00 4.6900e-01 6.4210e+00
-  7.8900e+01 4.9671e+00 2.0000e+00 2.4200e+02 1.7800e+01 3.9690e+02
-  9.1400e+00]
- [2.7290e-02 0.0000e+00 7.0700e+00 0.0000e+00 4.6900e-01 7.1850e+00
-  6.1100e+01 4.9671e+00 2.0000e+00 2.4200e+02 1.7800e+01 3.9283e+02
-  4.0300e+00]]
-muestra de los 3 primeros renglones de y:
- [24.  21.6 34.7]
-¿el resultado de esta instrucción que información nos brinda? 506
-¿el resultado de esta instrucción que información nos brinda? 13
-¿el resultado de esta instrucción que información nos brinda? 229
 </pre></div>
 </div>
 </div>
@@ -622,14 +584,6 @@ muestra de los 3 primeros renglones de y:
     
     <span class="c1"># el cuarto elemento debe dejarlo</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-3-ef415dc849e2&gt;&quot;</span><span class="gt">, line </span><span class="mi">18</span>
-    <span class="n">lim_inf</span> <span class="o">=</span>
-              <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -1041,7 +995,7 @@ muestra de los 3 primeros renglones de y:
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="lab2_parte1.html" title="previous page">Laboratorio 2 - Parte 1</a>
+    <a class='left-prev' id="prev-link" href="lab2_parte1.html" title="previous page">Laboratorio 2 - Parte 1. KNN para un problema de clasificación</a>
     <a class='right-next' id="next-link" href="../../titles/U3_description.html" title="next page">U3. COMPLEJIDAD DE MODELOS Y VALIDACIÓN</a>
 
     </div>

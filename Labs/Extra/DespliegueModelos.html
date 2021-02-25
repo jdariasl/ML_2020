@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Despliegue de modelos &#8212; 2020 Introducción al Machine Learning</title>
+    <title>Despliegue de modelos en ambientes productivos &#8212; 2020 Introducción al Machine Learning</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,6 +54,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Preprocesamiento e Ingeniería de características" href="Basic_Preprocessing_FeatureEngineering.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -90,7 +91,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../titles/U1_description.html">
    U1. INTRODUCCIÓN AL MACHINE LEARNING
@@ -146,30 +147,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab1/lab1_parte1.html">
-     Laboratorio 1 - Parte 1
-     <strong>
-      Regresión polinomial múltiple
-     </strong>
+     Laboratorio 1 - Parte 1 Regresión polinomial múltiple
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab1/lab1_parte2.html">
-     Laboratorio 1 - Parte 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-1-contextualizacion-del-problema">
-     Ejercicio 1: Contextualización del problema
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-2-entrenamiento">
-     Ejercicio 2: entrenamiento
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-3-experimentar">
-     Ejercicio 3: Experimentar
+     Laboratorio 1 - Parte 2. Regresión logística
     </a>
    </li>
   </ul>
@@ -188,12 +171,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab2/lab2_parte1.html">
-     Laboratorio 2 - Parte 1
+     Laboratorio 2 - Parte 1. KNN para un problema de clasificación
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab2/lab2_parte2.html">
-     Laboratorio 2 - Parte 2
+     Laboratorio 2 - Parte 2. KNN para un problema de regresión
     </a>
    </li>
   </ul>
@@ -274,7 +257,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab3/lab3_parte1.html">
-     Laboratorio 3 - Parte 1
+     Laboratorio 3 - Parte 1. Comparación de metodos de clusterización
     </a>
    </li>
   </ul>
@@ -298,7 +281,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab3/lab3_parte2.html">
-     Laboratorio 3 - Parte 2
+     Laboratorio 3 - Parte 2. Comparación de metodos basados en árboles
     </a>
    </li>
   </ul>
@@ -327,12 +310,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab4/lab4_parte1.html">
-     Laboratorio 4 - Parte 1
+     Laboratorio 4 - Parte 1. Redes neuronales - perceptrón multicapa
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab4/lab4_parte2.html">
-     Laboratorio 4 - Parte 2
+     Laboratorio 4 - Parte 2. Regularización de modelos.
     </a>
    </li>
   </ul>
@@ -356,12 +339,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab5/lab5_parte1.html">
-     Laboratorio 5 - Parte 1: Redes recurrentes
+     Laboratorio 5 - Parte 1. Redes recurrentes
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab5/lab5_parte2.html">
-     Laboratorio 5 - Parte 2 Máquinas de Vectores de Soporte
+     Laboratorio 5 - Parte 2. Máquinas de Vectores de Soporte
     </a>
    </li>
   </ul>
@@ -381,6 +364,25 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../lab6/lab6_parte2.html">
      Laboratorio 6 - Parte 2: Reducción de dimensión PCA y LDA
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../../titles/U9_description.html">
+   U9. SESIONES EXTRA DE LABORATORIO
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Basic_Preprocessing_FeatureEngineering.html">
+     Preprocesamiento e Ingeniería de características
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Despliegue de modelos en ambientes productivos
     </a>
    </li>
   </ul>
@@ -474,20 +476,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduccion">
-   Introducción
+  <a class="reference internal nav-link" href="#los-roles-de-la-ciencia-de-datos">
+   Los roles de la ciencia de Datos
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#la-practica-de-la-ciencia-de-datos">
-     La Practica de la Ciencia de Datos
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#formas-de-despliegue">
-   Formas de Despliegue
+  <a class="reference internal nav-link" href="#tipos-de-despliegue">
+   Tipos de Despliegue
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -534,10 +529,8 @@
               <div>
                 
   <p><a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/Extra/DespliegueModelos.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="section" id="despliegue-de-modelos">
-<h1>Despliegue de modelos<a class="headerlink" href="#despliegue-de-modelos" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduccion">
-<h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="despliegue-de-modelos-en-ambientes-productivos">
+<h1>Despliegue de modelos en ambientes productivos<a class="headerlink" href="#despliegue-de-modelos-en-ambientes-productivos" title="Permalink to this headline">¶</a></h1>
 <p>Recordar los pasos que habíamos visto en los estándares introducidos en <a class="reference internal" href="Basic_Preprocessing_FeatureEngineering.html"><span class="doc std std-doc">nuestra sesión</span></a>:</p>
 <ol class="simple">
 <li><p>Entender problema y el objetivo</p></li>
@@ -545,14 +538,13 @@
 <li><p>Modelar: incluyendo las transformaciones/ limpieza/ ingeniería de características de los datos y el modelo de ML (entrenamiento, validación, experimentos – lo que hemos estado haciendo en las practicas)</p></li>
 <li><p><strong>Despliegue del Modelo</strong></p></li>
 </ol>
-<div class="section" id="la-practica-de-la-ciencia-de-datos">
-<h3>La Practica de la Ciencia de Datos<a class="headerlink" href="#la-practica-de-la-ciencia-de-datos" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="los-roles-de-la-ciencia-de-datos">
+<h2>Los roles de la ciencia de Datos<a class="headerlink" href="#los-roles-de-la-ciencia-de-datos" title="Permalink to this headline">¶</a></h2>
 <p>A la hora de hablar de despliegue de modelos, nos encontramos con una discusión de roles que muchas veces se superponen. Esta superposición Se ve influenciada por diversos factores externos, como el tamaño de la compañía, el equipo y contexto particular.</p>
 <img src="https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/Extra/UDEA_DS_ML.jpg" alt="drawing" width="800"/>
 </div>
-</div>
-<div class="section" id="formas-de-despliegue">
-<h2>Formas de Despliegue<a class="headerlink" href="#formas-de-despliegue" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tipos-de-despliegue">
+<h2>Tipos de Despliegue<a class="headerlink" href="#tipos-de-despliegue" title="Permalink to this headline">¶</a></h2>
 <p>En la practica hay varios escenarios para realizar la puesta en marcha de los modelos. Como es usual depende del contexto y necesidades particulares.</p>
 <div class="section" id="batch-o-por-lotes">
 <h3>Batch o por lotes<a class="headerlink" href="#batch-o-por-lotes" title="Permalink to this headline">¶</a></h3>
@@ -788,6 +780,7 @@ Las 100 Variables requieren de agregaciones a nivel de usuario y otros factores.
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="Basic_Preprocessing_FeatureEngineering.html" title="previous page">Preprocesamiento e Ingeniería de características</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

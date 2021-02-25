@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laboratorio 4 - Parte 2 &#8212; 2020 Introducción al Machine Learning</title>
+    <title>Laboratorio 4 - Parte 2. Regularización de modelos. &#8212; 2020 Introducción al Machine Learning</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="U7. MÁQUINAS DE VECTORES DE SOPORTE" href="../../titles/U7_description.html" />
-    <link rel="prev" title="Laboratorio 4 - Parte 1" href="lab4_parte1.html" />
+    <link rel="prev" title="Laboratorio 4 - Parte 1. Redes neuronales - perceptrón multicapa" href="lab4_parte1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -148,30 +148,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab1/lab1_parte1.html">
-     Laboratorio 1 - Parte 1
-     <strong>
-      Regresión polinomial múltiple
-     </strong>
+     Laboratorio 1 - Parte 1 Regresión polinomial múltiple
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab1/lab1_parte2.html">
-     Laboratorio 1 - Parte 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-1-contextualizacion-del-problema">
-     Ejercicio 1: Contextualización del problema
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-2-entrenamiento">
-     Ejercicio 2: entrenamiento
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-3-experimentar">
-     Ejercicio 3: Experimentar
+     Laboratorio 1 - Parte 2. Regresión logística
     </a>
    </li>
   </ul>
@@ -190,12 +172,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab2/lab2_parte1.html">
-     Laboratorio 2 - Parte 1
+     Laboratorio 2 - Parte 1. KNN para un problema de clasificación
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab2/lab2_parte2.html">
-     Laboratorio 2 - Parte 2
+     Laboratorio 2 - Parte 2. KNN para un problema de regresión
     </a>
    </li>
   </ul>
@@ -276,7 +258,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab3/lab3_parte1.html">
-     Laboratorio 3 - Parte 1
+     Laboratorio 3 - Parte 1. Comparación de metodos de clusterización
     </a>
    </li>
   </ul>
@@ -300,7 +282,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab3/lab3_parte2.html">
-     Laboratorio 3 - Parte 2
+     Laboratorio 3 - Parte 2. Comparación de metodos basados en árboles
     </a>
    </li>
   </ul>
@@ -329,12 +311,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="lab4_parte1.html">
-     Laboratorio 4 - Parte 1
+     Laboratorio 4 - Parte 1. Redes neuronales - perceptrón multicapa
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Laboratorio 4 - Parte 2
+     Laboratorio 4 - Parte 2. Regularización de modelos.
     </a>
    </li>
   </ul>
@@ -358,12 +340,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab5/lab5_parte1.html">
-     Laboratorio 5 - Parte 1: Redes recurrentes
+     Laboratorio 5 - Parte 1. Redes recurrentes
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../lab5/lab5_parte2.html">
-     Laboratorio 5 - Parte 2 Máquinas de Vectores de Soporte
+     Laboratorio 5 - Parte 2. Máquinas de Vectores de Soporte
     </a>
    </li>
   </ul>
@@ -383,6 +365,25 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../lab6/lab6_parte2.html">
      Laboratorio 6 - Parte 2: Reducción de dimensión PCA y LDA
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U9_description.html">
+   U9. SESIONES EXTRA DE LABORATORIO
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Extra/Basic_Preprocessing_FeatureEngineering.html">
+     Preprocesamiento e Ingeniería de características
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Extra/DespliegueModelos.html">
+     Despliegue de modelos en ambientes productivos
     </a>
    </li>
   </ul>
@@ -506,9 +507,7 @@
         
               <div>
                 
-  <a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/lab4/lab4_parte2.ipynb">
-    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-<p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras almacenar tu progreso</strong></p>
+  <p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras almacenar tu progreso</strong></p>
 <p>Nota: no olvide ir ejecutando las celdas de código de arriba hacia abajo para que no tenga errores de importación de librerías o por falta de definición de variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,15 +526,15 @@
 </div>
 </div>
 </div>
-<div class="section" id="laboratorio-4-parte-2">
-<h1>Laboratorio 4 - Parte 2<a class="headerlink" href="#laboratorio-4-parte-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="laboratorio-4-parte-2-regularizacion-de-modelos">
+<h1>Laboratorio 4 - Parte 2. Regularización de modelos.<a class="headerlink" href="#laboratorio-4-parte-2-regularizacion-de-modelos" title="Permalink to this headline">¶</a></h1>
 <p>En este laboratorio vamos analizar el efecto del sobre-ajuste (<em>over-fitting</em>), como identificarlo y como podemos regualizar los modelos para evitarlo o disminuir su efecto.</p>
 <p>En este laboratorio, vamos a enfocarnos en 2 modelos (usando libreria de sklearn):</p>
 <ol class="simple">
 <li><p>Regresión logistica</p></li>
 <li><p>MLP</p></li>
 </ol>
-<p><strong>No vamos enfocarnos en como tratar la maldición de la dimensionalidad</strong> ya que esto lo vamos a ver un poco más adelante cuando evaluemos las tecnicas de selección de caracteristicas.</p>
+<p><strong>No vamos enfocar en como tratar la maldición de la dimensionalidad</strong> ya que esto lo vamos a ver un poco más adelante cuando evaluemos las tecnicas de selección de caracteristicas.</p>
 <p>Vamos usar <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html">el dataset de digitos escritos a mano</a> para realizar nuestra practica.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1029,7 +1028,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="lab4_parte1.html" title="previous page">Laboratorio 4 - Parte 1</a>
+    <a class='left-prev' id="prev-link" href="lab4_parte1.html" title="previous page">Laboratorio 4 - Parte 1. Redes neuronales - perceptrón multicapa</a>
     <a class='right-next' id="next-link" href="../../titles/U7_description.html" title="next page">U7. MÁQUINAS DE VECTORES DE SOPORTE</a>
 
     </div>

@@ -1,55 +1,55 @@
 - file: intro
 
-- file: content/titles/U1_description
+- file: titles/U1_description
   sections:
-    - file: "content/Clase 01 - Introducción al Machine Learning"
-    - file: "content/Clase 02 - Regresión lineal y regresión logística"
-    - file: "content/Clase 03 - Funciones discriminantes Gausianas"
-- file: "content/titles/U1_IntroLabs"
+    - file: "Clase 01 - Introducción al Machine Learning"
+    - file: "Clase 02 - Regresión lineal y regresión logística"
+    - file: "Clase 03 - Funciones discriminantes Gausianas"
+- file: "titles/U1_IntroLabs"
   sections:
-    - file: "content/Labs/Intro/Intro"
-    - file: "content/Labs/lab1/lab1_parte1"
-    - file: "content/Labs/lab1/lab1_parte2"
-- file: content/titles/U2_description
+    - file: "Labs/Intro/Intro"
+    - file: "Labs/lab1/lab1_parte1"
+    - file: "Labs/lab1/lab1_parte2"
+- file: titles/U2_description
   sections:
-    - file: "content/Clase 04 - Modelos no Paramétricos"
-    - file: "content/Labs/lab2/lab2_parte1"
-    - file: "content/Labs/lab2/lab2_parte2"
-- file: content/titles/U3_description
+    - file: "Clase 04 - Modelos no Paramétricos"
+    - file: "Labs/lab2/lab2_parte1"
+    - file: "Labs/lab2/lab2_parte2"
+- file: titles/U3_description
   sections:
-    - file: "content/Clase 05 - Métricas de error"
-    - file: "content/Clase 06 - Complejidad de modelos, sobreajuste y metodologías de validación"
-    - file: "content/Clase 07 - Regularización"
-- file: content/titles/U4_description
+    - file: "Clase 05 - Métricas de error"
+    - file: "Clase 06 - Complejidad de modelos, sobreajuste y metodologías de validación"
+    - file: "Clase 07 - Regularización"
+- file: titles/U4_description
   sections:
-    - file: "content/Clase 08 - Modelos de Mezclas de Gausianas"
-    - file: 'content/Clase 09 - Unsupervised Learning'
-    - file: "content/Labs/lab3/lab3_parte1"
-- file: content/titles/U5_description
+    - file: "Clase 08 - Modelos de Mezclas de Gausianas"
+    - file: 'Clase 09 - Unsupervised Learning'
+    - file: "Labs/lab3/lab3_parte1"
+- file: titles/U5_description
   sections:
-    - file: "content/Clase 10 - Árboles de Decisión, Voting, Bagging, Random Forest"
-    - file: "content/Clase 11 - Boosting, Stacking"
-    - file: "content/Labs/lab3/lab3_parte2"
-- file: content/titles/U6_description
+    - file: "Clase 10 - Árboles de Decisión, Voting, Bagging, Random Forest"
+    - file: "Clase 11 - Boosting, Stacking"
+    - file: "Labs/lab3/lab3_parte2"
+- file: titles/U6_description
   sections:
-    - file: "content/Clase 12 - Redes Neuronales Artificiales"
-    - file: "content/Clase 13 - Mapas Auto-Organizables"
-    - file: "content/Clase 14 - Redes Neuronales Recurrentes"
-    - file: "content/Labs/lab4/lab4_parte1"
-    - file: "content/Labs/lab4/lab4_parte2"
-- file: content/titles/U7_description
+    - file: "Clase 12 - Redes Neuronales Artificiales"
+    - file: "Clase 13 - Mapas Auto-Organizables"
+    - file: "Clase 14 - Redes Neuronales Recurrentes"
+    - file: "Labs/lab4/lab4_parte1"
+    - file: "Labs/lab4/lab4_parte2"
+- file: titles/U7_description
   sections:
-    - file: "content/Clase 15 - Máquinas de Véctores de Soporte"
-    - file: "content/Labs/lab5/lab5_parte1"
-    - file: "content/Labs/lab5/lab5_parte2"
-- file: content/titles/U8_description
+    - file: "Clase 15 - Máquinas de Véctores de Soporte"
+    - file: "Labs/lab5/lab5_parte1"
+    - file: "Labs/lab5/lab5_parte2"
+- file: titles/U8_description
   sections:
-    - file: "content/Clase 16 - Selección de Características"
-    - file: "content/Clase 17 - Lasso y redes elásticas"
-    - file: "content/Clase 18 - Análisis de Componentes Principales"
-    - file: "content/Clase 19 - Análisis Discriminante de Fisher"
-    - file: "content/Labs/lab6/lab6_parte1"
-    - file: "content/Labs/lab6/lab6_parte2"
+    - file: "Clase 16 - Selección de Características"
+    - file: "Clase 17 - Lasso y redes elásticas"
+    - file: "Clase 18 - Análisis de Componentes Principales"
+    - file: "Clase 19 - Análisis Discriminante de Fisher"
+    - file: "Labs/lab6/lab6_parte1"
+    - file: "Labs/lab6/lab6_parte2"
 
 
 

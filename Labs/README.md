@@ -4,10 +4,13 @@ En este sección del repositorio, se encuentran los [notebooks](https://jupyter.
 
 En la primera celda de cada notebook tendra ciertos archivos de configuración, que les permitira ir evaluando cada ejercicio propuesto.
 
-De igual manera, en cada notebook, van encontrar un link formularios, con preguntas abiertas. Que deberán ser respondidas casi siempre con los resultados del laboratorio, con información vista en clase o algunas veces con alguna pequeña investigación relacionada con la tematica de la sesión.
+De igual manera, en cada notebook, **preguntas abiertas**, Que deberán ser respondidas con: 
+- los resultados del laboratorio,  
+- información vista en clase  
+- pequeña investigación relacionada con la tematica de la sesión.
 
 
-# Estructura de laboratorios
+## Estructura de laboratorios
 En esta carpeta podrán encontrar las siguientes carpetas:
 
 -Intro:
@@ -46,17 +49,16 @@ Existen 2 carpetas adicionales a las descritas anteriormente, cuyo contenido no 
 - data: carpeta donde esta almacenado los diferentes datasets que usaremos en el curso.  cada notebook del laboratorio tendra la configuración apropiada para el desarollo de este mismo, incluyendo seleccionar el conjunto de datos apropiado de esta base de datos.
 
 
-# Guia conectar github, Google Colab y luego Google Drive
+## Guia conectar github, Google Colab y luego Google Drive
 
 Al inicio de cada notebook, notarán el siguiente icono:
 
-<a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/Intro/Intro.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 Al hacer click, les abrirá automaticamente la herramienta con el correspondiente notebook. Por ejemplo al hacer clic en la anterior icono, se deberá abrir automaticamente [el notebook introductorio que revisaremos en nuestra primera sesión](https://github.com/jdariasl/ML_2020/blob/master/labs/Intro/Intro.ipynb).
 
 Al inicar colab, es muy importante, **que lo primero que hagas es dar clic en Copiar en Drive (Copy to Drive).**
 
-# Comentarios finales
+## Comentarios finales
 
 Finalmente, les deseso mucho exito y aprendizaje. Traten de aprovechar al maximo los espacios que tenemos, estos  están construidos para afianzar sus conocimientos teoricos y para que de la misma manera los puedan aplicar para solucionar problemas que tratan de acercase a contextos que pueden encontrar en su futura vida profesional en este interesante campo.
 
@@ -67,8 +69,3 @@ Germán Eduardo Melo Acosta
 geduardo.melo@udea.edu.co
 
 Profesor laboratorio
-
-----
-Julián D. Arias Londoño
-
-julian.ariasl@udea.edu.co

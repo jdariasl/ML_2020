@@ -1,0 +1,1038 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Máquinas de Soporte Vectorial &#8212; 2020 Introducción al Machine Learning</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Laboratorio 5 - Parte 1: Redes recurrentes" href="Labs/lab5/lab5_parte1.html" />
+    <link rel="prev" title="U7. MÁQUINAS DE VECTORES DE SOPORTE" href="titles/U7_description.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Course information
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U1_description.html">
+   U1. INTRODUCCIÓN AL MACHINE LEARNING
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html">
+     Introducción al Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#modelos-a-partir-de-datos">
+     Modelos a partir de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#tipos-de-problemas-supervisados">
+     Tipos de problemas supervisados
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html">
+     <font color="blue">
+      Modelos básicos de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html#font-color-blue-pensemos-ahora-en-el-problema-de-clasificacion-font">
+     <font color="blue">
+      Pensemos ahora en el problema de clasificación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2003%20-%20Funciones%20discriminantes%20Gausianas.html">
+     Modelos de clasificación empleando funciones de densidad Gausianas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U1_IntroLabs.html">
+   INTRODUCCIÓN A PYTHON Y NUMPY
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html">
+     Introdución para los laboratorios de Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#google-colab-y-jupyter-notebook">
+     Google Colab y Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#manejo-vectores-y-matrices-en-numpy">
+     Manejo vectores y matrices en NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#manejo-de-estructuras-de-datos-en-pandas">
+     Manejo de estructuras de datos en Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#manejo-de-graficas-en-matplotlib-y-pandas">
+     Manejo de gráficas en matplotlib y pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#estructura-de-los-laboratorios">
+     Estructura de los laboratorios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#recomendaciones-finales-para-la-entrega-de-los-laboratorios">
+     Recomendaciones Finales para la entrega de los laboratorios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte1.html">
+     Laboratorio 1 - Parte 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte2.html">
+     Laboratorio 1 - Parte 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte2.html#ejercicio-1-contextualizacion-del-problema">
+     Ejercicio 1: Contextualización del problema
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte2.html#ejercicio-2-entrenamiento">
+     Ejercicio 2: entrenamiento
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte2.html#ejercicio-3-experimentar">
+     Ejercicio 3: Experimentar
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U2_description.html">
+   U2. MODELOS NO PARÁMETRICOS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2004%20-%20Modelos%20no%20Param%C3%A9tricos.html">
+     Modelos no parámetricos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab2/lab2_parte1.html">
+     Laboratorio 2 - Parte 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab2/lab2_parte2.html">
+     Laboratorio 2 - Parte 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U3_description.html">
+   U3. COMPLEJIDAD DE MODELOS Y VALIDACIÓN
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2005%20-%20M%C3%A9tricas%20de%20error.html">
+     <font color="blue">
+      Métricas de evaluación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html">
+     <font color="blue">
+      Complejidad de modelos
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-metodologias-de-validacion-font">
+     <font color="blue">
+      Metodologías de validación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-curva-de-aprendizaje-font">
+     <font color="blue">
+      Curva de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2007%20-%20Regularizaci%C3%B3n.html">
+     Sobreajuste y Regularización
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U4_description.html">
+   U4. APRENDIZAJE NO SUPERVISADO
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2008%20-%20Modelos%20de%20Mezclas%20de%20Gausianas.html">
+     Modelos de Mezcla de Funciones Gaussianas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html">
+     Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#referencias-generales">
+     Referencias Generales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#metodos-jerarquicos-aglomerativos">
+     Métodos jerárquicos/aglomerativos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#metodos-de-clustering">
+     Métodos de clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab3/lab3_parte1.html">
+     Laboratorio 3 - Parte 1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U5_description.html">
+   U5. MODELOS DE ÁRBOLES Y ENSAMBLES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2010%20-%20%C3%81rboles%20de%20Decisi%C3%B3n%2C%20Voting%2C%20Bagging%2C%20Random%20Forest.html">
+     Árboles de decisión
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2011%20-%20Boosting%2C%20Stacking.html">
+     Boosting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab3/lab3_parte2.html">
+     Laboratorio 3 - Parte 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U6_description.html">
+   U6. REDES NEURONALES ARTIFICIALES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html">
+     Redes Neuronales Artificiales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2013%20-%20Mapas%20Auto-Organizables.html">
+     Mapas Auto-Organizables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2014%20-%20Redes%20Neuronales%20Recurrentes.html">
+     Redes Neuronales Recurrentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab4/lab4_parte1.html">
+     Laboratorio 4 - Parte 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab4/lab4_parte2.html">
+     Laboratorio 4 - Parte 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="titles/U7_description.html">
+   U7. MÁQUINAS DE VECTORES DE SOPORTE
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Máquinas de Soporte Vectorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#regresion-por-vectores-de-soporte">
+     Regresión por vectores de soporte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab5/lab5_parte1.html">
+     Laboratorio 5 - Parte 1: Redes recurrentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab5/lab5_parte2.html">
+     Laboratorio 5 - Parte 2 Máquinas de Vectores de Soporte
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U8_description.html">
+   U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab6/lab6_parte1.html">
+     Laboratorio 6 - Parte 1: Reducción de dimensión y Selección de características
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab6/lab6_parte2.html">
+     Laboratorio 6 - Parte 2: Reducción de dimensión PCA y LDA
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Clase 15 - Máquinas de Véctores de Soporte.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/prueba/blob/master/Clase 15 - Máquinas de Véctores de Soporte.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Máquinas de Soporte Vectorial
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#julian-d-arias-londono">
+     Julián D. Arias Londoño
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maquinas-de-vectores-de-soporte-de-margen-suave">
+     Máquinas de Vectores de Soporte de Márgen suave
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regresion-por-vectores-de-soporte">
+   Regresión por vectores de soporte
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bibliografy">
+     Bibliografy
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="maquinas-de-soporte-vectorial">
+<h1>Máquinas de Soporte Vectorial<a class="headerlink" href="#maquinas-de-soporte-vectorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="julian-d-arias-londono">
+<h2>Julián D. Arias Londoño<a class="headerlink" href="#julian-d-arias-londono" title="Permalink to this headline">¶</a></h2>
+<p>Profesor Asociado<br />
+Departamento de Ingeniería de Sistemas<br />
+Universidad de Antioquia, Medellín, Colombia<br />
+<a class="reference external" href="mailto:julian&#46;ariasl&#37;&#52;&#48;udea&#46;edu&#46;co">julian<span>&#46;</span>ariasl<span>&#64;</span>udea<span>&#46;</span>edu<span>&#46;</span>co</a></p>
+<p>Consideremos nuevamente el problema de clasificación biclase a partir de un modelo lineal:</p>
+<div class="math notranslate nohighlight">
+\[y({\bf{x}}) = {\bf{w}}^T \phi({\bf{x}}) + b\]</div>
+<p>El conjunto de entrenamiento consta de <span class="math notranslate nohighlight">\(N\)</span> pares <span class="math notranslate nohighlight">\(({\bf{x}}_i,t_i)\)</span>, donde <span class="math notranslate nohighlight">\(t_i \in \{-1,1\}\)</span> y las muestras nuevas son clasificadas con respecto al signo de <span class="math notranslate nohighlight">\(y({\bf{x}})\)</span>.</p>
+<p>Supongamos que el problema es linealmente separable, es decir que las muestras de las dos clases están completamente separadas en el espacio de características:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Espacio de caracteristicas&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Caracteristica 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Caracteristica 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">x1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x2</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">x2</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f82ab2ec810&gt;
+</pre></div>
+</div>
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_7_1.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_7_1.png" />
+</div>
+</div>
+<p>Podemos encontrar muchas fronteras diferentes que separan perfectamente las dos clases. Si utilizamos el criterio de minimizar el error de clasificación vamos a encontrar alguna solución que satisface el criterio:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;./library/&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">svmclass</span> <span class="k">as</span> <span class="nn">sv</span>
+<span class="n">sv</span><span class="o">.</span><span class="n">DecisionBoundaryPlot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.17805303]
+ [-0.24795236]
+ [ 0.56327971]]
+</pre></div>
+</div>
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_9_1.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_9_1.png" />
+</div>
+</div>
+<p>Sin embargo podríamos tener muchas otras fronteras, la pregunta que surge es <b>¿cuál de todas las posibles soluciones es la mejor?</b></p>
+<p>Las Máquinas de Soporte Vectorial (En inglés <b> Support Vector Machines) </b>) son un tipo de modelos de aprendizaje que permiten encontrar la mejor solución utilizando como criterio de ajuste la máximización del márgen, entendiendo márgen como la distancia más corta entre la frontera de decisión y cualquiera de las muestras.</p>
+<img src="./Images/Margin.png" alt="Margin" width="400"/><p>Recordemos cómo se mide la distancia de un punto a un plano:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">x1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">x2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span><span class="o">-.</span><span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\bf</span><span class="si">{w}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">37</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.patches.FancyArrow at 0x7f6f71a0c190&gt;
+</pre></div>
+</div>
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_14_1.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_14_1.png" />
+</div>
+</div>
+<p>Teniendo en cuenta que la distancia perpendicular de un punto <span class="math notranslate nohighlight">\(\bf{x}\)</span> a un hiperplano definido por <span class="math notranslate nohighlight">\(y({\bf{x}}) = 0\)</span> está dado por <span class="math notranslate nohighlight">\(|y({\bf{x}})|/\|{\bf{w}}\|\)</span>.</p>
+<p>Sin embargo, si asumimos que todas las muestras están correctamente clasificadas, es decir, si <span class="math notranslate nohighlight">\(t_n = -1\)</span> entonces <span class="math notranslate nohighlight">\(y({\bf{x}}_n)&lt;0\)</span> y  si <span class="math notranslate nohighlight">\(t_n=1\)</span> entonce <span class="math notranslate nohighlight">\(y({\bf{x}}_n) &gt; 0\)</span>. Por lo tanto, en una solución en la que todos los puntos se encuentran bien clasificados se cumplirá que <span class="math notranslate nohighlight">\(t_n y({\bf{x}}_n) &gt; 0 \;\; \forall \;\; ({\bf{x}}_n, t_n)\)</span>.</p>
+<p>Si asumimos entonces que todas las muestras están correctamente clasificadas, la distancia entre todos las muestras y la frontera de decisión estará dada por:</p>
+<div class="math notranslate nohighlight">
+\[\frac{t_n y({\bf{x}}_n)}{\|{\bf{w}}\|}=\frac{t_n ({\bf{w}}^T\phi({\bf{x}}_n) + b)}{\|{\bf{w}}\|}\]</div>
+<p>Por lo tanto la solución de <strong>máximo margen</strong> se encuentra resolviendo:</p>
+<div class="math notranslate nohighlight">
+\[ \mathop {\arg \max }\limits_{{\bf{w}},b} \left\lbrace \frac{1}{\|{\bf{w}}\|} \min\limits_n \left[ t_n ({\bf{w}}^T\phi({\bf{x}}_n) + b) \right] \right\rbrace \]</div>
+<p>Aunque la función anterior corresponde a un criterio de entrenamiento de maximización del márgen, el proceso de optimización allí planteado es muy complejo. Por esa razón se debe encontrar una formulación alternativa.</p>
+<p>Teniendo en cuenta que si se reescala el vector <span class="math notranslate nohighlight">\(\bf{w}\)</span> como <span class="math notranslate nohighlight">\(k{\bf{w}}\)</span> y <span class="math notranslate nohighlight">\(b \rightarrow kb\)</span>, siendo <span class="math notranslate nohighlight">\(k\)</span> un valor real, la distancia <span class="math notranslate nohighlight">\(\frac{t_n y({\bf{x}}_n)}{\|{\bf{w}}\|}\)</span> sigue sin cambiar, se puede asumir que para el punto más cercano a la superficie <span class="math notranslate nohighlight">\( t_n ({\bf{w}}^T\phi({\bf{x}}_n) + b)=1\)</span> por consiguiente todos los puntos cumplirán la condición:</p>
+<div class="math notranslate nohighlight">
+\[t_n ({\bf{w}}^T\phi({\bf{x}}_n) + b) \geq 1, \;\; n=1,...,N\]</div>
+<p>Entonces el término a minimizar en la función criterio anterior es igual a 1, por lo tanto ahora sólo se requiere maximizar <span class="math notranslate nohighlight">\(\frac{1}{\|{\bf{w}}\|}\)</span> o lo que es equivalente minimizar <span class="math notranslate nohighlight">\(\|{\bf{w}}\|^2\)</span>. Usando los resultados anteriores la función de costo se puede escribir como:</p>
+<div class="math notranslate nohighlight">
+\[ \mathop {\arg \min }\limits_{{\bf{w}},b} \frac{1}{2} \|{\bf{w}}\|^2 \;\; \text{Sujeto a} \;\;t_n ({\bf{w}}^T\phi({\bf{x}}_n) + b) \geq 1\]</div>
+<p>Minimizar una función cuadrática sujeta a un conjunto de restricciones lineales se conoce como un problema de <b>programación cuadrática</b>.</p>
+<p>Para solucionar el problema se introducen multiplicadores de Lagrange <span class="math notranslate nohighlight">\(a_n \geq 0\)</span>, para cada restricción</p>
+<div class="math notranslate nohighlight">
+\[ {\mathcal L}({\bf{w}},b,{\bf{a}}) = \frac{1}{2}\|{\bf{w}}\|^2 - \sum_{n=1}^{N} a_n \left\lbrace t_n ({\bf{w}}^T\phi({\bf{x}}_n) + b) - 1 \right\rbrace \]</div>
+<p>Derivando con respecto a <span class="math notranslate nohighlight">\(\bf{w}\)</span> y a <span class="math notranslate nohighlight">\(b\)</span> e igualando a cero se obtienen las siguientes expresiones:</p>
+<div class="math notranslate nohighlight">
+\[ {\bf{w}} = \sum_{n=1}^N a_nt_n\phi({\bf{x}}_n) \]</div>
+<div class="math notranslate nohighlight">
+\[ 0 = \sum_{n=1}^N a_nt_n\]</div>
+<p>Reemplazando las dos expresiones anteriores, en la función criterio original se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\mathcal L}({\bf{a}}) = \frac{1}{2} \| \sum_{n=1}^N a_n t_n \phi({\bf{x}}_n)  \|^2 - \sum_{n=1}^N a_n \left\lbrace t_n \left( \left( \sum_{m=1}^N a_m t_m \phi({\bf{x}}_m) \right)^T \phi({\bf{x}}_n) + b \right) - 1 \right\rbrace\]</div>
+<p>Usando la equivalencia <span class="math notranslate nohighlight">\(\frac{1}{2}\|{\bf{w}}\|^2 = \frac{1}{2}{\bf{w}}{\bf{w}}^T\)</span> y reescribiendo:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\mathcal L}({\bf{a}}) = \sum_{n=1}^N a_n - \frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N a_n a_m t_n t_m \phi({\bf{x}}_n)^T \phi({\bf{x}}_m)\]</div>
+<p>Sujeto a <span class="math notranslate nohighlight">\(a_n \geq 0\)</span>, <span class="math notranslate nohighlight">\(\sum_{n=1}^N a_n t_n = 0\)</span></p>
+<p>Usando la formulación anterior y resolviendo el problema de optimización cuadrático, la función de decisión se convierte en:</p>
+<div class="math notranslate nohighlight">
+\[y({\bf{x}}) = \sum_{n=1}^N a_n t_n k({\bf{x}},{\bf{x}}_n) + b\]</div>
+<p>Y se satisfacen las siguientes condiciones:</p>
+<div class="math notranslate nohighlight">
+\[ a_n \geq 0\]</div>
+<div class="math notranslate nohighlight">
+\[ t_n y({\bf{x}}_n) - 1 \geq 0\]</div>
+<div class="math notranslate nohighlight">
+\[a_n \left\lbrace t_n y({\bf{x}}_n) - 1 \right\rbrace = 0\]</div>
+<p>De acuerdo con la tercera condición, para cada punto <span class="math notranslate nohighlight">\({\bf{x}}_n\)</span>, se debe cumplir una de las siguientes dos opciones: su multiplicador de Largrange es <span class="math notranslate nohighlight">\(a_n\)</span> es igual a 0, ó el término <span class="math notranslate nohighlight">\(t_n y({\bf{x}}_n)\)</span> es igual a 1. En otras palabras, si una muestra se encuentra en el punto más cercano a la frontera <span class="math notranslate nohighlight">\(a_n \neq 0\)</span>, de lo contrario <span class="math notranslate nohighlight">\(a_n = 0\)</span>. Los puntos con <span class="math notranslate nohighlight">\(a_n = 0\)</span>, no cuentan en la sumatoria de la función de decisión y pueden descartarse, los demás se conocen como <b>vectores de soporte </b>.</p>
+<img src="./Images/SV.jpg" alt="SupportVectors" width="500"/><p>Esto implica que no es necesario almacenar todos los puntos sino únicamente los que el algoritmo de optimización seleccione como vectores de soporte. Una vez se hayan encontrado los valores de <span class="math notranslate nohighlight">\(\bf{a}\)</span>, el valor de <span class="math notranslate nohighlight">\(b\)</span> se puede obtener fácilmente utilizando cualquier vector de soporte y reemplazando en la segunda restricción, <span class="math notranslate nohighlight">\(t_n y({\bf{x}}_n)= 1 \)</span>. Sin embargo, una solución numérica más estable corresponde a usar todos los vectores de soporte y sacar un promedio de los diferentes <span class="math notranslate nohighlight">\(b\)</span> obtenidos:</p>
+<div class="math notranslate nohighlight">
+\[b = \frac{1}{N_{sv}} \sum_{n \in sv} \left(t_n - \sum_{m \in sv} a_m t_m k({\bf{x}}_n,{\bf{x}}_m) \right)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(N_{sv}\)</span> es el número total de vectores de soporte.</p>
+<p>Como se puede ver la función objetivo que se quiere optimizar no depende del vector de pesos <span class="math notranslate nohighlight">\({\bf{w}}\)</span>, sino únicamente del producto <span class="math notranslate nohighlight">\(\phi({\bf{x}}_n)^T \phi({\bf{x}}_m)\)</span>. La gran fortaleza de las SVM radica en que el producto punto anterior se puede reemplazar por cualquier función <span class="math notranslate nohighlight">\(k({\bf{x}}_n , {\bf{x}}_m)\)</span> que cumpla las condiciones de Mercer (<b>Consultar</b>).</p>
+<p>Utilizar un producto punto diferente, significa aplicar una transformación del conjunto de características <span class="math notranslate nohighlight">\(k({\bf{x}}_n , {\bf{x}}_m) = \phi({\bf{x}}_n)^T\phi({\bf{x}}_m)\)</span>, sin necesidad de conocer la transformación <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span>, únicamente el producto punto. El espacio al cual se mapean los datos puede ser de dimensión mayor que el original y es posible que clases traslapadas en el espacio original sean linealmente separables en el espacio transformado <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span>.</p>
+<p>Uno de los kernels más comúnmente usados es el Gaussiano, el cual está dado por:</p>
+<div class="math notranslate nohighlight">
+\[k({\bf{x}}_n , {\bf{x}}_m) = \exp \left[ -\frac{\|{\bf{x}}_n - {\bf{x}}_m\|^2}{2\sigma^2} \right]\]</div>
+<p>Pero existen muchos otros y existe también un conjunto de reglas que permiten definir nuevos kernels a partir de otros, por ejemplo usando operadores de suma y producto, entre otros (<b>Consultar</b>).</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="maquinas-de-vectores-de-soporte-de-margen-suave">
+<h2>Máquinas de Vectores de Soporte de Márgen suave<a class="headerlink" href="#maquinas-de-vectores-de-soporte-de-margen-suave" title="Permalink to this headline">¶</a></h2>
+<p>La formulación del modelo SVM hecho hasta ahora asume que las clases son separables, al menos en un espacio de alta dimensión. Sin embargo, las distribuciones de las clases pueden estar traslapadas y por consiguiente es necesario modificar la SVM para que permita que algunas muestras queden mal clasificadas. Lo que se hace entonces es permitir que las muestras se ubiquen en el lado incorrecto de la frontera pero aplicando una penalidad proporcional a la distancia a la frontera.</p>
+<p>Se introducen en el modelo un conjunto de variables <span class="math notranslate nohighlight">\(\zeta_n \geq 0\)</span>, conocidas como variables de relajación. Una para cada muestra <span class="math notranslate nohighlight">\({\bf{x}}_n\)</span>. <span class="math notranslate nohighlight">\(\zeta_n = 0\)</span> para las muestras que se encuentran al lado correcto y <span class="math notranslate nohighlight">\(\zeta_n = |t_n - y({\bf{x}}_n)|\)</span> para las demás. Un punto ubicado justo en la frontera tendrá <span class="math notranslate nohighlight">\(\zeta_n = 1\)</span> y puntos con <span class="math notranslate nohighlight">\(\zeta_n \geq 1\)</span> estarán mal clasificados. Por último, puntos con <span class="math notranslate nohighlight">\(0 \leq \zeta_n \leq 1\)</span> caeran dentro del margen aunque en el lado correcto.</p>
+<p>La restricción en este caso estará dada por:</p>
+<div class="math notranslate nohighlight">
+\[t_n y({\bf{x}}_n) \geq 1 - \zeta_n\]</div>
+<p>y la función objetivo se convierte en:</p>
+<p>$<span class="math notranslate nohighlight">\(\min C \sum_{n=1}^N \zeta_n + \frac{1}{2}\|{\bf{w}}\|^2\)</span><span class="math notranslate nohighlight">\( sujeto a \)</span>\zeta_n \geq 0$</p>
+<p>donde <span class="math notranslate nohighlight">\(C\)</span> controla el compromiso entre la penalidad de la variable de relajación y el margen. A este modelo se le conoce como <b>Soft-margin SVM </b>.</p>
+<p><span class="math notranslate nohighlight">\(C\)</span> se comporta como el inverso de un parámetro de regularización, <span class="math notranslate nohighlight">\(C \rightarrow \infty\)</span> corresponde a la SVM original. La función de optimización completa se convierte en:</p>
+<div class="math notranslate nohighlight">
+\[ {\mathcal L}({\bf{w}},b,{\bf{a}}) = \frac{1}{2}\|{\bf{w}}\|^2 + C\sum_{n=1}^N \zeta_n- \sum_{n=1}^{N} a_n \left\lbrace t_n ({\bf{w}}^T \phi({\bf{x}}_n) + b) - 1 + \zeta_n \right\rbrace - \sum_{n=1}^N \mu_n \zeta_n\]</div>
+<p>donde <span class="math notranslate nohighlight">\(a_n \geq 0\)</span>, <span class="math notranslate nohighlight">\(\mu_n \geq 0\)</span> son multiplicadores de Lagrange. Luego de realizar los procedimientos de derivación y reemplazo, similares a los del caso anterior se llegará a la función objetivo:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\mathcal L}({\bf{a}}) = \sum_{n=1}^N a_n - \frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N a_n a_m t_n t_m \phi({\bf{x}}_n)^T \phi({\bf{x}}_m)\]</div>
+<p>Sujeto a <span class="math notranslate nohighlight">\(0 \leq a_n \leq C\)</span>, <span class="math notranslate nohighlight">\(\sum_{n=1}^N a_n t_n = 0\)</span></p>
+<p>Es posible entonces notar que la función objetivo es igual, únicamente cambió la restricción del proceso de optimización. Los vectores de soporte en este caso son aquellos puntos con <span class="math notranslate nohighlight">\(0 &lt; a_n &lt; C\)</span>.</p>
+<p>La predicción de una nueva muestra se realiza nuevamente a partir de</p>
+<div class="math notranslate nohighlight">
+\[y({\bf{x}}) = \sum_{n=1}^N a_n t_n k({\bf{x}},{\bf{x}}_n) + b\]</div>
+<p>con</p>
+<div class="math notranslate nohighlight">
+\[b = \frac{1}{N_{sv}} \sum_{n \in sv} \left(t_n - \sum_{m \in sv} a_m t_m k({\bf{x}}_n,{\bf{x}}_n) \right)\]</div>
+<p>Que corresponden a las mismas expresiones de antes. Aunque es necesario tener en cuenta que la definición de los vectores de soporte en este caso es un poco diferente, debido precisamente al cambio en la restricción de la función objetivo.</p>
+<hr class="docutils" />
+<p>Veamos algunos ejemplos prácticos utilizando la librería scikit-learn para python.</p>
+<p>Creamos el conjunto artifical de datos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;Espacio de características&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;Característica 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;Característica 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">x1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x2</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">x2</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fa81cfba250&gt;
+</pre></div>
+</div>
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_74_1.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_74_1.png" />
+</div>
+</div>
+<p>Definimos el kernel y entrenamos la SVM</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x1</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">x2</span><span class="o">.</span><span class="n">T</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">))),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">svc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;auto&#39;, kernel=&#39;linear&#39;,
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos la frontera de decisión y los vectores de soporte</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">plot_estimator</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">svc</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> 
+           <span class="n">svc</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> 
+           <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+           <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+           <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> 
+           <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+           <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fa81cbcc9d0&gt;
+</pre></div>
+</div>
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_78_1.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_78_1.png" />
+</div>
+</div>
+<p>Veamos el efecto de <span class="math notranslate nohighlight">\(C\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1e6</span><span class="p">)</span>
+<span class="n">plt</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">plot_estimator</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">svc</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">svc</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> 
+            <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Alto valor de C: Numero bajo de vectores de soporte&#39;</span><span class="p">)</span>
+
+<span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">)</span>
+<span class="n">plt</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">plot_estimator</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">svc</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">svc</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> 
+            <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bajo valor de C: Numero alto de vectores de soporte&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5,1,&#39;Bajo valor de C: Numero alto de vectores de soporte&#39;)
+</pre></div>
+</div>
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_80_1.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_80_1.png" />
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_80_2.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_80_2.png" />
+</div>
+</div>
+<p>Veamos ahora el efecto de la función kernel, en este caso la librería scikit-learn, como la mayoría de librerías de este tipo, trae varias funciones kernels que se pueden escoger e incluso se puede crear una función kernel particular y pasarla como argumento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svc_lin</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">sv</span><span class="o">.</span><span class="n">plot_estimator</span><span class="p">(</span><span class="n">svc_lin</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">svc_lin</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">svc_lin</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> 
+            <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Kernel lineal&#39;</span><span class="p">)</span>
+
+<span class="n">svc_poly</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sv</span><span class="o">.</span><span class="n">plot_estimator</span><span class="p">(</span><span class="n">svc_poly</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">svc_poly</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">svc_poly</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> 
+           <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Kernel polinomial de grado 3&#39;</span><span class="p">)</span>
+
+<span class="n">svc_poly</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">sv</span><span class="o">.</span><span class="n">plot_estimator</span><span class="p">(</span><span class="n">svc_poly</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">svc_poly</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">svc_poly</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> 
+           <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Kernel polinomial de grado 7&#39;</span><span class="p">)</span>
+
+<span class="n">svc_rbf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1e2</span><span class="p">)</span>
+<span class="n">sv</span><span class="o">.</span><span class="n">plot_estimator</span><span class="p">(</span><span class="n">svc_rbf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">svc_rbf</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">svc_rbf</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> 
+           <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Kernel Gaussiano o RBF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5,1,&#39;Kernel Gaussiano o RBF&#39;)
+</pre></div>
+</div>
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_82_1.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_82_1.png" />
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_82_2.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_82_2.png" />
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_82_3.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_82_3.png" />
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_82_4.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_82_4.png" />
+</div>
+</div>
+<p>Es necesario tener en cuenta que durante el proceso de entrenamiento tendremos entonces que definir el valor del parámetro <span class="math notranslate nohighlight">\(C\)</span> y el o los parámetros del kernel que seleccionemos.</p>
+</div>
+</div>
+<div class="section" id="regresion-por-vectores-de-soporte">
+<h1>Regresión por vectores de soporte<a class="headerlink" href="#regresion-por-vectores-de-soporte" title="Permalink to this headline">¶</a></h1>
+<p>El modelo de SVM descrito hasta el momento, puede ser extendido para resolver problemas de Regresión. En este caso, en lugar de minimizar una función de error cuadrático medio regularizada, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{2N} \sum_{n=1}^N (y_n - t_n )^2 + \frac{\lambda}{2}\|{\bf{w}}\|^2\]</div>
+<p>Se reemplaza por una función de error <span class="math notranslate nohighlight">\(\epsilon\)</span>-insensitiva:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+E_\epsilon(y({\bf{x}})-t) =
+\begin{cases}
+0  &amp; \textrm{if} \;\; |y({\bf{x}}) - t| &lt; \epsilon; \\
+|y({\bf{x}}) - t| - \epsilon &amp; \text{en otro caso} \\
+\end{cases}.
+\end{align} \end{split}\]</div>
+<p>Por consiguiente la función regularizada que se minimiza está dada por:</p>
+<div class="math notranslate nohighlight">
+\[C\sum_{n=1}^N E_{\epsilon}(y({\bf{x}}_n) - t_n) + \frac{1}{2}\|\bf{w}\|^2\]</div>
+<p>donde <span class="math notranslate nohighlight">\(y({\bf{x}}_n) = {\bf{w}}^T \phi({\bf{x}}_n) + b\)</span>. Al igual que en el caso anterior, para permitir que algunas muestras caigan por fuera de la región deseada (<span class="math notranslate nohighlight">\(\epsilon\)</span>-tubo), se introducen variables de relajación. Sin embargo, en este caso es necesario introducir dos tipos de variables:</p>
+<div class="math notranslate nohighlight">
+\[t_n \leq y({\bf{x}}_n) + \epsilon + \xi_n^{+}\]</div>
+<div class="math notranslate nohighlight">
+\[t_n \geq y({\bf{x}}_n) - \epsilon - \xi_n^{-}\]</div>
+<img src="./Images/SVR1.png" alt="SVR_Regression" width="500"/><p>Cada muestra <span class="math notranslate nohighlight">\({\bf{x}}_n\)</span> debe garantizar las dos condiciones. Por consiguiente, la función de error para el modelo de regresión por vectores de soporte se puede expresar como:</p>
+<div class="math notranslate nohighlight">
+\[C\sum_{n=1}^{N}(\xi_n^{+} + \xi_n^{-}) + \frac{1}{2}\|{\bf{w}}\|^2\]</div>
+<p>La cual debe ser minimizada sujeto a las restricciones anteriores y a <span class="math notranslate nohighlight">\(\xi_n^{+} \geq 0\)</span> y <span class="math notranslate nohighlight">\(\xi_n^{-} \geq 0\)</span>.</p>
+<p>Para llevar a cabo el proceso de optimización con restricciones, se define la siguiente función objetivo a partir de los multiplicadores de Lagrange <span class="math notranslate nohighlight">\(a_n^{+}\)</span>, <span class="math notranslate nohighlight">\(a_n^{-}\)</span>, <span class="math notranslate nohighlight">\(\mu_n^{+}\)</span> y <span class="math notranslate nohighlight">\(\mu_n^{-}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[L=C\sum_{n=1}^N (\xi_n^{+} + \xi_n^{-}) + \frac{1}{2}\|{\bf{w}}\|^2 - \sum_{n=1}^N (\mu_n^{+} \xi_n^{+} + \mu_n^{-}\xi_n^{-}) - \sum_{n=1}^N a_n^{+} (\epsilon + \xi_n^{+} + y({\bf{x}}_n) - t_n) - \sum_{n=1}^N a_n^{-}(\epsilon + \xi_n^{-} - y({\bf{x}}_n) + t_n)\]</div>
+<p>Derivando con respecto a <span class="math notranslate nohighlight">\(\bf{w}\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(\xi_n^{+}\)</span> y <span class="math notranslate nohighlight">\(\xi_n^{-}\)</span>, e igualando a cero se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial L}{\partial {\bf{w}}} = 0 \Rightarrow {\bf{w}} = \sum_{n=1}^{N} (a_n^{+} - a_n^{-})\phi({\bf{x}}_n)\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial L}{\partial b} = 0 \Rightarrow \sum_{n=1}^{N} (a_n^{+} - a_n^{-}) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial L}{\partial \xi_n^{+}} = 0 \Rightarrow (a_n^{+} - \mu_n^{+})=C\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial L}{\partial \xi_n^{-}} = 0 \Rightarrow (a_n^{-} - \mu_n^{-})=C\]</div>
+<p>Si al igual que se hizo para las SVM, se reemplazan los resultados anteriores en la función <span class="math notranslate nohighlight">\(L\)</span>, la representación dual en este caso está dada por [1]:</p>
+<div class="math notranslate nohighlight">
+\[L({\bf{a}}^{+},{\bf{a}}^{-}) = -\frac{1}{2}\sum_{n=1}^N \sum_{m=1}^N (a_n^{+} - a_n^{-})(a_m^{+} - a_m ^{-})k({\bf{x}}_n ,{\bf{x}}_m) - \epsilon\sum_{n=1}^N (a_n^{+} + a_n^{-}) + \sum_{n=1}^N (a_n^{+} - a_n^{-})t_n\]</div>
+<p>Una vez más, teniendo en cuenta las derivadas con respecto a <span class="math notranslate nohighlight">\(\xi_n^{+}\)</span> y <span class="math notranslate nohighlight">\(\xi_n^{-}\)</span>, y que ambas variables deben ser mayores o iguales a cero, se requiere que:</p>
+<div class="math notranslate nohighlight">
+\[ 0 \leq a_n^{+} \leq C\]</div>
+<div class="math notranslate nohighlight">
+\[ 0 \leq a_n^{-} \leq C\]</div>
+<p>El resultado del proceso de optimización permitirá establecer las muestras que caen en el límite del <span class="math notranslate nohighlight">\(\epsilon\)</span>-tubo o fuera de él y las caen dentro. Se entiende que una muestra no puede estar al mismo tiempo por arriba y por debajo de la función objetivo, por lo que para cada muestra <span class="math notranslate nohighlight">\(a_n^{+}\)</span>, <span class="math notranslate nohighlight">\(a_n^{-}\)</span> o ambos, deben ser cero.</p>
+<p>La función a la salida se puede expresar como:</p>
+<div class="math notranslate nohighlight">
+\[y({\bf{x}}) = \sum_{n=1}^{N_{sv}} (a_n^{+} - a_n^{-})k({\bf{x}}, {\bf{x}}_n) + b\]</div>
+<p>El parametro <span class="math notranslate nohighlight">\(b\)</span> puede ser calculado al reemplazar un vector de soporte en la ecuación anterior y garantizar que está fuera del <span class="math notranslate nohighlight">\(\epsilon\)</span>-tubo, es decir:</p>
+<div class="math notranslate nohighlight">
+\[b = t_n - \epsilon - {\bf{w}}^T \phi({\bf{x}})\]</div>
+<div class="math notranslate nohighlight">
+\[b = t_n - \epsilon - \sum_{m=1}^{N_{sv}} (a_m^{+} - a_m^{-})k({\bf{x}}_n, {\bf{x}}_m)\]</div>
+<p>Al igual que en el caso de las SVM, en la práctica es mejor promediar el resultado para los diferentes vectores de soporte.</p>
+<p>La siguiente figura muestra un ejemplo de frontera que puede ser obtenida usando una SVR con kernel RBF. Imagen tomada de: <a class="reference external" href="https://basilio.dev/screenshots.html">https://basilio.dev/screenshots.html</a></p>
+<img src="./Images/SVR.jpg" alt="SVR_Regression" width="800"/><p>Veamos algunos ejemplos prácticos del uso de SVR.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="c1">###############################################################################</span>
+<span class="c1"># Generate sample data</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+<span class="c1">###############################################################################</span>
+<span class="c1"># Add noise to targets</span>
+<span class="n">y</span><span class="p">[::</span><span class="mi">5</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="c1">###############################################################################</span>
+<span class="c1"># Fit regression model</span>
+<span class="n">svr_rbf</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">svr_lin</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1e3</span><span class="p">)</span>
+<span class="n">svr_poly</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y_rbf</span> <span class="o">=</span> <span class="n">svr_rbf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y_lin</span> <span class="o">=</span> <span class="n">svr_lin</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y_poly</span> <span class="o">=</span> <span class="n">svr_poly</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1">###############################################################################</span>
+<span class="c1"># look at the results</span>
+<span class="n">sv</span><span class="o">.</span><span class="n">PlotEjemploSVR</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">y_rbf</span><span class="p">,</span><span class="n">y_lin</span><span class="p">,</span><span class="n">y_poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_120_0.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_120_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################</span>
+<span class="c1"># Fit regression model</span>
+<span class="n">svr_rbf</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">svr_lin</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">svr_poly</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y_rbf</span> <span class="o">=</span> <span class="n">svr_rbf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y_lin</span> <span class="o">=</span> <span class="n">svr_lin</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y_poly</span> <span class="o">=</span> <span class="n">svr_poly</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="c1">###############################################################################</span>
+<span class="c1"># look at the results</span>
+<span class="n">sv</span><span class="o">.</span><span class="n">PlotEjemploSVR</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">y_rbf</span><span class="p">,</span><span class="n">y_lin</span><span class="p">,</span><span class="n">y_poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_121_0.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_121_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################</span>
+<span class="c1"># Fit regression model</span>
+<span class="n">svr_rbf</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1e7</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">svr_lin</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1e7</span><span class="p">)</span>
+<span class="n">svr_poly</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y_rbf</span> <span class="o">=</span> <span class="n">svr_rbf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y_lin</span> <span class="o">=</span> <span class="n">svr_lin</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y_poly</span> <span class="o">=</span> <span class="n">svr_poly</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1">###############################################################################</span>
+<span class="c1"># look at the results</span>
+<span class="n">sv</span><span class="o">.</span><span class="n">PlotEjemploSVR</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">y_rbf</span><span class="p">,</span><span class="n">y_lin</span><span class="p">,</span><span class="n">y_poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clase 15 - Máquinas de Véctores de Soporte_122_0.png" src="_images/Clase 15 - Máquinas de Véctores de Soporte_122_0.png" />
+</div>
+</div>
+<div class="section" id="bibliografy">
+<h2>Bibliografy<a class="headerlink" href="#bibliografy" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="titles/U7_description.html" title="previous page">U7. MÁQUINAS DE VECTORES DE SOPORTE</a>
+    <a class='right-next' id="next-link" href="Labs/lab5/lab5_parte1.html" title="next page">Laboratorio 5 - Parte 1: Redes recurrentes</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-51547737-2', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

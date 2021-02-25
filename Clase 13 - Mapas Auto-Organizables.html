@@ -1,0 +1,976 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapas Auto-Organizables &#8212; 2020 Introducción al Machine Learning</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Redes Neuronales Recurrentes" href="Clase%2014%20-%20Redes%20Neuronales%20Recurrentes.html" />
+    <link rel="prev" title="Redes Neuronales Artificiales" href="Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Course information
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U1_description.html">
+   U1. INTRODUCCIÓN AL MACHINE LEARNING
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html">
+     Introducción al Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#modelos-a-partir-de-datos">
+     Modelos a partir de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#tipos-de-problemas-supervisados">
+     Tipos de problemas supervisados
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html">
+     <font color="blue">
+      Modelos básicos de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html#font-color-blue-pensemos-ahora-en-el-problema-de-clasificacion-font">
+     <font color="blue">
+      Pensemos ahora en el problema de clasificación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2003%20-%20Funciones%20discriminantes%20Gausianas.html">
+     Modelos de clasificación empleando funciones de densidad Gausianas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U1_IntroLabs.html">
+   INTRODUCCIÓN A PYTHON Y NUMPY
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html">
+     Introdución para los laboratorios de Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#google-colab-y-jupyter-notebook">
+     Google Colab y Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#manejo-vectores-y-matrices-en-numpy">
+     Manejo vectores y matrices en NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#manejo-de-estructuras-de-datos-en-pandas">
+     Manejo de estructuras de datos en Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#manejo-de-graficas-en-matplotlib-y-pandas">
+     Manejo de gráficas en matplotlib y pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#estructura-de-los-laboratorios">
+     Estructura de los laboratorios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/Intro/Intro.html#recomendaciones-finales-para-la-entrega-de-los-laboratorios">
+     Recomendaciones Finales para la entrega de los laboratorios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte1.html">
+     Laboratorio 1 - Parte 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte2.html">
+     Laboratorio 1 - Parte 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte2.html#ejercicio-1-contextualizacion-del-problema">
+     Ejercicio 1: Contextualización del problema
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte2.html#ejercicio-2-entrenamiento">
+     Ejercicio 2: entrenamiento
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab1/lab1_parte2.html#ejercicio-3-experimentar">
+     Ejercicio 3: Experimentar
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U2_description.html">
+   U2. MODELOS NO PARÁMETRICOS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2004%20-%20Modelos%20no%20Param%C3%A9tricos.html">
+     Modelos no parámetricos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab2/lab2_parte1.html">
+     Laboratorio 2 - Parte 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab2/lab2_parte2.html">
+     Laboratorio 2 - Parte 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U3_description.html">
+   U3. COMPLEJIDAD DE MODELOS Y VALIDACIÓN
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2005%20-%20M%C3%A9tricas%20de%20error.html">
+     <font color="blue">
+      Métricas de evaluación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html">
+     <font color="blue">
+      Complejidad de modelos
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-metodologias-de-validacion-font">
+     <font color="blue">
+      Metodologías de validación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-curva-de-aprendizaje-font">
+     <font color="blue">
+      Curva de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2007%20-%20Regularizaci%C3%B3n.html">
+     Sobreajuste y Regularización
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U4_description.html">
+   U4. APRENDIZAJE NO SUPERVISADO
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2008%20-%20Modelos%20de%20Mezclas%20de%20Gausianas.html">
+     Modelos de Mezcla de Funciones Gaussianas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html">
+     Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#referencias-generales">
+     Referencias Generales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#metodos-jerarquicos-aglomerativos">
+     Métodos jerárquicos/aglomerativos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2009%20-%20Unsupervised%20Learning.html#metodos-de-clustering">
+     Métodos de clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab3/lab3_parte1.html">
+     Laboratorio 3 - Parte 1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U5_description.html">
+   U5. MODELOS DE ÁRBOLES Y ENSAMBLES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2010%20-%20%C3%81rboles%20de%20Decisi%C3%B3n%2C%20Voting%2C%20Bagging%2C%20Random%20Forest.html">
+     Árboles de decisión
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2011%20-%20Boosting%2C%20Stacking.html">
+     Boosting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab3/lab3_parte2.html">
+     Laboratorio 3 - Parte 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="titles/U6_description.html">
+   U6. REDES NEURONALES ARTIFICIALES
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html">
+     Redes Neuronales Artificiales
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Mapas Auto-Organizables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2014%20-%20Redes%20Neuronales%20Recurrentes.html">
+     Redes Neuronales Recurrentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab4/lab4_parte1.html">
+     Laboratorio 4 - Parte 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab4/lab4_parte2.html">
+     Laboratorio 4 - Parte 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U7_description.html">
+   U7. MÁQUINAS DE VECTORES DE SOPORTE
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html">
+     Máquinas de Soporte Vectorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html#regresion-por-vectores-de-soporte">
+     Regresión por vectores de soporte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab5/lab5_parte1.html">
+     Laboratorio 5 - Parte 1: Redes recurrentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab5/lab5_parte2.html">
+     Laboratorio 5 - Parte 2 Máquinas de Vectores de Soporte
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="titles/U8_description.html">
+   U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab6/lab6_parte1.html">
+     Laboratorio 6 - Parte 1: Reducción de dimensión y Selección de características
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Labs/lab6/lab6_parte2.html">
+     Laboratorio 6 - Parte 2: Reducción de dimensión PCA y LDA
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Clase 13 - Mapas Auto-Organizables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/prueba/blob/master/Clase 13 - Mapas Auto-Organizables.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julian-d-arias-londono">
+   Julián D. Arias Londoño
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proceso-de-competicion">
+   Proceso de Competición
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proceso-cooperativo">
+   Proceso cooperativo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proceso-de-adaptacion">
+   Proceso de Adaptación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#veamos-un-ejemplo-donde-un-algoritmo-de-clustering-convencional-tendria-problemas-y-el-som-no">
+   Veamos un ejemplo donde un algoritmo de clustering convencional tendría problemas y el SOM no
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="mapas-auto-organizables">
+<h1>Mapas Auto-Organizables<a class="headerlink" href="#mapas-auto-organizables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="julian-d-arias-londono">
+<h2>Julián D. Arias Londoño<a class="headerlink" href="#julian-d-arias-londono" title="Permalink to this headline">¶</a></h2>
+<p>Profesor Asociado<br />
+Departamento de Ingeniería de Sistemas<br />
+Universidad de Antioquia, Medellín, Colombia<br />
+<a class="reference external" href="mailto:julian&#46;ariasl&#37;&#52;&#48;udea&#46;edu&#46;co">julian<span>&#46;</span>ariasl<span>&#64;</span>udea<span>&#46;</span>edu<span>&#46;</span>co</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los Mapas Auto-Organizables (En inglés: Self-Organizing Maps - SOM), son un tipo de red neuronal que permiten resolver problemas no supervisados. Los SOM están basados un concepto conocido como <i>aprendizaje competitivo</i>; en el cual las neuronas de la capa de salida compiten entre ellas por estar activadas o “despedidas”. Sólo una neurona de salida puede estar activada en un determinado tiempo.</p>
+<p>En un SOM las neuronas estan ubicadas en los nodos de una cuadrícula, la cual usualmente tiene una o dos dimensiones. Durante el entrenamiento, las neuronas se van ajustando selectivamente a diferentes patrones de entrada (estímulos), en un proceso de aprendizaje competitivo. La ubicación de las neuronas activadas (winning neurons), van formando un mapa topográfico que se relaciona con los patrones de entrada, en el cual la ubicación espacial de las neuronas en la cuadrícula es un indicador de características estadísticas intrínsecas contenidas en los datos de entrada [1].</p>
+<p><img alt="alt text" src="_images/scheme2.png" /></p>
+<p>Existen principalmente dos tipos de mapas:</p>
+<ul>
+<li>Modelo de Willshaw-von der Malsburg</li>
+<li>Modelo de Kohonen (figura anterior)</li>
+</ul>
+<p>El modelo de Kohonen ha sido mucho más ampliamente utilizado ya que el modelo de Willshaw-von der Malsburg está diseñado para modelar problemas en los que el número de entradas es igual al número de salidas. Por otro lado, el modelo de Kohonen captura los elementos esenciales de los mapas corticales, a partir de los cuales se inspiraron este tipo de RNA.</p>
+<p>El entrenamiento de la red responsable de la conformación de los mapas tiene tres fases principales (cuatro si consideramos la inicialización de los pesos de la red, para lo cual usamos un generador de números aleatorios):</p>
+<ul>
+<li><b>Competición</b>: Dada una muestra $\bf{x}$, en esta etapa se debe determinar la neurona ganadora.</li>
+<li><b>Cooperación</b>: Teniendo en cuenta la neurona ganadora, se define la vecindad de las neuronas excitadas, lo que permite generar el mapa topográfico.</li>
+<li><b>Adaptación sináptica</b>: Es el paso de adaptación, en el que se reajustan los pesos de la red, para favorecer las neuronas actividas</li>
+</ul>
+</div>
+<div class="section" id="proceso-de-competicion">
+<h2>Proceso de Competición<a class="headerlink" href="#proceso-de-competicion" title="Permalink to this headline">¶</a></h2>
+<p>Para mantener la notación utilizada en la gráfica, supongamos que <span class="math notranslate nohighlight">\(m\)</span> es la dimensión del espacio de entrada, es decir el número de características. Cada muestra estará entonces representada por un vector <span class="math notranslate nohighlight">\({\bf{x}}=[x_1,x_2,...,x_m]^T\)</span>. El vector de pesos sinápticos de cada neurona en la red tiene la misma dimensión del espacio de entrada. Para la neurona <span class="math notranslate nohighlight">\(j\)</span>, el vector estará dado por <span class="math notranslate nohighlight">\({\bf{w}}=[w_{j1},w_{j2},...,w_{jm}]^T\)</span>, para <span class="math notranslate nohighlight">\(j=1,2,...,K\)</span>.</p>
+<p>Para encontrar la neurona que mejor “combina” con un determinado vector de entrada <span class="math notranslate nohighlight">\(\bf{x}\)</span>, podemos evaluar los productos internos <span class="math notranslate nohighlight">\({\bf{w}}_j^T{\bf{x}}\)</span> y encontrar la neurona <span class="math notranslate nohighlight">\(j\)</span> para la cual dicho producto es mayor. El producto es mayor cuando el ángulo entre los vectores es 0, es decir que encontrar la neurona con mayor producto interno <span class="math notranslate nohighlight">\({\bf{w}}_j^T{\bf{x}}\)</span>, es matemáticamente equivalente a encontrar la neurona <span class="math notranslate nohighlight">\(j\)</span> para la cual la distancia entre los vectores <span class="math notranslate nohighlight">\({\bf{w}}_j\)</span> y <span class="math notranslate nohighlight">\({\bf{x}}\)</span> sea mínima.</p>
+<p>La neurona ganadora será entonces aquella que cumpla la condición:</p>
+<div class="math notranslate nohighlight">
+\[i({\bf{x}})=\arg \min_j ||{\bf{x}} - {\bf{w}} _j||, \;\; j \in \mathcal{A}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> denota la cuadrícula de neuronas (el conjunto de neuronas).</p>
+</div>
+<div class="section" id="proceso-cooperativo">
+<h2>Proceso cooperativo<a class="headerlink" href="#proceso-cooperativo" title="Permalink to this headline">¶</a></h2>
+<p>La neurona ganadora estará ubicada en el centro de una <b>vencidad topológica </b> de neuronas cooperantes, intentado emular las vecindades neurobológicas observadas en el cerebro humano. La vecindad topológica estará definida por la cercanía física entre las neuronas de la cuadrícula, definiendo un umbral de vecindad para las neuronas cooperantes. Para emular, biologicamente, de mejor manera el comportamiento de las neuronas en la corteza cerebral, la vecindad no se define de manera rígida, sino que por el contrario se usa una función que permita definir el “nivel de cooperación” de cualquier neurona en relación con la neurona ganadora, a partir de la distancia existente entre ambas.</p>
+<p>La vecindad topológica centrada en la neurona ganadora <span class="math notranslate nohighlight">\(i\)</span> y cualquier otra neurona exitada <span class="math notranslate nohighlight">\(j\)</span>, se define como:</p>
+<div class="math notranslate nohighlight">
+\[h_{j,i({\bf{x}})}=\exp\left(-\frac{d_{j,i}^2}{2\sigma^2}\right), \;\; j\in \mathcal{A}\]</div>
+<p>El parámetro <span class="math notranslate nohighlight">\(\sigma\)</span> se conoce como el ancho efectivo de la vecindad topológica. La distancia <span class="math notranslate nohighlight">\(d_{j,i}^2\)</span>, corresponde a la distancia en la cuadrícula de las neuronas <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(j\)</span>. Si la cuadrícula tiene una sola dimensión, la distancia será igual al entero <span class="math notranslate nohighlight">\(|j-i|\)</span>; en el caso de una cuadrícula de dos dimensiones, la distancia <span class="math notranslate nohighlight">\(d_{j,i}^2 = ||{\bf{r}}_j - {\bf{r}}_i||^2\)</span>, donde el vector <span class="math notranslate nohighlight">\({\bf{r}}_j\)</span> está compuesto por las coordenadas de la neurona <span class="math notranslate nohighlight">\(j\)</span> en la cuadrícula.</p>
+<p>Un aspecto importante de los SOM, es que el tamaño de la vecindad topológica se va reduciendo con el tiempo (iteraciones). La manera usual de implementar dicha reducción, es usar la siguiente expresión:</p>
+<div class="math notranslate nohighlight">
+\[\sigma(t)=\sigma_0\exp\left(-\frac{t}{\tau_1}\right)\;\; t=0,1,2,...\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\sigma_0\)</span> es el valor de inicialización del tamaño de vecindad y <span class="math notranslate nohighlight">\(\tau_1\)</span> es un tiempo definido por el diseñador. Si se usa la expresión anterior, la vecindad topológica estará dada por:</p>
+<div class="math notranslate nohighlight">
+\[h_{j,i({\bf{x}})}(t)=\exp\left(-\frac{d_{j,i}^2}{2\sigma^2(t)}\right), \;\; t=0,1,2,...\]</div>
+</div>
+<div class="section" id="proceso-de-adaptacion">
+<h2>Proceso de Adaptación<a class="headerlink" href="#proceso-de-adaptacion" title="Permalink to this headline">¶</a></h2>
+<p>Esta es la última parte del proceso, en la cual se implementa el “auto-organizamiento” de la red. Para esto, el vector de pesos sináptico <span class="math notranslate nohighlight">\({\bf{w}}_j\)</span> de la neurona <span class="math notranslate nohighlight">\(j\)</span>, debe cambiar con relación al vector de entrada <span class="math notranslate nohighlight">\(\bf{x}\)</span>. Como el objetivo es que cada uno de los pesos de las neuronas se muevan en la dirección del vector entrada, siempre y cuando la neurona a actualizar esté en la región de vecindad de la neurona ganadora, la función de actualización en la iteración <span class="math notranslate nohighlight">\(t+1\)</span> tiene la forma:</p>
+<div class="math notranslate nohighlight">
+\[{\bf{w}}_j(t+1)={\bf{w}}_j(t)+\eta(t)h_{j,i({\bf{x}})}(t)({\bf{x}}(t)-{\bf{w}}_j(t))\]</div>
+<p>En este caso la tasa de aprendizaje se asume variable, y está dada por:</p>
+<div class="math notranslate nohighlight">
+\[\eta(t) = \eta_0\exp\left(-\frac{t}{\tau_2}\right) \;\; t=0,1,2,...\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\tau_2\)</span> es otra constante de tiempo del algoritmo SOM. Valores típicos son <span class="math notranslate nohighlight">\(\eta_0 = 0.1\)</span> y <span class="math notranslate nohighlight">\(\tau_2 = 1000\)</span>.</p>
+<p>Veamos un ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Se debe instalar la siguiente libreria</span>
+<span class="o">!</span>pip install git+https://github.com/sevamoo/SOMPY.git
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/sevamoo/SOMPY.git
+  Cloning https://github.com/sevamoo/SOMPY.git to /tmp/pip-req-build-1o8cmand
+Requirement already satisfied: numpy&gt;=1.7 in /home/julian/anaconda3/lib/python3.7/site-packages (from SOMPY==1.1.1) (1.18.4)
+Requirement already satisfied: scipy&gt;=0.9 in /home/julian/.local/lib/python3.7/site-packages (from SOMPY==1.1.1) (1.4.1)
+Requirement already satisfied: scikit-learn&gt;=0.21 in /home/julian/anaconda3/lib/python3.7/site-packages (from SOMPY==1.1.1) (0.23.0)
+Requirement already satisfied: numexpr&gt;=2.5 in /home/julian/.local/lib/python3.7/site-packages (from SOMPY==1.1.1) (2.7.1)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /home/julian/.local/lib/python3.7/site-packages (from scikit-learn&gt;=0.21-&gt;SOMPY==1.1.1) (2.0.0)
+Requirement already satisfied: joblib&gt;=0.11 in /home/julian/.local/lib/python3.7/site-packages (from scikit-learn&gt;=0.21-&gt;SOMPY==1.1.1) (0.14.1)
+Building wheels for collected packages: SOMPY
+  Building wheel for SOMPY (setup.py) ... ?25ldone
+?25h  Created wheel for SOMPY: filename=SOMPY-1.1.1-py3-none-any.whl size=28154 sha256=21b12c883d666bb5996d19273187119349a73fad20f3eb485d347f338276beb5
+  Stored in directory: /tmp/pip-ephem-wheel-cache-t3aqnvlj/wheels/8b/81/b8/f2f0b9e71a0be3b20bce8b0198151e55102565195482fb882c
+Successfully built SOMPY
+Installing collected packages: SOMPY
+Successfully installed SOMPY-1.1.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from mvpa2.suite import *</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+         <span class="p">[[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">0.125</span><span class="p">,</span> <span class="mf">0.529</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.67</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+          <span class="p">[</span><span class="o">.</span><span class="mi">33</span><span class="p">,</span> <span class="o">.</span><span class="mi">33</span><span class="p">,</span> <span class="o">.</span><span class="mi">33</span><span class="p">],</span>
+          <span class="p">[</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">],</span>
+          <span class="p">[</span><span class="o">.</span><span class="mi">66</span><span class="p">,</span> <span class="o">.</span><span class="mi">66</span><span class="p">,</span> <span class="o">.</span><span class="mi">66</span><span class="p">]])</span>
+
+<span class="c1"># store the names of the colors for visualization later on</span>
+<span class="n">color_names</span> <span class="o">=</span> \
+        <span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="s1">&#39;skyblue&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;greyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;lilac&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="s1">&#39;violet&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;darkgrey&#39;</span><span class="p">,</span> <span class="s1">&#39;mediumgrey&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgrey&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sompy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CACHEDIR=/home/julian/.cache/matplotlib
+Using fontManager instance from /home/julian/.cache/matplotlib/fontlist-v310.json
+Loaded backend module://ipykernel.pylab.backend_inline version unknown.
+Loaded backend module://ipykernel.pylab.backend_inline version unknown.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sm</span> <span class="o">=</span> <span class="n">sompy</span><span class="o">.</span><span class="n">SOMFactory</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">normalization</span> <span class="o">=</span> <span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="n">initialization</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">neighborhood</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">component_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">])</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">n_job</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">train_len_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">train_rough_len</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">train_finetune_len</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sompy.visualization.mapview</span> <span class="kn">import</span> <span class="n">View2D</span>
+<span class="n">view2D</span>  <span class="o">=</span> <span class="n">View2D</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="s2">&quot;rand data&quot;</span><span class="p">,</span><span class="n">text_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">view2D</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">col_sz</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">which_dim</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">denormalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clase 13 - Mapas Auto-Organizables_34_0.png" src="_images/Clase 13 - Mapas Auto-Organizables_34_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">codebook</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">_normalizer</span><span class="o">.</span><span class="n">denormalize_by</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">data_raw</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">codebook</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+<span class="n">mp</span> <span class="o">=</span> <span class="n">codebook</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">codebook</span><span class="o">.</span><span class="n">mapsize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">sm</span><span class="o">.</span><span class="n">codebook</span><span class="o">.</span><span class="n">mapsize</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">codebook</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">mp</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20, 30, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definiendo un SOM con una cuadrícula de 20x40 neuronas de salida y 400 iteraciones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#som = SimpleSOMMapper((20, 30), 400, learning_rate=0.05)</span>
+<span class="c1">#som.train(colors)</span>
+<span class="n">Neurons</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">codebook</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">codebook</span><span class="o">.</span><span class="n">mapsize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">sm</span><span class="o">.</span><span class="n">codebook</span><span class="o">.</span><span class="n">mapsize</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">mapped</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">project_data</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Color SOM&#39;</span><span class="p">)</span>
+<span class="c1"># SOM&#39;s kshape is (rows x columns), while matplotlib wants (X x Y)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mapped</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Neurons</span> <span class="o">==</span> <span class="n">j</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+           <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clase 13 - Mapas Auto-Organizables_37_0.png" src="_images/Clase 13 - Mapas Auto-Organizables_37_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="veamos-un-ejemplo-donde-un-algoritmo-de-clustering-convencional-tendria-problemas-y-el-som-no">
+<h2>Veamos un ejemplo donde un algoritmo de clustering convencional tendría problemas y el SOM no<a class="headerlink" href="#veamos-un-ejemplo-donde-un-algoritmo-de-clustering-convencional-tendria-problemas-y-el-som-no" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">dlen</span> <span class="o">=</span> <span class="mi">700</span>
+<span class="n">tetha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">dlen</span><span class="p">)[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">tetha</span><span class="p">)</span><span class="o">+</span> <span class="o">.</span><span class="mi">22</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dlen</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Y1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">tetha</span><span class="p">)</span><span class="o">+</span> <span class="o">.</span><span class="mi">22</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dlen</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Data1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">X1</span><span class="p">,</span><span class="n">Y1</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">tetha</span><span class="p">)</span><span class="o">+</span> <span class="o">.</span><span class="mi">22</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dlen</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Y2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">tetha</span><span class="p">)</span><span class="o">+</span> <span class="o">.</span><span class="mi">22</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dlen</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">X2</span><span class="p">,</span><span class="n">Y2</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X3</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">tetha</span><span class="p">)</span><span class="o">+</span> <span class="o">.</span><span class="mi">22</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dlen</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Y3</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">tetha</span><span class="p">)</span><span class="o">+</span> <span class="o">.</span><span class="mi">22</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dlen</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Data3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">X3</span><span class="p">,</span><span class="n">Y3</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X4</span> <span class="o">=</span> <span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">tetha</span><span class="p">)</span><span class="o">+</span> <span class="o">.</span><span class="mi">22</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dlen</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Y4</span> <span class="o">=</span> <span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">tetha</span><span class="p">)</span><span class="o">+</span> <span class="o">.</span><span class="mi">22</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dlen</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Data4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">X4</span><span class="p">,</span><span class="n">Y4</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">Data1</span><span class="p">,</span><span class="n">Data2</span><span class="p">,</span><span class="n">Data3</span><span class="p">,</span><span class="n">Data4</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Data2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Data2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;ob&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3ebdd13f50&gt;]
+</pre></div>
+</div>
+<img alt="_images/Clase 13 - Mapas Auto-Organizables_39_1.png" src="_images/Clase 13 - Mapas Auto-Organizables_39_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data2</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2800, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
+<span class="n">som</span> <span class="o">=</span> <span class="n">sompy</span><span class="o">.</span><span class="n">SOMFactory</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">Data2</span><span class="p">,</span> <span class="n">mapsize</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mapshape</span><span class="o">=</span><span class="s1">&#39;planar&#39;</span><span class="p">,</span> <span class="n">lattice</span><span class="o">=</span><span class="s1">&#39;rect&#39;</span><span class="p">,</span> <span class="n">normalization</span><span class="o">=</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="n">initialization</span><span class="o">=</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">neighborhood</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="s1">&#39;batch&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sompy&#39;</span><span class="p">)</span>  <span class="c1"># this will use the default parameters, but i can change the initialization and neighborhood methods</span>
+<span class="n">som</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">n_job</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">train_finetune_len</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>  <span class="c1"># verbose=&#39;debug&#39; will print more, and verbose=None wont print anything</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">sompy</span><span class="o">.</span><span class="n">mapview</span><span class="o">.</span><span class="n">View2DPacked</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="n">text_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>  
+<span class="c1"># could be done in a one-liner: sompy.mapview.View2DPacked(300, 300, &#39;test&#39;).show(som)</span>
+<span class="n">v</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">som</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="s1">&#39;codebook&#39;</span><span class="p">,</span> <span class="n">which_dim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">col_sz</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1">#which_dim=&#39;all&#39; default</span>
+<span class="c1"># v.save(&#39;2d_packed_test&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clase 13 - Mapas Auto-Organizables_42_0.png" src="_images/Clase 13 - Mapas Auto-Organizables_42_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In this case, K-means simply fails as expected</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">sompy</span><span class="o">.</span><span class="n">mapview</span><span class="o">.</span><span class="n">View2DPacked</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="n">text_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>  
+<span class="c1">#first you can do clustering. Currently only K-means on top of the trained som</span>
+<span class="n">cl</span> <span class="o">=</span> <span class="n">som</span><span class="o">.</span><span class="n">cluster</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">v</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">som</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="s1">&#39;cluster&#39;</span><span class="p">)</span>
+<span class="c1"># v.save(&#39;kmeans_test&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/julian/anaconda3/lib/python3.7/site-packages/sompy/visualization/mapview.py:163: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+  ax = self._fig.add_subplot(1, 1, 1)
+</pre></div>
+</div>
+<img alt="_images/Clase 13 - Mapas Auto-Organizables_43_1.png" src="_images/Clase 13 - Mapas Auto-Organizables_43_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#But Umatrix finds the clusters easily</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">sompy</span><span class="o">.</span><span class="n">umatrix</span><span class="o">.</span><span class="n">UMatrixView</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;umatrix&#39;</span><span class="p">,</span> <span class="n">show_axis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">show_text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#This is the Umat value</span>
+<span class="n">UMAT</span>  <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">build_u_matrix</span><span class="p">(</span><span class="n">som</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row_normalized</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">UMAT</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">som</span><span class="p">,</span> <span class="n">distance2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row_normalized</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">show_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">contooor</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">blob</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clase 13 - Mapas Auto-Organizables_44_0.png" src="_images/Clase 13 - Mapas Auto-Organizables_44_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(150, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f3ea409e6d0&gt;
+</pre></div>
+</div>
+<img alt="_images/Clase 13 - Mapas Auto-Organizables_47_1.png" src="_images/Clase 13 - Mapas Auto-Organizables_47_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">som</span> <span class="o">=</span> <span class="n">sompy</span><span class="o">.</span><span class="n">SOMFactory</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mapsize</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mapshape</span><span class="o">=</span><span class="s1">&#39;planar&#39;</span><span class="p">,</span> <span class="n">lattice</span><span class="o">=</span><span class="s1">&#39;rect&#39;</span><span class="p">,</span> <span class="n">normalization</span><span class="o">=</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="n">initialization</span><span class="o">=</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">neighborhood</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="s1">&#39;batch&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sompy&#39;</span><span class="p">)</span>  <span class="c1"># this will use the default parameters, but i can change the initialization and neighborhood methods</span>
+<span class="n">som</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">n_job</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">train_finetune_len</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>  <span class="c1"># verbose=&#39;debug&#39; will print more, and verbose=None wont print anything</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">sompy</span><span class="o">.</span><span class="n">mapview</span><span class="o">.</span><span class="n">View2DPacked</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="n">text_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>  
+<span class="c1"># could be done in a one-liner: sompy.mapview.View2DPacked(300, 300, &#39;test&#39;).show(som)</span>
+<span class="n">v</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">som</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="s1">&#39;codebook&#39;</span><span class="p">,</span> <span class="n">which_dim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">col_sz</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1">#which_dim=&#39;all&#39; default</span>
+<span class="c1"># v.save(&#39;2d_packed_test&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clase 13 - Mapas Auto-Organizables_49_0.png" src="_images/Clase 13 - Mapas Auto-Organizables_49_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#But Umatrix finds the clusters easily</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">sompy</span><span class="o">.</span><span class="n">umatrix</span><span class="o">.</span><span class="n">UMatrixView</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;umatrix&#39;</span><span class="p">,</span> <span class="n">show_axis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">show_text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#This is the Umat value</span>
+<span class="n">UMAT</span>  <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">build_u_matrix</span><span class="p">(</span><span class="n">som</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row_normalized</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">UMAT</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">som</span><span class="p">,</span> <span class="n">distance2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row_normalized</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">show_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">contooor</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">blob</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clase 13 - Mapas Auto-Organizables_50_0.png" src="_images/Clase 13 - Mapas Auto-Organizables_50_0.png" />
+</div>
+</div>
+<p>[1] Simon Haykin, Neural Networks and Learning Machines, 3ra Edición, Prentice Hall, USA, 2009.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html" title="previous page">Redes Neuronales Artificiales</a>
+    <a class='right-next' id="next-link" href="Clase%2014%20-%20Redes%20Neuronales%20Recurrentes.html" title="next page">Redes Neuronales Recurrentes</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-51547737-2', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

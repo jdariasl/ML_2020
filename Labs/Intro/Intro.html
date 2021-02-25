@@ -1,0 +1,2347 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introdución para los laboratorios de Machine Learning &#8212; 2020 Introducción al Machine Learning</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Laboratorio 1 - Parte 1" href="../lab1/lab1_parte1.html" />
+    <link rel="prev" title="INTRODUCCIÓN A PYTHON Y NUMPY" href="../../titles/U1_IntroLabs.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Course information
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U1_description.html">
+   U1. INTRODUCCIÓN AL MACHINE LEARNING
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html">
+     Introducción al Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#modelos-a-partir-de-datos">
+     Modelos a partir de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#tipos-de-problemas-supervisados">
+     Tipos de problemas supervisados
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html">
+     <font color="blue">
+      Modelos básicos de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html#font-color-blue-pensemos-ahora-en-el-problema-de-clasificacion-font">
+     <font color="blue">
+      Pensemos ahora en el problema de clasificación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2003%20-%20Funciones%20discriminantes%20Gausianas.html">
+     Modelos de clasificación empleando funciones de densidad Gausianas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../../titles/U1_IntroLabs.html">
+   INTRODUCCIÓN A PYTHON Y NUMPY
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Introdución para los laboratorios de Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#google-colab-y-jupyter-notebook">
+     Google Colab y Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#manejo-vectores-y-matrices-en-numpy">
+     Manejo vectores y matrices en NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#manejo-de-estructuras-de-datos-en-pandas">
+     Manejo de estructuras de datos en Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#manejo-de-graficas-en-matplotlib-y-pandas">
+     Manejo de gráficas en matplotlib y pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#estructura-de-los-laboratorios">
+     Estructura de los laboratorios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#recomendaciones-finales-para-la-entrega-de-los-laboratorios">
+     Recomendaciones Finales para la entrega de los laboratorios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab1/lab1_parte1.html">
+     Laboratorio 1 - Parte 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab1/lab1_parte2.html">
+     Laboratorio 1 - Parte 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-1-contextualizacion-del-problema">
+     Ejercicio 1: Contextualización del problema
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-2-entrenamiento">
+     Ejercicio 2: entrenamiento
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab1/lab1_parte2.html#ejercicio-3-experimentar">
+     Ejercicio 3: Experimentar
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U2_description.html">
+   U2. MODELOS NO PARÁMETRICOS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2004%20-%20Modelos%20no%20Param%C3%A9tricos.html">
+     Modelos no parámetricos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab2/lab2_parte1.html">
+     Laboratorio 2 - Parte 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab2/lab2_parte2.html">
+     Laboratorio 2 - Parte 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U3_description.html">
+   U3. COMPLEJIDAD DE MODELOS Y VALIDACIÓN
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2005%20-%20M%C3%A9tricas%20de%20error.html">
+     <font color="blue">
+      Métricas de evaluación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html">
+     <font color="blue">
+      Complejidad de modelos
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-metodologias-de-validacion-font">
+     <font color="blue">
+      Metodologías de validación
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-curva-de-aprendizaje-font">
+     <font color="blue">
+      Curva de aprendizaje
+     </font>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2007%20-%20Regularizaci%C3%B3n.html">
+     Sobreajuste y Regularización
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U4_description.html">
+   U4. APRENDIZAJE NO SUPERVISADO
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2008%20-%20Modelos%20de%20Mezclas%20de%20Gausianas.html">
+     Modelos de Mezcla de Funciones Gaussianas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2009%20-%20Unsupervised%20Learning.html">
+     Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2009%20-%20Unsupervised%20Learning.html#referencias-generales">
+     Referencias Generales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2009%20-%20Unsupervised%20Learning.html#metodos-jerarquicos-aglomerativos">
+     Métodos jerárquicos/aglomerativos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2009%20-%20Unsupervised%20Learning.html#metodos-de-clustering">
+     Métodos de clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab3/lab3_parte1.html">
+     Laboratorio 3 - Parte 1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U5_description.html">
+   U5. MODELOS DE ÁRBOLES Y ENSAMBLES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2010%20-%20%C3%81rboles%20de%20Decisi%C3%B3n%2C%20Voting%2C%20Bagging%2C%20Random%20Forest.html">
+     Árboles de decisión
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2011%20-%20Boosting%2C%20Stacking.html">
+     Boosting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab3/lab3_parte2.html">
+     Laboratorio 3 - Parte 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U6_description.html">
+   U6. REDES NEURONALES ARTIFICIALES
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html">
+     Redes Neuronales Artificiales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2013%20-%20Mapas%20Auto-Organizables.html">
+     Mapas Auto-Organizables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2014%20-%20Redes%20Neuronales%20Recurrentes.html">
+     Redes Neuronales Recurrentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab4/lab4_parte1.html">
+     Laboratorio 4 - Parte 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab4/lab4_parte2.html">
+     Laboratorio 4 - Parte 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U7_description.html">
+   U7. MÁQUINAS DE VECTORES DE SOPORTE
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html">
+     Máquinas de Soporte Vectorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html#regresion-por-vectores-de-soporte">
+     Regresión por vectores de soporte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab5/lab5_parte1.html">
+     Laboratorio 5 - Parte 1: Redes recurrentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab5/lab5_parte2.html">
+     Laboratorio 5 - Parte 2 Máquinas de Vectores de Soporte
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../titles/U8_description.html">
+   U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab6/lab6_parte1.html">
+     Laboratorio 6 - Parte 1: Reducción de dimensión y Selección de características
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lab6/lab6_parte2.html">
+     Laboratorio 6 - Parte 2: Reducción de dimensión PCA y LDA
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Labs/Intro/Intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/prueba/blob/master/Labs/Intro/Intro.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introdución para los laboratorios de Machine Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#google-colab-y-jupyter-notebook">
+   Google Colab y Jupyter Notebook
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manejo-de-google-colab">
+     Manejo de Google Colab
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conceptos-rapidos-de-python-crash-course">
+     Conceptos rapidos de Python (Crash Course!)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manejo-vectores-y-matrices-en-numpy">
+   Manejo vectores y matrices en NumPy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creacion-de-matrices">
+     Creación de matrices
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexacion">
+     Indexación
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concatenar-vectores-y-matrices">
+     Concatenar vectores y matrices
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#otras-funcionalidades-de-numpy">
+     Otras funcionalidades de Numpy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manejo-de-estructuras-de-datos-en-pandas">
+   Manejo de estructuras de datos en Pandas
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manejo-de-graficas-en-matplotlib-y-pandas">
+   Manejo de gráficas en matplotlib y pandas
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estructura-de-los-laboratorios">
+   Estructura de los laboratorios
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recomendaciones-finales-para-la-entrega-de-los-laboratorios">
+   Recomendaciones Finales para la entrega de los laboratorios
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras alamancenar tu progreso</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Siempre Ejecuta esta linea de codigos</span>
+<span class="c1"># esta configura librerias y ciertas funciones</span>
+<span class="c1"># necesarias para esta sesión</span>
+<span class="o">!</span>wget https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py -O general.py
+<span class="kn">from</span> <span class="nn">general</span> <span class="kn">import</span> <span class="n">configure_intro</span>
+<span class="n">configure_intro</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">intro</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="introducion-para-los-laboratorios-de-machine-learning">
+<h1>Introdución para los laboratorios de Machine Learning<a class="headerlink" href="#introducion-para-los-laboratorios-de-machine-learning" title="Permalink to this headline">¶</a></h1>
+<p>Este material explica a detalle los laboratorios que realizarán durante el curso. Los laboratorios están en Python 3.7, y son escritos usando <a class="reference external" href="https://jupyter.org">notebooks</a> que estan adaptados para ser ejecutados en la herramienta <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb#scrollTo=5fCEDCU_qrC0">Google Colab</a>.</p>
+<p>En este notebook veremos la siguiente información que sera nuestra base para todas nuestras sesiones.</p>
+<ol class="simple">
+<li><p>Introducción a <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb#scrollTo=5fCEDCU_qrC0">Google Colab</a> y de como usarlos para el desarrollo de las practicas</p></li>
+<li><p>Conceptos rapidos de Python</p></li>
+<li><p>Manejo de vectores y matrices en NumPy</p></li>
+<li><p>Manejo de estructuras de datos en pandas</p></li>
+<li><p>Manejo de gráficas en matplotlib y pandas</p></li>
+<li><p>Estructuras de los laboratorios y comentarios finales</p></li>
+</ol>
+<p>En cada una de las secciones pueden encontrar diferentes ejercicios para ir practicando y afianzado los conceptos presentados.</p>
+</div>
+<div class="section" id="google-colab-y-jupyter-notebook">
+<h1>Google Colab y Jupyter Notebook<a class="headerlink" href="#google-colab-y-jupyter-notebook" title="Permalink to this headline">¶</a></h1>
+<p>Un Jupyter notebook es un proyecto open source que permite ejecutar interactivamente varios lenjuages de programación. Su nombre es un referencia a los lenguajes que fueron principales en el inicio el proyecto: JUlia, PYThon y R. Pero en la actulidad se han expandido a muchos otras más. Este proyecto también se conocio antes bajo el nombre de <strong>IPython Notebooks</strong>.  Los notebooks, en su formato “crudo” son un archivo <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> que es renderizado para permitir combinar tanto codigo, texto (Usando <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>), lenguaje matemático y graficas.</p>
+<p>Los notebooks pueden ser ejecutados en diferentes entornos. Estos entornos pueden ser locales (requieren instalación y configuración) o en la nube por medio de un navegador moderno (no requiere ninguna configuración).</p>
+<ul class="simple">
+<li><p>Distribuición de <a class="reference external" href="https://www.anaconda.com/">Anaconda</a>. (Recomendado para Windows y macOs)</p></li>
+<li><p>Administrador de paquetes pip. (Recomendado para Linux) <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-jupyter-notebook-with-python-3-on-ubuntu-18-04">Tutorial</a></p></li>
+<li><p>Contenedor en docker</p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb#scrollTo=5fCEDCU_qrC0">Google Colab</a></p></li>
+<li><p><a class="reference external" href="https://mybinder.org/">Binder</a></p></li>
+</ul>
+<p>Como se ha mencionado, este notebook y el resto de nuestros sesiones están adaptados para usar Google Colab, pero con un muy pequeño esfuerzo también pueden ser adaptados para ser ejecutados en cualquier entorno mencionado. <strong>Esto ultimo no es recomendado y no es objetivo del curso</strong>,  y no se podrán revisar laboratorios que no sigan las instrucciones detalladas en la ultima sección de este documento.</p>
+<p>En la industria, los jupyter notebooks son un herramienta altamente adoptada y se considera “quasi-estandar” para el desarrollo, documentación y comunicación de resultados de investigación en trabajos de ciencia de datos. Sin embargo también ha logrado una buena pouplaridad en otros entornos. inlcusive, se ha discuito que <a class="reference external" href="https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/">pueden ser una buena alternativa para susbtituir el formato estandar del paper cientifico</a>. De la misma manera los jupyter notebook son la base para productos comerciales de los principales proveedores de computación en la nube como lo son:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cloud.google.com/ai-platform/?hl=es-419">AI Platform</a> De Google Computing Platform</p></li>
+<li><p><a class="reference external" href="https://aws.amazon.com/es/sagemaker/">Amazon SageMaker</a> de Amazon Web Services</p></li>
+<li><p><a class="reference external" href="https://notebooks.azure.com/">Azure Notebooks</a> de Microsoft Azure</p></li>
+<li><p>Y otros servicios usados en entornos de Big Data como son <a class="reference external" href="https://databricks.com/">Databricks</a>, <a class="reference external" href="https://www.cloudera.com/products/data-science-and-engineering/data-science-workbench.html">Cloudera</a> y <a class="reference external" href="https://zeppelin.apache.org/">Apache Zepelin</a>.</p></li>
+</ul>
+<p>Sin embargo es totalmente vital, aclarar que los notebooks son un entorno para exploración interactiva y presentar resultados que sean reproducibles. No es recomendado su uso para tareas de software engineering “más puras” (codigo de una aplicación,API, codigo de un sistema productivo, etc).</p>
+<p>Cada dia cobra mas fuerza la siguiente idea: <strong>los notebooks son usados en las primeras etapas de desarollo de una aplicación de ML. Pero cuando el modelo cada vez esta más cerca a un entorno “productivo”, el codigo de un notebook debe ser refactorizado a un codigo que sea mas sencillo de mantener y administrar</strong> (<a class="reference external" href="https://www.youtube.com/watch?v=7jiPeIFXb6U">En este video se hace una discusión interesante y otras críticas</a>). En las últimas sesiones de nuestro laboratorio, realizaremos una práctica donde ahondaremos un poco mas en este tema.</p>
+<div class="section" id="manejo-de-google-colab">
+<h2>Manejo de Google Colab<a class="headerlink" href="#manejo-de-google-colab" title="Permalink to this headline">¶</a></h2>
+<p>Colaboratory, o Colab, te permite escribir y ejecutar código de Python en un navegador.</p>
+<ul class="simple">
+<li><p>Sin configuración requerida</p></li>
+<li><p>Acceso gratuito a GPU</p></li>
+<li><p>Facilidad para compartir</p></li>
+</ul>
+<p>No importa si eres <strong>estudiante</strong>, <strong>científico de datos</strong>* o <strong>investigador de IA</strong>, Colab fue concebido para facilitarnos algunas de nuestras tareas. Mira <a class="reference external" href="https://www.youtube.com/watch?v=inN8seMm7UI">este video introductorio sobre Colab</a>. En Colab, existen dos tipos de celdas:</p>
+<blockquote>
+<div><p>Las celdas de texto: estan escrita con <em>Markdown</em>, un lenguaje de etiquetado más legible para la decoración de texto, se puede hacer desde encabezados, usar <a class="reference external" href="http://www.latex-project.org/">LaTeX</a>, símbolos matemáticos, listas enumeradas, entre otros.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Las celdas de código: son ejecutables, es decir, se pueden correr individualmente.</p>
+</div></blockquote>
+<p>Cada notebook inicia con este icono:</p>
+<p><a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/Intro/Intro.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p>Que abrira automaticamente el notebook que estas observando en Google Colab. Recuerda que una vez abierto, Debes dar clic en “Copiar en Drive”. De lo contrario no podras alamancenar tu progreso y ni compartirlo con tu profesor.</p>
+<p>Como se menciono, cada celda de codigo se ejecuta por separado. Esto implica que <strong>la ejecución se realiza de arriba hacia abajo en orden</strong>, de este modo ya están cargadas las librerías o variables previamente. Es así como evitamos problemas de importación de librerías o variables sin definir.</p>
+<p>Por ejemplo, esta es una celda de código con una secuencia de comandos Python corta que calcula un valor, lo almacena en una variable y devuelve el resultado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seconds_in_a_day</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span>
+<span class="n">seconds_in_a_day</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A fin de ejecutar el código en la celda anterior, haz clic en él para seleccionarlo y, luego, presiona el botón de reproducción ubicado a la izquierda del código o usa la combinación de teclas “Command/Ctrl + Intro”. Para editar el código, solo haz clic en la celda y comienza a editar.</p>
+<p>Las variables que defines en una celda pueden usarse en otras:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seconds_in_a_week</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">seconds_in_a_day</span>
+<span class="n">seconds_in_a_week</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>!Ahora es tu turno!
+Haz click en la opción “+ Texto” (en la parte de arriba o al final de la celda, tambien te debe aparecer y dirijes el puntero en la parte inferior de la celda) y añade una celda de texto y prueba escribir algo.</p>
+<p>Luego, añande una celda de código  en la opción ” + Codigo”  (en la parte de arriba o al final de la celda, tambien te debe aparecer y dirijes el puntero en la parte inferior de la celda) y escribe las siguientes
+lineas y ejecatalas.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zero_to_nine</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">zero_to_nine</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>¿cual es la salida?</p>
+<p>Tambien es de utilidad conocer los shorcuts o accesos rapidos de colab, explora que combinaciones de teclas te pueden servir para agilizar el trabajo en Colab.</p>
+<p><img alt="colabshortcuts" src="https://miro.medium.com/max/625/1*BmBIeAJrSl47_1j3TlxQUQ.png" /></p>
+</div>
+<div class="section" id="conceptos-rapidos-de-python-crash-course">
+<h2>Conceptos rapidos de Python (Crash Course!)<a class="headerlink" href="#conceptos-rapidos-de-python-crash-course" title="Permalink to this headline">¶</a></h2>
+<p>En esta sección se hace un recuerdo/presentación de conceptos utiles de Python, si bien para el desarrollo del curso no es necesario y no se busca que las practicas esten enfocadas a desarrollar habilidades especificas de Python, si es de utilidad tener claras algunas capacidades de Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tuplas</span>
+<span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;hola&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">#tup[1] = 2    #Esto es un error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Listas</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;Hola&quot;</span><span class="p">]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;nuevo&quot;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diccionarios</span>
+
+<span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;clave&quot;</span><span class="p">:</span> <span class="s2">&quot;valor&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="mi">324</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="s2">&quot;Hola&quot;</span><span class="p">}</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="s2">&quot;clave&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Conjuntos</span>
+<span class="n">conjunto</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;hola&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conjunto</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Estrucutra if else</span>
+<span class="n">age</span><span class="o">=</span><span class="mi">17</span>
+
+<span class="k">if</span> <span class="n">age</span><span class="o">&gt;</span><span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;you can enter&quot;</span> <span class="p">)</span>
+<span class="k">elif</span> <span class="n">age</span><span class="o">==</span><span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;go see Pink Floyd&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;go see Black pink / BTS&quot;</span> <span class="p">)</span>
+    
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;move on&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1982</span><span class="p">,</span><span class="mi">1980</span><span class="p">,</span><span class="mi">1973</span><span class="p">]</span>
+<span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+
+<span class="c1"># iterar en el indice</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dates</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> 
+<span class="c1"># iterar en los elementos</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> 
+<span class="c1"># usar enumerate</span>
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span> <span class="p">(</span><span class="n">dates</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> 
+<span class="c1"># iterar en dos listas de igual tamaño</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">letra</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">letra</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Ciclos Whiles</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1982</span><span class="p">,</span><span class="mi">1980</span><span class="p">,</span><span class="mi">1973</span><span class="p">,</span><span class="mi">2000</span><span class="p">]</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">year</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span><span class="p">(</span><span class="n">year</span><span class="o">!=</span><span class="mi">1973</span><span class="p">):</span>
+    <span class="n">year</span><span class="o">=</span><span class="n">dates</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
+      
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;it took &quot;</span><span class="p">,</span> <span class="n">i</span> <span class="p">,</span><span class="s2">&quot;repetitions to get out of loop&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="manejo-vectores-y-matrices-en-numpy">
+<h1>Manejo vectores y matrices en NumPy<a class="headerlink" href="#manejo-vectores-y-matrices-en-numpy" title="Permalink to this headline">¶</a></h1>
+<p>NumPy es un paquete que proporciona herramientas y técnicas para manipular estructuras de datos con matrices, es mucho mejor que las listas de Python, tiene acceso y escritura más rápida. Posee una amplia colección de herramientas y técnicas que se pueden utilizar para resolver problemas mátematicos, además de que contiene todas las funciones para trabajar con matrices.</p>
+<p>A continuación encontrá algunas funciones muy útiles para los laboratorios, tales como:</p>
+<ul class="simple">
+<li><p>Creación de matrices</p></li>
+<li><p>Suma y resta de vectores</p></li>
+<li><p>Producto de dos vectores</p></li>
+<li><p>Producto de dos matrices</p></li>
+<li><p>Multiplicación matricial</p></li>
+<li><p>Indexación de matrices</p></li>
+</ul>
+<div class="section" id="creacion-de-matrices">
+<h2>Creación de matrices<a class="headerlink" href="#creacion-de-matrices" title="Permalink to this headline">¶</a></h2>
+<p>El paquete NumPy introdujo los arrays N-dimensionales, acontinuación se mostrará las rutinas más utilizadas en los laboratorios. (Más rutinas <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html">aquí</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Creacion de array de ceros y unos</span>
+<span class="n">zeros</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array de 10 ceros:&quot;</span><span class="p">,</span> <span class="n">zeros</span><span class="p">)</span>
+<span class="n">ones</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array de 10 unos:&quot;</span><span class="p">,</span> <span class="n">ones</span><span class="p">)</span>
+<span class="n">array1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Array de 5 enteros contando el 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array de 5 enteros: &quot;</span><span class="p">,</span><span class="n">array1</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">#start, stop, num de puntos</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array organizados unif.: &quot;</span><span class="p">,</span><span class="n">line</span><span class="p">)</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mf">9.7</span><span class="p">])</span> <span class="c1">#Array de una lista</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array de una lista: &quot;</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Ejercicio Crear array de ceros con dimension 3x2** </span>
+<span class="c1">### HINT: ¿como es el parametro a np.zeros?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicializar un vector manualmente de 1D</span>
+<span class="c1">#Array de una lista</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> 
+<span class="n">v2</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v1: &quot;</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v2: &quot;</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suma y resta de vectores</span>
+<span class="c1">#(para la resta usamos -)</span>
+<span class="n">suma1</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">suma1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># producto elemento a elemento</span>
+<span class="n">prod1</span> <span class="o">=</span> <span class="n">v1</span><span class="o">*</span><span class="n">v2</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Producto elemeto a elemento&quot;</span><span class="p">,</span><span class="n">prod1</span><span class="p">)</span>
+
+<span class="c1">#Producto matricial</span>
+<span class="n">prod1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Producto matricial&quot;</span><span class="p">,</span><span class="n">prod1</span><span class="p">)</span>
+
+<span class="n">prod2</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">@</span> <span class="n">v2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Producto matricial&quot;</span><span class="p">,</span><span class="n">prod2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Escribe el codigo de Python usando numpy, para realizar la siguiente operacion, siendo <span class="math notranslate nohighlight">\(\odot\)</span> la representación de la multiplicación elemento a elmento, y <span class="math notranslate nohighlight">\(\cdot\)</span> el producto matricial.</p>
+<p><span class="math notranslate nohighlight">\(r = (v_{1}\odot v_{2}) + v_{1} - v_{2} + (v1 \cdot v2) \)</span></p>
+<p>Siendo v1 y v2 los vectores v1 y v2 ejecutadas en la celda anterior. Finalmente imprime el resultado <code class="docutils literal notranslate"><span class="pre">r</span></code>.
+En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>numpy</em> llamado <a class="reference external" href="https://machinelearningmastery.com/broadcasting-with-numpy-arrays/">Broadcasting</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Ejercicio: Escribe aca la operación</span>
+<span class="c1">### El resultado debe ser [20, 14, 18]</span>
+<span class="n">r</span> <span class="o">=</span> 
+<span class="nb">print</span> <span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indexar una matriz manualmente 2x3</span>
+<span class="c1"># la entrada en una lista de lista.</span>
+<span class="c1"># cada lista es un renglon de la matriz</span>
+<span class="c1"># cada renglon debe tener las mismas columnas </span>
+<span class="c1"># (el mismo tamaño de lista)</span>
+
+<span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">2.1</span><span class="p">]])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">m1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Cuántas filas y columnas tiene la variable m1?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape m1&quot;</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span> <span class="c1"># [3x2]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;dimensiones de m2&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">m2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Producto de dos matrices</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Productor de dos matrices </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span><span class="n">m2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Producto de dos matrices @</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">m1</span><span class="nd">@m2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Producto elemento a elemento</span>
+<span class="n">m3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span> <span class="c1"># [3x2]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;ls dimensiones es de m3&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">m3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m3</span><span class="o">*</span><span class="n">m3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Por qué el siguiente código produce error?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">m1</span><span class="o">*</span><span class="n">m2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se debe organizar las dimensiones de la matriz para hacer la multiplicación elemento a elemento correctamente.</p>
+<p>¿Cómo se puede solucionar?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usando la transpuesta!</span>
+<span class="n">m1_new</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New shape m1&quot;</span><span class="p">,</span> <span class="n">m1_new</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m1_new</span><span class="o">*</span><span class="n">m2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pero también podria hacer re-shape?</span>
+<span class="n">m1_new2</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New shape m1&quot;</span><span class="p">,</span> <span class="n">m1_new2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m1_new2</span><span class="o">*</span><span class="n">m2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m1_new2</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New shape m1&quot;</span><span class="p">,</span> <span class="n">m1_new2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m1_new2</span><span class="o">*</span><span class="n">m2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Hay alguna diferencia con la matriz m1 después de hacer el reshape, los resultados son diferentes?</p>
+<p><em>Reshape</em>: Asigna una nueva forma a la matriz ya sea un entero para una dimensión o una tupla para N-Dimensiones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¡Cuidado con la asignación de variables! Python usa variables referenciadas. Si se requiere hacer una copia se debe usar el método “.copy”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># si se usa = se crea una referencia</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;m1 antes de hacer la referencia </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">m1</span><span class="p">)</span>
+<span class="n">m4</span> <span class="o">=</span> <span class="n">m1</span>
+<span class="n">m4</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;M1 se modifica aunque no se &#39;hizo&#39; ninguna operacion a esta variable &quot;&quot;m1</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">m1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Ahora con el metodo copy&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;m1 antes de hacer el copy </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">m1</span><span class="p">)</span>
+<span class="n">m5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
+<span class="n">m5</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;m5 es m1 con el valor modificado </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">m5</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Pero m1 esta vez no es modificado&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;m1 </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">m1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indexacion">
+<h2>Indexación<a class="headerlink" href="#indexacion" title="Permalink to this headline">¶</a></h2>
+<p>Para hacer una indexación en matrices se accede con los corchetes y siempre se define así: [filas,columnas]. Observa que la separación se realiza con una coma ( , )</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = matrix[filas, columnas]
+</pre></div>
+</div>
+<p>Si deseo escoger entre la fila x hasta y debe ser separado por dos puntos <strong>:</strong>, de la siguiente forma:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = matrix[x:y,]
+</pre></div>
+</div>
+<p>De la misma forma aplica para las columnas, si quiero la primera columna:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = matrix[0:2,0:1]
+</pre></div>
+</div>
+<p>Acceder a los últimas posiciones:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = matrix[0:-1,0:-1]
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original m2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----&quot;</span><span class="p">)</span>
+<span class="n">new_m2</span> <span class="o">=</span> <span class="n">m2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nuevo m2, dos primeras filas&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_m2</span><span class="p">)</span>
+<span class="n">new_m2</span> <span class="o">=</span> <span class="n">m2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nuevo m2, dos primeras filas y primera columna&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_m2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">m4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Ejercicio: Obtener las últimas dos filas del anterior vector</span>
+<span class="c1">## Hint: debe retonar [[21, 22], [23, 24]]</span>
+<span class="n">last_m2</span> <span class="o">=</span>  <span class="n">m4</span><span class="p">[]</span>
+<span class="n">last_m2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="concatenar-vectores-y-matrices">
+<h2>Concatenar vectores y matrices<a class="headerlink" href="#concatenar-vectores-y-matrices" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">11</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a:</span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> b: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Algunas veces es util, obtener una lista</span>
+<span class="c1">## de los elementos que están la matriz</span>
+<span class="c1">## si bien el reshape puede ser usado</span>
+<span class="c1">## np.ravel() puede ser usado para ese objetivo</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;antes del ravel </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> usando ravel </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="otras-funcionalidades-de-numpy">
+<h2>Otras funcionalidades de Numpy<a class="headerlink" href="#otras-funcionalidades-de-numpy" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Calculo del promedio</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vector&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span>  <span class="s2">&quot;promedio&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vector&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span>  <span class="s2">&quot;promedio con axis = 1, es equivalante al anterior&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## el parametro axis es mas util en una matriz</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vector </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span>  <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> promedio con axis = 0</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vector </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span>  <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> promedio con axis = 1</span><span class="se">\n</span><span class="s2"> &quot;</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## equivalente  con min, max y sum</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;extraer la suma: &quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">&quot;o de esta manera&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;igualmente el parametro axis es util, con axis = 0 </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">),</span> 
+       <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> y axis = 1 </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generar un valores aleatorio</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## extrar los valores unicos y contar la frequencia de</span>
+<span class="c1">## de estos mismos</span>
+<span class="n">uniq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;devuelve los valores unicos&quot;</span><span class="p">,</span> <span class="n">uniq</span><span class="p">)</span>
+<span class="n">uniq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y con esta opciones devuelve una tupla </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">uniq</span><span class="p">,</span> 
+      <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">el primer elemento de la tupla son los valores&quot;</span><span class="p">,</span>
+      <span class="n">uniq</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+      <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> el segundo elemento el contador </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+      <span class="n">uniq</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Ejercicio: explorar la funcion de estos </span>
+<span class="c1">## y que parametros pueden recibir</span>
+<span class="c1">## metodos</span>
+
+<span class="c1">#ones : </span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">()</span>
+
+<span class="c1">#diag: </span>
+<span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">()</span>
+
+<span class="c1">#linalg.inv #Inversa de matriz:</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span>
+
+<span class="c1">#linalg.svd #Descomposición en valores singulares:</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">()</span>
+
+<span class="c1">#logical_and #Elemento a elmento:</span>
+<span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">()</span>
+
+<span class="c1">#logical_or #Elemento a elelemto:</span>
+<span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recordar que el uso de numpy es preferido para la implementación, de los algoritmos,  ya que al usar la libreria, los codigos son mas efecientes y se logran los beneficios de la <strong>vectorización</strong>, por ejemplo, al realizar la siguiente operación, es posible realizarla con ciclos <strong>for</strong>. pero al usar la representación matricial y las librerias de numpy tenemos algunos beneficios.</p>
+<p><span class="math notranslate nohighlight">\(m = a \cdot b \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape de a&quot;</span><span class="p">,</span> <span class="n">matriz_a_for</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape de b&quot;</span><span class="p">,</span> <span class="n">matriz_b_for</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Usando esta imagen entendemos, un poco mas la operación</p>
+<p><img alt="vectorization" src="https://github.com/jdariasl/ML_2020/raw/labs/Labs/commons/images/vectorization.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># implementacion con numpy</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matriz_a_for</span><span class="p">,</span> <span class="n">matriz_b_for</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time en ms&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> results </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Implementacion la operacion mediante ciclos for</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+      <span class="n">aa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">matriz_a_for</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">*</span><span class="n">matriz_b_for</span><span class="p">)</span>
+      <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">aa</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time en ms&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> results </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con ciclos <strong>for</strong> tenemos una implementación que es casi 200 %  más lenta que la implementación “vectorizada”.</p>
+</div>
+</div>
+<div class="section" id="manejo-de-estructuras-de-datos-en-pandas">
+<h1>Manejo de estructuras de datos en Pandas<a class="headerlink" href="#manejo-de-estructuras-de-datos-en-pandas" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># en la configuracion inical se hace import pandas as pd</span>
+<span class="c1"># lectura de un csv</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;bank.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># esto crea un pandas dataframe</span>
+<span class="c1"># Pandas es una libreria muy popular para el manejo de datos</span>
+<span class="c1"># y se integra con los notebooks de manera muy sencilla</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>job</th>
+      <th>marital</th>
+      <th>education</th>
+      <th>default</th>
+      <th>balance</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>day</th>
+      <th>month</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30</td>
+      <td>unemployed</td>
+      <td>married</td>
+      <td>primary</td>
+      <td>no</td>
+      <td>1787</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>19</td>
+      <td>oct</td>
+      <td>79</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>33</td>
+      <td>services</td>
+      <td>married</td>
+      <td>secondary</td>
+      <td>no</td>
+      <td>4789</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>cellular</td>
+      <td>11</td>
+      <td>may</td>
+      <td>220</td>
+      <td>1</td>
+      <td>339</td>
+      <td>4</td>
+      <td>failure</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>35</td>
+      <td>management</td>
+      <td>single</td>
+      <td>tertiary</td>
+      <td>no</td>
+      <td>1350</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>16</td>
+      <td>apr</td>
+      <td>185</td>
+      <td>1</td>
+      <td>330</td>
+      <td>1</td>
+      <td>failure</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>30</td>
+      <td>management</td>
+      <td>married</td>
+      <td>tertiary</td>
+      <td>no</td>
+      <td>1476</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>unknown</td>
+      <td>3</td>
+      <td>jun</td>
+      <td>199</td>
+      <td>4</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>59</td>
+      <td>blue-collar</td>
+      <td>married</td>
+      <td>secondary</td>
+      <td>no</td>
+      <td>0</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may</td>
+      <td>226</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sample para explorar los datos de manera rapida</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>job</th>
+      <th>marital</th>
+      <th>education</th>
+      <th>default</th>
+      <th>balance</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>day</th>
+      <th>month</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3380</th>
+      <td>33</td>
+      <td>blue-collar</td>
+      <td>single</td>
+      <td>secondary</td>
+      <td>no</td>
+      <td>142</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>14</td>
+      <td>may</td>
+      <td>123</td>
+      <td>1</td>
+      <td>360</td>
+      <td>3</td>
+      <td>other</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y se puede interpretar como una matriz de numpy:</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;puedes ver los datos de shape &quot;</span><span class="p">,</span> <span class="n">datos</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># pero para acceder a ellos es más similar a una tabla</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;en forma de renglon 10 todas las columnas, pero retorna una serie&quot;</span><span class="p">)</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>puedes ver los datos de shape  (4521, 17)
+en forma de renglon 10 todas las columnas, pero retorna una serie
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age                43
+job          services
+marital       married
+education     primary
+default            no
+balance           -88
+housing           yes
+loan              yes
+contact      cellular
+day                17
+month             apr
+duration          313
+campaign            1
+pdays             147
+previous            2
+poutcome      failure
+y                  no
+Name: 9, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;en forma de renglon 10 todas las columnas, pero retorna una df una tabla&quot;</span><span class="p">)</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">9</span><span class="p">],</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>en forma de renglon 10 todas las columnas, pero retorna una df una tabla
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>job</th>
+      <th>marital</th>
+      <th>education</th>
+      <th>default</th>
+      <th>balance</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>day</th>
+      <th>month</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>43</td>
+      <td>services</td>
+      <td>married</td>
+      <td>primary</td>
+      <td>no</td>
+      <td>-88</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>cellular</td>
+      <td>17</td>
+      <td>apr</td>
+      <td>313</td>
+      <td>1</td>
+      <td>147</td>
+      <td>2</td>
+      <td>failure</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># puedes tambien filtrar columnas y mostrar multiples df con display</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;primer filtro&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;job&#39;</span><span class="p">,</span> <span class="s1">&#39;marital&#39;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;segundo filtro&quot;</span><span class="p">)</span>
+<span class="c1"># mostrar los rengloes de 10 al 15</span>
+<span class="n">display</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">15</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;job&#39;</span><span class="p">,</span> <span class="s1">&#39;marital&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>primer filtro
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>job</th>
+      <th>marital</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>43</td>
+      <td>services</td>
+      <td>married</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>segundo filtro
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>job</th>
+      <th>marital</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>43</td>
+      <td>services</td>
+      <td>married</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>39</td>
+      <td>services</td>
+      <td>married</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>43</td>
+      <td>admin.</td>
+      <td>married</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>36</td>
+      <td>technician</td>
+      <td>married</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>20</td>
+      <td>student</td>
+      <td>single</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>31</td>
+      <td>blue-collar</td>
+      <td>married</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sin embargo esta soporta mas tipos de datos, pero se pueden seguir haciendo operaciones</span>
+<span class="c1"># similares con las columnas numericas</span>
+<span class="c1"># y puedes referenciar las columnas</span>
+<span class="n">datos</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;pdays&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        18
+1       350
+2       346
+3         2
+4         4
+       ... 
+4516     29
+4517      8
+4518     18
+4519    217
+4520    252
+Length: 4521, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos aprovechar tambien los df, para hacer tablas para nuesros experimentos. Podemos ir agregando resultados a la tabla</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creacion de una tabla</span>
+<span class="c1"># con resultados</span>
+<span class="n">errores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>
+<span class="n">parametros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="c1"># se crea df vacio</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span> <span class="p">(</span><span class="n">errores</span><span class="p">,</span> <span class="n">parametros</span><span class="p">):</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;parametro&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;tipo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;entrenamiento&quot;</span>
+  <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span> <span class="p">(</span><span class="n">errores</span><span class="p">,</span> <span class="n">parametros</span><span class="p">):</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;parametro&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;tipo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;validacion&quot;</span>
+  <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>parametro</th>
+      <th>error</th>
+      <th>tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>0.10</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.0</td>
+      <td>0.20</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.0</td>
+      <td>0.30</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.0</td>
+      <td>0.01</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>0.10</td>
+      <td>validacion</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2.0</td>
+      <td>0.20</td>
+      <td>validacion</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3.0</td>
+      <td>0.30</td>
+      <td>validacion</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>5.0</td>
+      <td>0.01</td>
+      <td>validacion</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="manejo-de-graficas-en-matplotlib-y-pandas">
+<h1>Manejo de gráficas en matplotlib y pandas<a class="headerlink" href="#manejo-de-graficas-en-matplotlib-y-pandas" title="Permalink to this headline">¶</a></h1>
+<p>Ahora utilizaremos la librería matplotlib para hacer algunos ejemplos de gráficas básicas:</p>
+<div class="math notranslate nohighlight">
+\[ y = x \]</div>
+<div class="math notranslate nohighlight">
+\[ y = x^2 \]</div>
+<div class="math notranslate nohighlight">
+\[ y = x^3 \]</div>
+<p>Observemos que la variable x solo se carga en la primera celda de código. En adelante se puede usar sin necesidad de ser cargada de nuevo. En la gráfica de <span class="math notranslate nohighlight">\(y=x^3\)</span> incluimos el título de la gráfica y los label para los ejes de la misma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#x = np.array([-2,-1,0,1,2])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">#Función y = ax + b</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y = x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Gráfica de una función lineal</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_81_0.png" src="../../_images/Intro_81_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim(-150,150)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_82_0.png" src="../../_images/Intro_82_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y = x^3$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;x - 100 números entre -10 y 10&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;Ejemplos de introducción para el curso de Simulación de Sistemas - UdeA</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_83_0.png" src="../../_images/Intro_83_0.png" />
+</div>
+</div>
+<p>Generando gráfica punteada</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y = seno(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;x - 100 números entre -10 y 10&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$s(t) = \mathcal</span><span class="si">{A}</span><span class="s1">\sin(2 \omega t)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_85_0.png" src="../../_images/Intro_85_0.png" />
+</div>
+</div>
+<p>Dos gráficas en el mismo plano</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y2</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y = seno(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;x - 100 números entre -10 y 10&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;Ejemplos de introducción para el curso de Simulación de Sistemas - UdeA</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_87_0.png" src="../../_images/Intro_87_0.png" />
+</div>
+</div>
+<p>Agregando el legend al gráfico</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Seno&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Coseno&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y = seno(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;x - 100 números entre -10 y 10&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;Ejemplos de introducción para el curso de Simulación de Sistemas - UdeA</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_89_0.png" src="../../_images/Intro_89_0.png" />
+</div>
+</div>
+<p>Graficas de barras</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">values</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;Ejemplos - Simulación de Sistemas y Lab.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_91_0.png" src="../../_images/Intro_91_0.png" />
+</div>
+</div>
+<p>Gráficos para problemas de clasificación en Machine learning. Scatter plots</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Creamos los datos artificiales</span>
+
+<span class="n">mu1</span><span class="p">,</span> <span class="n">sigma1</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.1</span>
+<span class="n">mu2</span><span class="p">,</span> <span class="n">sigma2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="n">mu1</span> <span class="o">+</span> <span class="n">sigma1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">x1line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">mu2</span> <span class="o">+</span> <span class="n">sigma2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">x2line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1">#Decision boundary</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">3.5</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">v</span><span class="o">*</span><span class="n">m</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x1line</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">x2line</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_93_0.png" src="../../_images/Intro_93_0.png" />
+</div>
+</div>
+<p>Distribución de probabilidad normal univariada</p>
+<p><span class="math notranslate nohighlight">\(P(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma }exp-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}\)</span></p>
+<p>Recordar que lo anterior conforma una familia paramétrica con todos los posibles valores de los parámetros <span class="math notranslate nohighlight">\(\mu\)</span> y <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<p>Veamos la gráfica de la distribución de la función de densidad de probabilidad normal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span>
+
+<span class="c1">#Generamos un conjunto de valores x</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1">#los llevamos a la función de densidad de probabilidad normal</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_95_0.png" src="../../_images/Intro_95_0.png" />
+</div>
+</div>
+<p>Tambien podemos visualizar histogramas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Intro_97_0.png" src="../../_images/Intro_97_0.png" />
+</div>
+</div>
+<p>De igual manera, si tenemos un pandas dataframe, se puede simplificar nuestros codigos, y podemos hacer plots con menos lineas de codigo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f00bb8c30b8&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Intro_99_1.png" src="../../_images/Intro_99_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span><span class="s1">&#39;tipo&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f00ba5a2278&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Intro_100_1.png" src="../../_images/Intro_100_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;tipo&#39;</span><span class="p">])[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f00b6577358&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Intro_101_1.png" src="../../_images/Intro_101_1.png" />
+</div>
+</div>
+<p>Ejercicio!
+<a class="reference external" href="https://pandas.pydata.org/">Explora un poco mas la libreria</a></p>
+</div>
+<div class="section" id="estructura-de-los-laboratorios">
+<h1>Estructura de los laboratorios<a class="headerlink" href="#estructura-de-los-laboratorios" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Contextualización del problema y entedimiento de los datos</p></li>
+</ol>
+<p>Se busca que tenga un contexto del problema que se está abordando, de modo que les ayude a resolver los ejercicios. Es de suma importancia entender de fondo si es un problema de clasificación o regresión, y en cuanto a los datos con los que trabajaremos, el número de clases, muestras y carácteristicas, esto le ayudará para entender los resultados una vez complete los algoritmos y para hacer las gráficas, entre otros.</p>
+<ol class="simple">
+<li><p>Completar el código</p></li>
+</ol>
+<p>Hacer la implemetación del algoritmo del modelo. Son modelos que se explicaron en la teoría vista en clase, una vez comprenda su funcionamiento se completa ya sea el algoritmo o la implementación correcta de las librerías usando los recursos que ya tiene el laboratorio.</p>
+<ol class="simple">
+<li><p>Entrenamiento</p></li>
+</ol>
+<p>En este punto debe hacer uso de las funciones escritas en el punto anterior para realizar el proceso de modelamiento y simulación de los datos de cargados en el punto 1</p>
+<ol class="simple">
+<li><p>Resultados</p></li>
+</ol>
+<p>Completar la tabla de resultados y derivar conclusiones de estos mismos.</p>
+<p>En cada uno de esta sesiones, vas encontrar ejercicios de codigo similares al siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#La celda comenzara con este aviso:</span>
+<span class="c1">## Ejercicio de Codigo ##</span>
+<span class="c1"># Se te requerira completar una función cuyas especificaciones</span>
+<span class="c1"># y desables se explicán, en la documentacion de la función</span>
+<span class="c1"># puedes agregar celdas de codigo para y verificando y testeando lo que necesites</span>
+<span class="c1"># cuando estes seguro comienza a escribir tu codigo</span>
+<span class="c1"># dentro de la función</span>
+<span class="c1"># NO MODIFIQUES el nombre de la funcion</span>
+<span class="k">def</span> <span class="nf">mult_matrices</span> <span class="p">(</span><span class="n">matriz_a</span><span class="p">,</span> <span class="n">matriz_b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Esta funcion debera devolver la multiplicacion de matrices entre las dos matrices entrantes</span>
+<span class="sd">    matriz_a, matriz_b: matrices en numpy</span>
+<span class="sd">    retorna: debe retornar el resultado de multiplicar las dos entradas</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Aqui comienza a completar tu codigo</span>
+    <span class="c1">#res = np.dot(matriz_a, matriz_b, axis = 1)</span>
+    <span class="c1">#res = matriz_a + matriz_b</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matriz_a</span><span class="p">,</span> <span class="n">matriz_b</span><span class="p">)</span>
+    <span class="c1"># debes retornar siempre lo requerido</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># seguido de la celda siempre encontraras el codigo para testear si tu implementacion fue correcta</span>
+<span class="c1">## Es muy importante que esta celda de codigo NO la modifiques</span>
+<span class="n">GRADER_INTRO_LAB</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio1&quot;</span><span class="p">,</span> <span class="n">mult_matrices</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TEST EXITOSO!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## tambien vas a encontrar ejercicios similares a este</span>
+<span class="c1"># donde tu funcion debe ejecutar el codigo del modelo</span>
+<span class="c1">## y retornar el modelo entrenado</span>
+<span class="c1">## Ejercicio de Codigo ##</span>
+<span class="k">def</span> <span class="nf">train_model</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; esta función debe entrenar un modelo de regression pero solo inicializando</span>
+<span class="sd">        aleatorimente</span>
+<span class="sd">    train_data: a matriz numpy con las muestras de entrenamiento </span>
+<span class="sd">    train_labels: a matriz numpy con labels de entrenamiento</span>
+<span class="sd">    param: este parametro es un dummy no debes hacer nada!</span>
+<span class="sd">    retorna: la matriz W inicializada, y el error de entrenamiento</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="n">Xtrain</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1"># np.ones((Xtrain.shape[1])) # np.ones((Xtrain.shape[1]))</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">-</span> <span class="n">ytrain</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">error</span><span class="p">)</span>
+    <span class="c1">#return (None)</span>
+    
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="n">GRADER_INTRO_LAB</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio2&quot;</span><span class="p">,</span> <span class="n">train_model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Todos los test pasaron!
+TEST EXITOSO!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y con las funciones debes usarla para completar los experimentos y llenar el dataframe</span>
+<span class="c1"># debes variar el parametro de 0 a 5</span>
+<span class="c1">## Ejercicio de Codigo ##</span>
+<span class="k">def</span> <span class="nf">experimentar</span> <span class="p">(</span><span class="n">Xtest</span><span class="p">,</span> <span class="n">ytest</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Esta función debe realizar los experimentos, de manera programatica.}</span>
+<span class="sd">       Debe devolver un datarame con los errrores por cada parametro.</span>
+<span class="sd">    Xtest: matriz numpy con los valores del conjunto para test</span>
+<span class="sd">    ytest: los valores de etiqueta reales</span>
+<span class="sd">    retorna: un dataframe con dos columnas: el valor del parametro y el valor del error</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#params = range(5)</span>
+    <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">enumerate</span> <span class="p">(</span><span class="n">params</span><span class="p">):</span>
+        <span class="n">W</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">Xtest</span><span class="p">,</span> <span class="n">ytest</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;param&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">param</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;err&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">err</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="n">GRADER_INTRO_LAB</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio3&quot;</span><span class="p">,</span> <span class="n">experimentar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TEST EXITOSO!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Algunas veces entre los ejercicio de código, puedes encontrar preguntas abiertas. Estas la mayoria de veces van estar relacionadas con los resultados de los ejercicio de código, temas vistos en las clases teóricas o pequeñas investigaciones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown  ¿es necesario siempre una inicialización aleatoria de las variables? </span>
+<span class="n">respuesta1_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># en las ultimas  partes del laboratorio vas encontrar esta linea de codigo</span>
+<span class="c1"># sirve para verificar que todo esta completo</span>
+<span class="n">GRADER_INTRO_LAB</span><span class="o">.</span><span class="n">check_tests</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Todo se ve ok. Asegurate de responder las preguntas en el formualario y envialo ¡buen trabajo!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente al final de cada notebook, encontrarán un formulario que debe ser diligenciado con la información correspondiente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Integrantes</span>
+<span class="n">codigo_integrante_1</span> <span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">codigo_integrante_2</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>  <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>¿como se considera un laboratorio entregado?</strong></p>
+<ol class="simple">
+<li><p>Debes descargar el archivo .ipynb</p></li>
+<li><p>Entrar al formulario, subir el archivo y enviar el formulario</p></li>
+<li><p>Se tomara en cuenta el ultimo envio del formualario. (esto tambien aplica si envian desde diferentes usuarios)</p></li>
+<li><p>El formulario sera cerrado despues del limite establecido.</p></li>
+</ol>
+</div>
+<div class="section" id="recomendaciones-finales-para-la-entrega-de-los-laboratorios">
+<h1>Recomendaciones Finales para la entrega de los laboratorios<a class="headerlink" href="#recomendaciones-finales-para-la-entrega-de-los-laboratorios" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Los espacios para laboratorio son para <strong>ustedes</strong>, traten de aprovecharlo al máximo.</p></li>
+<li><p>Es invalido enviar los laboratorios vía correo electronico y otro medio que no hay sido especificado. Se debe seguir el proceso descrito en la anterior sección.</p></li>
+<li><p><strong>Muy buena practica</strong>:  cuando se confirma que todos los tests estan correctos, reinicar el kernel, y dar en ejecutar todas las lineas de codigo. De esta manera te aseguras que todo esta correcto para el envio del laboratorio.</p></li>
+<li><p>Tengan en cuenta, que si bien hay tests automáticos, los notebooks serán revisados y ejecutados de <strong>manera manual</strong>. Hagan los ejercicios a <strong>conciencia y con toda la dispocisión para aprender y generar habilidades</strong>.</p></li>
+<li><p>Es muy importante revisar las guias de laboratorio con anterioridad. Es muy factible que si el primer vistazo que le hacen a la guia es durante la sesión conjunta, el tiempo no sera un aliado.</p></li>
+<li><p>En cada sección se especificara la fecha/hora limite de entrega. Debemos respetar las  reglas definidas para el grupo. <strong>De antemano se entienden que todos podemos tener condiciones/situaciones diferentes, sin embargo no habrá excepciones si no se siguen las pautas descritas en el estatuto estudiantíl</strong>.</p></li>
+</ol>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># esta linea de codigo va fallar, es de uso exclusivo del los profesores</span>
+<span class="n">GRADER_INTRO_LAB</span><span class="o">.</span><span class="n">grade</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Labs/Intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../../titles/U1_IntroLabs.html" title="previous page">INTRODUCCIÓN A PYTHON Y NUMPY</a>
+    <a class='right-next' id="next-link" href="../lab1/lab1_parte1.html" title="next page">Laboratorio 1 - Parte 1</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-51547737-2', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

@@ -7,14 +7,14 @@
     - file: "content/Clase 03 - Funciones discriminantes Gausianas"
 - file: "content/titles/U1_IntroLabs"
   sections:
-    - file: "Labs/Intro/Intro"
-    - file: "Labs/lab1/lab1_parte1"
-    - file: "Labs/lab1/lab1_parte2"
+    - file: "content/Labs/Intro/Intro"
+    - file: "content/Labs/lab1/lab1_parte1"
+    - file: "content/Labs/lab1/lab1_parte2"
 - file: content/titles/U2_description
   sections:
     - file: "content/Clase 04 - Modelos no Paramétricos"
-    - file: "Labs/lab2/lab2_parte1"
-    - file: "Labs/lab2/lab2_parte2"
+    - file: "content/Labs/lab2/lab2_parte1"
+    - file: "content/Labs/lab2/lab2_parte2"
 - file: content/titles/U3_description
   sections:
     - file: "content/Clase 05 - Métricas de error"
@@ -24,32 +24,32 @@
   sections:
     - file: "content/Clase 08 - Modelos de Mezclas de Gausianas"
     - file: 'content/Clase 09 - Unsupervised Learning'
-    - file: "Labs/lab3/lab3_parte1"
+    - file: "content/Labs/lab3/lab3_parte1"
 - file: content/titles/U5_description
   sections:
     - file: "content/Clase 10 - Árboles de Decisión, Voting, Bagging, Random Forest"
     - file: "content/Clase 11 - Boosting, Stacking"
-    - file: "Labs/lab3/lab3_parte2"
+    - file: "content/Labs/lab3/lab3_parte2"
 - file: content/titles/U6_description
   sections:
     - file: "content/Clase 12 - Redes Neuronales Artificiales"
     - file: "content/Clase 13 - Mapas Auto-Organizables"
     - file: "content/Clase 14 - Redes Neuronales Recurrentes"
-    - file: "Labs/lab4/lab4_parte1"
-    - file: "Labs/lab4/lab4_parte2"
+    - file: "content/Labs/lab4/lab4_parte1"
+    - file: "content/Labs/lab4/lab4_parte2"
 - file: content/titles/U7_description
   sections:
     - file: "content/Clase 15 - Máquinas de Véctores de Soporte"
-    - file: "Labs/lab5/lab5_parte1"
-    - file: "Labs/lab5/lab5_parte2"
+    - file: "content/Labs/lab5/lab5_parte1"
+    - file: "content/Labs/lab5/lab5_parte2"
 - file: content/titles/U8_description
   sections:
     - file: "content/Clase 16 - Selección de Características"
     - file: "content/Clase 17 - Lasso y redes elásticas"
     - file: "content/Clase 18 - Análisis de Componentes Principales"
     - file: "content/Clase 19 - Análisis Discriminante de Fisher"
-    - file: "Labs/lab6/lab6_parte1"
-    - file: "Labs/lab6/lab6_parte2"
+    - file: "content/Labs/lab6/lab6_parte1"
+    - file: "content/Labs/lab6/lab6_parte2"
 
 
 

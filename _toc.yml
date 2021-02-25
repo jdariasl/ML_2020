@@ -51,6 +51,7 @@
     - file: "Labs/lab6/lab6_parte1"
     - file: "Labs/lab6/lab6_parte2"
 - file: titles/U9_description
+  sections:
     - file: "Labs/Extra/Basic_Preprocessing_FeatureEngineering"
     - file: "Labs/Extra/DespliegueModelos"
 

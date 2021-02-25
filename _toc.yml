@@ -40,14 +40,15 @@
 - file: titles/U7_description
   sections:
     - file: "Clase 15 - Máquinas de Véctores de Soporte"
+    - file:  "Clase 16 - Estrategias Multiclase basadas en clasificadores binarios"
     - file: "Labs/lab5/lab5_parte1"
     - file: "Labs/lab5/lab5_parte2"
 - file: titles/U8_description
   sections:
-    - file: "Clase 16 - Selección de Características"
-    - file: "Clase 17 - Lasso y redes elásticas"
-    - file: "Clase 18 - Análisis de Componentes Principales"
-    - file: "Clase 19 - Análisis Discriminante de Fisher"
+    - file: "Clase 17 - Selección de Características"
+    - file: "Clase 18 - Lasso y redes elásticas"
+    - file: "Clase 19 - Análisis de Componentes Principales.ipynb"
+    - file: "Clase 20 - Análisis Discriminante de Fisher.ipynb"
     - file: "Labs/lab6/lab6_parte1"
     - file: "Labs/lab6/lab6_parte2"
 - file: titles/U9_description

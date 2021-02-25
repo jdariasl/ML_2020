@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laboratorio 1 - Parte 1 &#8212; 2020 Introducción al Machine Learning</title>
+    <title>Laboratorio 1 - Parte 1 Regresión polinomial múltiple &#8212; 2020 Introducción al Machine Learning</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -138,7 +138,7 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="../../titles/U1_IntroLabs.html">
-   INTRODUCCIÓN A PYTHON Y NUMPY
+   INTRODUCCIÓN A PYTHON, NUMPY Y OTRAS HERRAMIENTAS
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
@@ -146,39 +146,12 @@
      Introdución para los laboratorios de Machine Learning
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Intro/Intro.html#google-colab-y-jupyter-notebook">
-     Google Colab y Jupyter Notebook
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Intro/Intro.html#manejo-vectores-y-matrices-en-numpy">
-     Manejo vectores y matrices en NumPy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Intro/Intro.html#manejo-de-estructuras-de-datos-en-pandas">
-     Manejo de estructuras de datos en Pandas
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Intro/Intro.html#manejo-de-graficas-en-matplotlib-y-pandas">
-     Manejo de gráficas en matplotlib y pandas
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Intro/Intro.html#estructura-de-los-laboratorios">
-     Estructura de los laboratorios
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Intro/Intro.html#recomendaciones-finales-para-la-entrega-de-los-laboratorios">
-     Recomendaciones Finales para la entrega de los laboratorios
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Laboratorio 1 - Parte 1
+     <strong>
+      Regresión polinomial múltiple
+     </strong>
     </a>
    </li>
    <li class="toctree-l2">
@@ -533,8 +506,7 @@
         
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/lab1/lab1_parte1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras alamancenar tu progreso</strong></p>
+  <p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras alamancenar tu progreso</strong></p>
 <p>Nota: no olvide ir ejecutando las celdas de código de arriba hacia abajo para que no tenga errores de importación de librerías o por falta de definición de variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -553,9 +525,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="laboratorio-1-parte-1">
-<h1>Laboratorio 1 - Parte 1<a class="headerlink" href="#laboratorio-1-parte-1" title="Permalink to this headline">¶</a></h1>
-<p><strong>Regresión polinomial múltiple</strong></p>
+<div class="section" id="laboratorio-1-parte-1-regresion-polinomial-multiple">
+<h1>Laboratorio 1 - Parte 1 <strong>Regresión polinomial múltiple</strong><a class="headerlink" href="#laboratorio-1-parte-1-regresion-polinomial-multiple" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="ejercicio-1-contextualizacion-del-problema">
 <h2>Ejercicio 1: Contextualización del problema<a class="headerlink" href="#ejercicio-1-contextualizacion-del-problema" title="Permalink to this headline">¶</a></h2>
 <p>El problema de regresión que abordaremos consiste en predecir el valor de la humedad absoluta en el aire, a partir de varias variables sensadas en el aire (Para más información sobre la base de datos y la contextualización del problema, consulte: <a class="reference external" href="http://archive.ics.uci.edu/ml/datasets/air+quality">http://archive.ics.uci.edu/ml/datasets/air+quality</a>).</p>

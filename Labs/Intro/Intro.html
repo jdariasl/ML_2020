@@ -56,8 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Laboratorio 1 - Parte 1" href="../lab1/lab1_parte1.html" />
-    <link rel="prev" title="INTRODUCCIÓN A PYTHON Y NUMPY" href="../../titles/U1_IntroLabs.html" />
+    <link rel="next" title="Laboratorio 1 - Parte 1 Regresión polinomial múltiple" href="../lab1/lab1_parte1.html" />
+    <link rel="prev" title="INTRODUCCIÓN A PYTHON, NUMPY Y OTRAS HERRAMIENTAS" href="../../titles/U1_IntroLabs.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -138,7 +138,7 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="../../titles/U1_IntroLabs.html">
-   INTRODUCCIÓN A PYTHON Y NUMPY
+   INTRODUCCIÓN A PYTHON, NUMPY Y OTRAS HERRAMIENTAS
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
@@ -147,38 +147,11 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="#google-colab-y-jupyter-notebook">
-     Google Colab y Jupyter Notebook
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#manejo-vectores-y-matrices-en-numpy">
-     Manejo vectores y matrices en NumPy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#manejo-de-estructuras-de-datos-en-pandas">
-     Manejo de estructuras de datos en Pandas
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#manejo-de-graficas-en-matplotlib-y-pandas">
-     Manejo de gráficas en matplotlib y pandas
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#estructura-de-los-laboratorios">
-     Estructura de los laboratorios
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#recomendaciones-finales-para-la-entrega-de-los-laboratorios">
-     Recomendaciones Finales para la entrega de los laboratorios
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../lab1/lab1_parte1.html">
      Laboratorio 1 - Parte 1
+     <strong>
+      Regresión polinomial múltiple
+     </strong>
     </a>
    </li>
    <li class="toctree-l2">
@@ -502,71 +475,66 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Introdución para los laboratorios de Machine Learning
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#google-colab-y-jupyter-notebook">
-   Google Colab y Jupyter Notebook
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#google-colab-y-jupyter-notebooks">
+   Google Colab y Jupyter Notebooks
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#manejo-de-google-colab">
      Manejo de Google Colab
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conceptos-rapidos-de-python-crash-course">
-     Conceptos rapidos de Python (Crash Course!)
-    </a>
-   </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#manejo-vectores-y-matrices-en-numpy">
-   Manejo vectores y matrices en NumPy
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conceptos-rapidos-de-python-crash-course">
+   Conceptos rapidos de Python (Crash Course!)
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manejo-vectores-y-matrices-en-numpy">
+     Manejo vectores y matrices en NumPy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creacion-de-matrices">
      Creación de matrices
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#indexacion">
      Indexación
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#concatenar-vectores-y-matrices">
      Concatenar vectores y matrices
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#otras-funcionalidades-de-numpy">
      Otras funcionalidades de Numpy
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#manejo-de-estructuras-de-datos-en-pandas">
    Manejo de estructuras de datos en Pandas
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#manejo-de-graficas-en-matplotlib-y-pandas">
    Manejo de gráficas en matplotlib y pandas
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estructura-de-los-laboratorios">
    Estructura de los laboratorios
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#recomendaciones-finales-para-la-entrega-de-los-laboratorios">
    Recomendaciones Finales para la entrega de los laboratorios
   </a>
@@ -609,9 +577,8 @@
 <li><p>Estructuras de los laboratorios y comentarios finales</p></li>
 </ol>
 <p>En cada una de las secciones pueden encontrar diferentes ejercicios para ir practicando y afianzado los conceptos presentados.</p>
-</div>
-<div class="section" id="google-colab-y-jupyter-notebook">
-<h1>Google Colab y Jupyter Notebook<a class="headerlink" href="#google-colab-y-jupyter-notebook" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="google-colab-y-jupyter-notebooks">
+<h2>Google Colab y Jupyter Notebooks<a class="headerlink" href="#google-colab-y-jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
 <p>Un Jupyter notebook es un proyecto open source que permite ejecutar interactivamente varios lenjuages de programación. Su nombre es un referencia a los lenguajes que fueron principales en el inicio el proyecto: JUlia, PYThon y R. Pero en la actulidad se han expandido a muchos otras más. Este proyecto también se conocio antes bajo el nombre de <strong>IPython Notebooks</strong>.  Los notebooks, en su formato “crudo” son un archivo <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> que es renderizado para permitir combinar tanto codigo, texto (Usando <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>), lenguaje matemático y graficas.</p>
 <p>Los notebooks pueden ser ejecutados en diferentes entornos. Estos entornos pueden ser locales (requieren instalación y configuración) o en la nube por medio de un navegador moderno (no requiere ninguna configuración).</p>
 <ul class="simple">
@@ -622,7 +589,9 @@
 <li><p><a class="reference external" href="https://mybinder.org/">Binder</a></p></li>
 </ul>
 <p>Como se ha mencionado, este notebook y el resto de nuestros sesiones están adaptados para usar Google Colab, pero con un muy pequeño esfuerzo también pueden ser adaptados para ser ejecutados en cualquier entorno mencionado. <strong>Esto ultimo no es recomendado y no es objetivo del curso</strong>,  y no se podrán revisar laboratorios que no sigan las instrucciones detalladas en la ultima sección de este documento.</p>
-<p>En la industria, los jupyter notebooks son un herramienta altamente adoptada y se considera “quasi-estandar” para el desarrollo, documentación y comunicación de resultados de investigación en trabajos de ciencia de datos. Sin embargo también ha logrado una buena pouplaridad en otros entornos. inlcusive, se ha discuito que <a class="reference external" href="https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/">pueden ser una buena alternativa para susbtituir el formato estandar del paper cientifico</a>. De la misma manera los jupyter notebook son la base para productos comerciales de los principales proveedores de computación en la nube como lo son:</p>
+<p>En la industria, los jupyter notebooks son un herramienta altamente adoptada y se considera un “estandar” para el desarrollo, documentación y comunicación de resultados de investigación en trabajos de ciencia de datos.</p>
+<p>Sin embargo también ha logrado una buena pouplaridad en otros entornos. inlcusive, se ha discuito que <a class="reference external" href="https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/">pueden ser una buena alternativa para susbtituir el formato estandar del paper cientifico</a>.</p>
+<p>De la misma manera los jupyter notebook son la base para productos comerciales de los principales proveedores de computación en la nube como lo son:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://cloud.google.com/ai-platform/?hl=es-419">AI Platform</a> De Google Computing Platform</p></li>
 <li><p><a class="reference external" href="https://aws.amazon.com/es/sagemaker/">Amazon SageMaker</a> de Amazon Web Services</p></li>
@@ -630,9 +599,10 @@
 <li><p>Y otros servicios usados en entornos de Big Data como son <a class="reference external" href="https://databricks.com/">Databricks</a>, <a class="reference external" href="https://www.cloudera.com/products/data-science-and-engineering/data-science-workbench.html">Cloudera</a> y <a class="reference external" href="https://zeppelin.apache.org/">Apache Zepelin</a>.</p></li>
 </ul>
 <p>Sin embargo es totalmente vital, aclarar que los notebooks son un entorno para exploración interactiva y presentar resultados que sean reproducibles. No es recomendado su uso para tareas de software engineering “más puras” (codigo de una aplicación,API, codigo de un sistema productivo, etc).</p>
-<p>Cada dia cobra mas fuerza la siguiente idea: <strong>los notebooks son usados en las primeras etapas de desarollo de una aplicación de ML. Pero cuando el modelo cada vez esta más cerca a un entorno “productivo”, el codigo de un notebook debe ser refactorizado a un codigo que sea mas sencillo de mantener y administrar</strong> (<a class="reference external" href="https://www.youtube.com/watch?v=7jiPeIFXb6U">En este video se hace una discusión interesante y otras críticas</a>). En las últimas sesiones de nuestro laboratorio, realizaremos una práctica donde ahondaremos un poco mas en este tema.</p>
+<p>Cada dia cobra mas fuerza la siguiente idea: <strong>los notebooks son usados en las primeras etapas de desarollo de una aplicación de ML. Pero cuando el modelo cada vez esta más cerca a un entorno “productivo”, el codigo de un notebook debe ser refactorizado a un codigo que sea mas sencillo de mantener y administrar</strong> (<a class="reference external" href="https://www.youtube.com/watch?v=7jiPeIFXb6U">En este video se hace una discusión interesante y otras críticas</a>).</p>
+<p>En las últimas sesiones de nuestro laboratorio, realizaremos una práctica donde ahondaremos un poco más en este tema.</p>
 <div class="section" id="manejo-de-google-colab">
-<h2>Manejo de Google Colab<a class="headerlink" href="#manejo-de-google-colab" title="Permalink to this headline">¶</a></h2>
+<h3>Manejo de Google Colab<a class="headerlink" href="#manejo-de-google-colab" title="Permalink to this headline">¶</a></h3>
 <p>Colaboratory, o Colab, te permite escribir y ejecutar código de Python en un navegador.</p>
 <ul class="simple">
 <li><p>Sin configuración requerida</p></li>
@@ -646,10 +616,9 @@
 <blockquote>
 <div><p>Las celdas de código: son ejecutables, es decir, se pueden correr individualmente.</p>
 </div></blockquote>
-<p>Cada notebook inicia con este icono:</p>
-<p><a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/Intro/Intro.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p>Que abrira automaticamente el notebook que estas observando en Google Colab. Recuerda que una vez abierto, Debes dar clic en “Copiar en Drive”. De lo contrario no podras alamancenar tu progreso y ni compartirlo con tu profesor.</p>
-<p>Como se menciono, cada celda de codigo se ejecuta por separado. Esto implica que <strong>la ejecución se realiza de arriba hacia abajo en orden</strong>, de este modo ya están cargadas las librerías o variables previamente. Es así como evitamos problemas de importación de librerías o variables sin definir.</p>
+<p>El icono de <em>launch</em> en la parte superior derecha permite lanzar el notebook directamente Colab.</p>
+<p>Recuerda que una vez abierto, Debes dar clic en “Copiar en Drive”. De lo contrario no podras alamancenar tu progreso y ni compartirlo con tu profesor.</p>
+<p>Como se menciono, cada celda de codigo se ejecuta por separado. Esto implica que <strong>la ejecución se realiza de arriba hacia abajo en orden</strong>. Es así como evitamos problemas de importación de librerías o variables sin definir.</p>
 <p>Por ejemplo, esta es una celda de código con una secuencia de comandos Python corta que calcula un valor, lo almacena en una variable y devuelve el resultado:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,7 +628,8 @@
 </div>
 </div>
 </div>
-<p>A fin de ejecutar el código en la celda anterior, haz clic en él para seleccionarlo y, luego, presiona el botón de reproducción ubicado a la izquierda del código o usa la combinación de teclas “Command/Ctrl + Intro”. Para editar el código, solo haz clic en la celda y comienza a editar.</p>
+<p>A fin de ejecutar el código en la celda anterior, haz clic en él para seleccionarlo y, luego, presiona el botón de reproducción ubicado a la izquierda del código o usa la combinación de teclas “Command/Ctrl + Intro”.</p>
+<p>Para editar el código, solo haz clic en la celda y comienza a editar.</p>
 <p>Las variables que defines en una celda pueden usarse en otras:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -671,8 +641,7 @@
 </div>
 <p>!Ahora es tu turno!
 Haz click en la opción “+ Texto” (en la parte de arriba o al final de la celda, tambien te debe aparecer y dirijes el puntero en la parte inferior de la celda) y añade una celda de texto y prueba escribir algo.</p>
-<p>Luego, añande una celda de código  en la opción ” + Codigo”  (en la parte de arriba o al final de la celda, tambien te debe aparecer y dirijes el puntero en la parte inferior de la celda) y escribe las siguientes
-lineas y ejecatalas.</p>
+<p>Luego, añade una celda de código  en la opción ” + Codigo”  (en la parte de arriba o al final de la celda, tambien te debe aparecer si dirijes el puntero en la parte inferior de la celda) y escribe las siguientes lineas y ejecutalas.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zero_to_nine</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">zero_to_nine</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -681,6 +650,7 @@ lineas y ejecatalas.</p>
 <p>¿cual es la salida?</p>
 <p>Tambien es de utilidad conocer los shorcuts o accesos rapidos de colab, explora que combinaciones de teclas te pueden servir para agilizar el trabajo en Colab.</p>
 <p><img alt="colabshortcuts" src="https://miro.medium.com/max/625/1*BmBIeAJrSl47_1j3TlxQUQ.png" /></p>
+</div>
 </div>
 <div class="section" id="conceptos-rapidos-de-python-crash-course">
 <h2>Conceptos rapidos de Python (Crash Course!)<a class="headerlink" href="#conceptos-rapidos-de-python-crash-course" title="Permalink to this headline">¶</a></h2>
@@ -782,10 +752,8 @@ lineas y ejecatalas.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
 <div class="section" id="manejo-vectores-y-matrices-en-numpy">
-<h1>Manejo vectores y matrices en NumPy<a class="headerlink" href="#manejo-vectores-y-matrices-en-numpy" title="Permalink to this headline">¶</a></h1>
+<h3>Manejo vectores y matrices en NumPy<a class="headerlink" href="#manejo-vectores-y-matrices-en-numpy" title="Permalink to this headline">¶</a></h3>
 <p>NumPy es un paquete que proporciona herramientas y técnicas para manipular estructuras de datos con matrices, es mucho mejor que las listas de Python, tiene acceso y escritura más rápida. Posee una amplia colección de herramientas y técnicas que se pueden utilizar para resolver problemas mátematicos, además de que contiene todas las funciones para trabajar con matrices.</p>
 <p>A continuación encontrá algunas funciones muy útiles para los laboratorios, tales como:</p>
 <ul class="simple">
@@ -796,8 +764,9 @@ lineas y ejecatalas.</p>
 <li><p>Multiplicación matricial</p></li>
 <li><p>Indexación de matrices</p></li>
 </ul>
+</div>
 <div class="section" id="creacion-de-matrices">
-<h2>Creación de matrices<a class="headerlink" href="#creacion-de-matrices" title="Permalink to this headline">¶</a></h2>
+<h3>Creación de matrices<a class="headerlink" href="#creacion-de-matrices" title="Permalink to this headline">¶</a></h3>
 <p>El paquete NumPy introdujo los arrays N-dimensionales, acontinuación se mostrará las rutinas más utilizadas en los laboratorios. (Más rutinas <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html">aquí</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1018,7 +987,7 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 <div class="section" id="indexacion">
-<h2>Indexación<a class="headerlink" href="#indexacion" title="Permalink to this headline">¶</a></h2>
+<h3>Indexación<a class="headerlink" href="#indexacion" title="Permalink to this headline">¶</a></h3>
 <p>Para hacer una indexación en matrices se accede con los corchetes y siempre se define así: [filas,columnas]. Observa que la separación se realiza con una coma ( , )</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = matrix[filas, columnas]
 </pre></div>
@@ -1070,7 +1039,7 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 <div class="section" id="concatenar-vectores-y-matrices">
-<h2>Concatenar vectores y matrices<a class="headerlink" href="#concatenar-vectores-y-matrices" title="Permalink to this headline">¶</a></h2>
+<h3>Concatenar vectores y matrices<a class="headerlink" href="#concatenar-vectores-y-matrices" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span>
@@ -1115,7 +1084,7 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 <div class="section" id="otras-funcionalidades-de-numpy">
-<h2>Otras funcionalidades de Numpy<a class="headerlink" href="#otras-funcionalidades-de-numpy" title="Permalink to this headline">¶</a></h2>
+<h3>Otras funcionalidades de Numpy<a class="headerlink" href="#otras-funcionalidades-de-numpy" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Calculo del promedio</span>
@@ -1212,7 +1181,7 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 <p>Usando esta imagen entendemos, un poco mas la operación</p>
-<p><img alt="vectorization" src="https://github.com/jdariasl/ML_2020/raw/labs/Labs/commons/images/vectorization.png" /></p>
+<p><img alt="vectorization" src="../../_images/vectorization.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># implementacion con numpy</span>
@@ -1247,7 +1216,7 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 <div class="section" id="manejo-de-estructuras-de-datos-en-pandas">
-<h1>Manejo de estructuras de datos en Pandas<a class="headerlink" href="#manejo-de-estructuras-de-datos-en-pandas" title="Permalink to this headline">¶</a></h1>
+<h2>Manejo de estructuras de datos en Pandas<a class="headerlink" href="#manejo-de-estructuras-de-datos-en-pandas" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># en la configuracion inical se hace import pandas as pd</span>
@@ -1835,7 +1804,7 @@ Length: 4521, dtype: int64
 </div>
 </div>
 <div class="section" id="manejo-de-graficas-en-matplotlib-y-pandas">
-<h1>Manejo de gráficas en matplotlib y pandas<a class="headerlink" href="#manejo-de-graficas-en-matplotlib-y-pandas" title="Permalink to this headline">¶</a></h1>
+<h2>Manejo de gráficas en matplotlib y pandas<a class="headerlink" href="#manejo-de-graficas-en-matplotlib-y-pandas" title="Permalink to this headline">¶</a></h2>
 <p>Ahora utilizaremos la librería matplotlib para hacer algunos ejemplos de gráficas básicas:</p>
 <div class="math notranslate nohighlight">
 \[ y = x \]</div>
@@ -2004,16 +1973,12 @@ Length: 4521, dtype: int64
 <img alt="../../_images/Intro_93_0.png" src="../../_images/Intro_93_0.png" />
 </div>
 </div>
-<p>Distribución de probabilidad normal univariada</p>
+<p>También representar gráficas para visualizar relaciones matemáticas útiles</p>
 <p><span class="math notranslate nohighlight">\(P(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma }exp-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}\)</span></p>
-<p>Recordar que lo anterior conforma una familia paramétrica con todos los posibles valores de los parámetros <span class="math notranslate nohighlight">\(\mu\)</span> y <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
-<p>Veamos la gráfica de la distribución de la función de densidad de probabilidad normal:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span>
-
 <span class="c1">#Generamos un conjunto de valores x</span>
-
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="c1">#los llevamos a la función de densidad de probabilidad normal</span>
 <span class="n">p</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
@@ -2027,7 +1992,6 @@ Length: 4521, dtype: int64
 <img alt="../../_images/Intro_95_0.png" src="../../_images/Intro_95_0.png" />
 </div>
 </div>
-<p>Tambien podemos visualizar histogramas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
@@ -2037,7 +2001,7 @@ Length: 4521, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/Intro_97_0.png" src="../../_images/Intro_97_0.png" />
+<img alt="../../_images/Intro_96_0.png" src="../../_images/Intro_96_0.png" />
 </div>
 </div>
 <p>De igual manera, si tenemos un pandas dataframe, se puede simplificar nuestros codigos, y podemos hacer plots con menos lineas de codigo.</p>
@@ -2051,7 +2015,7 @@ Length: 4521, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f00bb8c30b8&gt;
 </pre></div>
 </div>
-<img alt="../../_images/Intro_99_1.png" src="../../_images/Intro_99_1.png" />
+<img alt="../../_images/Intro_98_1.png" src="../../_images/Intro_98_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2064,7 +2028,7 @@ Length: 4521, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f00ba5a2278&gt;
 </pre></div>
 </div>
-<img alt="../../_images/Intro_100_1.png" src="../../_images/Intro_100_1.png" />
+<img alt="../../_images/Intro_99_1.png" src="../../_images/Intro_99_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2077,14 +2041,15 @@ Length: 4521, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f00b6577358&gt;
 </pre></div>
 </div>
-<img alt="../../_images/Intro_101_1.png" src="../../_images/Intro_101_1.png" />
+<img alt="../../_images/Intro_100_1.png" src="../../_images/Intro_100_1.png" />
 </div>
 </div>
-<p>Ejercicio!
-<a class="reference external" href="https://pandas.pydata.org/">Explora un poco mas la libreria</a></p>
+<p>Ejercicio!</p>
+<p><a class="reference external" href="https://pandas.pydata.org/">Explora un poco más la librería de pandas</a></p>
+<p><a class="reference external" href="https://seaborn.pydata.org/">Explora esta librería de visualizacion que se integra con pandas</a></p>
 </div>
 <div class="section" id="estructura-de-los-laboratorios">
-<h1>Estructura de los laboratorios<a class="headerlink" href="#estructura-de-los-laboratorios" title="Permalink to this headline">¶</a></h1>
+<h2>Estructura de los laboratorios<a class="headerlink" href="#estructura-de-los-laboratorios" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Contextualización del problema y entedimiento de los datos</p></li>
 </ol>
@@ -2217,12 +2182,28 @@ TEST EXITOSO!
 </div>
 </div>
 </div>
-<p>Algunas veces entre los ejercicio de código, puedes encontrar preguntas abiertas. Estas la mayoria de veces van estar relacionadas con los resultados de los ejercicio de código, temas vistos en las clases teóricas o pequeñas investigaciones.</p>
+<p>De igual manera, en cada notebook van a encontrar <strong>preguntas abiertas</strong>, Que deberán ser respondidas con:</p>
+<ul class="simple">
+<li><p>los resultados del laboratorio,</p></li>
+<li><p>información vista en clase</p></li>
+<li><p>pequeña investigación relacionada con la tematica de la sesión.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
 <span class="c1">#@markdown  ¿es necesario siempre una inicialización aleatoria de las variables? </span>
 <span class="n">respuesta1_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>Recuerda seguir el código del honor y responder concientemente:
+- son un es espacio de aprendizaje
+- sirven para afianzar tus conocimientos
+- sirve para validar como interpretas lo que haces
+- son revisadas (hay algoritmos que me ayudan a detectar respuestas similares... ¡incluso de semestres pasados!)
 </pre></div>
 </div>
 </div>
@@ -2242,6 +2223,7 @@ TEST EXITOSO!
 </div>
 </div>
 <p>Finalmente al final de cada notebook, encontrarán un formulario que debe ser diligenciado con la información correspondiente.</p>
+<p><strong>USAR LAS CEDULAS</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Integrantes</span>
@@ -2254,18 +2236,18 @@ TEST EXITOSO!
 <p><strong>¿como se considera un laboratorio entregado?</strong></p>
 <ol class="simple">
 <li><p>Debes descargar el archivo .ipynb</p></li>
-<li><p>Entrar al formulario, subir el archivo y enviar el formulario</p></li>
-<li><p>Se tomara en cuenta el ultimo envio del formualario. (esto tambien aplica si envian desde diferentes usuarios)</p></li>
+<li><p>Entrar al formulario, subir el archivo y <strong>enviar el formulario</strong></p></li>
+<li><p>Se tomara en cuenta el ultimo envio del formulario. (esto tambien aplica si envian desde diferentes usuarios)</p></li>
 <li><p>El formulario sera cerrado despues del limite establecido.</p></li>
 </ol>
 </div>
 <div class="section" id="recomendaciones-finales-para-la-entrega-de-los-laboratorios">
-<h1>Recomendaciones Finales para la entrega de los laboratorios<a class="headerlink" href="#recomendaciones-finales-para-la-entrega-de-los-laboratorios" title="Permalink to this headline">¶</a></h1>
+<h2>Recomendaciones Finales para la entrega de los laboratorios<a class="headerlink" href="#recomendaciones-finales-para-la-entrega-de-los-laboratorios" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p>Los espacios para laboratorio son para <strong>ustedes</strong>, traten de aprovecharlo al máximo.</p></li>
-<li><p>Es invalido enviar los laboratorios vía correo electronico y otro medio que no hay sido especificado. Se debe seguir el proceso descrito en la anterior sección.</p></li>
+<li><p>Los espacios para laboratorio son para <strong>ustedes</strong>, traten de aprovecharlos al máximo.</p></li>
+<li><p>Es invalido enviar los laboratorios vía correo electronico y otro medio que no haya sido especificado. Se debe seguir el proceso descrito en la anterior sección.</p></li>
 <li><p><strong>Muy buena practica</strong>:  cuando se confirma que todos los tests estan correctos, reinicar el kernel, y dar en ejecutar todas las lineas de codigo. De esta manera te aseguras que todo esta correcto para el envio del laboratorio.</p></li>
-<li><p>Tengan en cuenta, que si bien hay tests automáticos, los notebooks serán revisados y ejecutados de <strong>manera manual</strong>. Hagan los ejercicios a <strong>conciencia y con toda la dispocisión para aprender y generar habilidades</strong>.</p></li>
+<li><p>Tener en cuenta, que si bien hay tests automáticos, los notebooks serán revisados y ejecutados de <strong>manera manual</strong>. Hagan los ejercicios a <strong>conciencia y con toda la dispocisión para aprender y generar habilidades</strong>.</p></li>
 <li><p>Es muy importante revisar las guias de laboratorio con anterioridad. Es muy factible que si el primer vistazo que le hacen a la guia es durante la sesión conjunta, el tiempo no sera un aliado.</p></li>
 <li><p>En cada sección se especificara la fecha/hora limite de entrega. Debemos respetar las  reglas definidas para el grupo. <strong>De antemano se entienden que todos podemos tener condiciones/situaciones diferentes, sin embargo no habrá excepciones si no se siguen las pautas descritas en el estatuto estudiantíl</strong>.</p></li>
 </ol>
@@ -2275,6 +2257,7 @@ TEST EXITOSO!
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># esta linea de codigo va fallar, es de uso exclusivo del los profesores</span>
 <span class="n">GRADER_INTRO_LAB</span><span class="o">.</span><span class="n">grade</span><span class="p">()</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -2308,8 +2291,8 @@ TEST EXITOSO!
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../../titles/U1_IntroLabs.html" title="previous page">INTRODUCCIÓN A PYTHON Y NUMPY</a>
-    <a class='right-next' id="next-link" href="../lab1/lab1_parte1.html" title="next page">Laboratorio 1 - Parte 1</a>
+    <a class='left-prev' id="prev-link" href="../../titles/U1_IntroLabs.html" title="previous page">INTRODUCCIÓN A PYTHON, NUMPY Y OTRAS HERRAMIENTAS</a>
+    <a class='right-next' id="next-link" href="../lab1/lab1_parte1.html" title="next page">Laboratorio 1 - Parte 1 <strong>Regresión polinomial múltiple</strong></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -1,13 +1,12 @@
 - file: intro
-
+- file: "titles/U0_IntroLabs"
+  sections:
+    - file: "Labs/Intro/Intro"
 - file: titles/U1_description
   sections:
     - file: "Clase 01 - Introducción al Machine Learning"
     - file: "Clase 02 - Regresión lineal y regresión logística"
     - file: "Clase 03 - Funciones discriminantes Gausianas"
-- file: "titles/U1_IntroLabs"
-  sections:
-    - file: "Labs/Intro/Intro"
     - file: "Labs/lab1/lab1_parte1"
     - file: "Labs/lab1/lab1_parte2"
 - file: titles/U2_description

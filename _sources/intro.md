@@ -24,7 +24,7 @@
 
 ## Proyecto
 
-La guía para la realización del proyecto puede ser consultada en: [pdf](https://github.com/jdariasl/ML_2020/tree/master/local/imgs/guiaProyecto.pdf)
+La guía para la realización del proyecto puede ser consultada en: [pdf](https://github.com/jdariasl/ML_2020/tree/master/local/imgs/GuiaProyecto.pdf)
 
 Para los proyectos se debe seleccionar un problema de aprendizaje supervisado. Se recomienda revisar las bases de datos incluidas en:
 

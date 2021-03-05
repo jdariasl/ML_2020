@@ -37,3 +37,8 @@ Una vez comience el semestre se compartirán algunos archivos que contienen algu
 
 Se realiza una avance parcial del proyecto que incluye partes I y II de la guía y la entrega final con el desarrollo completo.
 
+## Sesiones sincrónicas
+
+Para acceder a las sesiones sincrónicas: [zoom link](https://udea.zoom.us/j/95633490010)
+
+Las grabaciones de las sesiones pueden encontrarlas en: [zoom recordings](http://ingeniaudea.edu.co/zoom-recordings/recordings/docenciaingenia84@udea.edu.co/95633490010/2021-02-28)

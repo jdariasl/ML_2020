@@ -53,83 +53,81 @@ def test_ejercicio_1(func):
     
 @unknow_error
 def test_ejercicio_2(func):
-    xtrain1, x, ytrain, y, wr1, _ = genarete_data()
-    def ww (w):
-        some = (np.sum(x*(np.dot(x,w) - y.reshape((x.shape[0],1))), axis = 0, keepdims = True)/((x.shape[0]))) .T
-        return (w-0.001*some)
-    wr1= ww(wr1)
-    wr1= ww(wr1)
-    w1 = func(x, y, 0.001, 2)
-    w2 = func(xtrain1, ytrain, 0.001, 2)
-    tests = {'revisa tu implementacion. \n Sigue la instrucciones ten cuidado con las dimensiones de la matrices. \n evita dejar codigo estatico ': 
-              ut.are_np_equal(w1,wr1),
-             'Recuerda que la funcion debe recibir parametros, evita dejar codigo estatico':  w2.shape == (xtrain1.shape[1],1) }
-    test_res = ut.test_conditions_and_methods(tests)
-    return (test_res)
+    code_to_look = ['np.dot', 'cost', 'X_ext.T', 'extension_matriz']
+    res2 = ut.check_code(code_to_look, func, "usar solo numpy y funciones previamente definidas")
+    
+    xx = np.array([[0,0], [1,1], [2,2]])
+    yy = np.array([1,2,4]).reshape(3,1)
+    ww1, cc1 = func(xx, yy, 1.0, 10)
+
+    xx2 = np.array([[0], [1], [2]])
+    yy2 = np.array([0,1,2]).reshape(3,1)
+    ww2, cc2 = func(xx2, yy2, 1.0, 5)
+
+    tests_dict =  {'revisar las operaciones':  np.allclose(ww1,np.array([[0.74933853],[0.77798086], [0.77798086]])),
+                  'El costo no esta dismuyendo verificar': np.all(np.diff(cc1)<0) or np.all(np.diff(cc2)<0),
+                  'Evitar dejar codigo estatico': np.sum(ww1) != np.sum(ww2),
+                  'Recuerda las iteraciones': len(cc1)==10}
+    
+    test  =  ut.test_conditions_and_methods(tests_dict)
+    return (res2 and test)
 
 @unknow_error
 def test_ejercicio_3(func):
-    xtrain1, x, ytrain, y, wr1, wr2 = genarete_data()
-    est = np.dot(x,wr1)
-    te = np.sum((est.reshape(y.shape[0],1) - y.reshape(y.shape[0],1))**2)/(y.shape[0])
+    code_to_look = ['extension_matriz', 'ECM', 'regression']
+    code_check = ut.check_code(code_to_look, func, "usar solo numpy y funciones previamente definidas")
+    
+    ww1 = np.array([[0.5], [0.5], [0.5]])
+    xx1 = np.array([[0,0], [1,1], [2,2]])
+    yy1 = np.array([0,1,2])
+    e1 = func(ww1, xx1, yy1)
 
-    est2 = np.dot(xtrain1,wr2)
-    te2 = np.sum((est2.reshape(ytrain.shape[0],1) - ytrain.reshape(ytrain.shape[0],1))**2)/(ytrain.shape[0])
+    ww2 = np.array([[1.0], [0.0]])
+    xx2 = np.array([[0], [1], [2]])
+    yy2 = np.array([1,1,1])
+    e2 = func(ww2, xx2, yy2)
 
-    error = func(wr1, X_to_test = x,  Y_True = y)
-    error2 = func(wr2, X_to_test = xtrain1,  Y_True = ytrain)
-
-    tests = {'revisa tu implementacion. \n Sigue las instrucciones. \n evita dejar codigo estatico ': te == error,
-             'Recuerda que la funcion debe recibir parametros, evita dejar codigo estatico':  te2 == error2 }
-    test_res = ut.test_conditions_and_methods(tests)
-    return (test_res)
+    tests_dict =  {'revisar las operaciones':  np.allclose(e1, 0.25) and np.allclose(e2, 0.0)}
+    test  =  ut.test_conditions_and_methods(tests_dict)
+    return (code_check and test)
 
    
 @unknow_error
 def test_ejercicio_4(func):
-    xtrain1, x, ytrain, y, _, _ = genarete_data()
-    x_g2 = potenciaPolinomio(x, 3)
-    xtrain_g2 = potenciaPolinomio(xtrain1,3)
-    wr1 = np.zeros((1,x_g2.shape[1]))
-    wr1 = wr1.reshape(np.size(wr1), 1)
+    code_to_look = ['potenciaPolinomio', 'gradiente_descendente(X2']
+    code_check = ut.check_code(code_to_look, func, "usar solo numpy y funciones previamente definidas",debug = False)
+    
+    xx = np.array([[1,1], [-1,-1], [2,2], [-2,-2]])
+    yy = np.array([1,0.9,0.5,0.45]).reshape(4,1)
 
-    def ww (w):
-        some = (np.sum(x_g2*(np.dot(x_g2,w) - y.reshape((x.shape[0],1))), axis = 0, keepdims = True)/((x_g2.shape[0]))) .T
-        return (w-0.001*some)
-    wr1= ww(wr1)
-    wr1= ww(wr1)
-    w1 = func(x, y, 0.001, 2, 3)
-    w2 = func(xtrain1, ytrain, 0.001, 2,3)
-    tests = {'revisa tu implementacion. \n Sigue la instrucciones ten cuidado con las dimensiones de la matrices. \n evita dejar codigo estatico ': 
-              ut.are_np_equal(w1,wr1),
-             'Recuerda que la funcion debe recibir parametros, evita dejar codigo estatico':  w2.shape == (xtrain_g2.shape[1],1) }
-    test_res = ut.test_conditions_and_methods(tests)
-    return (test_res)
+    ww1, cc1 = func(xx, yy, 1.0, 5, 1)
+    ww2, cc2 = func(xx, yy, 1.0, 6, 2)
+    ww3, _ = func(xx, yy, 1.0, 5, 3)
+
+    tests_dict =  {'revisar las operaciones':  np.allclose(ww1,np.array([[0.54342041], [0.01000977], [0.01000977]])),
+                  'Evitar dejar codigo estatico': np.sum(ww1) != np.sum(ww2),
+                  'Recuerda aplicar el polinomio': ww1.shape == (3,1) and ww2.shape == (5,1) and ww3.shape == (7,1),
+                  'Recuerda las iteraciones': len(cc1)==5 and len(cc2)==6}
+    test  =  ut.test_conditions_and_methods(tests_dict)
+   
+    return (code_check and test)
 
 
 @unknow_error
 def test_ejercicio_5(func):
-    xtrain1, x, ytrain, y, _, _ = genarete_data()
-    x_g = potenciaPolinomio(x, 3)
-    xtrain_g = potenciaPolinomio(xtrain1,3)
-    wr1 = np.zeros((1,x_g.shape[1]))
-    wr1 = wr1.reshape(np.size(wr1), 1)
-
-    wr2 = np.zeros((1,xtrain_g.shape[1]))
-    wr2 = wr2.reshape(np.size(wr2), 1)
-
-    est = np.dot(x_g,wr1)
-    te = np.sum((est.reshape(y.shape[0],1) - y.reshape(y.shape[0],1))**2)/(y.shape[0])
-
-    est2 = np.dot(xtrain_g,wr2)
-    te2 = np.sum((est2.reshape(ytrain.shape[0],1) - ytrain.reshape(ytrain.shape[0],1))**2)/(ytrain.shape[0])
-
-    error = func(wr1, X_to_test = x,  Y_True = y, grado = 3)
-    error2 = func(wr2, X_to_test = xtrain1,  Y_True = ytrain, grado = 3)
-    tests = {'revisa tu implementacion. \n Sigue las instrucciones. \n evita dejar codigo estatico ': te == error,
-             'Recuerda que la funcion debe recibir parametros, evita dejar codigo estatico':  te2 == error2 }
-    test_res = ut.test_conditions_and_methods(tests)
-    return (test_res)
+    code_to_look = ['potenciaPolinomio', 'evaluar_modelo(W,X2']
+    code_check = ut.check_code(code_to_look, func, "usar solo numpy y funciones previamente definidas")
+    ww1 = np.array([[1.0], [0.0]])
+    xx1 = np.array([[0], [1], [2]])
+    yy1 = np.array([1,1,1])
+    e1 = func(ww1, xx1, yy1, 1)
+    ww2 = np.array([[1.0], [0.0], [1.0]])
+    e2 = func(ww2, xx1, yy1, 2)
+    ww3 = np.array([[1.0], [1.0], [1.0], [1.0]])
+    e3 = func(ww3, xx1, yy1, 3)
+    tests_dict =  {'revisar las operaciones':  np.allclose(e1, 0.0) and np.allclose(e2, 5.666666666666667) and  np.allclose(e3, 68.333333)}
+    test  =  ut.test_conditions_and_methods(tests_dict) 
+    return (test and code_check)
 
 @unknow_error
 def test_exp1(func):

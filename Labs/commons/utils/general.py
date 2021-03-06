@@ -133,7 +133,10 @@ class Tester():
             print("TEST EXITOSO!")
             return ("ok")
         else:
-            print("FALLIDO. revisa tu funcion. Sigue las instrucciones del notebook. Si tienes alguna duda pregunta!")
+            msj = """FALLIDO. revisa tu funcion. Sigue las instrucciones del notebook.
+                     **Recuerda** el test es una conversacion con tu profesor
+                     Si crees que tu funcion esta bien hazlo saber!"""
+            print(msj)
             return("nok")
 
 ### Utils
@@ -290,10 +293,9 @@ class Utils():
 
     def get_source_safe(self,func):
         codes = inspect.getsource(func)
-        # remove docs
         codes = codes.split('\n')
-        codes = "".join([c for c in codes if not(c.startswith("#")) ])
-        codes = codes.replace(' ', '')
+        codes = [s.replace(" ", "") for s in codes]
+        codes = "".join([c for c in codes if not(c.startswith("#"))])
         return(codes)
 
     
@@ -303,7 +305,7 @@ class Utils():
         if np.any(tests):
             print (msg)
             if debug:
-                print(tests)
+                print(tests, '\n', self.get_source_safe(func))
             return (False)
         else:
             return(True)
@@ -323,7 +325,7 @@ def unknow_error(func):
         except Exception as e: 
             print("...error inesperado....\n ", "es muy probable que tengas un error de sintaxis \n", 
             "...puedas que tengas una variable definida erroneamente dentro de la funcion... \n"
-            "...este es el stack retornado...\n .... \n")
+            "...este es el stack (log de error) retornado...\n .... \n")
             traceback.print_exc()
             return False
     return (wrapper)

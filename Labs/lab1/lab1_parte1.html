@@ -597,7 +597,7 @@
 <span class="sd">            numero de caracteristicas (int/float)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="k">return</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -727,11 +727,11 @@
         <span class="c1">## Aca debes completar la funcion! recuerda que solo debes usar numpy (np.funcion_a_usar)</span>
         <span class="c1"># o las funciones definidas anteriormente</span>
         <span class="c1"># usa la funcion que hace la regresion y que definimos antes</span>
-        <span class="n">y_est</span> <span class="o">=</span> <span class="n">regression</span><span class="p">(</span><span class="n">X_ext</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
-        <span class="n">f_xw_min_yi</span> <span class="o">=</span> <span class="n">y_est</span> <span class="o">-</span> <span class="n">Y</span>
-        <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_ext</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">f_xw_min_yi</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">y_est</span> <span class="o">=</span> 
+        <span class="n">f_xw_min_yi</span> <span class="o">=</span> 
+        <span class="n">temp</span> <span class="o">=</span>
         <span class="c1"># acutaliza</span>
-        <span class="n">W</span> <span class="o">=</span> <span class="n">W</span><span class="o">-</span><span class="n">eta</span><span class="o">*</span><span class="n">temp</span><span class="o">/</span><span class="n">N</span>
+        <span class="n">W</span> <span class="o">=</span> 
         <span class="n">costos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cost</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">X_ext</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
         
     <span class="k">return</span> <span class="n">W</span><span class="p">,</span> <span class="n">costos</span>
@@ -801,8 +801,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">## Comienza a completar tu codigo. recuerda usar la funciones ya definidas</span>
     <span class="n">X_to_test_ext</span> <span class="o">=</span> <span class="n">extension_matriz</span><span class="p">(</span><span class="n">X_to_test</span><span class="p">)</span>
-    <span class="n">y_est</span> <span class="o">=</span> <span class="n">regression</span><span class="p">(</span><span class="n">X_to_test_ext</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
-    <span class="n">error</span> <span class="o">=</span> <span class="n">ECM</span><span class="p">(</span><span class="n">y_est</span><span class="p">,</span> <span class="n">Y_True</span><span class="p">)</span>
+    <span class="n">y_est</span> <span class="o">=</span>
+    <span class="n">error</span> <span class="o">=</span>
 
     <span class="k">return</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
 </pre></div>
@@ -892,8 +892,8 @@
 <span class="sd">            </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">## completa el codigo</span>
-    <span class="n">X2</span> <span class="o">=</span> <span class="n">potenciaPolinomio</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">grado</span><span class="p">)</span>
-    <span class="n">W</span><span class="p">,</span> <span class="n">costo</span> <span class="o">=</span> <span class="n">gradiente_descendente</span> <span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">eta</span><span class="p">,</span><span class="n">iteraciones</span><span class="p">)</span>
+    <span class="n">X2</span> <span class="o">=</span> 
+    <span class="n">W</span><span class="p">,</span> <span class="n">costo</span> <span class="o">=</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">costo</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">evaluar_modelo_poly</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X_to_test</span><span class="p">,</span> <span class="n">Y_True</span><span class="p">,</span> <span class="n">grado</span><span class="p">):</span>
@@ -907,8 +907,8 @@
 <span class="sd">    retorna: el error cuadratico medio</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">## Comienza a completar tu codigo. recuerda usar la funciones ya definidas</span>
-    <span class="n">X2</span> <span class="o">=</span> <span class="n">potenciaPolinomio</span><span class="p">(</span><span class="n">X_to_test</span><span class="p">,</span><span class="n">grado</span><span class="p">)</span>
-    <span class="n">error</span> <span class="o">=</span> <span class="n">evaluar_modelo</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">Y_True</span><span class="p">)</span>
+    <span class="n">X2</span> <span class="o">=</span> 
+    <span class="n">error</span> <span class="o">=</span> 
     
     <span class="k">return</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
 </pre></div>
@@ -969,7 +969,7 @@
 <span class="sd">        para realizar los experimentos</span>
 <span class="sd">    retorna: un dataframe con el resultados de los experimentos</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">numero_iter</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">numero_iter</span> <span class="o">=</span> <span class="mi">5</span>
 
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># indice</span>
@@ -977,8 +977,8 @@
         <span class="k">for</span> <span class="n">grado</span> <span class="ow">in</span> <span class="n">grados</span><span class="p">:</span>
             
             <span class="c1"># ignorar el costo</span>
-            <span class="n">W</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">gradiente_descendente_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span><span class="p">,</span> <span class="n">iteraciones</span><span class="o">=</span><span class="n">numero_iter</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="n">grado</span><span class="p">)</span>
-            <span class="n">error</span> <span class="o">=</span> <span class="n">evaluar_modelo_poly</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X_to_test</span> <span class="o">=</span> <span class="n">Xtest</span><span class="p">,</span>  <span class="n">Y_True</span> <span class="o">=</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="n">grado</span><span class="p">)</span>
+            <span class="n">W</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span>
+            <span class="n">error</span> <span class="o">=</span> 
         
             <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;grado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grado</span>
             <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;tasa de aprendizaje&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">eta</span>
@@ -1100,8 +1100,8 @@
     <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="n">iteraciones</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">grado</span> <span class="ow">in</span> <span class="n">grados</span><span class="p">:</span>
             <span class="c1"># ignora el costo</span>
-            <span class="n">W</span> <span class="p">,</span> <span class="n">_</span><span class="o">=</span> <span class="n">gradiente_descendente_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span><span class="p">,</span> <span class="n">iteraciones</span><span class="o">=</span><span class="nb">iter</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="n">grado</span><span class="p">)</span>
-            <span class="n">error</span> <span class="o">=</span> <span class="n">evaluar_modelo_poly</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X_to_test</span> <span class="o">=</span> <span class="n">Xtest</span><span class="p">,</span>  <span class="n">Y_True</span> <span class="o">=</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="n">grado</span><span class="p">)</span>
+            <span class="n">W</span> <span class="p">,</span> <span class="n">_</span><span class="o">=</span> 
+            <span class="n">error</span> <span class="o">=</span>
         
             <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;iteraciones&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">iter</span>
             <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;grado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grado</span>

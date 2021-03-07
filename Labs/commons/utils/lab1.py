@@ -172,7 +172,10 @@ def part_1():
     y = db[:,12]
     return (GRADER_LAB_1_P1, db, x, y)
 
+#
 # parte 2
+#
+
 def genarete_data2():
     mat = scipy.io.loadmat('DatosClases.mat')
     x = mat['X'] # Matriz X de muestras con las características
@@ -197,22 +200,9 @@ def test_ejercicio_1_p2(func):
 
 @unknow_error
 def test_ejercicio_2_p2(func):
-    xtrain, x, ytrain, y, _ ,_= genarete_data2()
-
-    for xx, yy, cl in zip ([xtrain, x], [ytrain, y], [1,2]):
-        f = func(xx, yy)
-        t1 = (len(f.axes)) == 1 and len(f.axes[0].collections)>= cl
-        t2 = ut.are_np_equal(ut.get_data_from_scatter(f.axes[0]), ut.get_org_data(xx,yy))
-
-        if t2 : 
-            tests = {'Recuerda que debes graficas las dos clases': t1,
-                    'Recuerda que la debe graficar los valores de x y y. y debe ser los colores':  t2}
-            test_res = ut.test_conditions_and_methods(tests)
-            return (test_res)
-        else:
-            code_to_look = ['scatter', 'X[:,1]', "X[:,2]", "c=Y"]
-            res2 = ut.check_code(code_to_look, func)
-            return (res2)
+    code_to_look = ['scatter', 'X[:,0]', "X[:,1]", "c=Y"]
+    res2 = ut.check_code(code_to_look, func, 'revisar la funcion que se uso de plt')
+    return (res2)
 
 @unknow_error
 def test_sigmoide(func):
@@ -224,46 +214,25 @@ def test_sigmoide(func):
     test_res = ut.test_conditions_and_methods(tests)
     return (test_res)
 
-def logistic_regression(X, W):
-    """calcula la regresión logistica
-    X: los valores que corresponden a las caractersiticas
-    W: son los pesos usadados para realizar la regresión
-    retorna: valor estimado por la regresion
-    """
-    #Con np.dot se realiza el producto matricial. Aquí X (extendida) tiene dim [Nxd] y W es dim [dx1]
-    Yest = np.dot(X,W)
-    Y_lest = 1/(1 + np.exp(-Yest))
-    #Se asignan los valores a 1 o 0 según el modelo de regresión logística definido
-    pos = 0
-    for tag in Y_lest:
-        
-        if tag > 0.5:
-            Y_lest[pos] = 1
-        elif tag < 0.5:
-            Y_lest[pos] = 0
-        
-        pos += 1
-    
-    return Y_lest    #Y estimado: Esta variable contiene ya tiene la salida de sigm(f(X,W))
 
 @unknow_error
 def test_gradiente_descendente_logistic_poly(func):
-    xtrain, x, ytrain, y, wr1, wr2 = genarete_data2()
-    x_g = potenciaPolinomio(x,3)
-    wr2 = np.zeros((1,x_g.shape[1]))
-    wr2 = wr2.reshape(np.size(wr2), 1)
+    code_to_look = ['extension_matriz', 'logistic_regression', 'cost_logistic']
+    code_check = ut.check_code(code_to_look, func, "usar solo numpy y funciones previamente definidas")
+    xx1 = np.array([[1,1],[-1,-1], [2,2], [-2,-2]])
+    yy1 = np.array([[1], [0],[1],[0]])
+    yy2 = np.array([[1], [1],[0],[0]])
+    w1, cl1 = func(xx1,yy1,grado = 1, eta = 1.0, iteraciones = 10)
+    w2, cl2 = func(xx1,yy2,grado = 2, eta = 1.0, iteraciones = 100)
+    
    
-    wr1 = wr1-0.01*(np.dot(x.T, logistic_regression(x,wr1) - y))/x.shape[0]
-    wr1 = wr1-0.01*(np.dot(x.T, logistic_regression(x,wr1) - y))/x.shape[0]
-    error = func(x,y,1,0.01, 2)
-    t1 = ut.are_np_equal(wr1, error)
-
-    wr2 = wr2-0.01*(np.dot(x_g.T, logistic_regression(x_g,wr2) - y))/x_g.shape[0]
-    wr2 = wr2-0.01*(np.dot(x_g.T, logistic_regression(x_g,wr2) - y))/x_g.shape[0]
-
-    tests = {'revisa tu implementacion, el test 1 fallo ': t1,
-             'revisa tu implementacion, el test 2 fallo':  ut.are_np_equal(wr2, func(x,y,3,0.01, 2)) }
-    test_res = ut.test_conditions_and_methods(tests)
+    tests_dict =  {'revisar las operaciones':  np.allclose(w1, np.array([[-1.60461922e-17], [ 7.78302213e-01], [ 7.78302213e-01]])),
+                   'cuidado el costo parece no disminuir': np.all(np.diff(cl1)<0) and np.all(np.diff(cl2)<0),
+                   'recuerda realizar extension de matrices y aplicar el polinomio': w1.shape == (3,1) and w2.shape == (5,1),
+                   'recuerda las iteraciones': len(cl1) == 10 and len(cl2) == 100
+                   }
+    test  =  ut.test_conditions_and_methods(tests_dict) 
+    return (test and code_check)
 
     return (test_res)
 
@@ -286,19 +255,6 @@ def test_exp1_part2(func):
                                  
     return (res and res2)
 
-@unknow_error
-def test_numero_de_errores(func):
-    xtrain, x, ytrain, y, wr1, wr2 = genarete_data2()
-    x_g = potenciaPolinomio(x,4)
-    wr2 = np.ones((x_g.shape[1], 1))
-    wr2 = wr2.reshape(np.size(wr2), 1)
-
-    tests = {'revisa tu implementacion, el test 1 fallo ':func (wr1, x, y, 1) == 500,
-             'revisa tu implementacion, el test 2 fallo':  func (wr2, x, y, 4) == 244 }
-    test_res = ut.test_conditions_and_methods(tests)
-                                 
-    return (test_res)
-
 def part_2():
     print("cargando librerias y variables al ambiente")
     GRADER = Grader("lab1_part2")
@@ -307,7 +263,6 @@ def part_2():
     GRADER.add_test("ejercicio3", Tester(test_sigmoide))
     GRADER.add_test("ejercicio4", Tester(test_gradiente_descendente_logistic_poly))
     GRADER.add_test("ejercicio5",  Tester(test_exp1_part2))
-    GRADER.add_test("ejercicio6", Tester(test_numero_de_errores))
     #GRADER.add_test("ejercicio6", Tester(test_exp1))
     #GRADER.add_test("ejercicio7", Tester(test_exp2))
     mat = scipy.io.loadmat('DatosClases.mat')

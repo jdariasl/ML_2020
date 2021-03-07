@@ -545,8 +545,7 @@
         
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/lab1/lab1_parte2.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras alamancenar tu progreso</strong></p>
+  <p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras alamancenar tu progreso</strong></p>
 <p>Nota: no olvide ir ejecutando las celdas de código de arriba hacia abajo para que no tenga errores de importación de librerías o por falta de definición de variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -554,11 +553,14 @@
 <span class="c1"># Ejecuta esta celda!</span>
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
+<span class="c1">#for local</span>
+<span class="c1">#import sys ; sys.path.append(&#39;../commons/utils/&#39;); sys.path.append(&#39;../commons/utils/data&#39;)</span>
 <span class="o">!</span>wget https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py -O general.py
 <span class="kn">from</span> <span class="nn">general</span> <span class="kn">import</span> <span class="n">configure_lab1_p2</span>
 <span class="n">configure_lab1_p2</span><span class="p">()</span>
 <span class="kn">from</span> <span class="nn">lab1</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">GRADER</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">part_2</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -593,8 +595,8 @@
 <span class="sd">            numero de caracteristicas (int/float)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">##Pista: es de utilidad el metodo np.unique ?</span>
-    <span class="n">N</span><span class="p">,</span><span class="n">nf</span> <span class="o">=</span>
-    <span class="n">clases</span> <span class="o">=</span> 
+    <span class="n">N</span><span class="p">,</span><span class="n">nf</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">clases</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
     
     <span class="k">return</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">nf</span><span class="p">,</span><span class="n">clases</span><span class="p">)</span>
 </pre></div>
@@ -624,17 +626,16 @@
 <span class="sd">           para mostrar en diferentes colores, las etiquetas de cada una</span>
 <span class="sd">           de las muestras</span>
 <span class="sd">        retorna:</span>
-<span class="sd">            grafica matplotlib</span>
+<span class="sd">            No retorna nada, el grafico debe aparecer</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1">## puedes accerder con plt al funcion adecuacada</span>
+    <span class="c1">## puedes acceder con plt a la funcion adecuacada</span>
     <span class="c1">## Pista: recuerda como indexar matrices</span>
-    <span class="c1">## Pista: recuerda el uso de np.ravel</span>
-
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
     <span class="c1"># para mostrar el grafico</span>
     <span class="n">figure</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
    
-    <span class="k">return</span> <span class="p">(</span><span class="n">figure</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -644,6 +645,14 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
 <span class="c1"># ignora los graficos que se muestran </span>
 <span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio2&quot;</span><span class="p">,</span> <span class="n">scatter_plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usarla para ver el grafico</span>
+<span class="n">scatter_plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -661,15 +670,16 @@
 <div class="section" id="ejercicio-2-entrenamiento">
 <h2>Ejercicio 2: entrenamiento<a class="headerlink" href="#ejercicio-2-entrenamiento" title="Permalink to this headline">¶</a></h2>
 <p>En este laboratorio se va a realizar un procedimiento análogo al laboratorio anterior, pero con el modelo de <em>regresión logística</em> que sirve para resolver problemas de clasificación (en principio biclase).</p>
-<p>Analice los siguientes métodos a la luz de la teoría vista para el modelo de regresión logística:</p>
+<p>¿Cómo se relacionan los siguientes conceptos a la luz del modelo de regresión logística?</p>
 <ol class="simple">
-<li><p>función de activación (<font color='blue'>sigmoidal</font>),</p></li>
-<li><p>modelo de regresión logística (<font color='blue'>logistic_regression</font>),</p></li>
-<li><p>potencia del polinomio</p></li>
-<li><p>el cálculo del error en clasificación (<font color='blue'>error_logistic</font>)</p></li>
-<li><p>el gradiente descendente.</p></li>
+<li><p>Función de activación</p></li>
+<li><p>Extensión de matriz</p></li>
+<li><p>Modelo de regresión logística</p></li>
+<li><p>Potencia del polinomio</p></li>
+<li><p>El cálculo del error en clasificación</p></li>
+<li><p>El gradiente descendente</p></li>
 </ol>
-<p>Luego de recordar estos conceptos. Complete la función sigmoidal:</p>
+<p>Vamos a completar la función del sigmoide:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejercicio de Código</span>
@@ -682,7 +692,8 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#Complete la siguiente línea con el código para calcular la salida de la función sigmoidal</span>
-    <span class="n">s</span> <span class="o">=</span> 
+    <span class="c1"># ¿Que metodo de np...{} es de utilidad?</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span>
     
     <span class="k">return</span> <span class="n">s</span>
 </pre></div>
@@ -697,13 +708,14 @@
 </div>
 </div>
 </div>
-<p>El la siguiente celda se sugiere la implementación, de los siguientes conceptos:</p>
+<p>El la siguiente celda se sugiere la implementación de 3 métodos que nos ayudaran a implementar los otros conceptos.</p>
 <ol class="simple">
-<li><p>modelo de regresión logística (<font color='blue'>logistic_regression</font>),</p></li>
-<li><p>potencia del polinomio</p></li>
-<li><p>el cálculo del error en clasificación (<font color='blue'>error_logistic</font>)</p></li>
+<li><p>Modelo de regresión logística(Esta función usa nuestra <code class="docutils literal notranslate"><span class="pre">sigmoidal</span></code>)</p></li>
+<li><p>Extensión de matriz</p></li>
+<li><p>Potencia del polinomio</p></li>
+<li><p>Cálculo del error en clasificación</p></li>
 </ol>
-<p>comprenda que hacen estas funciones y ejecute la celda para cargar las funciones, para porder usarlas</p>
+<p>Debemos comprender que hacen estas funciones para determinar donde poder usarlas mas adelante. Luego de ellos, ejecuta la celda para cargarlas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="p">):</span>
@@ -715,18 +727,22 @@
     <span class="c1">#Con np.dot se realiza el producto matricial. Aquí X (extendida) tiene dim [Nxd] y W es dim [dx1]</span>
     <span class="n">Yest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
     <span class="n">Y_lest</span> <span class="o">=</span> <span class="n">sigmoidal</span><span class="p">(</span><span class="n">Yest</span><span class="p">)</span>
-    <span class="c1">#Se asignan los valores a 1 o 0 según el modelo de regresión logística definido</span>
-    <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">Y_lest</span><span class="p">:</span>
-        
-        <span class="k">if</span> <span class="n">tag</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
-            <span class="n">Y_lest</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">elif</span> <span class="n">tag</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
-            <span class="n">Y_lest</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-        
-        <span class="n">pos</span> <span class="o">+=</span> <span class="mi">1</span>
-    
+   
     <span class="k">return</span> <span class="n">Y_lest</span>    <span class="c1">#Y estimado: Esta variable contiene ya tiene la salida de sigm(f(X,W))</span>
+
+<span class="k">def</span> <span class="nf">extension_matriz</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;funcion que realiza la extension de la matriz X</span>
+<span class="sd">    X: los valores que corresponden a las caractersiticas sin extender</span>
+<span class="sd">    retorna: X_ext: matriz con unos extendidos</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#Obtenemos las dimensiones antes de exteneder la matriz</span>
+    <span class="n">muestras</span><span class="p">,</span><span class="n">caracterisitcas</span> <span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="c1">#Extendemos la matriz X</span>
+    <span class="n">unos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">muestras</span><span class="p">)])</span>
+    <span class="n">X_ext</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">unos</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">X_ext</span> <span class="o">=</span> <span class="n">X_ext</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">muestras</span><span class="p">,</span> <span class="n">caracterisitcas</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">X_ext</span><span class="p">)</span>
+
 
 <span class="k">def</span> <span class="nf">potenciaPolinomio</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">grado</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;calcula la potencia del polinomio</span>
@@ -743,46 +759,28 @@
     
     <span class="k">return</span> <span class="n">X2</span>
 
-<span class="k">def</span> <span class="nf">error_logistic</span><span class="p">(</span><span class="n">Y_lest</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">cost_logistic</span><span class="p">(</span><span class="n">Y_lest</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;calculo del error logistico</span>
 <span class="sd">       Si es diferente el Y_estimado con el Y_real cuenta como un error</span>
-<span class="sd">       Y_lest: numpy array con los valores de etiquetas estimadas</span>
+<span class="sd">       Y_lest: numpy array con los valores reales estimados</span>
 <span class="sd">       Y:  numpy array  valor con los valores reales de las etiquetas</span>
-<span class="sd">       retorna: error de clasificación -- numpy array</span>
+<span class="sd">       retorna: costo logistico  -- numpy array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">ye</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Y_lest</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">ye</span> <span class="o">!=</span> <span class="n">y</span><span class="p">:</span>
-            <span class="n">error</span> <span class="o">+=</span> <span class="mi">1</span>
-    
-    <span class="n">error</span> <span class="o">=</span> <span class="n">error</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
-
+    <span class="n">f1</span> <span class="o">=</span> <span class="n">Y</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Y_lest</span><span class="p">)</span>
+    <span class="n">f2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y_lest</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">error</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>De igual manera, debemos extender nuestro conjunto de datos. Comprende que hace  la siguiente celda de código y ejecutala. <strong>Muy importante ejecutar SOLA UNA vez.</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Aca llamamos la funcion creada anteriormente</span>
-<span class="c1"># para obtener el numero muestras y caractersiticas</span>
-<span class="n">muestras</span><span class="p">,</span><span class="n">caracterisitcas</span><span class="p">,</span><span class="n">num_clases</span> <span class="o">=</span> <span class="n">clases_muestras_carac</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1">#Extendemos la matriz de X para el parámetro independiente</span>
-<span class="n">unos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">muestras</span><span class="p">)])</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">unos</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">muestras</span><span class="p">,</span> <span class="n">caracterisitcas</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>recordando lo aprendido anteriormente, dividimos nuestro cojunto de datos y normalizamos.</p>
+<p>recordando lo aprendido anteriormente, dividimos nuestro cojunto de datos y normalizamos.
+<strong>SOLO EJECUTAR UNA VEZ</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dejamos algunas muestras para el proceso de entrenamiento y otras para evaluar qué tan bueno fue el aprendizaje del modelo</span>
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">N</span> <span class="o">=</span> <span class="n">muestras</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">ind</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">Xtrain</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">0.7</span><span class="o">*</span><span class="n">N</span><span class="p">))],:]</span>
 <span class="n">Xtest</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">0.7</span><span class="o">*</span><span class="n">N</span><span class="p">)):</span><span class="n">N</span><span class="p">],:]</span>
@@ -794,15 +792,24 @@
 </div>
 </div>
 </div>
-<p>Ahora vamos a completar el código de la regla de actualización de los parámetros del algoritmo de <font color='blue'>gradiente_descedente</font>:</p>
+<p>Ahora vamos a completar el código de la regla de actualización de los parámetros del algoritmo de <strong>gradiente_descedente</strong></p>
 <div class="math notranslate nohighlight">
 \[w_j(iter) = w_j(iter-1) - \eta \frac{\partial E(w)}{\partial w_j}\]</div>
-<p>recordar que</p>
+<p>recordar que aca queremos reducir el costo logistico, pero la actualización de los pesos sigue siendo equivalente a la regresión vista anteriormente, solo que agregando la función <span class="math notranslate nohighlight">\(g\)</span> que corresponde al sigmoide.</p>
 <div class="math notranslate nohighlight">
-\[ \frac{\partial E(w)}{\partial w_j} = \frac{\partial E({\bf{w}})}{\partial w_j} = \frac{1}{N}\sum_{i=1}^{N}\left( f({\bf{x}}_i,{\bf{w}}) - y_i\right) \frac{\partial }{\partial w_j} f({\bf{x}}_i, {\bf{w}})\]</div>
-<p>Recuerda que debe usar las funciones ya implementadas y no usar <strong>ninguna otra libreria</strong>, adicional a las librerias ya pre-cargadas como numpy.</p>
-<p>Adicionalmente, dentro de nuestra función, <strong>vamos incluir una transformación polinómica</strong>.</p>
-<p>Nota: Para el problema de clasificación tenga presente que si ya implementó la regla de actualización de parámetros para el modelo de regresión polinomial múltiple, este punto es trivial, puesto que sólo tiene que incluir la función sigmoidal tal como lo vimos en la teoría.</p>
+\[ \frac{\partial E(w)}{\partial w_j} = \frac{\partial J({\bf{w}})}{\partial w_j} = \frac{1}{N} \sum_{i=1}^{N}\left( g(f({\bf{x}}_i,{\bf{w}})) - t_i\right)x_{ij}\]</div>
+<p>Debemos tener presente:</p>
+<ul class="simple">
+<li><p>Usar las funciones ya implementadas y no usar <strong>ninguna otra libreria</strong> adicional a las librerias ya pre-cargadas como numpy.</p></li>
+<li><p>Dentro de nuestra función <strong>vamos incluir una transformación polinómica</strong>, por lo tanto el proceso a implementar puede ser descrito en los siguientes pasos:</p>
+<ul>
+<li><p>Aplicar la transformación polinómica</p></li>
+<li><p>Extender la matriz</p></li>
+<li><p>Inicializar <span class="math notranslate nohighlight">\(w\)</span></p></li>
+<li><p>Y por cada iteración realizar el cálculo para actualizar <span class="math notranslate nohighlight">\(w\)</span></p></li>
+</ul>
+</li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de codigo</span>
@@ -817,30 +824,34 @@
 
 <span class="sd">    retorna: W el valor de de los parametros de regresión polinomica</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># aplicamos la transformación</span>
     <span class="n">X2</span> <span class="o">=</span> <span class="n">potenciaPolinomio</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">grado</span><span class="p">)</span>
+    
+    <span class="c1"># realizamos la extensión</span>
+    <span class="n">X2_ext</span> <span class="o">=</span> 
+    
     <span class="c1">#Tomamos el número de variables del problema leugo de la transformacion</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">X2_ext</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="c1">#Tomamos el número de muestras de la base de datos</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>   
-    <span class="c1">#Inicializamos el vector de parámetros</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">X2_ext</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1">#Inicializamos w</span>
     <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
     <span class="n">W</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">W</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
-   
-   
+    <span class="n">costos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">iteraciones</span><span class="p">)</span>
+      
     <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iteraciones</span><span class="p">):</span>
        
         <span class="c1">#Aquí debe completar el código con la regla de actualización de los parámetros W para regresión</span>
         <span class="c1">#logística. Tenga en cuenta los nombres de las variables ya creadas: W, X, Y</span>
-        <span class="n">Y_estimado</span> <span class="o">=</span> <span class="n">logistic_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
+ 
+        <span class="n">costo</span> <span class="o">=</span> <span class="n">cost_logistic</span><span class="p">(,)</span>
+        <span class="n">W</span> <span class="o">=</span>  
+        <span class="c1">#adicionamos el costo por cada iteracion</span>
+        <span class="n">costos</span><span class="p">[</span><span class="nb">iter</span><span class="p">]</span> <span class="o">=</span> <span class="n">costo</span>
 
-        <span class="n">W</span> <span class="o">=</span> 
 
-
-    <span class="c1">#Error en clasificación  </span>
-    <span class="n">Y_estimado</span> <span class="o">=</span> <span class="n">logistic_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
-    <span class="n">error_clasificacion</span> <span class="o">=</span> <span class="n">error_logistic</span><span class="p">(</span><span class="n">Y_estimado</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error despues de finalizar la iteraciones&quot;</span><span class="p">,</span> <span class="n">error_clasificacion</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">W</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;costo despues de finalizar las iteraciones&quot;</span><span class="p">,</span> <span class="n">costo</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">W</span><span class="p">,</span> <span class="n">costos</span>
 </pre></div>
 </div>
 </div>
@@ -848,28 +859,67 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="c1"># ignorar los print que se ejecutan</span>
 <span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio4&quot;</span><span class="p">,</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finalmente se sugiere la siguiente funcion para evaluar el error del modelo. Entienda su funcionamiento.</p>
+<p>Veamos de manera preliminar, si nuestro gradiente se esta acercando al un costo óptimo.
+Vamos entrenar con 100 iteraciones y vemos el costo logistico como cambia de acuerdo a las iteraciones.
+¿Que pasa si cambias el grado?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iteraciones</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">w</span><span class="p">,</span> <span class="n">costos_logistico</span> <span class="o">=</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="n">grado</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">eta</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">iteraciones</span> <span class="o">=</span> <span class="n">iteraciones</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;este las dimensiones de w son:&quot;</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">iteraciones</span><span class="p">),</span> <span class="n">costos_logistico</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como habiamos visto antes, el costo es nuestra medida de optimización, pero al final debemos evaluar que tambien esta realizando la tarea de clasificar. Entiende la siguiente función. Prestemos especial atención al bloque <code class="docutils literal notranslate"><span class="pre">if-else</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluar_modelo</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X_to_test</span><span class="p">,</span> <span class="n">Y_True</span><span class="p">,</span> <span class="n">grado</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; funcion que evalua un modelo de regresión usando el error cuadratico medio</span>
+    <span class="sd">&quot;&quot;&quot; funcion que evalua un modelo de clasificación</span>
 
-<span class="sd">    W: es un matriz con los parametros del modelo entrenados</span>
+<span class="sd">W: es un matriz con los parametros del modelo entrenados</span>
 <span class="sd">    X_to_test: conjunto de datos para usar en el evaluamiento del modelo</span>
 <span class="sd">    Y_True: valores reales para usar en el evaluamiento del modelo</span>
 <span class="sd">    grado: valor del polinomio a usar</span>
 
-<span class="sd">    retorna: el de clasificación.</span>
+<span class="sd">    retorna: el error de clasificación.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">X2</span> <span class="o">=</span> <span class="n">potenciaPolinomio</span><span class="p">(</span><span class="n">X_to_test</span><span class="p">,</span><span class="n">grado</span><span class="p">)</span>
-    <span class="n">Y_estimado</span> <span class="o">=</span> <span class="n">logistic_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
-    <span class="n">error_clasificacion</span> <span class="o">=</span> <span class="n">error_logistic</span><span class="p">(</span><span class="n">Y_estimado</span><span class="p">,</span><span class="n">Y_True</span><span class="p">)</span>
+    <span class="c1"># realizamos la extensión</span>
+    <span class="n">X2_ext</span> <span class="o">=</span> <span class="n">extension_matriz</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
+    <span class="n">Y_EST</span> <span class="o">=</span> <span class="n">logistic_regression</span><span class="p">(</span><span class="n">X2_ext</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
+    <span class="c1">#Se asignan los valores a 1 o 0 según el modelo de regresión logística definido</span>
+    <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">tag</span> <span class="ow">in</span> <span class="nb">enumerate</span> <span class="p">(</span><span class="n">Y_EST</span><span class="p">):</span>
+        
+        <span class="k">if</span> <span class="n">tag</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">Y_EST</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Y_EST</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            
+    <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">ye</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Y_EST</span><span class="p">,</span> <span class="n">Y_True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ye</span> <span class="o">!=</span> <span class="n">y</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">error_clasificacion</span> <span class="o">=</span>  <span class="n">error</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Y_True</span><span class="p">)</span>
     <span class="k">return</span><span class="p">(</span><span class="n">error_clasificacion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Probemos la función al evaluar el w obtenido. Tener presente que para la evaluación usamos el X y Y adecuado. Recuerda usar el grado de acuerdo a la ultima ejecución.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># recuerda que si entrenaste con grado = 2 debes asignar el mismo valor.</span>
+<span class="n">error_test</span> <span class="o">=</span> <span class="n">evaluar_modelo</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error en el conjunto de pruebas&quot;</span><span class="p">,</span> <span class="n">error_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -877,17 +927,7 @@
 </div>
 <div class="section" id="ejercicio-3-experimentar">
 <h2>Ejercicio 3: Experimentar<a class="headerlink" href="#ejercicio-3-experimentar" title="Permalink to this headline">¶</a></h2>
-<p>Con la función implementada vamos a entrenar un modelo y calcular su error de entrenamiento</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">error_test</span> <span class="o">=</span> <span class="n">evaluar_modelo</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error en el conjunto de pruebas&quot;</span><span class="p">,</span> <span class="n">error_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>En nuestro primer experimento vamos a evaluar el rendimiento del modelo usando varias tasas de aprendizaje y grados de polinimios. Vamos a dejar por ahora un numero de iteraciones fijas = 50. Para ello completa la siguiente función.</p>
+<p>En nuestro primer experimento vamos a evaluar el rendimiento del modelo usando varias tasas de aprendizaje y grados de polinimios. Vamos a dejar por ahora un numero de iteraciones fijas = 500. Para ello completa la siguiente función. Recuerda usar las funciones anteriores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## ejercicio de codigo</span>
@@ -903,13 +943,14 @@
 <span class="sd">        para realizar los experimentos</span>
 <span class="sd">    retorna: un dataframe con el resultados de los experimentos</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">numero_iter</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="n">numero_iter</span> <span class="o">=</span> <span class="mi">500</span>
 
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># indice</span>
     <span class="k">for</span> <span class="n">eta</span> <span class="ow">in</span> <span class="n">tasas</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">grado</span> <span class="ow">in</span> <span class="n">grados</span><span class="p">:</span>
-            <span class="n">W</span> <span class="o">=</span> 
+            <span class="c1"># ignorar el costo</span>
+            <span class="n">W</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> 
             <span class="n">error_entrenamiento</span> <span class="o">=</span> 
             <span class="n">error_prueba</span> <span class="o">=</span> 
             <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;grado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grado</span>
@@ -926,6 +967,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
+<span class="c1"># ignorar los prints de &quot;costo despues de finalizar&quot;!</span>
 <span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio5&quot;</span><span class="p">,</span> <span class="n">experimentar</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -933,8 +975,8 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tasas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.001</span><span class="p">]</span>
-<span class="n">grados</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tasas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span>
+<span class="n">grados</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">resultados</span> <span class="o">=</span> <span class="n">experimentar</span> <span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">tasas</span><span class="p">,</span> <span class="n">grados</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -966,62 +1008,12 @@
 </div>
 </div>
 </div>
-<p>En los problemas de clasificación, es muy importante entender el numero de muestras que el modelo clasifico mal. Esto es necesario observarlo tanto en entrenamiento como en pruebas. Vamos crear una función para esto.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de codigo</span>
-<span class="k">def</span> <span class="nf">numero_de_errores</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">grado</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;función que cuenta los errores de un modelo de regresión logistica</span>
-<span class="sd">    W: vector con los parametros de un modelo de regresión logistica</span>
-<span class="sd">       previamente entrenado</span>
-<span class="sd">    X: conjunto de datos a usar (numpy matrix)</span>
-<span class="sd">    Y: conjunto con las etiquetas verdaderas. (numpy array)</span>
-<span class="sd">    grado: grado usado en el modelo de regresión logistica</span>
-<span class="sd">    retorna: numero de errores (int/float) </span>
-<span class="sd">            (es decir el numero de veces que la etiqueta predicha es diferente a la etiqueta real)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">X2</span> <span class="o">=</span> <span class="n">potenciaPolinomio</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">grado</span><span class="p">)</span>
-    <span class="n">Y_estimado</span> <span class="o">=</span> <span class="n">logistic_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
-    <span class="n">numero_errores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Y_estimado</span><span class="o">!=</span><span class="n">Y</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">numero_errores</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
-<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio6&quot;</span><span class="p">,</span> <span class="n">numero_de_errores</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Ahora, use la función. Entrene nuevamente un modelo con los mejores parametros obtenidos y calcule cuantas muestras quedaron mal clasificadas. Tanto en el conjunto de entrenamiento y de prueba.</p>
-<p>Si hay parametros empatados, el modelo que tenga menos parametros deberia ser el mejor.</p>
+<p>Vamos entrenar nuevamente pero solo con los mejores parámetros. Si hay parametros empatados, el modelo que tenga menos parámetros deberia ser el mejor (recuerda que cuando aumentamos el grado del polinomio aumentamos el número de parametros del modelo).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># puedes usar el siguiente código para ordenar los resultados y ver los 3 primeros</span>
 <span class="c1"># resultados, usa esta salida, para ver cuales fueron los mejores parámetros</span>
 <span class="n">resultados</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;error_prueba&#39;</span><span class="p">,</span> <span class="s1">&#39;grado&#39;</span><span class="p">],</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">W</span> <span class="o">=</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="n">grado</span> <span class="o">=</span>  <span class="p">,</span><span class="n">eta</span> <span class="o">=</span> <span class="p">,</span> <span class="n">iteraciones</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
- <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;estos son los pesos para el modelo entrenando </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_errores_entrenamiento</span> <span class="o">=</span>  <span class="n">numero_de_errores</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Xtrain</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">num_errores_prueba</span> <span class="o">=</span>  <span class="n">numero_de_errores</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">grado</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;muestras mal clasificadas en entrenamiento&quot;</span><span class="p">,</span> <span class="n">num_errores_entrenamiento</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;muestras mal clasificadas en pruebas&quot;</span><span class="p">,</span> <span class="n">num_errores_prueba</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1035,20 +1027,25 @@
 </div>
 </div>
 </div>
+<p>Entrenemos con los mejores parámetros</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown Escribe aqui el numero de muestras que quedaron mal clasificadas en el conjunto de entrenamiento y de pruebas. ¿como calificarias el modelo entrenado?</span>
-<span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ignoramos el costo!</span>
+<span class="n">W</span><span class="p">,</span><span class="n">_</span><span class="o">=</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="n">grado</span> <span class="o">=</span>  <span class="p">,</span><span class="n">eta</span> <span class="o">=</span>  <span class="p">,</span> <span class="n">iteraciones</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;estos son los pesos para el modelo entrenando </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Debemos recordar que el modelo creado se puede resumir en una ecuación usando los pesos de <span class="math notranslate nohighlight">\(w\)</span>:</p>
+<p><img alt="vectorization" src="https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/images/frontera_logistic.jpg" /></p>
+<p>En el ejemplo la ecuación estaria dada como: 2.0<em>x1 + 3.0</em>x2 + 4.0, para el caso del polinomio grado 1.</p>
+<p>Usando los valores del ultimo <span class="math notranslate nohighlight">\(w\)</span> entrenado podriamos construir la función que define nuestra frontera.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown Escriba el modelo completo con sus variables y coeficientes de f(**x**,**w**) con la mejor frontera de decisión que encontró. usa los valores del último W entrenado. Recuerda tener presente el grado del polinomio</span>
-<span class="n">respuesta_6</span> <span class="o">=</span> <span class="s2">&quot;0.0x1 + 1.0x1**2 + 2.0x2 + 3.0x2**3&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="c1">#@markdown Escribe el modelo completo con sus variables y coeficientes de f(**x**,**w**) con la mejor frontera de decisión que encontró. Recuerda tener presente el grado del polinomio.</span>
+<span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;0.0x1 + 1.0x1**2 + 2.0x2 + 3.0x2**3&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
@@ -1093,13 +1090,13 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "python36964bite6e4b44aef15498b8e6b096ea0e41af2",
             path: "./Labs/lab1"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python36964bite6e4b44aef15498b8e6b096ea0e41af2'</script>
 
               </div>
               

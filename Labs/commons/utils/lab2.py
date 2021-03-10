@@ -76,8 +76,8 @@ def test_train_test_split_fix(func):
 
 @unknow_error
 def test_exp(func):
-    xx = np.array([[0,1], [1,1], [-1,1], [-1,0], [-0.9,0.15], [0.01,0.9], [0.9,0.9], [-0.99,0.99], [-0.8,-0.1]])
-    yy =  np.array([0,0,1,1,1, 1,1,1,1])
+    xx = np.array([[0,1], [1,1], [0.9,0.9], [0.95,.95], [-1,1], [-1,0], [-0.9,0.15], [0.01,0.9], [0.9,0.9], [-0.99,0.99], [-0.8,-0.1]])
+    yy =  np.array([0,0,0,0,1,1,1, 1,1,1,1])
     ks = [1,2,3,4]  
     res = ut.test_experimento_oneset(func,  shape_val=(len(ks), 2), 
                                     col_error = ['error de prueba'],

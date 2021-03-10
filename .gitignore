@@ -9,3 +9,7 @@ __pycache__/
 *-copy*
 *-Copy*
 *copy*
+*solved.ipynb*
+Labs/lab*/*.csv
+Labs/lab*/*.mat
+Labs/lab*/*.data

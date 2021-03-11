@@ -58,16 +58,16 @@ def test_ejercicio_2(func):
     
     xx = np.array([[0,0], [1,1], [2,2]])
     yy = np.array([1,2,4]).reshape(3,1)
-    ww1, cc1 = func(xx, yy, 1.0, 10)
+    ww1, cc1 = func(xx, yy, 0.001, 15)
 
     xx2 = np.array([[0], [1], [2]])
     yy2 = np.array([0,1,2]).reshape(3,1)
-    ww2, cc2 = func(xx2, yy2, 1.0, 5)
+    ww2, cc2 = func(xx2, yy2, 0.001, 15)
 
-    tests_dict =  {'revisar las operaciones':  np.allclose(ww1,np.array([[0.74933853],[0.77798086], [0.77798086]])),
+    tests_dict =  {'revisar las operaciones':  np.allclose(ww1,np.array([[0.03407114],[0.04861253], [0.04861253]])),
                   'El costo no esta dismuyendo verificar': np.all(np.diff(cc1)<0) or np.all(np.diff(cc2)<0),
                   'Evitar dejar codigo estatico': np.sum(ww1) != np.sum(ww2),
-                  'Recuerda las iteraciones': len(cc1)==10}
+                  'Recuerda las iteraciones': len(cc1)==15}
     
     test  =  ut.test_conditions_and_methods(tests_dict)
     return (res2 and test)
@@ -100,14 +100,14 @@ def test_ejercicio_4(func):
     xx = np.array([[1,1], [-1,-1], [2,2], [-2,-2]])
     yy = np.array([1,0.9,0.5,0.45]).reshape(4,1)
 
-    ww1, cc1 = func(xx, yy, 1.0, 5, 1)
-    ww2, cc2 = func(xx, yy, 1.0, 6, 2)
-    ww3, _ = func(xx, yy, 1.0, 5, 3)
+    ww1, cc1 = func(xx, yy, 0.001, 20, 1)
+    ww2, cc2 = func(xx, yy, 0.001, 6, 2)
+    ww3, _ = func(xx, yy, 0.001, 5, 3)
 
-    tests_dict =  {'revisar las operaciones':  np.allclose(ww1,np.array([[0.54342041], [0.01000977], [0.01000977]])),
+    tests_dict =  {'revisar las operaciones':  np.allclose(ww1,np.array([[0.01411543], [0.0009539   ], [0.0009539]])),
                   'Evitar dejar codigo estatico': np.sum(ww1) != np.sum(ww2),
                   'Recuerda aplicar el polinomio': ww1.shape == (3,1) and ww2.shape == (5,1) and ww3.shape == (7,1),
-                  'Recuerda las iteraciones': len(cc1)==5 and len(cc2)==6}
+                  'Recuerda las iteraciones': len(cc1)==20 and len(cc2)==6}
     test  =  ut.test_conditions_and_methods(tests_dict)
    
     return (code_check and test)

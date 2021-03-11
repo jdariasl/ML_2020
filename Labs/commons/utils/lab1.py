@@ -53,7 +53,7 @@ def test_ejercicio_1(func):
     
 @unknow_error
 def test_ejercicio_2(func):
-    code_to_look = ['np.dot', 'cost', 'X_ext.T', 'extension_matriz']
+    code_to_look = [['np.dot', 'cost', 'X_ext.T', 'extension_matriz'], ['extension_matriz', 'cost', 'np.sum', 'keepdims=True']]
     res2 = ut.check_code(code_to_look, func, "usar solo numpy y funciones previamente definidas")
     
     xx = np.array([[0,0], [1,1], [2,2]])

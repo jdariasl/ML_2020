@@ -299,16 +299,28 @@ class Utils():
         return(codes)
 
     
-    def check_code (self, code_to_look, func, msg = "*** recordar usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)! ***", debug=False):
+    def check_code (self, codes_to_look, func, msg = "*** recordar usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)! ***", debug=False):
         
-        tests = [c not in self.get_source_safe(func) for c in code_to_look]
-        if np.any(tests):
-            print (msg)
-            if debug:
-                print(tests, '\n', self.get_source_safe(func))
-            return (False)
+        if type(codes_to_look) is not list:
+            codes_to_look = [codes_to_look]
+
+        checks  = []
+        for code_to_look in codes_to_look:
+            tests = [c not in self.get_source_safe(func) for c in code_to_look]
+            if np.any(tests):
+                
+                if debug:
+                    print(tests, '\n', self.get_source_safe(func))
+                checks.append(False)
+            else:
+                checks.append(True)
+        
+        if np.any(checks):
+            return (True)
         else:
-            return(True)
+            print (msg)
+            return (False)
+
 
 
 

@@ -223,18 +223,16 @@ def test_gradiente_descendente_logistic_poly(func):
     yy1 = np.array([[1], [0],[1],[0]])
     yy2 = np.array([[1], [1],[0],[0]])
     w1, cl1 = func(xx1,yy1,grado = 1, eta = 1.0, iteraciones = 10)
-    w2, cl2 = func(xx1,yy2,grado = 2, eta = 1.0, iteraciones = 100)
+    w2, cl2 = func(xx1,yy2,grado = 2, eta = 1.0, iteraciones = 30)
     
    
-    tests_dict =  {'revisar las operaciones':  np.allclose(w1, np.array([[-1.60461922e-17], [ 7.78302213e-01], [ 7.78302213e-01]])),
-                   'cuidado el costo parece no disminuir': np.all(np.diff(cl1)<0) and np.all(np.diff(cl2)<0),
+    tests_dict =  {'revisar las operaciones':  np.allclose(w1, np.array([[-6.93889390e-17], [1.36689086], [1.36689086]])),
+                   'cuidado el costo parece no disminuir': np.all(np.diff(cl1)<0) and np.all(np.diff(cl2[1:])<0),
                    'recuerda realizar extension de matrices y aplicar el polinomio': w1.shape == (3,1) and w2.shape == (5,1),
-                   'recuerda las iteraciones': len(cl1) == 10 and len(cl2) == 100
+                   'recuerda las iteraciones': len(cl1) == 10 and len(cl2) == 30
                    }
     test  =  ut.test_conditions_and_methods(tests_dict) 
     return (test and code_check)
-
-    return (test_res)
 
 @unknow_error
 def test_exp1_part2(func):

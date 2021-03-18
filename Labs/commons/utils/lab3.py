@@ -166,7 +166,8 @@ def test_experimentar_dt(func):
                                     X = xx, Y=yy,
                                     depths = depths,
                                     normalize = True)
-    code_to_look = ['DecisionTreeClassifier', 'max_depth=', ".fit", ".predict"]
+    code_to_look = [['DecisionTreeClassifier', 'max_depth=', ".fit", ".predict", 'criterion="entropy"'],
+                    ['DecisionTreeClassifier', 'max_depth=', ".fit", ".predict", "criterion='entropy'"]]
     res2 = ut.check_code(code_to_look, func)
 
     return (res and res2)
@@ -186,7 +187,7 @@ def test_experimentar_rf(func):
                                     X = xx, Y=yy,
                                     num_trees = trees,
                                     numero_de_variables = num_vars)
-    code_to_look = ['RandomForestClassifier', 'n_estimators=', 'max_features=',  ".fit", ".predict"]
+    code_to_look = ['RandomForestClassifier', 'n_estimators=', 'max_features=',  ".fit", ".predict", 'min_samples_leaf=2']
     res2 = ut.check_code(code_to_look, func)
     return (res and res2)
 
@@ -207,19 +208,20 @@ def test_experimentar_gbt(func):
     return (res and res2)
 
 @unknow_error
-def test_time_rf_training(func):
+def test_time_rf_gbt_training(func):
     xx, yy = generate_data()
     trees = [3,5,10]
     num_vars = [1,2,3]
     cols = ['número de arboles', 'variables para la selección del mejor umbral',
-       'tiempo de entrenamiento']
+       'tiempo de entrenamiento', 'metodo']
     res = ut.test_experimento_oneset(func,  shape_val=(len(trees)*len(num_vars), len(cols)), 
                                     col_error = ['tiempo de entrenamiento'],
                                     col_val=cols,
                                     X = xx, Y=yy,
                                     num_trees = trees,
-                                    numero_de_variables = num_vars)
-    code_to_look = ['RandomForestClassifier', 'n_estimators=', "max_features=", "time.clock()",  ".fit"]
+                                    numero_de_variables = num_vars, 
+                                    metodo = 'rf')
+    code_to_look = ['RandomForestClassifier', 'n_estimators=', "max_features=", "time.clock()",  ".fit", "GradientBoostingClassifier"]
     res2 = ut.check_code(code_to_look, func)
     return (res and res2)
 
@@ -230,5 +232,5 @@ def part_2 ():
     GRADER.add_test("ejercicio1", Tester(test_experimentar_dt))
     GRADER.add_test("ejercicio2", Tester(test_experimentar_rf))
     GRADER.add_test("ejercicio3", Tester(test_experimentar_gbt))
-    GRADER.add_test("ejercicio4", Tester(test_time_rf_training))
+    GRADER.add_test("ejercicio4", Tester(test_time_rf_gbt_training))
     return(GRADER)

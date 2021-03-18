@@ -301,7 +301,7 @@ class Utils():
     
     def check_code (self, codes_to_look, func, msg = "*** recordar usar la libreria de sklearn y llamar explicitamente el/los parametro(s) correcto(s)! ***", debug=False):
         
-        if type(codes_to_look) is not list:
+        if type(codes_to_look[0]) is not list:
             codes_to_look = [codes_to_look]
 
         checks  = []

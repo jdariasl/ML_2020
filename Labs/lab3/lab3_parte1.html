@@ -1002,12 +1002,12 @@
 <span class="n">x_std</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="c1">## Kmeans</span>
-<span class="n">numero_clusters</span> <span class="o">=</span> <span class="mi">5</span><span class="c1"># aca el numero de cluster con la mejor eficiencia</span>
+<span class="n">numero_clusters</span> <span class="o">=</span> <span class="c1"># aca el numero de cluster con la mejor eficiencia</span>
 
 <span class="n">predict_kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">numero_clusters</span><span class="p">,</span> <span class="n">init</span> <span class="o">=</span> <span class="s1">&#39;k-means++&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">x_std</span><span class="p">)</span>
 
 <span class="c1">## GMM. Reemplaza los valores de acuerdo a tus experimentos</span>
-<span class="n">gmms</span> <span class="o">=</span> <span class="n">GMMClassifierTrain</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">x_std</span><span class="p">,</span><span class="n">Y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">tipo</span><span class="o">=</span> <span class="s1">&#39;full&#39;</span><span class="p">)</span>
+<span class="n">gmms</span> <span class="o">=</span> <span class="n">GMMClassifierTrain</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">x_std</span><span class="p">,</span><span class="n">Y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="p">,</span><span class="n">tipo</span><span class="o">=</span> <span class="p">)</span>
 <span class="c1"># ignoramos probabilidad</span>
 <span class="n">predict_gmm</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">GMMClassfierVal</span><span class="p">(</span><span class="n">gmms</span><span class="p">,</span> <span class="n">x_std</span><span class="p">)</span>
 

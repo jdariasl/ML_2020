@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -593,9 +593,9 @@
 <p>Vamos realizar algunas pruebas para determinar que metodologia de validación es más adecuada. En el ejercicio de código, vamos usar las librerias de scikit-learn:</p>
 <ol class="simple">
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html?highlight=stratifiedkfold#sklearn.model_selection.StratifiedKFold">StratifiedKFold</a></p></li>
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html#sklearn.model_selection.KFold">Kfold</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html#sklearn.model_selection.KFold">KFold</a></p></li>
 </ol>
-<p>En la función debes seleccionar la función de sklearn adecuada para lograr el efecto deseado y completar el código, donde este incompleto.</p>
+<p>En la función debes seleccionar la función de sklearn adecuada para lograr el efecto deseado y completar el código donde es señalado</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
@@ -626,7 +626,7 @@
             <span class="c1"># iterar sobre las etiquetas</span>
             <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_train</span><span class="p">):</span>
                 <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;etiqueta de clase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span>
-                <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;fold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;folds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
                 <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;numero de muestras entrenamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_train</span> <span class="o">==</span> <span class="n">label</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span>
         
@@ -661,7 +661,7 @@
 </div>
 </div>
 </div>
-<p>Las siguientes lineas de código grafican los resultados para analizarlos.</p>
+<p>Aca vamos a crear un dataframe para observar el numero de muestras de entrenamiento logradas por cada uno de los metodos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv1</span> <span class="o">=</span> <span class="n">get_muestras_by_cv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -669,7 +669,16 @@
 <span class="n">cv2</span> <span class="o">=</span> <span class="n">get_muestras_by_cv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">cv2</span><span class="p">[</span><span class="s1">&#39;validación&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Estratificada&#39;</span>
 <span class="n">cvs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cv1</span><span class="p">,</span> <span class="n">cv2</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s2">&quot;distribución de clases&quot;</span><span class="p">)</span>
+<span class="n">cvs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En la tabla es dificil analizar que esta pasando. Para interpretar mejor los resultados vamos a usar una grafica llamada <a class="reference external" href="https://interactivechaos.com/es/manual/tutorial-de-seaborn/point-plot">PointPlot</a>. Esta grafica de la libreria <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.pointplot.html">Seaborn</a> nos permite ver la diferencia entre los metodos.</p>
+<p>Debemos entender que representan los puntos y las barras.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;distribución de clases&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="n">cvs</span> <span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;etiqueta de clase&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;numero de muestras entrenamiento&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;validación&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -687,8 +696,8 @@
 </div>
 <div class="section" id="ejercicio-2-mezclas-de-gaussinas">
 <h2>Ejercicio 2: Mezclas de gaussinas<a class="headerlink" href="#ejercicio-2-mezclas-de-gaussinas" title="Permalink to this headline">¶</a></h2>
-<p>En la siguiente celda defina una función que tome como entradas una matriz <span class="math notranslate nohighlight">\(X\)</span> y una matriz <span class="math notranslate nohighlight">\(Y\)</span>, entrene un modelo GMM  (Modelo de mezclas gaussianas) por cada clase y retorne el listado de modelos para cada clase. Debe consultar todo lo relacionado con la creación, entrenamiento y uso en predicción de este modelo usando la librería scikit-learn. Consultar aquí: <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html">http://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html</a></p>
-<p>En el notebook, ya se encuentra cargada la libreria:</p>
+<p>En la siguiente celda vamos a definir una función que tome como entradas una matriz <span class="math notranslate nohighlight">\(X\)</span> y una matriz <span class="math notranslate nohighlight">\(Y\)</span>, entrene un modelo GMM  (Modelo de mezclas gaussianas) por cada clase y retorne el listado de modelos para cada clase. Debe consultar todo lo relacionado con la creación, entrenamiento y uso en predicción de este modelo usando la librería scikit-learn. Consultar aquí: <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html">http://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html</a></p>
+<p>En el notebook, ya se encuentra cargada la libreria que vamos a usar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
 </pre></div>
 </div>
@@ -702,7 +711,7 @@
 <span class="sd">    M: Número de componentes</span>
 <span class="sd">    tipo (str): Tipo de matriz de covarianza (los parametros que se</span>
 <span class="sd">          aceptan son los nombres de la  misma libreria:</span>
-<span class="sd">          ‘full’, ‘tied’, ‘diag’, ‘spherical’)</span>
+<span class="sd">          &#39;full&#39;, &#39;tied&#39;, &#39;diag&#39;, &#39;spherical&#39;)</span>
 <span class="sd">    retorna: diccionario de con la estructura:</span>
 <span class="sd">        {etiqueta_clase: modelo_gmm_entrenado}</span>
 <span class="sd">    &quot;&quot;&quot;</span> 
@@ -791,7 +800,7 @@
 <span class="sd">        - eficiencia de prueba</span>
 <span class="sd">        - desviacion estandar eficiencia de prueba</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">folds</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">folds</span> <span class="o">=</span> <span class="mi">3</span>
     <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">folds</span><span class="p">)</span>
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
@@ -887,7 +896,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 </pre></div>
 </div>
-<p>Vamos a resolver el mismo problema anterior pero con el K-means. La libreria nos la suficiente utilidad para ya poder comenzar a realizar experimentos con ella. Por ellos vamos a implementar la función para realizar los experimentos.</p>
+<p>Vamos a resolver el mismo problema anterior pero con el K-means. La libreria nos ofrece suficiente utilidad para ya poder comenzar a realizar experimentos con ella.</p>
+<p>Por ellos vamos a implementar la función para realizar los experimentos. <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#k-means">Debemos configurar la inicialización del algoritmo</a> usando ‘k-means++’</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
@@ -976,24 +986,50 @@
 </div>
 </div>
 </div>
-<p>tener presente que tipo de entrenamiento realiza el kmeans: ¿supervisado o no supervisado? interpreta la grafica resultante de ejecutar la siguiente linea de código. Algunas observaciones de la grafica:</p>
+<p>tener presente que tipo de entrenamiento realiza el kmeans: ¿supervisado o no supervisado?</p>
+<p>Vamos a realizar una grafica usando un metodo que vamos a ver en futuros laboratorios.</p>
+<p>La grafica se pueden entender como una representación en 2 dimensiones de nuestra base de datos (que tiene 40 variables).</p>
+<p>Cada punto representa uno de nuestros ejemplos.</p>
+<p><strong>Recordar</strong>:</p>
 <ol class="simple">
-<li><p>Si bien nuestro conjunto datos tiene 40 caracteristicas, vamos representarlo solo con las dos primeras dimensiones.</p></li>
 <li><p>Completa el codigo, con el numero de clusters con la cual se obtuvo la mejor eficiencia en los experimentos.</p></li>
+<li><p>Completa el codigo con los mejores parametros para GMM.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero_clusters</span> <span class="o">=</span> <span class="c1"># aca el numero de cluster con la mejor eficiencia</span>
-<span class="n">predict</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">numero_clusters</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># estandarizacion</span>
+
+<span class="n">x_std</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1">## Kmeans</span>
+<span class="n">numero_clusters</span> <span class="o">=</span> <span class="mi">5</span><span class="c1"># aca el numero de cluster con la mejor eficiencia</span>
+
+<span class="n">predict_kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">numero_clusters</span><span class="p">,</span> <span class="n">init</span> <span class="o">=</span> <span class="s1">&#39;k-means++&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">x_std</span><span class="p">)</span>
+
+<span class="c1">## GMM. Reemplaza los valores de acuerdo a tus experimentos</span>
+<span class="n">gmms</span> <span class="o">=</span> <span class="n">GMMClassifierTrain</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">x_std</span><span class="p">,</span><span class="n">Y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">tipo</span><span class="o">=</span> <span class="s1">&#39;full&#39;</span><span class="p">)</span>
+<span class="c1"># ignoramos probabilidad</span>
+<span class="n">predict_gmm</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">GMMClassfierVal</span><span class="p">(</span><span class="n">gmms</span><span class="p">,</span> <span class="n">x_std</span><span class="p">)</span>
+
+<span class="c1">#adicionamos etiquetas reales</span>
 <span class="n">real</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="s1">&#39;PC2&#39;</span><span class="p">])</span>
 <span class="n">real</span><span class="p">[</span><span class="s1">&#39;clase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
 <span class="n">real</span><span class="p">[</span><span class="s1">&#39;tipo de etiqueta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Real&#39;</span>
+
+<span class="c1">#adicionamos etiquetas de kmeans</span>
 <span class="n">kmeans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="s1">&#39;PC2&#39;</span><span class="p">])</span>
-<span class="n">kmeans</span><span class="p">[</span><span class="s1">&#39;clase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predict</span>
+<span class="n">kmeans</span><span class="p">[</span><span class="s1">&#39;clase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predict_kmeans</span>
 <span class="n">kmeans</span><span class="p">[</span><span class="s1">&#39;tipo de etiqueta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Asignada por Kmeans&#39;</span>
-<span class="n">data_to_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">real</span><span class="p">,</span> <span class="n">kmeans</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">#adicionamos etiquetas de gmms</span>
+<span class="n">gmm_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="s1">&#39;PC2&#39;</span><span class="p">])</span>
+<span class="n">gmm_df</span><span class="p">[</span><span class="s1">&#39;clase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predict_gmm</span>
+<span class="n">gmm_df</span><span class="p">[</span><span class="s1">&#39;tipo de etiqueta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Asignada por gmm&#39;</span>
+
+<span class="c1"># unimos y graficamos</span>
+<span class="n">data_to_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">real</span><span class="p">,</span> <span class="n">kmeans</span><span class="p">,</span> <span class="n">gmm_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">data_to_plot</span><span class="p">[</span><span class="s1">&#39;clase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_to_plot</span><span class="p">[</span><span class="s1">&#39;clase&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_to_plot</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PC2&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span> <span class="s1">&#39;clase&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;tipo de etiqueta&#39;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_to_plot</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PC2&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span> <span class="s1">&#39;clase&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;tipo de etiqueta&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span> <span class="s1">&#39;clase&#39;</span><span class="p">,</span>   <span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;$0$&#39;</span><span class="p">,</span> <span class="s1">&#39;$1$&#39;</span><span class="p">,</span> <span class="s1">&#39;$2$&#39;</span><span class="p">,</span> <span class="s1">&#39;$3$&#39;</span><span class="p">,</span> <span class="s1">&#39;$4$&#39;</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1002,7 +1038,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
 <span class="c1">#@markdown  ¿con base a los resultados que modelo es el más adecuado entre el k-means y el GMM? justifique.</span>
-<span class="n">respuesta_6</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>

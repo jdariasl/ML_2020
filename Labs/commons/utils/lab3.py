@@ -47,7 +47,7 @@ def test_get_muestras_by_cv(func):
  
     res = ut.test_experimento_oneset(func,  shape_val=(len(np.unique(Y))*4, 3), 
                                     col_error = ['etiqueta de clase'],
-                                    col_val=['etiqueta de clase', 'fold', 'numero de muestras entrenamiento'],
+                                    col_val=['etiqueta de clase', 'folds', 'numero de muestras entrenamiento'],
                                     X = np.ones((100,2)), Y=Y,
                                     method = 1)
     return (res and test_res )
@@ -112,6 +112,9 @@ def test_experimentar(func):
 
 @unknow_error
 def test_experimentar_kmeans(func):
+    code_to_look = [['KMeans', ".fit", ".predict", 'init="k-means++"'], 
+                    ['KMeans', ".fit", ".predict", "init='k-means++'"]]
+    res2 = ut.check_code(code_to_look, func)
     yy = np.random.choice(2, 30)
     xx = np.vstack([np.random.rand(15, 3), 2*np.random.rand(15, 3)])
     nc = [1,2,3]
@@ -130,9 +133,7 @@ def test_experimentar_kmeans(func):
                                     X = xx, Y=yy,
                                     numero_clusters = nc)
     
-    code_to_look = ['KMeans', ".fit", ".predict"]
-    res2 = ut.check_code(code_to_look, func)
-    return (res)
+    return (res and res2)
 
 def part_1 ():
     #cargamos la bd iris desde el dataset de sklearn

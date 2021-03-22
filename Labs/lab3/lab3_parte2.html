@@ -938,7 +938,7 @@
 <div class="section" id="ejercicio-4-tiempo-de-entrenamiento-del-rf-y-gbt">
 <h2>Ejercicio 4 Tiempo de entrenamiento del RF y GBT<a class="headerlink" href="#ejercicio-4-tiempo-de-entrenamiento-del-rf-y-gbt" title="Permalink to this headline">¶</a></h2>
 <p>En nuestro último experimento, vamos a evaluar la influencia de las parametros del RF y del GBT en el tiempo de entrenamiento.</p>
-<p>Para ello vamos a crear una función para medir el tiempo de entrenamiento usando la instrucción <code class="docutils literal notranslate"><span class="pre">time.clock()</span></code>.</p>
+<p>Para ello vamos a crear una función para medir el tiempo de entrenamiento usando la instrucción <code class="docutils literal notranslate"><span class="pre">time.process_time()</span></code>.</p>
 <p>Vamos crear la función, para poder evaluar la influencia de:</p>
 <ol class="simple">
 <li><p>número de arboles</p></li>
@@ -1039,6 +1039,13 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
 <span class="c1">#@markdown ¿qué parametro de los evaluados tiene una mayor influencia en los tiempos de entrenamiento? ¿hay diferencia entre el RF y GBT? justifique</span>
 <span class="n">respuesta_7</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">check_tests</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

@@ -577,10 +577,12 @@
 </div>
 </div>
 </div>
-<p>Para calcular los errores, vamos a explorar y usar la el <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">modulo de metricas den sklearn</a>. Podemos observar que el modulo tiene metricas para regresión y clasificación.</p>
+<p>Para calcular los errores, vamos a explorar y usar el <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">modulo de metricas den sklearn</a>.</p>
+<p>Podemos observar que el modulo tiene metricas para regresión y clasificación.</p>
 <div class="section" id="ejercicio-1-experimentar-con-mlp-para-regresion">
 <h2>Ejercicio 1 - Experimentar con MLP para regresión<a class="headerlink" href="#ejercicio-1-experimentar-con-mlp-para-regresion" title="Permalink to this headline">¶</a></h2>
-<p>Para porder implementar nuestra función, lo primero que debemos entender es la estrucutra de la red. Como mencionamos, vamos a solucionar un problema de multiples salidas. Estas salidas con valores continuos. Por lo tanto debemos garantizar que la capa de salida del nuestra red tenga la capacidad de modelar. este tipo de datos.</p>
+<p>Para porder implementar nuestra función, lo primero que debemos entender la estrucutra de la red.</p>
+<p>Como mencionamos, vamos a solucionar un problema de multiples salidas. Estas salidas con valores continuos. Por lo tanto debemos garantizar que la capa de salida de nuestra red tenga la capacidad de modelar. este tipo de datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
@@ -634,10 +636,11 @@
 <li><p>Como función de activación en las capas ocultas use la función ‘tanh’.</p></li>
 <li><p>Ajuste el número máximo de épocas a 400.</p></li>
 <li><p>Dejamos como variables el número de capas ocultas y el número de neuronas por capa</p></li>
-<li><p>Selecciones la función adecuada del <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html?highlight=metrics#module-sklearn.metrics">modulo de sklearn para calcular el error absoluto medio</a>. Tener en cuenta que parametros usar.</p></li>
+<li><p>debemos seleccionar la función adecuada del <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html?highlight=metrics#module-sklearn.metrics">modulo de sklearn para calcular el Error Porcentual Absoluto Medio (MAPE en sigla en ingles)</a>. Tener en cuenta que parametros usar.</p></li>
 <li><p>Debemos usar los nombres explicitos, por ejemplo si para el MLP es necesario usar el parametro <code class="docutils literal notranslate"><span class="pre">activation</span></code>, debe ser llamado: <code class="docutils literal notranslate"><span class="pre">MLPRegressor(activation=...)</span></code></p></li>
 <li><p>Explorar que hace la siguiente linea de codigo <code class="docutils literal notranslate"><span class="pre">tuple(2*[100])</span></code></p></li>
 </ol>
+<p><strong>NOTA</strong>: cuando observe el el parametro <code class="docutils literal notranslate"><span class="pre">random_state=1</span></code> por favor conservarlo, ya que esto hace que los resultados sean similares a lo largo de las ejecucciones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejercicio de código</span>
@@ -658,7 +661,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#Validamos el modelo</span>
     <span class="n">Folds</span> <span class="o">=</span> <span class="mi">4</span>
-    <span class="n">ss</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">Folds</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">ss</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">Folds</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">hidden_layers</span> <span class="ow">in</span> <span class="n">num_hidden_layers</span><span class="p">:</span>
@@ -678,13 +681,13 @@
                 <span class="c1">#Haga el llamado a la función para crear y entrenar el modelo usando los datos de entrenamiento</span>
                 <span class="c1"># prestar atención a los parametros, correctos.</span>
                 <span class="n">hidden_layer_sizes</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
-                <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span> <span class="n">hidden_layer_sizes</span><span class="p">)</span>
+                <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span> <span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
                 <span class="c1"># entrena el MLP</span>
                 <span class="n">mlp</span>
                 <span class="c1">#Use para el modelo para hacer predicciones sobre el conjunto Xtest</span>
                 <span class="n">Yest</span> <span class="o">=</span> <span class="n">mlp</span>
-                <span class="c1">#Mida el error absoluto medio para cada una de las dos salidas</span>
-                <span class="c1">#Observe bien la documentación. recordar que esta resolviendo</span>
+                <span class="c1"># Mida el MAPE para cada una de las dos salidas</span>
+                <span class="c1"># Observe bien la documentación. recordar que esta resolviendo</span>
                 <span class="c1"># un problema de multiples salidas</span>
                 <span class="n">errors</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ytest</span><span class="p">,</span> <span class="n">Yest</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
                 <span class="n">ErrorY1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
@@ -724,10 +727,10 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver los resultados</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver los resultados.</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">resultados_mlpr</span><span class="p">,</span>  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuronas en capas ocultas&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;intervalo de confianza y1&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span> <span class="s1">&#39;capas ocultas&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">resultados_mlpr</span><span class="p">,</span>  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuronas en capas ocultas&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;intervalo de confianza y2&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span> <span class="s1">&#39;capas ocultas&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">resultados_mlpr</span><span class="p">,</span>  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuronas en capas ocultas&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;error de prueba y1(media)&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span> <span class="s1">&#39;capas ocultas&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">resultados_mlpr</span><span class="p">,</span>  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuronas en capas ocultas&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;error de prueba y2(media)&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span> <span class="s1">&#39;capas ocultas&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -805,14 +808,15 @@
 </div>
 </div>
 <p>Ahora en nuestro siguiente ejercicio vamos a implementar una red neuronal artificial de tipo perceptrón multicapa (MLP) para resolver un problema de clasificación. Usaremos la librería sklearn. Consulte todo lo relacionado con la definición de hiperparámetros, los métodos para el entrenamiento y la predicción de nuevas muestras en el siguiente enlace: <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html#sklearn.neural_network.MLPClassifier">http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html#sklearn.neural_network.MLPClassifier</a></p>
-<p>Vamos completar la función con el código necesario para usar una red neuronal tipo MLP para solucionar el problema de regresión propuesto.</p>
+<p>Vamos completar la función con el código necesario para usar una red neuronal tipo MLP para solucionar el problema de clasificación propuesto.</p>
 <ol class="simple">
-<li><p>Como función de activación en las capas ocultas use la función ‘tanh’.</p></li>
+<li><p>Como función de activación en las capas ocultas use la función tangencial hiperbólica.</p></li>
 <li><p>Ajuste el número máximo de épocas a 400.</p></li>
 <li><p>Dejamos como variables el número de capas ocultas y el número de neuronas por capa</p></li>
 <li><p>Selecciones la función adecuada del <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html?highlight=metrics#module-sklearn.metrics">modulo de sklearn para calcular la exactitud del clasificador</a>. Tener en cuenta que parametros usar.</p></li>
 <li><p>Debemos usar los nombres explicitos, por ejemplo si para el MLP es necesario usar el parametro <code class="docutils literal notranslate"><span class="pre">activation</span></code>, debe ser llamado: <code class="docutils literal notranslate"><span class="pre">MLPClassifier(activation=...)</span></code></p></li>
 </ol>
+<p><strong>NOTA</strong>: cuando observe el el parametro <code class="docutils literal notranslate"><span class="pre">random_state=1</span></code> por favor conservarlo, ya que esto hace que los resultados sean similares a lo largo de las ejecucciones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejercicio de código</span>
@@ -830,7 +834,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#Validamos el modelo</span>
     <span class="n">Folds</span> <span class="o">=</span> <span class="mi">4</span>
-    <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">Folds</span><span class="p">)</span>
+    <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">Folds</span><span class="p">)</span> 
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">hidden_layers</span> <span class="ow">in</span> <span class="n">num_hidden_layers</span><span class="p">:</span>
@@ -850,7 +854,7 @@
                 <span class="c1"># prestar atención a los parametros, correctos.</span>
                 <span class="n">hidden_layer_sizes</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
                 <span class="c1">#print(hidden_layer_sizes)</span>
-                <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span> <span class="o">=</span> <span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+                <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span> <span class="o">=</span> <span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="o">...</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
                 <span class="c1"># entrenar el MLP</span>
                 <span class="n">mlp</span><span class="o">...</span>
                 <span class="c1">#Use para el modelo para hacer predicciones sobre el conjunto Xtest</span>
@@ -891,6 +895,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver los resultados</span>
+<span class="c1"># notar como las capas ocultas y el # de neuronas influyen</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">resultados_mlpc</span><span class="p">,</span>  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuronas en capas ocultas&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;error de prueba(media)&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span> <span class="s1">&#39;capas ocultas&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">)</span>
 </pre></div>
@@ -900,7 +905,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿Cuántas neuronas en la capa de salida tiene el modelo?¿Porqué debe tener ese número?</span>
+<span class="c1">#@markdown ¿Cuántas neuronas en la capa de salida tiene el modelo? ¿Porqué debe tener ese número?</span>
 <span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>

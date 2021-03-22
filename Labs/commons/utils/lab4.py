@@ -14,7 +14,7 @@ Este archivo es generado automaticamente.
 from imports import *
 from sklearn.neural_network import MLPRegressor
 from sklearn.model_selection import ShuffleSplit
-from sklearn.metrics import mean_absolute_error, accuracy_score
+from sklearn.metrics import mean_absolute_error, accuracy_score, mean_absolute_percentage_error
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import StratifiedKFold, train_test_split
@@ -25,9 +25,12 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-def generate_data(is_class = False):
+def generate_data(is_class = False, deter = False):
     yy = np.random.choice(2, 30) if is_class else 2*np.random.rand(60).reshape((30,2))
     xx = np.vstack([np.random.rand(15, 3), 2*np.random.rand(15, 3)])
+
+    if deter:
+        yy = np.array([1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1])
     return (xx, yy)
 
 @unknow_error
@@ -63,10 +66,14 @@ def test_experimetar_mlp(func):
                                     X = xx, Y=yy,
                                     num_hidden_layers = capas,
                                     num_neurons= neu)
-    code_to_look = ['MLPRegressor', 'hidden_layer_sizes=', 'activation=', "'tanh'",  
+    code_to_look = [['MLPRegressor', 'hidden_layer_sizes=', 'activation=', "'tanh'",  
                     'max_iter=' , ".fit", ".predict(Xtest)", "X=Xtrain,", 
-                    "hidden_layers*[neurons]", "mean_absolute_error", 'multioutput=',
-                    "np.mean(ErrorY1)", "np.mean(ErrorY2)"] 
+                    "hidden_layers*[neurons]", "mean_absolute_percentage_error", 'multioutput=',
+                    "np.mean(ErrorY1)", "np.mean(ErrorY2)"],
+                    ['MLPRegressor', 'hidden_layer_sizes=', 'activation=', '"tanh"',  
+                    'max_iter=' , ".fit", ".predict(Xtest)", "X=Xtrain,", 
+                    "hidden_layers*[neurons]", "mean_absolute_percentage_error", 'multioutput=',
+                    "np.mean(ErrorY1)", "np.mean(ErrorY2)"]]
     res2 = ut.check_code(code_to_look, func)
     return (res and res2)
 
@@ -82,9 +89,9 @@ def test_output_activation_MPC(func):
 
 @unknow_error
 def test_experimetar_mlpc(func):
-    xx, yy = generate_data(True)
-    capas = [1,2]
-    neu = [5,10]
+    xx, yy = generate_data(True, True)
+    capas = [1,10]
+    neu = [1,2]
     cols =['capas ocultas',
             'neuronas en capas ocultas',
             'error de prueba(media)',
@@ -98,9 +105,12 @@ def test_experimetar_mlpc(func):
                                     X = xx, Y=yy,
                                     num_hidden_layers = capas,
                                     num_neurons= neu)
-    code_to_look = ['MLPClassifier', 'hidden_layer_sizes=', 'activation=', "'tanh'",  
+    code_to_look = [['MLPClassifier', 'hidden_layer_sizes=', 'activation=', "'tanh'",  
                     'max_iter=' , ".fit", ".predict(Xtest)", "X=Xtrain,",  
-                     'accuracy_score', "hidden_layers*[neurons]"] 
+                     'accuracy_score', "hidden_layers*[neurons]"],
+                     ['MLPClassifier', 'hidden_layer_sizes=', 'activation=', '"tanh"',  
+                    'max_iter=' , ".fit", ".predict(Xtest)", "X=Xtrain,",  
+                     'accuracy_score', "hidden_layers*[neurons]"]] 
     res2 = ut.check_code(code_to_look, func)
     return (res and res2)
 

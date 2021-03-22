@@ -220,6 +220,7 @@ class Utils():
         else:
             error_t = error_t
 
+        #print()
         tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),
                 'Revisa tu implementacion. \n el df no tiene los experimentos requeridos. \n evita dejar codigo estatico ': shape_test,
                 'Revisa tu implementación\n el df no tiene las columnas requeridas': cols_test,

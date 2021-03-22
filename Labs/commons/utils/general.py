@@ -43,7 +43,7 @@ class Laboratory():
         os.system("pip install gspread ")
         # for avoid a bug qith seaborn
         os.system("pip install matplotlib<3.3.1")
-        os.system("pip install scikit-learn==0.23")
+        os.system("pip install scikit-learn==0.24")
 
     def configure(self):
         print("installing libraries")

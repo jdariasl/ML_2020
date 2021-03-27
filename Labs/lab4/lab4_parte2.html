@@ -605,12 +605,12 @@
 </div>
 <div class="section" id="ejercicio-1-detectar-sobre-ajuste">
 <h2>Ejercicio 1 - Detectar sobre ajuste<a class="headerlink" href="#ejercicio-1-detectar-sobre-ajuste" title="Permalink to this headline">¶</a></h2>
-<p>En nuestro primer ejercicio vamos a entrenar un MLP con una arquitectura especifica, pero:</p>
+<p>En nuestro primer ejercicio vamos a crear una función para detectar las diferencias entre los errores de entrenamiento y de prueba.</p>
 <ol class="simple">
-<li><p>usaremos cross validación.</p></li>
 <li><p>calcular error de entrenamiento y prueba</p></li>
 <li><p>la función recibe de manera arbitraria un estimador de sklearn</p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html#sklearn.metrics.accuracy_score">usar accuracy score como medida de rendimiento</a></p></li>
+<li><p>Se debe retornar la diferencia absoluta (solo numeros positivos) entre entrenamiento y prueba.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -623,11 +623,11 @@
 <span class="sd">    </span>
 <span class="sd">    retorna: tuple con tres elementos:</span>
 <span class="sd">        error entrenamiento, error test y </span>
-<span class="sd">        diff entre error y test</span>
+<span class="sd">        diff absoluta entre error y test</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">error_train</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">sklearnModel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
     <span class="n">error_test</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span>  <span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">sklearnModel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span> <span class="p">))</span>
-    <span class="n">diff</span> <span class="o">=</span> <span class="n">error_test</span> <span class="o">-</span> <span class="n">error_train</span>
+    <span class="n">diff</span> <span class="o">=</span>  
     <span class="k">return</span> <span class="p">(</span><span class="n">error_train</span><span class="p">,</span> <span class="n">error_test</span><span class="p">,</span> <span class="n">diff</span><span class="p">)</span>
         
 </pre></div>
@@ -669,7 +669,7 @@
 </div>
 <div class="section" id="ejercicio-2-experimentar-con-mlp-regularizado">
 <h2>Ejercicio 2 - Experimentar con MLP regularizado<a class="headerlink" href="#ejercicio-2-experimentar-con-mlp-regularizado" title="Permalink to this headline">¶</a></h2>
-<p>Vamos a comenzar regularizar el modelo, el primer metodo que vamos a usar es el de parada anticipada (<em>early-stopping</em>). Este ya se encuentra implementado dentro de la libreria, vamos a experimentar con este parametro y el el numero de neuronas en el MLP.</p>
+<p>Vamos a comenzar regularizar el modelo, el primer metodo que vamos a usar es el de parada anticipada (<em>early-stopping</em>). Este ya se encuentra implementado dentro de la libreria, vamos a experimentar con este parametro y el numero de neuronas en el MLP.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
@@ -897,9 +897,11 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;diferencia entrenamiento y prueba&#39;</span><span class="p">,</span>
-             <span class="n">data</span> <span class="o">=</span> <span class="n">reg_l2</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> 
-            <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;diferencia entrenamiento y prueba&#39;</span><span class="p">,</span>
+               <span class="n">data</span> <span class="o">=</span> <span class="n">reg_l2</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> 
+                <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xscale</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -982,7 +984,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># comprobamos con un MLP</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vamos a usar con un MLP</span>
 <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">train_size_exp</span> <span class="o">=</span> <span class="n">train_size_experiments</span><span class="p">(</span><span class="n">mlp</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.9</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>

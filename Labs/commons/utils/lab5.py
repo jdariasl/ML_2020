@@ -55,9 +55,9 @@ def test_experimentar_rnn(func):
     code_to_look = ['epochs=50', 'x=trainX', 'y=trainY', 
                     'create_rnn_model', '.predict(trainX)', 'create_dataset',
                     '.predict(testX)' , 'mean_absolute_error(testY', 
-                    ' mean_absolute_error(trainY']
+                    'mean_absolute_error(trainY']
 
-    res2 = ut.check_code(code_to_look, func, msg = "**** recordar usar las funciones sugeridas ***", debug = True)
+    res2 = ut.check_code(code_to_look, func, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
 
     res = ut.test_experimento_oneset(func,  shape_val=(len(looksbacks)*len(neu), len(cols)), 
                                     col_error = cols_errs,

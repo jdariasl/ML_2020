@@ -568,56 +568,84 @@
 <div class="section" id="ejercicio-1-limipiar-base-de-datos-y-completar-codigo">
 <h2>Ejercicio 1: Limipiar base de datos y completar código<a class="headerlink" href="#ejercicio-1-limipiar-base-de-datos-y-completar-codigo" title="Permalink to this headline">¶</a></h2>
 <p>En este ejercicio usaremos la regresión por vectores de soporte para resolver el problema de regresión de la base de datos AirQuality (<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Air+Quality">https://archive.ics.uci.edu/ml/datasets/Air+Quality</a>). Tener en cuenta que vamos a usar solo 2000 muestras.</p>
-<p>Para esta base de datos vamos a realizar una limpieza de datos. Para ello vamos a completar la siguiente función para realizar:</p>
+<p>En primera instancia vamos a transformar la matriz en un dataframe, para poderlo procesar de manera mas sencilla. Se crea una columna por cada variable que obtenemos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;col_</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para esta base de datos vamos a realizar una limpieza de datos.
+Para ello vamos a completar la siguiente función para realizar:</p>
 <ol class="simple">
 <li><p><strong>Remover</strong> todos registros cuya variable objetivo es faltante (missing Value). Estos registros están marcados como -200, es decir, donde haya un valor -200 eliminaremos el registro.</p></li>
-<li><p><strong>imputar los valores perdidos/faltantes</strong> en cada una de las características, camos a usar el valor medio de la característica en especifico.</p></li>
+<li><p><strong>imputar los valores perdidos/faltantes</strong> en cada una de las características, vamos a usar el valor medio de la característica en especifico.</p></li>
 <li><p><strong>Verificar</strong> si quedaron valores faltantes</p></li>
-<li><p>** retornar** X (12 primeras columnas) y Y(la 13 columna).</p></li>
+<li><p><strong>retornar</strong>X (12 primeras columnas) y Y(la 13 columna).</p></li>
+</ol>
+<p>informacion de utilidad:</p>
+<ol class="simple">
+<li><p>Aca puede ser de utilidad recordar lo que observamos en esta <a class="reference external" href="https://jdariasl.github.io/ML_2020/Labs/Extra/Basic_Preprocessing_FeatureEngineering.html">sesión extra</a>.</p></li>
+<li><p>Para transformar columnas de pandas a arreglos de numpy se puede usar <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> / <code class="docutils literal notranslate"><span class="pre">.loc</span></code> y . <code class="docutils literal notranslate"><span class="pre">.values</span></code>, por ejemplo  para devolver una matriz con los valores de las primeras dos columnas es posible hacerlo asi: <code class="docutils literal notranslate"><span class="pre">dataset_df.iloc[:</span> <span class="pre">,</span> <span class="pre">0:2].values</span></code> o <code class="docutils literal notranslate"><span class="pre">dataset_df.loc[:</span> <span class="pre">,</span> <span class="pre">['col_1',</span> <span class="pre">'col_2']].values</span></code></p></li>
+<li><p>Para cambiar valores faltantes, podemos usar la <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html">librería sklearn</a></p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejercicio de codigo</span>
-<span class="k">def</span> <span class="nf">clean_data</span><span class="p">(</span><span class="n">dataset</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;funcion que limpia el dataset y obtiene X y Y&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">clean_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;funcion que limpia el dataset y obtiene X y Y</span>
+<span class="sd">    </span>
+<span class="sd">    df: es un pandas dataframe</span>
+<span class="sd">    </span>
+<span class="sd">    retorna:</span>
+<span class="sd">    X: una matriz numpy con los valores a usar como conjunto de datos</span>
+<span class="sd">       de entrada</span>
+<span class="sd">    Y una matriz numpy con los valores usados como conjunto de datos</span>
+<span class="sd">       de salida</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="n">database</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="c1"># se copia el df para evitar cambios sobre el objeto</span>
+    <span class="n">database</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="c1">##Verificar</span>
+    <span class="n">pct_valores_faltantes</span> <span class="o">=</span> <span class="p">(</span><span class="n">database</span><span class="o">==-</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;% VF en </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">pct_valores_faltantes</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% &quot;</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">pct_valores_faltantes</span><span class="o">.</span><span class="n">index</span><span class="p">]))</span>
+    
     <span class="c1"># identificar muetras cuya salida en un valor faltante</span>
     <span class="n">idx_to_remove</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">dataset</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span> <span class="o">==</span> <span class="o">...</span><span class="p">:</span>
-            <span class="n">idx_to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">database</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="c1">## reemplazar el valor</span>
+        <span class="k">if</span> <span class="n">database</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="o">...</span><span class="p">]</span> <span class="o">==</span> <span class="o">...</span><span class="p">:</span>
+            <span class="n">idx_to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
     
-    <span class="c1">#remover la muestras</span>
-    <span class="n">database</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="n">idx_to_remove</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1">#remover la muestras de los indices</span>
+    <span class="n">database</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">idx_to_remove</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hay &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">idx_to_remove</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; valores perdidos en la variable de salida.&quot;</span><span class="p">)</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dim de la base de datos sin las muestras con variable de salida perdido &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">database</span><span class="p">)))</span>
 
     <span class="c1">##Imputar</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Procesando imputación de valores perdidos en las características . . .&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">database</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">w</span><span class="p">]</span> <span class="o">==</span> <span class="o">...</span> <span class="p">:</span>
-                <span class="n">all_feature</span> <span class="o">=</span> <span class="n">database</span><span class="p">[:,</span><span class="n">w</span><span class="p">]</span>
-                <span class="c1">## Se imputa con la media de toda la caracteristica</span>
-                <span class="c1"># sin tener en cuenta las caractersiticas con valores faltantes               </span>
-                <span class="n">database</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">all_feature</span><span class="p">[</span><span class="n">all_feature</span><span class="o">!=-</span><span class="mi">200</span><span class="p">])</span>
+    <span class="n">imputer</span> <span class="o">=</span> <span class="o">...</span> <span class="p">(</span><span class="n">missing_values</span><span class="o">=</span> <span class="o">...</span> <span class="p">,</span> <span class="n">strategy</span><span class="o">=</span> <span class="o">...</span><span class="p">)</span>
+    <span class="s2">&quot;imputar solo las columnas de las variables de entrada&quot;</span>
+    <span class="n">database</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">...</span><span class="p">]</span> <span class="p">)</span>
 
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Imputación finalizada.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="c1">##Verificar</span>
-    <span class="n">missed_values</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="o">-</span><span class="mi">200</span> <span class="ow">in</span> <span class="n">database</span><span class="p">[</span><span class="n">i</span><span class="p">,:]:</span>
-            <span class="n">missed_values</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">missed_values</span><span class="p">):</span>
+    <span class="n">pct_valores_faltantes</span> <span class="o">=</span> <span class="p">(</span><span class="n">database</span><span class="o">==-</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;% VF en </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">pct_valores_faltantes</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% &quot;</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">pct_valores_faltantes</span><span class="o">.</span><span class="n">index</span><span class="p">]))</span>
+    
+    <span class="k">if</span><span class="p">(</span><span class="n">pct_valores_faltantes</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
         <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hay valores perdidos&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;No hay valores perdidos en la base de datos. Ahora se puede procesar&quot;</span><span class="p">)</span>
 
-    <span class="n">X</span> <span class="o">=</span> <span class="n">database</span><span class="p">[:,</span><span class="o">...</span><span class="p">]</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">database</span><span class="p">[:,</span><span class="o">...</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">12</span><span class="p">:</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -634,7 +662,7 @@
 <p>Ahora usemos la función para tener nuestras variables X, Y</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">dataset_df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -649,7 +677,7 @@
 <li><p>Utilizar la metodología cross-validation con 5 folds.</p></li>
 <li><p>Usar normalización de datos estandar implementada por sklearn</p></li>
 <li><p>Extraer los vectores de soporte (observe los <em>atributos</em> del modelo SVR de sklearn). Recuerde que estos atributos son accesibles, una vez el modelo es entrenado</p></li>
-<li><p>Utilizar el error cuadratico medio de sklearn.</p></li>
+<li><p>Utilizar el metrica para calcular el MAPE (usar sklearn).</p></li>
 </ol>
 <p><strong>Notas</strong>:</p>
 <ul class="simple">
@@ -677,6 +705,7 @@
 <span class="sd">        - error cuadratico medio en el cojunto test (promedio de los 5 folds)</span>
 <span class="sd">        - intervalo de confianza del error cuadratico medio en el cojunto test </span>
 <span class="sd">            (desviacion estandar de los 5 folds)</span>
+<span class="sd">        - # de Vectores de Soporte promedio para los 5 folds</span>
 <span class="sd">        - % de Vectores de Soporte promedio para los 5 folds (0 a 100)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
@@ -688,36 +717,40 @@
     <span class="k">for</span> <span class="n">params</span> <span class="ow">in</span> <span class="n">kernels_gammas_regs</span><span class="p">:</span>
         <span class="n">kernel</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">param_reg</span> <span class="o">=</span> <span class="n">params</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parametros usados&quot;</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span> <span class="c1"># puede usar para ver los params</span>
-    
         <span class="n">errores_test</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">pct_support_vectors</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+        <span class="n">num_support_vectors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">...</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
             
             <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
             <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>  
             <span class="c1"># normalizar los datos</span>
-            <span class="n">scaler</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
             <span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
             <span class="n">X_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-            <span class="n">svm</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">svm</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="o">....</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span>
             <span class="c1"># Entrenar el modelo</span>
-            <span class="n">svm</span><span class="o">....</span><span class="p">(</span><span class="n">X</span><span class="o">=...</span><span class="p">,</span> <span class="n">y</span><span class="o">=...</span><span class="p">)</span>
+            <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y</span><span class="o">=...</span><span class="p">)</span>
             <span class="c1"># Validación del modelo</span>
-            <span class="n">ypred</span> <span class="o">=</span> <span class="n">svm</span><span class="o">....</span><span class="p">(</span><span class="n">X</span><span class="o">=...</span><span class="p">)</span>
+            <span class="n">ypred</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="o">=...</span><span class="p">)</span>
             
             <span class="c1"># error y pct de vectores de soporte</span>
-            <span class="n">errores_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="o">...</span><span class="p">))</span>
+            <span class="n">errores_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">ypred</span><span class="p">))</span>
             <span class="c1"># contar muestras de entrenamiento</span>
             <span class="n">n_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">pct_vs</span> <span class="o">=</span> <span class="p">(</span><span class="o">.../</span> <span class="o">...</span> <span class="p">)</span>
+            <span class="n">num_vs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">svm</span><span class="o">...</span><span class="p">)</span>
+            <span class="n">pct_vs</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span> <span class="o">/</span> <span class="n">n_train</span> <span class="p">)</span> <span class="o">*</span><span class="mi">100</span>
             <span class="n">pct_support_vectors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pct_vs</span><span class="p">)</span>
+            <span class="n">num_support_vectors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_vs</span><span class="p">)</span>
         
         <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;kernel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kernel</span>
         <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;gamma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gamma</span>
         <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;param_reg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">param_reg</span>
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba (promedio)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">errores_test</span><span class="p">)</span>
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba (intervalo de confianza)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">errores_test</span><span class="p">)</span>
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e vectores de soporte&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">pct_support_vectors</span><span class="p">)</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba (promedio)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba (intervalo de confianza)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">errores_test</span><span class="p">)</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;# de vectores de soporte&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e vectores de soporte&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        
         <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
 </pre></div>
@@ -746,7 +779,8 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultadosSVR</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;error de prueba (promedio)&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver los 5 primeros resultados</span>
+<span class="n">resultadosSVR</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;error de prueba (promedio)&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -754,7 +788,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿Cuál es la finalidad de usar las funciones kernel en el modelo SVM?</span>
+<span class="c1">#@markdown ¿Cual es el objetivo de las las funciones kernel?</span>
 <span class="n">respuesta_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -763,7 +797,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿el valor de gamma afecta el kernel lineal? justificar teniendo cuenta la teoria y la documentación de la libreria.</span>
+<span class="c1">#@markdown ¿el parámetro gamma afecta el kernel lineal? justificar teniendo cuenta la teoria y la documentación de la libreria.</span>
 <span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -781,7 +815,7 @@
 
 <span class="c1">#predicciones</span>
 <span class="c1"># OJO: Reemplazar los valores!</span>
-<span class="n">Ypred</span> <span class="o">=</span>  <span class="n">predict_svr</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=...</span><span class="p">,</span> <span class="n">param_reg</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">Ypred</span> <span class="o">=</span>  <span class="n">predict_svr</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">param_reg</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># plots</span>
 
@@ -828,6 +862,12 @@
 <li><p>Utilizar la metodología cross-validation con 4 folds más adecuada para problemas de clasificación.</p></li>
 <li><p>Usar normalización de datos estandar implementada por sklearn</p></li>
 <li><p>Extraer los vectores de soporte (observe los <em>atributos</em> del modelo SVC de sklearn). Recuerde que estos atributos son accesibles una vez el modelo es entrenado</p></li>
+<li><p>vamos a probar la dos estragegias del SVC:</p>
+<ul class="simple">
+<li><p>One Vs One</p></li>
+<li><p>One Vs Rest</p></li>
+</ul>
+</li>
 <li><p>Utilizar como error el score de exactitud de la clasificación de sklearn.</p></li>
 </ol>
 <p><strong>Notas</strong>:</p>
@@ -835,10 +875,14 @@
 <li><p>Deberiamos poder acceder a las funciones de la libreria de sklearn directamente por el nombre sin necesidad de importarlas. Las funciones que deberios utilizar ya están precargadas en la configuración del laboratorio.</p></li>
 <li><p>Llame todos los parametros de las funciones de sklearn de manera explicita. (i.e, si se quiere usar <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> como parámetro para el SVC, debe crear el objeto: <code class="docutils literal notranslate"><span class="pre">SVC(max_iter</span> <span class="pre">=</span> <span class="pre">100)</span></code>)</p></li>
 </ul>
+<ul class="simple">
+<li><p>sklearn tiene unos “wrappers”, que implementan estrategias para la clasificación multiclase, uno  de estos wrappers, implementa la estrategia one-vs-rest: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html</a>.</p></li>
+<li><p>Un wrapper, es un esquema de diseño común para “envolver” librerias/funciones con caracteristicas similares y poder modificar ciertos comportamientos.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
-<span class="k">def</span> <span class="nf">experiementarSVC</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernels</span><span class="p">,</span> <span class="n">gammas</span><span class="p">,</span><span class="n">params_reg</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">experiementarSVC</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernels</span><span class="p">,</span> <span class="n">gammas</span><span class="p">,</span><span class="n">params_reg</span><span class="p">,</span> <span class="n">estrategia</span> <span class="o">=</span> <span class="s1">&#39;ovo&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;función que realizar experimentos sobre un SVM para clasificación</span>
 <span class="sd">    </span>
 <span class="sd">    x: numpy.Array, con las caracteristicas del problema</span>
@@ -850,6 +894,8 @@
 <span class="sd">        kernel</span>
 <span class="sd">    params_reg: List[float], lista con los valores a a pasar a </span>
 <span class="sd">        sklearn para ser usados como parametro de regularización</span>
+<span class="sd">    estrategia: str, valor que puede ser ovo (para one vs one) o ovr </span>
+<span class="sd">        (para one vs rest)</span>
 <span class="sd">    </span>
 <span class="sd">    retorna: pd.Dataframe con las siguientes columnas:</span>
 <span class="sd">        - 3 columnas con los tres parametros: kernel, gamma, param de regularizacion</span>
@@ -858,7 +904,7 @@
 <span class="sd">        - % de Vectores de Soporte promedio para los 4 folds (0 a 100)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">kf</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">kf</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=...</span><span class="p">)</span>
     <span class="c1"># crear una lista con la combinaciones de los elementos de cada list</span>
     <span class="n">kernels_gammas_regs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">kernels</span><span class="p">,</span> <span class="n">gammas</span><span class="p">,</span> <span class="n">params_reg</span><span class="p">))</span>
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -869,33 +915,50 @@
         <span class="n">errores_train</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">errores_test</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">pct_support_vectors</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+        
+        <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">...</span><span class="p">(</span><span class="o">...</span><span class="p">,</span><span class="o">...</span><span class="p">):</span>
             <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
             <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>  
             <span class="c1"># normalizar los datos</span>
-            <span class="n">scaler</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
             <span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
             <span class="n">X_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-            <span class="n">svm</span> <span class="o">=</span> <span class="o">...</span>
+            
+            <span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span>
+            
+            <span class="c1"># si es estrategia &quot;envolver&quot; a la svm</span>
+            <span class="k">if</span> <span class="n">estrategia</span> <span class="o">==</span><span class="s1">&#39;ovr&#39;</span><span class="p">:</span>
+                <span class="n">svm</span> <span class="o">=</span> <span class="o">...</span> <span class="p">(</span><span class="n">svm</span><span class="p">)</span>               
+            
             <span class="c1"># Entrenar el modelo</span>
-            <span class="n">svm</span><span class="o">....</span><span class="p">(</span><span class="n">X</span><span class="o">=...</span><span class="p">,</span> <span class="n">y</span><span class="o">=...</span><span class="p">)</span>
+            <span class="n">svm</span><span class="o">...</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">)</span>
             <span class="c1"># calculo de errores</span>
-            <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">svm</span><span class="o">...</span><span class="p">(</span><span class="n">X</span><span class="o">=...</span><span class="p">)</span>
-            <span class="n">y_test_pred</span> <span class="o">=</span> <span class="n">svm</span><span class="o">...</span><span class="p">(</span><span class="n">X</span><span class="o">=...</span><span class="p">)</span>
+            <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">svm</span><span class="o">...</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_train</span><span class="p">)</span>
+            <span class="n">y_test_pred</span> <span class="o">=</span> <span class="n">svm</span><span class="o">...</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_test</span><span class="p">)</span>
             <span class="c1"># error y pct de vectores de soporte</span>
-            <span class="n">errores_train</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_train_pred</span><span class="p">))</span>
-            <span class="n">errores_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_test_pred</span><span class="p">))</span>
+            <span class="n">errores_train</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_train_pred</span><span class="p">))</span>
+            <span class="n">errores_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_test_pred</span><span class="p">))</span>
             <span class="c1"># contar muestras de entrenamiento</span>
             <span class="n">n_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">pct_vs</span> <span class="o">=</span> <span class="p">(</span><span class="o">.../...</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">estrategia</span> <span class="o">==</span> <span class="s1">&#39;ovr&#39;</span><span class="p">:</span>
+                <span class="c1"># en esta estrategia se realizar una SVM por cada clase</span>
+                <span class="c1"># por lo tanto tenemos que acceder a cada una de la SVM</span>
+                <span class="c1"># lee la documentacion</span>
+                <span class="n">num_vs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">svc</span><span class="o">...</span><span class="p">)</span> <span class="k">for</span> <span class="n">svc</span> <span class="ow">in</span> <span class="n">svm</span><span class="o">....</span><span class="p">])</span>
+                <span class="n">pct_vs</span> <span class="o">=</span> <span class="p">(</span><span class="n">num_vs</span><span class="o">/</span><span class="n">n_train</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+                
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># cuando es ovo solo tenemos una SVM</span>
+                <span class="n">pct_vs</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">svm</span><span class="o">...</span><span class="p">)</span><span class="o">/</span><span class="n">n_train</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
             <span class="n">pct_support_vectors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pct_vs</span><span class="p">)</span>
         
         <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;kernel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kernel</span>
         <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;gamma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gamma</span>
         <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;param_reg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">param_reg</span>
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de entrenamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">errores_train</span><span class="p">)</span>
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">errores_test</span><span class="p">)</span>
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e vectores de soporte&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">pct_support_vectors</span><span class="p">)</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;estrategia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de entrenamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">errores_train</span><span class="p">)</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">errores_test</span><span class="p">)</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e vectores de soporte&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
         <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
 </pre></div>
@@ -912,13 +975,39 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vamos a realizar los experimentos</span>
-<span class="n">resultadosSVC</span> <span class="o">=</span> <span class="n">experiementarSVC</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Xcl</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">Ycl</span><span class="p">,</span>
+<span class="n">resultadosSVC_ovr</span> <span class="o">=</span> <span class="n">experiementarSVC</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Xcl</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">Ycl</span><span class="p">,</span>
                                  <span class="n">kernels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">],</span>
                                  <span class="n">gammas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],</span>
-                                 <span class="n">params_reg</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
-                                <span class="p">)</span>
-
-<span class="n">resultadosSVC</span>
+                                 <span class="n">params_reg</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+                                <span class="n">estrategia</span> <span class="o">=</span> <span class="s1">&#39;ovr&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver los mejores modelos</span>
+<span class="n">resultadosSVC_ovr</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vamos a realizar los experimentos</span>
+<span class="n">resultadosSVC_ovo</span> <span class="o">=</span> <span class="n">experiementarSVC</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Xcl</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">Ycl</span><span class="p">,</span>
+                                 <span class="n">kernels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">],</span>
+                                 <span class="n">gammas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],</span>
+                                 <span class="n">params_reg</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+                                <span class="n">estrategia</span> <span class="o">=</span> <span class="s1">&#39;ovo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver los mejores modelos</span>
+<span class="n">resultadosSVC_ovo</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -935,7 +1024,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown Observando la documentación de SVC, sklearn usa estrategia one-vs-one. ¿Que diferencia existe al aplicar una estrategia  one-vs-rest?</span>
+<span class="c1">#@markdown ¿por que en los experiementos de la SVM para clasificación ordenamos diferentes los resultados?</span>
 <span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -945,7 +1034,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver la relación de parametro de regularización y los vectores de soporte</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">ax</span><span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">resultadosSVC</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;param_reg&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e vectores de soporte&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span><span class="s1">&#39;kernel&#39;</span><span class="p">,</span> <span class="n">aspect</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">resultadosSVC_ovo</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;param_reg&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e vectores de soporte&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span><span class="s1">&#39;kernel&#39;</span><span class="p">,</span> <span class="n">aspect</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xscale</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -960,9 +1049,6 @@
 </div>
 </div>
 </div>
-<p><strong>Para Tener en cuenta</strong></p>
-<p>sklearn tiene unos “wrappers”, que implementan estrategias para la clasificación multiclase, uno  de estos wrappers, implementa la estrategia one-vs-rest: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html</a>.</p>
-<p>Un wrapper, es un esquema de diseño común para “envolver” librerias/funciones con caracteristicas similares y poder modificar ciertos comportamientos. Vale la pena observar los ejemplos para saber como utilizar estas estrategias cuando sea necesario.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">check_tests</span><span class="p">()</span>

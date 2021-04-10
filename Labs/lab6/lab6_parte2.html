@@ -728,9 +728,9 @@
 <ul class="simple">
 <li><p>CON_SEL (indicando si se uso selección de caracteristicas)</p></li>
 <li><p>NUM_VAR (número de selección de caracteristicas)</p></li>
+<li><p>T_EJECUCION: tiempo de ejecucción</p></li>
 <li><p>ERROR_VALIDACION</p></li>
 <li><p>IC_STD_VALIDACION</p></li>
-<li><p>T_EJECUCION: tiempo de ejecucción</p></li>
 </ul>
 </li>
 <li><p>En la primera fila del dataframe vamos a incluir la evaluación del modelo SVM sin selección de características (usando la función creada en el primer ejercicio).</p></li>
@@ -752,8 +752,7 @@
 <span class="sd">    n_sets, Vector de números enteros que indica el número de particiones</span>
 
 <span class="sd">    Retorna:  </span>
-<span class="sd">    - DataFrame con las columnas: CON_SEL, NUM_VAR, ERROR_VALIDACION, IC_STD_VALIDACION, </span>
-<span class="sd">    y T_EJECUCION. </span>
+<span class="sd">    - DataFrame con las columnas: CON_SEL, NUM_VAR, T_EJECUCION, ERROR_VALIDACION y IC_STD_VALIDACION. </span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -763,21 +762,21 @@
     <span class="n">error</span><span class="p">,</span><span class="n">ic_error</span><span class="p">,</span><span class="n">t_ex</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">split_number</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>  
     <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;CON_SEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NO&#39;</span>
     <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;NUM_VAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># se usan todas las caracteristicas</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;T_EJECUCION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
     <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;ERROR_VALIDACION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
     <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;IC_STD_VALIDACION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;T_EJECUCION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
     <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;termina experimento sin selección&quot;</span><span class="p">)</span>
     <span class="c1">#Con selección de características</span>
     
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">n_feats</span><span class="p">:</span>
         <span class="c1">#Implemetamos la metodología de validación </span>
-        <span class="n">error</span><span class="p">,</span> <span class="n">ic_error</span><span class="p">,</span> <span class="n">t_ex</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_comp</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">X</span><span class="o">=...</span><span class="p">,</span><span class="n">Y</span><span class="o">=...</span><span class="p">)</span>
+        <span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_comp</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">X</span><span class="o">=...</span><span class="p">,</span><span class="n">Y</span><span class="o">=...</span><span class="p">)</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;CON_SEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SI&#39;</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;NUM_VAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;T_EJECUCION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;ERROR_VALIDACION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;IC_STD_VALIDACION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;T_EJECUCION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
         <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
     <span class="k">return</span> <span class="n">df</span>
 </pre></div>
@@ -801,15 +800,6 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown Analizando los resultados ¿Qué podemos decir de la viabilidad de aplicar PCA para hacer reducción de dimensión en este problema?</span>
-<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aca realizamos una curva de varianza explicada del PCA</span>
 <span class="n">pca_varianza</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca_varianza</span><span class="o">.</span><span class="n">explained_variance_</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pca_varianza</span><span class="o">.</span><span class="n">explained_variance_</span><span class="p">)))</span>
@@ -825,6 +815,32 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
 <span class="c1">#@markdown  ¿Como se relaciona el mejor número de componentes encontrado en los experimentos con la curva de varianza explicada? Explicar con base a los resultados, la grafica y la teoria</span>
+<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ahora recordemos que el PCA tambien nos sirve para explorar y visualizar los datos en pocas dimensiones. En la siguiente celda vamos a visualizar nuestro conjunto de datos usando los dos primeros componentes principales</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_to_plot</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">x_pc2</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_to_plot</span><span class="p">)</span>
+<span class="n">scatter</span><span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="n">x_pc2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x_pc2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">legend1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="o">*</span><span class="n">scatter</span><span class="o">.</span><span class="n">legend_elements</span><span class="p">(),</span>
+                    <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Classes&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">legend1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;PC1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;PC2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown Aunque PCA nos sirve para ver los datos en dimensiones menores a la base de datos original, sabiendo la varianza acumulada obtenida para 2 componentes principales ¿que tan cercana es la aproximación para este problema en específico?</span>
 <span class="n">respuesta_4</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -865,10 +881,10 @@
 <span class="sd">    X: numpy Array de características</span>
 <span class="sd">    Y: numpy Array  Vector de etiquetas</span>
 
-<span class="sd">    Retorna: </span>
+<span class="sd">    Retorna:</span>
+<span class="sd">    T_ejec:  El  valor medio del tiempo de ejecución</span>
 <span class="sd">    ErrorValidacion: El valor medio de errores</span>
 <span class="sd">    IC_Validacion: Intervalo de confianza</span>
-<span class="sd">    T_ejec:  El  valor medio del tiempo de ejecución</span>
 <span class="sd">    &quot;&quot;&quot;</span>
    
 
@@ -902,7 +918,7 @@
         <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
 
 
-    <span class="k">return</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">Errores</span><span class="p">),</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">Errores</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">Errores</span><span class="p">),</span> <span class="n">np</span><span class="o">...</span><span class="p">(</span><span class="n">Errores</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -976,7 +992,7 @@
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">split_number</span> <span class="o">=</span> <span class="mi">5</span>
     <span class="c1">#Sin selección de características</span>
-    <span class="n">error</span><span class="p">,</span><span class="n">ic_error</span><span class="p">,</span><span class="n">t_ex</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">split_number</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>  
+    <span class="o">...</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="o">...</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">split_number</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>  
     <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;CON_SEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NO&#39;</span>
     <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;NUM_VAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># se usan todas las caracteristicas</span>
     <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;ERROR_VALIDACION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
@@ -988,7 +1004,7 @@
     
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">n_feats</span><span class="p">:</span>
         <span class="c1">#Implemetamos la metodología de validación </span>
-        <span class="n">error</span><span class="p">,</span> <span class="n">ic_error</span><span class="p">,</span> <span class="n">t_ex</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_comp</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+        <span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_comp</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;CON_SEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SI&#39;</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;NUM_VAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;ERROR_VALIDACION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>

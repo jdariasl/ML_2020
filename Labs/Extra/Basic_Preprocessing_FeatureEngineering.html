@@ -518,48 +518,6 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cross-industry-standard-process-for-data-mining">
-   <strong>
-    Cross Industry Standard Process for Data Mining
-   </strong>
-   :
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#obtaining-scrubbing-exploring-modeling-interpret-data-framework">
-   <em>
-    <em>
-     <em>
-      O
-     </em>
-     btaining
-     <em>
-      S
-     </em>
-     crubbing
-     <em>
-      E
-     </em>
-     xploring
-     <em>
-      M
-     </em>
-     odeling i
-    </em>
-    N
-   </em>
-   terpret data framework**:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ciclo-de-vida-de-ciencia-de-datos-de-microsoft">
-   <strong>
-    Ciclo de vida de ciencia de datos de Microsoft
-   </strong>
-   :
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#transformacion-de-datos-categoricos">
    Transformación de datos categóricos
   </a>
@@ -597,16 +555,11 @@
 <img src="https://i.redd.it/pqtv2tnlwpb41.jpg" alt="drawing" width="400"/>
 <p>*Tomada de reddit</p>
 <p>Para comenzar estos proyectos, ada organización, equipo adapta/crea su propia metodología, aca vemos varios ejemplos referentes construidos por la industria</p>
-<div class="section" id="cross-industry-standard-process-for-data-mining">
-<h2><strong>Cross Industry Standard Process for Data Mining</strong>:<a class="headerlink" href="#cross-industry-standard-process-for-data-mining" title="Permalink to this headline">¶</a></h2>
+<p><strong>Cross Industry Standard Process for Data Mining</strong>:</p>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/CRISP-DM_Process_Diagram.png/800px-CRISP-DM_Process_Diagram.png" alt="drawing" width="400"/>
-</div>
-<div class="section" id="obtaining-scrubbing-exploring-modeling-interpret-data-framework">
-<h2><em><em><em>O</em>btaining <em>S</em>crubbing <em>E</em>xploring <em>M</em>odeling i</em>N</em>terpret data framework**:<a class="headerlink" href="#obtaining-scrubbing-exploring-modeling-interpret-data-framework" title="Permalink to this headline">¶</a></h2>
+<p><em><em><em>O</em>btaining <em>S</em>crubbing <em>E</em>xploring <em>M</em>odeling i</em>N</em>terpret data framework**:</p>
 <img src="https://miro.medium.com/max/700/1*eE8DP4biqtaIK3aIy1S2zA.png" alt="drawing" width="500"/>
-</div>
-<div class="section" id="ciclo-de-vida-de-ciencia-de-datos-de-microsoft">
-<h2><strong>Ciclo de vida de ciencia de datos de Microsoft</strong>:<a class="headerlink" href="#ciclo-de-vida-de-ciencia-de-datos-de-microsoft" title="Permalink to this headline">¶</a></h2>
+<p><strong>Ciclo de vida de ciencia de datos de Microsoft</strong>:</p>
 <img src="https://docs.microsoft.com/es-es/azure/machine-learning/team-data-science-process/media/lifecycle/tdsp-lifecycle2.png" alt="drawing" width="500"/>
 <p>Una buena practica es no “atarse” a seguir un proceso especifico (alguna veces el proceso se repite N veces, o una etapa especifica tiene que  volver hacerse en medio de otra, etc.). Lo importante es conocer las practicas y estar al tanto de algunos estandares.</p>
 <p>La mejor recomendación de estos procesos es verlos como herramientas disponibles para los equipos. Lo importante es crear un ambiente para que el equipo tenga la libertad de aprender y <strong>aplicar cualquier practica que vea que va mejorar la calidad de trabajo entregado por el equipo</strong>.</p>
@@ -617,13 +570,12 @@
 <li><p>Modelar: <strong>incluyendo las transformaciones/ limpieza/ ingeniería de caracteriscas de los datos</strong> y el modelo de ML (entrenamiento, validación, experimentos – lo que hemos estado haciendo en las practicas)</p></li>
 <li><p>Despliegue Modelo (<strong>nuestra segunda sesión extra</strong>)</p></li>
 </ol>
-</div>
 <div class="section" id="transformacion-de-datos-categoricos">
 <h2>Transformación de datos categóricos<a class="headerlink" href="#transformacion-de-datos-categoricos" title="Permalink to this headline">¶</a></h2>
 <p><strong>Vamos a crear ciertos escenarios hipoteticos, para enfocarnos en la practica, no vamos a usar datasets o base de datos especificas.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
@@ -631,7 +583,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Base de datos con datos de calificación cualtitavia</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Base de datos con datos de calificación cualtitavia</span>
 <span class="n">usr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Guido Van Rosuum&#39;</span><span class="p">,</span><span class="s1">&#39;Serguéi Brin&#39;</span><span class="p">,</span>
        <span class="s1">&#39;Elon Musk&#39;</span><span class="p">,</span><span class="s1">&#39;Alan Turing&#39;</span><span class="p">,</span>
        <span class="s1">&#39;Ada Lovelace&#39;</span><span class="p">,</span> <span class="s1">&#39;Richard Stallman&#39;</span><span class="p">,</span>
@@ -654,7 +606,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># usando sklearn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usando sklearn</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span>
 <span class="n">X</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Calificación del usuario&#39;</span><span class="p">,</span> <span class="s1">&#39;Calificación del publico&#39;</span><span class="p">]]</span>
 <span class="n">enc</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
@@ -665,7 +617,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver las categorias</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver las categorias</span>
 <span class="n">enc</span><span class="o">.</span><span class="n">categories_</span>
 </pre></div>
 </div>
@@ -673,14 +625,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#asignamos a la tabla</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#asignamos a la tabla</span>
 <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;usuario_cod&#39;</span><span class="p">,</span> <span class="s1">&#39;publico_cod&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">data</span>
 </pre></div>
@@ -689,7 +641,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># asignar categorias para conservar el orden!!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># asignar categorias para conservar el orden!!</span>
 <span class="n">enc</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;Bajo&#39;</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">,</span> <span class="s1">&#39;Excelente&#39;</span><span class="p">],</span>
                                  <span class="p">[</span><span class="s1">&#39;Bajo&#39;</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">,</span> <span class="s1">&#39;Excelente&#39;</span><span class="p">]])</span>
 <span class="n">enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -701,7 +653,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se puede usar para realizar transformaciones inversas (si es necesario)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se puede usar para realizar transformaciones inversas (si es necesario)</span>
 <span class="c1"># para comunicar resultados</span>
 <span class="n">enc</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;usuario_cod&#39;</span><span class="p">,</span> <span class="s1">&#39;publico_cod&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -710,7 +662,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># usando pandas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usando pandas</span>
 <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Bajo&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Excelente&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Calificación del usuario&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
 </pre></div>
@@ -719,7 +671,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># asignar a nuevas columnas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># asignar a nuevas columnas</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;usuario_cod&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Calificación del usuario&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;publico_cod&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Calificación del publico&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
 <span class="n">data</span>
@@ -731,7 +683,7 @@
 <p>¿Que hacemos cuando los valores categoricos no tienen un orden?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ohe_data</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ohe_data</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span><span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">850000</span><span class="p">,</span> <span class="s1">&#39;rooms&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;neighborhood&#39;</span><span class="p">:</span> <span class="s1">&#39;Queen Anne&#39;</span><span class="p">},</span>
     <span class="p">{</span><span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">700000</span><span class="p">,</span> <span class="s1">&#39;rooms&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;neighborhood&#39;</span><span class="p">:</span> <span class="s1">&#39;Fremont&#39;</span><span class="p">},</span>
     <span class="p">{</span><span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">650000</span><span class="p">,</span> <span class="s1">&#39;rooms&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;neighborhood&#39;</span><span class="p">:</span> <span class="s1">&#39;Wallingford&#39;</span><span class="p">},</span>
@@ -745,7 +697,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
 <span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ohe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">]])</span>
 <span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">]])</span>
@@ -755,7 +707,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">]]),</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">]]),</span> 
                                <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ohe1&quot;</span><span class="p">,</span> <span class="s2">&quot;ohe2&quot;</span><span class="p">,</span> <span class="s2">&quot;ohe3&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -763,7 +715,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span> 
                   <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">]]),</span> 
                                <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ohe1&quot;</span><span class="p">,</span> <span class="s2">&quot;ohe2&quot;</span><span class="p">,</span> <span class="s2">&quot;ohe3&quot;</span><span class="p">])],</span> 
                  <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -774,7 +726,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando Pandas!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando Pandas!</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ohe_data</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">)</span>
 </pre></div>
@@ -783,7 +735,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">)],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;neighborhood&#39;</span><span class="p">)],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -801,7 +753,7 @@
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_missing_data</span><span class="p">(</span><span class="n">rows</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">cod</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_missing_data</span><span class="p">(</span><span class="n">rows</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">cod</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">])</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">)</span>
@@ -830,7 +782,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># creacion de data de ejemplo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creacion de data de ejemplo</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">generate_missing_data</span><span class="p">()</span>
 <span class="n">df</span>
 </pre></div>
@@ -839,7 +791,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># cuando hay alguna explicación y se llega a la conclusion</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cuando hay alguna explicación y se llega a la conclusion</span>
 <span class="c1"># de que es conveniente remover los datos faltantes</span>
 <span class="c1">#pandas</span>
 <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1"># elimina datos row si encuentra un al menos una columna</span>
@@ -849,7 +801,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">generate_missing_data</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">generate_missing_data</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -857,14 +809,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">])</span> <span class="c1"># elimina datos row si na en las columnas especificadas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">])</span> <span class="c1"># elimina datos row si na en las columnas especificadas</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># medir el porcentaje de datos falantes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># medir el porcentaje de datos falantes</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="c1">#.round(4) * 100</span>
@@ -875,7 +827,7 @@
 <p><strong>Reflexión</strong>: Antes de pensar en la imputación de valores faltantes se debe analizar el impacto y tratar de buscar alguna explicación. Muchas veces la primera decisión es removerlos. Antes de pensar en la imputación, Se debe analizar el impacto de estos datos faltantes y el porcentaje.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cuando eliminar los datos falantes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cuando eliminar los datos falantes</span>
 <span class="c1"># provoca una perdida de información importante!</span>
 <span class="c1"># una opción es asignar un valor (no muy recomendada)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
@@ -885,7 +837,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># imputar valor con la media</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># imputar valor con la media</span>
 <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
 <span class="n">imp</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 <span class="n">df_imp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -897,7 +849,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># imputar valor con el valor más frequente</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># imputar valor con el valor más frequente</span>
 <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
 <span class="n">imp</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">)</span>
 <span class="n">df_imp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -909,7 +861,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># tambien hay otras tecnicas mas sofisticadas para imputar </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tambien hay otras tecnicas mas sofisticadas para imputar </span>
 <span class="c1"># datos, los cuales deben ser ajustadas</span>
 <span class="c1"># y practicamente se vuelven un modelo </span>
 <span class="c1"># a entrenar</span>
@@ -924,7 +876,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># a veces la BD tiene codificado los valores faltantes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a veces la BD tiene codificado los valores faltantes</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">generate_missing_data</span><span class="p">(</span><span class="n">cod</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
@@ -933,7 +885,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># recomendo transformar a valor faltante y aplicar</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># recomendo transformar a valor faltante y aplicar</span>
 <span class="c1"># tecnicas vistas</span>
 <span class="n">df</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="o">!=</span><span class="mi">400</span><span class="p">)</span>
 </pre></div>

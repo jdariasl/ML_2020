@@ -12,11 +12,13 @@ Este archivo es generado automaticamente.
 """
 
 from imports import *
-from sklearn.metrics import mean_absolute_error, accuracy_score, mean_squared_error
+from sklearn.metrics import mean_absolute_error, accuracy_score, mean_squared_error, mean_absolute_percentage_error
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.multiclass import OneVsRestClassifier
 from sklearn.model_selection import StratifiedKFold, train_test_split, KFold
 from sklearn.neural_network import MLPRegressor
+from sklearn.impute import SimpleImputer
 from sklearn.svm import SVR, SVC
 import warnings
 import os
@@ -148,8 +150,8 @@ def test_clean_data(func):
     to_remove = -200*np.ones(( 1, db.shape[1]))
     to_impute = np.hstack([to_remove[:,0:12], np.array([[10]])])
     db = np.vstack((db[0:3,:], to_remove, to_impute))
-    xx, yy = func(db)
-    #print("it is shape", xx.shape)
+    db_df = pd.DataFrame(db, columns = [f'col_{c}' for c in range (1,14)])
+    xx, yy = func(db_df)
     tests = {'No se están removiendo valores faltantes en variable de respuesta': yy.shape[0] == db.shape[0] - 1,
              'no se estan imputando los valores': ut.are_np_equal(np.round(np.mean(xx, axis = 0)), np.round(xx[-1])),
              'no se estan removiendo todos los valores faltantes': not((xx==-200).any()),
@@ -168,7 +170,7 @@ def experiementarSVR(func):
     gs = [1.0, 0.1]
     cs = [100]
     cols= ['kernel', 'gamma', 'param_reg', 'error de prueba (promedio)',
-       'error de prueba (intervalo de confianza)', '% de vectores de soporte']
+       'error de prueba (intervalo de confianza)', '# de vectores de soporte', '% de vectores de soporte']
 
     cols_errs =['error de prueba (promedio)', 'error de prueba (intervalo de confianza)']
 
@@ -182,11 +184,11 @@ def experiementarSVR(func):
                                     gammas= gs,
                                     params_reg = cs,
                                     return_df = True)
-    
+
     code_to_look = ['KFold', 'kernel=kernel', 'gamma=gamma', 'C=param_reg', 'SVR',
                     'StandardScaler()', '.fit(X=X_train', 
                     '.predict(X=X_test', 
-                    '.support_', 'mean_squared_error'] 
+                    '.support_', 'mean_absolute_percentage_error'] 
     res2 = ut.check_code(code_to_look, func, debug = False)
 
     cond =( (df_r['% de vectores de soporte'].max() > 100.0) or 
@@ -211,8 +213,9 @@ def experiementarSVC(func):
     ks = ['linear','rbf']
     gs = [1.0, 0.1]
     cs = [100]
-    cols= ['kernel', 'gamma', 'param_reg', 'error de entrenamiento',
-       'error de prueba', '% de vectores de soporte']
+    cols= ['kernel', 'gamma', 'param_reg', 'estrategia', 
+          'error de entrenamiento',
+          'error de prueba', '% de vectores de soporte']
     
     cols_errs =['error de prueba', 'error de entrenamiento']
 
@@ -230,7 +233,7 @@ def experiementarSVC(func):
     code_to_look = ['StratifiedKFold', 'kernel=kernel', 'gamma=gamma', 'C=param_reg', 'SVC',
                     'StandardScaler()', '.fit(X=X_train', 
                     '.predict(X=X_test',  '.predict(X=X_train',
-                    '.support_', 'accuracy_score'] 
+                    '.support_', 'accuracy_score', 'OneVsRestClassifier', 'estimators_'] 
     res2 = ut.check_code(code_to_look, func, debug = False)
 
     cond =( (df_r['% de vectores de soporte'].max() > 100.0) or 

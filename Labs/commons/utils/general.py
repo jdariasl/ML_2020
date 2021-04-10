@@ -82,7 +82,7 @@ class Grader():
             print("algunos de los test no estan ok. Verifica antes de enviar el formulario")
             return None
 
-        print("Todo se ve ok. Asegurate de responder las preguntas abiertas y envia e archivo al formulario",
+        print("Todo se ve ok. Asegurate de responder las preguntas abiertas y envia le archivo al formulario",
               "¡buen trabajo!")
     
     def grade(self, worksheet = None, int_range = None, students = None,  open_asnwers = None):

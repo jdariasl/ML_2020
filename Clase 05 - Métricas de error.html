@@ -717,8 +717,8 @@ Universidad de Antioquia, Medellín, Colombia<br />
 <span class="n">TN</span> <span class="o">=</span> <span class="n">score</span><span class="p">[</span><span class="n">indi_TN</span><span class="p">]</span>
 <span class="n">FP</span> <span class="o">=</span> <span class="n">score</span><span class="p">[</span><span class="n">indi_FP</span><span class="p">]</span>
 <span class="n">FN</span> <span class="o">=</span> <span class="n">score</span><span class="p">[</span><span class="n">indi_FN</span><span class="p">]</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">TP</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">rwidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;TP&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">TN</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">rwidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;TN&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">TP</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">rwidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;TN&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">TN</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">rwidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;TP&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">FP</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">rwidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;FP&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">FN</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">rwidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;FN&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log score&#39;</span><span class="p">)</span>
@@ -931,6 +931,7 @@ BACC = 0.8
 <li><p><strong>Técnicas de muestreo apropiadas durante la validación</strong> (lo veremos en la siguiente clase)</p></li>
 <li><p><strong>Pesos diferentes para el error durante el entrenamiento</strong>: Su implementación depende de cada modelo en particular.</p></li>
 </ul>
+<p>Revisar la librería <a class="reference external" href="https://imbalanced-learn.org/stable/">imbalanced-learn</a> la cual contiene varios métodos implementados para sub y sobre muestreo, incluyendo SMOTE.</p>
 </div>
 <div class="section" id="roc-curve">
 <h3>ROC Curve<a class="headerlink" href="#roc-curve" title="Permalink to this headline">¶</a></h3>
@@ -942,7 +943,7 @@ BACC = 0.8
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 05 - Métricas de error_29_0.jpg" src="_images/Clase 05 - Métricas de error_29_0.jpg" />
+<img alt="_images/Clase 05 - Métricas de error_30_0.jpg" src="_images/Clase 05 - Métricas de error_30_0.jpg" />
 </div>
 </div>
 <div class="section" id="grafiquemos-la-curva-roc-del-modelo-entrenado-antes">
@@ -974,7 +975,7 @@ BACC = 0.8
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 05 - Métricas de error_31_0.png" src="_images/Clase 05 - Métricas de error_31_0.png" />
+<img alt="_images/Clase 05 - Métricas de error_32_0.png" src="_images/Clase 05 - Métricas de error_32_0.png" />
 </div>
 </div>
 </div>
@@ -1012,7 +1013,7 @@ BACC = 0.8
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 05 - Métricas de error_33_0.png" src="_images/Clase 05 - Métricas de error_33_0.png" />
+<img alt="_images/Clase 05 - Métricas de error_34_0.png" src="_images/Clase 05 - Métricas de error_34_0.png" />
 </div>
 </div>
 </div>
@@ -1023,6 +1024,9 @@ BACC = 0.8
 <li><p>Mean Square Error (MSE) $<span class="math notranslate nohighlight">\( E = \frac{1}{N} \sum_{i=1}^{N} \left(y_i - f({\bf{x}}_i) \right)^2 \)</span>$</p></li>
 <li><p>Mean Absolute Error (MAE) $<span class="math notranslate nohighlight">\( E = \frac{1}{N} \sum_{i=1}^{N} \left|y_i - f({\bf{x}}_i) \right| \)</span>$</p></li>
 <li><p>Median Absolute Error (MedAE) $<span class="math notranslate nohighlight">\( E = \text{median}\left( |y_1 - f({\bf{x}}_1)|, \cdots, |y_N - f({\bf{x}}_N)| \right) \)</span>$</p></li>
+</ul>
+<p>Es más rebusta frente a datos atípicos que MAE.</p>
+<ul class="simple">
 <li><p>Mean Absolute Percentage Error (MAPE) $<span class="math notranslate nohighlight">\( E = \frac{1}{N} \sum_{i=1}^{N} \frac{\left|y_i - f({\bf{x}}_i) \right|}{y_i} \)</span>$</p></li>
 <li><p>Coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>) $<span class="math notranslate nohighlight">\( R^2 = 1 - \frac{\sum_{i=1}^{N} \left(y_i - f({\bf{x}}_i) \right)^2}{\sum_{i=1}^{N} \left(y_i - \bar{y}) \right)^2}\)</span><span class="math notranslate nohighlight">\(
 donde \)</span>\bar{y}<span class="math notranslate nohighlight">\( es el promedio de los \)</span>y_i$</p></li>
@@ -1073,7 +1077,7 @@ donde \)</span>\bar{y}<span class="math notranslate nohighlight">\( es el promed
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 05 - Métricas de error_37_0.png" src="_images/Clase 05 - Métricas de error_37_0.png" />
+<img alt="_images/Clase 05 - Métricas de error_38_0.png" src="_images/Clase 05 - Métricas de error_38_0.png" />
 </div>
 </div>
 <div class="cell docutils container">

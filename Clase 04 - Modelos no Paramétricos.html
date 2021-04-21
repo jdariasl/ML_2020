@@ -787,7 +787,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "1e3e231b0def498a8945295e7ce14750", "version_major": 2, "version_minor": 0}
+{"model_id": "a07452046df14b9894967554003f4d96", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <p>Si aplicamos el método de <span class="math notranslate nohighlight">\(k\)</span>-vecinos al problema de predicción de HPI, obtendremos lo siguiente:</p>
@@ -834,12 +834,12 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plothpi</span><span class="o">.</span><span class="n">knn_n</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plothpi</span><span class="o">.</span><span class="n">knn_n</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7fdbdea93b90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7fb200b09dd0&gt;
 </pre></div>
 </div>
 <img alt="_images/Clase 04 - Modelos no Paramétricos_60_1.png" src="_images/Clase 04 - Modelos no Paramétricos_60_1.png" />
@@ -884,7 +884,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "6406460fe9a84d3792c8dd94e4896dd2", "version_major": 2, "version_minor": 0}
+{"model_id": "f8df2e7427c1486999884dc175344cb0", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <p>Como el valor entregado por la función de ventana de Parzen corresponde a una estimación de la función de densidad de probabilidad, para problemas de clasificación debemos dividir las muestras de entrenamiento en cada una de las clases y estimar la probabilidad de una muestra nueva en cada una de ellas usando la ecuación (1). Es decir, es el mismo procedimiento descrito en la clase anterior pero cambiando la función que estima la fdp.</p>
@@ -918,10 +918,10 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "449f49e07a124804915d64eef8bf24f4", "version_major": 2, "version_minor": 0}
+{"model_id": "ce180f4e399f4f52925b2149014a468b", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<p>Para el caso de regresión, es necesario estimar el valor esperado de la distribución condicional. La formulación del modelo puede hacerse de maneras difirentes, el modelo más usado es:</p>
+<p>Para el caso de <strong>regresión</strong>, es necesario estimar el valor esperado de la distribución condicional. La formulación del modelo puede hacerse de maneras difirentes, el modelo más usado es:</p>
 <li>Estimador de Nadaraya-Watson: $$y^* = \frac{\sum_{i=1}^N K(u_i)y_i}{\sum_{i=1}^N K(u_i)}, \;\; u_i = \frac{dist({\bf{x}}^*,{\bf{x}}_i)}{h}$$
 </li><p>Si usamos el estimador de Nadaraya-Watson en el problema de predicción de HPI (<strong>sin</strong> normalización de variables) obtendremos:</p>
 <div class="cell docutils container">
@@ -931,7 +931,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7f526218ab70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7f2073690f10&gt;
 </pre></div>
 </div>
 <img alt="_images/Clase 04 - Modelos no Paramétricos_76_1.png" src="_images/Clase 04 - Modelos no Paramétricos_76_1.png" />
@@ -944,7 +944,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7f525de479b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7f20736a8650&gt;
 </pre></div>
 </div>
 <img alt="_images/Clase 04 - Modelos no Paramétricos_77_1.png" src="_images/Clase 04 - Modelos no Paramétricos_77_1.png" />
@@ -958,7 +958,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7f0de0902358&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7f20781a3c10&gt;
 </pre></div>
 </div>
 <img alt="_images/Clase 04 - Modelos no Paramétricos_79_1.png" src="_images/Clase 04 - Modelos no Paramétricos_79_1.png" />
@@ -967,12 +967,12 @@ Universidad de Antioquia, Medellín, Colombia<br />
 <p>Note que a diferencia de los métodos anteriores, en este caso se obtiene una función suave debido a que la medida de similitud (la función kernel), es una función suave.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plothpi</span><span class="o">.</span><span class="n">ParzenPlot_n</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plothpi</span><span class="o">.</span><span class="n">ParzenPlot_n</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7fdbde3a3710&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7f20782fc350&gt;
 </pre></div>
 </div>
 <img alt="_images/Clase 04 - Modelos no Paramétricos_81_1.png" src="_images/Clase 04 - Modelos no Paramétricos_81_1.png" />
@@ -1001,7 +1001,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "e65cbe83368841b5ab2d33a84d8b5e18", "version_major": 2, "version_minor": 0}
+{"model_id": "e9fe3f8b34e34edb908cfc23d9dafd8e", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <hr class="docutils" />

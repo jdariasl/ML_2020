@@ -640,8 +640,9 @@ Universidad de Antioquia, Medellín, Colombia<br />
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DistribucionGaussiana</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Mu</span><span class="p">,</span><span class="n">Sigma</span><span class="p">):</span>
     
+    <span class="n">d</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">SigmaInversa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Sigma</span><span class="p">))</span>
-    <span class="n">PrimerTermino</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">Sigma</span><span class="p">))))</span>
+    <span class="n">PrimerTermino</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(((</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">Sigma</span><span class="p">))))</span>
     
     <span class="n">primerDot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">Mu</span><span class="p">),</span><span class="n">SigmaInversa</span><span class="p">)</span>
     <span class="n">segundoDot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">primerDot</span><span class="p">,(</span><span class="n">X</span><span class="o">-</span><span class="n">Mu</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
@@ -709,7 +710,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d26881a152514fca97ab5b5855448b5b", "version_major": 2, "version_minor": 0}
+{"model_id": "227008fb74034fb28f06d58985ea53da", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.FuncionDiscriminanteGaussiana(Tipo=1)&gt;
 </pre></div>
 </div>

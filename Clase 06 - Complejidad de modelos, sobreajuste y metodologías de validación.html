@@ -659,11 +659,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>replicating local resources
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="julian-d-arias-londono">
 <h2>Julián D. Arias Londoño<a class="headerlink" href="#julian-d-arias-londono" title="Permalink to this headline">¶</a></h2>
@@ -762,7 +757,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">library.regularization</span> <span class="kn">import</span> <span class="n">Kernel_classifier</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">Kernel_classifier</span><span class="p">(</span><span class="n">bandwidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">Fronteras</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">Fronteras</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -780,7 +775,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 <div class="section" id="bias-vs-variance">
 <h2>Bias vs Variance<a class="headerlink" href="#bias-vs-variance" title="Permalink to this headline">¶</a></h2>
-<p><strong>Bias (sesgo)</strong>: es la diferencia entre la predicción promedio de muestro modelo y el valor correcto que se pretende predecir. Un modelo con alto bias no captura las relaciones relevantes entre las características de entrada y las variables objetivo de salida, pone poca atención a los datos de entrenamiento y sobre-simplifica el modelo.</p>
+<p><strong>Bias (sesgo)</strong>: es la diferencia entre la predicción promedio de nuestro modelo y el valor correcto que se pretende predecir. Un modelo con alto bias no captura las relaciones relevantes entre las características de entrada y las variables objetivo de salida, pone poca atención a los datos de entrenamiento y sobre-simplifica el modelo.</p>
 <p><strong>Variance</strong>: es un error debido a una alta sensibilidad a pequeñas fluctuaciones en el conjunto de entrenamiento. Una varianza alta puede causar que el modelo se centre en el ruido contenido en los datos más que en la salida deseada. Los modelos que cometen error por varianza suelten tener buenas desempeños en entrenamiento pero altas tasasa de error en conjuntos de prueba.</p>
 <p>Formalmente:</p>
 <p>El sistema que queremos modelar está dado por:</p>
@@ -1018,11 +1013,11 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/Clase 06 - Complejidad de modelos, sobreajuste y metodologías de validación_26_0.png" src="_images/Clase 06 - Complejidad de modelos, sobreajuste y metodologías de validación_26_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy en cada fold = [[0.915625 0.915625 0.925    0.90625  0.925   ]
- [0.946875 0.93125  0.946875 0.93125  0.91875 ]
- [0.965625 0.934375 0.95     0.9375   0.91875 ]
- [0.9625   0.9375   0.953125 0.934375 0.925   ]]
-Accuracy promedio = [0.9175  0.935   0.94125 0.9425 ]+/-[0.01403122 0.02143304 0.0314742  0.02698379]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy en cada fold = [[0.9375   0.9375   0.921875 0.9375   0.925   ]
+ [0.9375   0.93125  0.9375   0.9375   0.953125]
+ [0.946875 0.925    0.934375 0.934375 0.9375  ]
+ [0.946875 0.928125 0.94375  0.93125  0.940625]]
+Accuracy promedio = [0.931875 0.939375 0.935625 0.938125]+/-[0.01391941 0.01457738 0.01403122 0.0144698 ]
 </pre></div>
 </div>
 </div>
@@ -1038,7 +1033,7 @@ Accuracy promedio = [0.9175  0.935   0.94125 0.9425 ]+/-[0.01403122 0.02143304 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy en test = 0.9475
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy en test = 0.95
 </pre></div>
 </div>
 </div>
@@ -1085,11 +1080,11 @@ Accuracy promedio = [0.9175  0.935   0.94125 0.9425 ]+/-[0.01403122 0.02143304 0
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/Clase 06 - Complejidad de modelos, sobreajuste y metodologías de validación_34_0.png" src="_images/Clase 06 - Complejidad de modelos, sobreajuste y metodologías de validación_34_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy en cada fold = [[0.9375 0.8875 0.9275 0.92   0.9175]
- [0.95   0.9175 0.9425 0.935  0.9325]
- [0.955  0.9325 0.9475 0.9425 0.9475]
- [0.9575 0.9325 0.945  0.9475 0.9475]]
-Accuracy promedio = [0.918  0.9355 0.945  0.946 ]+/-[0.03352611 0.02177154 0.0148324  0.016     ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy en cada fold = [[0.9275 0.9475 0.9425 0.93   0.935 ]
+ [0.9425 0.9475 0.94   0.9325 0.925 ]
+ [0.95   0.9475 0.9425 0.935  0.925 ]
+ [0.945  0.95   0.945  0.935  0.9325]]
+Accuracy promedio = [0.9365 0.9375 0.94   0.9415]+/-[0.0150333  0.01581139 0.0181659  0.0132665 ]
 </pre></div>
 </div>
 </div>
@@ -1892,19 +1887,12 @@ Accuracy promedio = [0.918  0.9355 0.945  0.946 ]+/-[0.03352611 0.02177154 0.014
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=ShuffleSplit(n_splits=5, random_state=0, test_size=0.25, train_size=None),
-             error_score=nan,
-             estimator=KNeighborsClassifier(algorithm=&#39;auto&#39;, leaf_size=30,
-                                            metric=&#39;minkowski&#39;,
-                                            metric_params=None, n_jobs=None,
-                                            n_neighbors=5, p=2,
-                                            weights=&#39;uniform&#39;),
-             iid=&#39;deprecated&#39;, n_jobs=None,
+             estimator=KNeighborsClassifier(),
              param_grid=[{&#39;metric&#39;: [&#39;minkowski&#39;],
                           &#39;n_neighbors&#39;: [1, 3, 5, 7, 9], &#39;p&#39;: [1, 2]},
                          {&#39;metric&#39;: [&#39;chebyshev&#39;],
                           &#39;n_neighbors&#39;: [1, 3, 5, 7, 9]}],
-             pre_dispatch=&#39;2*n_jobs&#39;, refit=True, return_train_score=False,
-             scoring=&#39;accuracy&#39;, verbose=0)
+             scoring=&#39;accuracy&#39;)
 </pre></div>
 </div>
 </div>
@@ -1952,20 +1940,13 @@ Accuracy validación = 0.9473684210526315
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=&lt;generator object BaseShuffleSplit.split at 0x7fa13b412ed0&gt;,
-             error_score=nan,
-             estimator=KNeighborsClassifier(algorithm=&#39;auto&#39;, leaf_size=30,
-                                            metric=&#39;minkowski&#39;,
-                                            metric_params=None, n_jobs=None,
-                                            n_neighbors=5, p=2,
-                                            weights=&#39;uniform&#39;),
-             iid=&#39;deprecated&#39;, n_jobs=None,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=&lt;generator object BaseShuffleSplit.split at 0x7f3742981cd0&gt;,
+             estimator=KNeighborsClassifier(),
              param_grid=[{&#39;metric&#39;: [&#39;minkowski&#39;],
                           &#39;n_neighbors&#39;: [1, 3, 5, 7, 9], &#39;p&#39;: [1, 2]},
                          {&#39;metric&#39;: [&#39;chebyshev&#39;],
                           &#39;n_neighbors&#39;: [1, 3, 5, 7, 9]}],
-             pre_dispatch=&#39;2*n_jobs&#39;, refit=True, return_train_score=False,
-             scoring=&#39;accuracy&#39;, verbose=0)
+             scoring=&#39;accuracy&#39;)
 </pre></div>
 </div>
 </div>
@@ -2000,8 +1981,8 @@ Accuracy validación = 0.8695006543843753
 </div>
 <p><strong>Podemos observar que</strong>:</p>
 <ul class="simple">
-<li><p>La diferencia entre el error de validación y erro de test es pequeña, lo que muestra consistencia en el resultaDO.</p></li>
-<li><p>El modelo quedo mejor ajustado al problema real y el desempeño en test es 5 punto porcentuales más alto en este caso que en el anterior.</p></li>
+<li><p>La diferencia entre el error de validación y erro de test es pequeña, lo que muestra consistencia en el resultado.</p></li>
+<li><p>El modelo quedo mejor ajustado al problema real y el desempeño en test es 5 puntos porcentuales más alto en este caso que en el anterior.</p></li>
 </ul>
 <p>También existe la variante validación cruzada por grupos:</p>
 <div class="cell docutils container">

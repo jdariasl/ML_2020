@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>U9. SESIONES EXTRA DE LABORATORIO &#8212; 2020 Introducción al Machine Learning</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -56,14 +53,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Preprocesamiento e Ingeniería de características" href="../Labs/Extra/Basic_Preprocessing_FeatureEngineering.html" />
     <link rel="prev" title="Laboratorio 6 - Parte 2: Reducción de dimensión PCA y LDA" href="../Labs/lab6/lab6_parte2.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -72,72 +69,63 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/fudea.jpg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/fudea.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Course information
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="U0_IntroLabs.html">
    INTRODUCCIÓN A PYTHON, NUMPY Y OTRAS HERRAMIENTAS
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Labs/Intro/Intro.html">
      Introdución para los laboratorios de Machine Learning
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="U1_description.html">
    U1. INTRODUCCIÓN AL MACHINE LEARNING
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html">
      Introducción al Machine Learning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#modelos-a-partir-de-datos">
-     Modelos a partir de datos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2001%20-%20Introducci%C3%B3n%20al%20Machine%20Learning.html#tipos-de-problemas-supervisados">
-     Tipos de problemas supervisados
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html">
      <font color="blue">
       Modelos básicos de aprendizaje
-     </font>
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2002%20-%20Regresi%C3%B3n%20lineal%20y%20regresi%C3%B3n%20log%C3%ADstica.html#font-color-blue-pensemos-ahora-en-el-problema-de-clasificacion-font">
-     <font color="blue">
-      Pensemos ahora en el problema de clasificación
      </font>
     </a>
    </li>
@@ -157,14 +145,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="U2_description.html">
    U2. MODELOS NO PARÁMETRICOS
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2004%20-%20Modelos%20no%20Param%C3%A9tricos.html">
      Modelos no parámetricos
@@ -181,14 +172,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="U3_description.html">
    U3. COMPLEJIDAD DE MODELOS Y VALIDACIÓN
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2005%20-%20M%C3%A9tricas%20de%20error.html">
      <font color="blue">
@@ -204,33 +198,22 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-metodologias-de-validacion-font">
-     <font color="blue">
-      Metodologías de validación
-     </font>
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2006%20-%20Complejidad%20de%20modelos%2C%20sobreajuste%20y%20metodolog%C3%ADas%20de%20validaci%C3%B3n.html#font-color-blue-curva-de-aprendizaje-font">
-     <font color="blue">
-      Curva de aprendizaje
-     </font>
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2007%20-%20Regularizaci%C3%B3n.html">
      Sobreajuste y Regularización
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="U4_description.html">
    U4. APRENDIZAJE NO SUPERVISADO
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2008%20-%20Modelos%20de%20Mezclas%20de%20Gausianas.html">
      Modelos de Mezcla de Funciones Gaussianas
@@ -242,34 +225,22 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2009%20-%20Unsupervised%20Learning.html#referencias-generales">
-     Referencias Generales
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2009%20-%20Unsupervised%20Learning.html#metodos-jerarquicos-aglomerativos">
-     Métodos jerárquicos/aglomerativos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2009%20-%20Unsupervised%20Learning.html#metodos-de-clustering">
-     Métodos de clustering
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../Labs/lab3/lab3_parte1.html">
      Laboratorio 3 - Parte 1. Comparación de metodos de clusterización
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="U5_description.html">
    U5. MODELOS DE ÁRBOLES Y ENSAMBLES
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2010%20-%20%C3%81rboles%20de%20Decisi%C3%B3n%2C%20Voting%2C%20Bagging%2C%20Random%20Forest.html">
      Árboles de decisión
@@ -286,14 +257,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="U6_description.html">
    U6. REDES NEURONALES ARTIFICIALES
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html">
      Redes Neuronales Artificiales
@@ -320,37 +294,25 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="U7_description.html">
    U7. MÁQUINAS DE VECTORES DE SOPORTE
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html">
      Máquinas de Soporte Vectorial
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html#regresion-por-vectores-de-soporte">
-     Regresión por vectores de soporte
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2016%20-%20Estrategias%20Multiclase%20basadas%20en%20clasificadores%20binarios.html">
      One vs all (one vs the rest)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2016%20-%20Estrategias%20Multiclase%20basadas%20en%20clasificadores%20binarios.html#one-vs-one-all-vs-all">
-     One vs One (All vs All)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2016%20-%20Estrategias%20Multiclase%20basadas%20en%20clasificadores%20binarios.html#clasificacion-jerarquica">
-     Clasificación jerárquica
     </a>
    </li>
    <li class="toctree-l2">
@@ -364,14 +326,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="U8_description.html">
    U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2017%20-%20Selecci%C3%B3n%20de%20Caracter%C3%ADsticas.html">
      Selección de Características
@@ -380,11 +345,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Clase%2018%20-%20Lasso%20y%20redes%20el%C3%A1sticas.html">
      LASSO (Least Absolute Shrinkage and Selection Operator)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Clase%2018%20-%20Lasso%20y%20redes%20el%C3%A1sticas.html#elastic-nets">
-     Elastic Nets
     </a>
    </li>
    <li class="toctree-l2">
@@ -408,14 +368,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    U9. SESIONES EXTRA DE LABORATORIO
   </a>
-  <ul class="collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Labs/Extra/Basic_Preprocessing_FeatureEngineering.html">
      Preprocesamiento e Ingeniería de características
@@ -427,11 +390,10 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -481,12 +443,12 @@
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -556,21 +518,19 @@
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-51547737-2', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
 
-
-    
-    <!-- Google Analytics -->
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-51547737-2', 'auto');
-      ga('set', 'anonymizeIp', true);
-      ga('send', 'pageview');
-    </script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
-    <!-- End Google Analytics -->
-    
   </body>
 </html>

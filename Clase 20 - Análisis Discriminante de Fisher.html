@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -549,6 +549,8 @@ Universidad de Antioquia, Medellín, Colombia<br />
 <span class="n">X3</span><span class="o">=</span><span class="n">X3</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;variable 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;variable 2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -669,12 +671,12 @@ busca direcciones que son eficientes para discriminación, es decir que permiten
 \[{\bf{S}}_{1} = \sum_{{\bf{x}}_i \in C_1} ({\bf{x}}_i - \mu_1)({\bf{x}}_i - \mu_1)^{T}\]</div>
 <div class="math notranslate nohighlight">
 \[{\bf{S}}_{2} = \sum_{{\bf{x}}_i \in C_2} ({\bf{x}}_i - \mu_2)({\bf{x}}_i - \mu_2)^{T}\]</div>
-<p>Y definamos la matriz de dispersión \textbf{intra} clase como: <span class="math notranslate nohighlight">\({\bf{S}}_W = {\bf{S}}_1 + {\bf{S}}_2\)</span>.</p>
+<p>Y definamos la matriz de dispersión <strong>intra</strong> clase como: <span class="math notranslate nohighlight">\({\bf{S}}_W = {\bf{S}}_1 + {\bf{S}}_2\)</span>.</p>
 <p>Recordando los resultados sobre la media de las muestras proyectadas, se puede llegar a la conclusión que: <span class="math notranslate nohighlight">\(\widetilde{{\bf{S}}}_{1}^{2} = {\bf{v}}^{T}{\bf{S}}_1{\bf{v}}\)</span> y de manera similar para la clase 2, <span class="math notranslate nohighlight">\(\widetilde{{\bf{S}}}_{2}^{2} = {\bf{v}}^{T}{\bf{S}}_2{\bf{v}}\)</span></p>
 <p>Entonces</p>
 <div class="math notranslate nohighlight">
 \[\widetilde{{\bf{S}}}_{1}^{2} + \widetilde{{\bf{S}}}_{2}^{2} = {\bf{v}}^{T}{\bf{S}}_1{\bf{v}} + {\bf{v}}^{T}{\bf{S}}_2{\bf{v}} = {\bf{v}}^{T}{\bf{S}}_W{\bf{v}}\]</div>
-<p>Se define la matriz de dispersión \textbf{entre} clases como:</p>
+<p>Se define la matriz de dispersión <strong>entre</strong> clases como:</p>
 <div class="math notranslate nohighlight">
 \[{\bf{S}}_B = (\mu_1 - \mu_2)(\mu_1 - \mu_2)^{T}\]</div>
 <p>la cual mide la separación entre las medias de dos clases (antes de la proyección). Utilizando nuevamente la definición de las medias proyectadas desarrollada antes es posible obtener:</p>

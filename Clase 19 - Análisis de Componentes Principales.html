@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -544,7 +544,7 @@ Universidad de Antioquia, Medellín, Colombia<br />
 </div>
 <p>En este momento del curso son claras las razones por las cuales puede ser necesario implementar un etapa de reducción de dimensión en un problema de aprendizaje, y las dos alternativas disponibles: Selección/Extracción de Características.</p>
 <p>Aunque la selección de características tiene ventajas en comparación con los métodos de extracción, también tiene desventejas, principalmente su alto costo computacional (que se ve agravado si el criterio de selcción es tipo wrapper) y la imposibilidad de garantizar la escogencia del mejor subconjunto de variables y por consiguiente la posible pérdida de información por las variables eliminadas.</p>
-<p>El <b>Análisis de Componentes Principales</b> (En inglés Principal Component Analysis - PCA), es una técnica de extracción cuyo objetivo es reducir  la dimensión de un conjunto de variables, conservando la mayor cantidad de informaci ́on que sea posible.</p>
+<p>El <b>Análisis de Componentes Principales</b> (En inglés Principal Component Analysis - PCA), es una técnica de extracción cuyo objetivo es reducir  la dimensión de un conjunto de variables, conservando la mayor cantidad de información que sea posible.</p>
 <p>En conjuntos de variables con alta dependencia es frecuente que un pequeño número de nuevas variables (menos del 20 % de las originales) expliquen la mayor parte (más del 80 % de la variabilidad original [1]), Por lo tanto PCA realiza la transformación a un nuevo conjunto de variables que son no correlacionadas y se ordenan de modo tal que unas pocas retengan la mayor
 cantidad de variación presente en el conjunto original de variables.</p>
 <p>La medida de información en PCA está asociada entonces al <mark>nivel de variación</mark> de las variables.</p>
@@ -557,14 +557,16 @@ cantidad de variación presente en el conjunto original de variables.</p>
 <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;variable 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;variable 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Scatterplot.png&#39;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f2d7edef410&gt;
-</pre></div>
-</div>
-<img alt="_images/Clase 19 - Análisis de Componentes Principales_8_1.png" src="_images/Clase 19 - Análisis de Componentes Principales_8_1.png" />
+<img alt="_images/Clase 19 - Análisis de Componentes Principales_8_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_8_0.png" />
 </div>
 </div>
 </div>
@@ -586,6 +588,8 @@ cantidad de variación presente en el conjunto original de variables.</p>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;original data&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Xp</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;projected data&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_2$&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;projection vector&quot;</span><span class="p">)</span>
@@ -594,6 +598,8 @@ cantidad de variación presente en el conjunto original de variables.</p>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">alpha$=</span><span class="si">%.2f</span><span class="s2"> rads, proj std=</span><span class="si">%.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
     <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;projections.png&#39;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -650,18 +656,21 @@ cualquiera <span class="math notranslate nohighlight">\({\bf{x}}_i\)</span> sobr
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">Xt</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\mathbf</span><span class="si">{X}</span><span class="s2">$: original data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">Xt</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\mathbf</span><span class="si">{X_t}</span><span class="s2">$: reduced data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_2$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Projected_PCA.png&#39;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2d6e7e8b50&gt;
-</pre></div>
-</div>
-<img alt="_images/Clase 19 - Análisis de Componentes Principales_39_1.png" src="_images/Clase 19 - Análisis de Componentes Principales_39_1.png" />
+<img alt="_images/Clase 19 - Análisis de Componentes Principales_39_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_39_0.png" />
 </div>
 </div>
 <p>Podemos reconstruir las proyecciones en 2D</p>
@@ -670,17 +679,32 @@ cualquiera <span class="math notranslate nohighlight">\({\bf{x}}_i\)</span> sobr
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u0</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u0</span><span class="p">)</span>
 <span class="n">Xr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[[</span><span class="n">i</span><span class="o">*</span><span class="n">u0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;original data&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Xr</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;reconstructed data from largest component&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Xr</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;reconstructed data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_2$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Rec_PCA.png&#39;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2d6e4fced0&gt;
+<img alt="_images/Clase 19 - Análisis de Componentes Principales_41_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_41_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u0</span>
 </pre></div>
 </div>
-<img alt="_images/Clase 19 - Análisis de Componentes Principales_41_1.png" src="_images/Clase 19 - Análisis de Componentes Principales_41_1.png" />
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.94446029, -0.32862557])
+</pre></div>
+</div>
 </div>
 </div>
 <p>Otros ejemplos…</p>
@@ -747,7 +771,7 @@ cualquiera <span class="math notranslate nohighlight">\({\bf{x}}_i\)</span> sobr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 19 - Análisis de Componentes Principales_46_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_46_0.png" />
+<img alt="_images/Clase 19 - Análisis de Componentes Principales_47_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_47_0.png" />
 </div>
 </div>
 </div>
@@ -787,7 +811,7 @@ cualquiera <span class="math notranslate nohighlight">\({\bf{x}}_i\)</span> sobr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 19 - Análisis de Componentes Principales_50_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_50_0.png" />
+<img alt="_images/Clase 19 - Análisis de Componentes Principales_51_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_51_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -838,7 +862,7 @@ Wall time: 122 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 19 - Análisis de Componentes Principales_54_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_54_0.png" />
+<img alt="_images/Clase 19 - Análisis de Componentes Principales_55_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_55_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -848,7 +872,7 @@ Wall time: 122 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 19 - Análisis de Componentes Principales_55_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_55_0.png" />
+<img alt="_images/Clase 19 - Análisis de Componentes Principales_56_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_56_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -947,7 +971,7 @@ Best parameters validation score: 0.830
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 19 - Análisis de Componentes Principales_62_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_62_0.png" />
+<img alt="_images/Clase 19 - Análisis de Componentes Principales_63_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_63_0.png" />
 </div>
 </div>
 <div class="section" id="seleccion-del-numero-de-componentes">
@@ -967,7 +991,7 @@ Best parameters validation score: 0.830
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clase 19 - Análisis de Componentes Principales_65_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_65_0.png" />
+<img alt="_images/Clase 19 - Análisis de Componentes Principales_66_0.png" src="_images/Clase 19 - Análisis de Componentes Principales_66_0.png" />
 </div>
 </div>
 <div class="section" id="referencias">

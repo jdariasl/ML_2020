@@ -1,6 +1,5 @@
-jupyter-book>=0.7.0b
+jupyter-book<0.11
 matplotlib
 numpy
 scikit-learn
 pandas
-

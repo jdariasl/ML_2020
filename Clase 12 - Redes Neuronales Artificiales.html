@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -72,6 +72,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="_static/fudea.jpg" class="logo" alt="logo">
       
@@ -309,7 +313,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Clase%2015%20-%20M%C3%A1quinas%20de%20V%C3%A9ctores%20de%20Soporte.html">
-     Máquinas de Soporte Vectorial
+     Máquinas de Vectores de Soporte
     </a>
    </li>
    <li class="toctree-l2">
@@ -584,8 +588,6 @@ Universidad de Antioquia, Medellín, Colombia<br />
 \[\Delta w_i = \eta (y_j - O({\bf{x}}_j))x _{ji}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(y_j\)</span> es la salida deceseada para la muestra <span class="math notranslate nohighlight">\({\bf{x}}_j\)</span>. Sin embargo este procedimiento solo funciona cuando las muestras son linealmente separales.</p>
 <p>Una forma alternativa que puede ser utilizada aún cuando las muestras no sean linealmente separables, es definir una medida de error e intentar minizarla a través de una regla de gradiente. Es decir, si asumimos:</p>
-<div class="math notranslate nohighlight">
-\[E = \frac{1}{N}\sum_{j=1}^{N} (y_j - O({\bf{x}}_j))^2\]</div>
 <p>podemos utilizar la regla del gradiente descedente para encontrar el conjunto de pesos que hagan el error mínimo (no tiene que ser cero). Esta definición ya fue estudiada cuando vimos el modelo de regresión logística. El único inconveniente es que la salida del percetrón depende de la función <i>sgn</i> y la regla del gradiente necesita calcular la derivada. Sin embargo podemos asumir que si <span class="math notranslate nohighlight">\({\bf{w}}^T{\bf{x}}\;\;\)</span> tiende a 1 (o −1 según sea del caso), la aplicación de la función sgn obtendrá por consiguiente un buen resultado.</p>
 <p>Consideremos ahora el tipo de problemas que podremos resolver utilizando un solo perceptron.</p>
 <p><img alt="alt text" src="_images/ORANDXOR.png" /></p>
@@ -611,7 +613,7 @@ f(u) = \frac{\exp(u)}{1 + \exp(u)}
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x3134710&gt;]
 </pre></div>
 </div>
-<img alt="_images/Clase 12 - Redes Neuronales Artificiales_37_1.png" src="_images/Clase 12 - Redes Neuronales Artificiales_37_1.png" />
+<img alt="_images/Clase 12 - Redes Neuronales Artificiales_36_1.png" src="_images/Clase 12 - Redes Neuronales Artificiales_36_1.png" />
 </div>
 </div>
 <p>La función sigmoide es derivable: $<span class="math notranslate nohighlight">\(\frac{\partial f(u)}{\partial w_i} = f(u)(1-f(u))\frac{\partial u}{\partial w_i}\)</span>$.</p>
@@ -629,7 +631,7 @@ f(u) = \frac{\exp(u)}{1 + \exp(u)}
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x33d3b90&gt;]
 </pre></div>
 </div>
-<img alt="_images/Clase 12 - Redes Neuronales Artificiales_41_1.png" src="_images/Clase 12 - Redes Neuronales Artificiales_41_1.png" />
+<img alt="_images/Clase 12 - Redes Neuronales Artificiales_40_1.png" src="_images/Clase 12 - Redes Neuronales Artificiales_40_1.png" />
 </div>
 </div>
 <p>Si se observa con detenimiento veremos que el rango de valores que toma la función sigmoide está en el intervalo <span class="math notranslate nohighlight">\([0,1]\)</span>, mientras que la tangente hiperbólica está entre <span class="math notranslate nohighlight">\([-1,1]\;\)</span>. A las funciones de salida de los perceptrones se les conoce como <b> funciones de activación</b>.</p>
@@ -801,7 +803,7 @@ E_n = \frac{1}{2}\sum_k(y_{nk} - t_{nk})^2
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1500, 2)
 </pre></div>
 </div>
-<img alt="_images/Clase 12 - Redes Neuronales Artificiales_73_1.png" src="_images/Clase 12 - Redes Neuronales Artificiales_73_1.png" />
+<img alt="_images/Clase 12 - Redes Neuronales Artificiales_72_1.png" src="_images/Clase 12 - Redes Neuronales Artificiales_72_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -842,7 +844,7 @@ E_n = \frac{1}{2}\sum_k(y_{nk} - t_{nk})^2
 The goal of learning is reached
 </pre></div>
 </div>
-<img alt="_images/Clase 12 - Redes Neuronales Artificiales_74_1.png" src="_images/Clase 12 - Redes Neuronales Artificiales_74_1.png" />
+<img alt="_images/Clase 12 - Redes Neuronales Artificiales_73_1.png" src="_images/Clase 12 - Redes Neuronales Artificiales_73_1.png" />
 </div>
 </div>
 </div>
@@ -883,7 +885,7 @@ The goal of learning is reached
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6ccc4f9150&gt;
 </pre></div>
 </div>
-<img alt="_images/Clase 12 - Redes Neuronales Artificiales_76_2.png" src="_images/Clase 12 - Redes Neuronales Artificiales_76_2.png" />
+<img alt="_images/Clase 12 - Redes Neuronales Artificiales_75_2.png" src="_images/Clase 12 - Redes Neuronales Artificiales_75_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -913,7 +915,7 @@ The goal of learning is reached
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6cccbd37d0&gt;
 </pre></div>
 </div>
-<img alt="_images/Clase 12 - Redes Neuronales Artificiales_77_2.png" src="_images/Clase 12 - Redes Neuronales Artificiales_77_2.png" />
+<img alt="_images/Clase 12 - Redes Neuronales Artificiales_76_2.png" src="_images/Clase 12 - Redes Neuronales Artificiales_76_2.png" />
 </div>
 </div>
 </div>
@@ -984,7 +986,7 @@ The goal of learning is reached
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

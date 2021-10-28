@@ -9,3 +9,10 @@
 **03 - Tipos de aprendizaje automático**: [Video 26mins](https://www.youtube.com/watch?v=XM-RSxrIJ-8) <br/> Se presentan los tipos de aprendizaje automático más comunes: supervisado, no supervisado, auto supervisado y por refuerzo, así como la nomenclatura matemática básica que se usa para representar los problemas supervisados y no supervisados.
 
 **04 - Aprendizaje supervisado: clasificación vs regresión**: [Video 12mins](https://www.youtube.com/watch?v=ya0umhsbNTE) <br/> Se explica la diferencia entre los problemas de aprendizaje supervisado conocidos como clasificación y regresión, así como sus formas de representación gráfica. 
+
+**05 - Componentes de un modelo de ML**: [Video 11mins](https://www.youtube.com/watch?v=4fXhLRE1bIQ) <br/> Se explican los tres componentes básicos que deben considerarse cuando se selecciona un modelo de ML y los diferentes niveles de abstracción en los que se puede aproximar una solución.
+
+
+## Modelos básicos de aprendizaje
+
+

@@ -39,6 +39,6 @@ Se realiza una avance parcial del proyecto que incluye partes I y II de la guía
 
 ## Sesiones sincrónicas
 
-Para acceder a las sesiones sincrónicas: [zoom link](https://udea.zoom.us/j/95633490010)
+Para acceder a las sesiones sincrónicas: Masrtes - Jueves: [zoom link](https://udea.zoom.us/j/95692318402) Laboratorios: Viernes [zoom link](https://udea.zoom.us/j/92740055099)
 
-Las grabaciones de las sesiones pueden encontrarlas en: [zoom recordings](http://ingeniaudea.edu.co/zoom-recordings/recordings/docenciaingenia84@udea.edu.co/95633490010/2021-02-28)
+Las grabaciones de las sesiones de Martes - Jueves pueden encontrarlas en: [zoom recordings](http://ingeniaudea.edu.co/zoom-recordings/recordings/docenciaingenia68@udea.edu.co/95692318402/2021-02-28) y de las sesiones de laboratorios en: [zoom recordings](http://ingeniaudea.edu.co/zoom-recordings/recordings/docenciaingenia68@udea.edu.co/92740055099/2021-02-28)

@@ -20,3 +20,8 @@
 **07 - Algoritmo de gradiente descendente**: [Video 20mins]() <br/> Se continúa con el análisis de la regresión múltiple desde perspectivas de mediano y bajo nivel, y para esta última se explica el funcionamiento del algoritmo de gradiente descendente.
 
 **08 - Regresión logística**: [Video 30mins]() <br/> Con base en un modelo de regresión y en el algoritmo de gradiente descedente se introduce el modelo de regresión logística que sirve para resolver problemas de clasificación.
+
+
+## Modelos discriminativos vs modelos generativos
+
+**09 - Funciones discriminantes Gausianas**: [Video 30mins]() <br/> Se discuten los modelos generativos los cuales utilizan un principio de funcionamiento diferente para resolver los problemas de clasificación y se presenta el modelo de funcionaes discriminantes Gausianas.

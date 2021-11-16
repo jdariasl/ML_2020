@@ -1,6 +1,6 @@
 # Course information
 
-**2020 - Introducción al Machine Learning**
+**2021 - Introducción al Machine Learning**
 
 - [REGISTRO DE GRUPOS DE PROYECTO]() (solo un registro por grupo)
 

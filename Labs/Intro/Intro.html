@@ -585,18 +585,52 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-11-18 14:17:45--  https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 14632 (14K) [text/plain]
+Saving to: ‘general.py’
+
+
+general.py            0%[                    ]       0  --.-KB/s               
+general.py          100%[===================&gt;]  14.29K  --.-KB/s    in 0s      
+
+2021-11-18 14:17:45 (62.0 MB/s) - ‘general.py’ saved [14632/14632]
+
+lab configuration started
+installing libraries
+downloading files
+lab configured
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="introducion-para-los-laboratorios-de-machine-learning">
 <h1>Introdución para los laboratorios de Machine Learning<a class="headerlink" href="#introducion-para-los-laboratorios-de-machine-learning" title="Permalink to this headline">¶</a></h1>
-<p>Este material explica a detalle los laboratorios que realizarán durante el curso. Los laboratorios están en Python 3.7, y son escritos usando <a class="reference external" href="https://jupyter.org">notebooks</a> que estan adaptados para ser ejecutados en la herramienta <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb#scrollTo=5fCEDCU_qrC0">Google Colab</a>.</p>
+<p>Este sección explica los laboratorios que realizarán durante el curso.</p>
+<ol class="simple">
+<li><p>Los laboratorios están en Python 3.7</p></li>
+<li><p>Son escritos usando <a class="reference external" href="https://jupyter.org">notebooks</a></p></li>
+<li><p>Estan adaptados para ser ejecutados en la herramienta <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb#scrollTo=5fCEDCU_qrC0">Google Colab</a>.</p></li>
+</ol>
 <p>En este notebook veremos la siguiente información que sera nuestra base para todas nuestras sesiones.</p>
 <ol class="simple">
-<li><p>Introducción a <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb#scrollTo=5fCEDCU_qrC0">Google Colab</a> y de como usarlos para el desarrollo de las practicas</p></li>
+<li><p>Introducción a <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb#scrollTo=5fCEDCU_qrC0">Google Colab</a> como usarlo para el desarrollo de las practicas</p></li>
 <li><p>Conceptos rapidos de Python</p></li>
+<li><p>Basicos y más importantes</p></li>
+<li><p>Profundización (Lectura y pratica)</p></li>
 <li><p>Manejo de vectores y matrices en NumPy</p></li>
+<li><p>Basicos y más importantes</p></li>
+<li><p>Profundización (Lectura y pratica)</p></li>
 <li><p>Manejo de estructuras de datos en pandas</p></li>
+<li><p>Basicos y más importantes</p></li>
+<li><p>Profundización (Lectura y pratica)</p></li>
 <li><p>Manejo de gráficas en matplotlib y pandas</p></li>
-<li><p>Estructuras de los laboratorios y comentarios finales</p></li>
+<li><p>Basicos y más importantes</p></li>
+<li><p>Profundización (Lectura y pratica)</p></li>
+<li><p>Estructuras de los laboratorios</p></li>
 </ol>
 <p>En cada una de las secciones pueden encontrar diferentes ejercicios para ir practicando y afianzado los conceptos presentados.</p>
 <div class="section" id="google-colab-y-jupyter-notebooks">
@@ -625,23 +659,24 @@
 <p>En las últimas sesiones de nuestro laboratorio, realizaremos una práctica donde ahondaremos un poco más en este tema.</p>
 <div class="section" id="manejo-de-google-colab">
 <h3>Manejo de Google Colab<a class="headerlink" href="#manejo-de-google-colab" title="Permalink to this headline">¶</a></h3>
-<p>Colaboratory, o Colab, te permite escribir y ejecutar código de Python en un navegador.</p>
+<p>Colaboratory, o Colab, permite escribir y ejecutar código de Python en un navegador, con las siguentes ventajas:</p>
 <ul class="simple">
-<li><p>Sin configuración requerida</p></li>
+<li><p>Sin configuración requerida (Python, Jupyter)</p></li>
 <li><p>Acceso gratuito a GPU</p></li>
-<li><p>Facilidad para compartir</p></li>
+<li><p>Facilidad para compartir y desarrollar los notebooks de manera interactiva</p></li>
 </ul>
-<p>No importa si eres <strong>estudiante</strong>, <strong>científico de datos</strong>* o <strong>investigador de IA</strong>, Colab fue concebido para facilitarnos algunas de nuestras tareas. Mira <a class="reference external" href="https://www.youtube.com/watch?v=inN8seMm7UI">este video introductorio sobre Colab</a>. En Colab, existen dos tipos de celdas:</p>
+<p>Mira <a class="reference external" href="https://www.youtube.com/watch?v=inN8seMm7UI">este video introductorio sobre Colab</a>, para entender como Colab nos ayuda agilizar algunas tareas. El icono de <em>launch</em> en la parte superior derecha permite lanzar el notebook directamente Colab.</p>
+<p>En Colab, existen dos tipos de celdas:</p>
 <blockquote>
 <div><p>Las celdas de texto: estan escrita con <em>Markdown</em>, un lenguaje de etiquetado más legible para la decoración de texto, se puede hacer desde encabezados, usar <a class="reference external" href="http://www.latex-project.org/">LaTeX</a>, símbolos matemáticos, listas enumeradas, entre otros.</p>
 </div></blockquote>
 <blockquote>
 <div><p>Las celdas de código: son ejecutables, es decir, se pueden correr individualmente.</p>
 </div></blockquote>
-<p>El icono de <em>launch</em> en la parte superior derecha permite lanzar el notebook directamente Colab.</p>
 <p>Recuerda que una vez abierto, Debes dar clic en “Copiar en Drive”. De lo contrario no podras alamancenar tu progreso y ni compartirlo con tu profesor.</p>
 <p>Como se menciono, cada celda de codigo se ejecuta por separado. Esto implica que <strong>la ejecución se realiza de arriba hacia abajo en orden</strong>. Es así como evitamos problemas de importación de librerías o variables sin definir.</p>
 <p>Por ejemplo, esta es una celda de código con una secuencia de comandos Python corta que calcula un valor, lo almacena en una variable y devuelve el resultado:</p>
+<p>(A fin de ejecutar el código en la celda anterior, haz clic en él para seleccionarlo y, luego, presiona el botón de reproducción ubicado a la izquierda del código o usa la combinación de teclas “Command/Ctrl + Intro”. )</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seconds_in_a_day</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span>
@@ -649,10 +684,13 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86400
+</pre></div>
 </div>
-<p>A fin de ejecutar el código en la celda anterior, haz clic en él para seleccionarlo y, luego, presiona el botón de reproducción ubicado a la izquierda del código o usa la combinación de teclas “Command/Ctrl + Intro”.</p>
-<p>Para editar el código, solo haz clic en la celda y comienza a editar.</p>
-<p>Las variables que defines en una celda pueden usarse en otras:</p>
+</div>
+</div>
+<p>Para editar el código, solo haz clic en la celda y comienza a editar. Las variables que defines en una celda pueden usarse en otras:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seconds_in_a_week</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">seconds_in_a_day</span>
@@ -661,8 +699,8 @@
 </div>
 </div>
 </div>
-<p>!Ahora es tu turno!
-Haz click en la opción “+ Texto” (en la parte de arriba o al final de la celda, tambien te debe aparecer y dirijes el puntero en la parte inferior de la celda) y añade una celda de texto y prueba escribir algo.</p>
+<p><strong>Ahora es tu turno</strong>
+Haz click en la opción “+ Texto” (en la parte de arriba o al final de la celda, tambien te debe aparecer si dirijes el puntero en la parte inferior de la celda).  Añade una celda de texto y prueba escribir algo.</p>
 <p>Luego, añade una celda de código  en la opción ” + Codigo”  (en la parte de arriba o al final de la celda, tambien te debe aparecer si dirijes el puntero en la parte inferior de la celda) y escribe las siguientes lineas y ejecutalas.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zero_to_nine</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">zero_to_nine</span><span class="p">:</span>
@@ -676,7 +714,8 @@ Haz click en la opción “+ Texto” (en la parte de arriba o al final de la ce
 </div>
 <div class="section" id="conceptos-rapidos-de-python-crash-course">
 <h2>Conceptos rapidos de Python (Crash Course!)<a class="headerlink" href="#conceptos-rapidos-de-python-crash-course" title="Permalink to this headline">¶</a></h2>
-<p>En esta sección se hace un recuerdo/presentación de conceptos utiles de Python, si bien para el desarrollo del curso no es necesario y no se busca que las practicas esten enfocadas a desarrollar habilidades especificas de Python, si es de utilidad tener claras algunas capacidades de Python.</p>
+<p>En esta sección se hace una presentación de conceptos utiles de Python, si bien para el desarrollo del curso no es necesario y no se busca que las practicas esten enfocadas a desarrollar habilidades especificas de Python, si es de utilidad tener claras algunas capacidades de Python.</p>
+<p>Durante nuestra sesión</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tuplas</span>
@@ -1203,7 +1242,7 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 <p>Usando esta imagen entendemos, un poco mas la operación</p>
-<p><img alt="vectorization" src="../../_images/vectorization.png" /></p>
+<p><img alt="vectorization" src="https://github.com/jdariasl/ML_2020/blob/master/Labs/commons/images/vectorization.png?raw=1" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># implementacion con numpy</span>

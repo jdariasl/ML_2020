@@ -515,8 +515,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basicos-y-mas-importantes">
-     Basicos y más importantes
+    <a class="reference internal nav-link" href="#basicos">
+     Básicos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -524,42 +524,41 @@
      Profundización
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manejo-vectores-y-matrices-en-numpy">
+   Manejo vectores y matrices en NumPy
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manejo-vectores-y-matrices-en-numpy">
-     Manejo vectores y matrices en NumPy
+    <a class="reference internal nav-link" href="#id1">
+     Básicos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creacion-de-matrices">
-     Creación de matrices
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#indexacion">
-     Indexación
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#concatenar-vectores-y-matrices">
-     Concatenar vectores y matrices
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#otras-funcionalidades-de-numpy">
-     Otras funcionalidades de Numpy
+    <a class="reference internal nav-link" href="#profundizacion-en-numpy">
+     Profundización en numpy
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#manejo-de-estructuras-de-datos-en-pandas">
-   Manejo de estructuras de datos en Pandas
+  <a class="reference internal nav-link" href="#manejo-de-estructuras-de-datos-en-pandas-graficos-en-matplotlib">
+   Manejo de estructuras de datos en Pandas. Graficos en matplotlib
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#manejo-de-graficas-en-matplotlib-y-pandas">
-   Manejo de gráficas en matplotlib y pandas
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Básicos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Profundización
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estructura-de-los-laboratorios">
@@ -595,27 +594,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-11-18 14:17:45--  https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 14632 (14K) [text/plain]
-Saving to: ‘general.py’
-
-
-general.py            0%[                    ]       0  --.-KB/s               
-general.py          100%[===================&gt;]  14.29K  --.-KB/s    in 0s      
-
-2021-11-18 14:17:45 (62.0 MB/s) - ‘general.py’ saved [14632/14632]
-
-lab configuration started
-installing libraries
-downloading files
-lab configured
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="introducion-para-los-laboratorios-de-machine-learning">
 <h1>Introdución para los laboratorios de Machine Learning<a class="headerlink" href="#introducion-para-los-laboratorios-de-machine-learning" title="Permalink to this headline">¶</a></h1>
@@ -628,18 +606,24 @@ lab configured
 <p>En este notebook veremos la siguiente información que sera nuestra base para todas nuestras sesiones.</p>
 <ol class="simple">
 <li><p>Introducción a <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb#scrollTo=5fCEDCU_qrC0">Google Colab</a> como usarlo para el desarrollo de las practicas</p></li>
-<li><p>Conceptos rapidos de Python</p></li>
-<li><p>Basicos y más importantes</p></li>
-<li><p>Profundización (Lectura y pratica)</p></li>
-<li><p>Manejo de vectores y matrices en NumPy</p></li>
-<li><p>Basicos y más importantes</p></li>
-<li><p>Profundización (Lectura y pratica)</p></li>
-<li><p>Manejo de estructuras de datos en pandas</p></li>
-<li><p>Basicos y más importantes</p></li>
-<li><p>Profundización (Lectura y pratica)</p></li>
-<li><p>Manejo de gráficas en matplotlib y pandas</p></li>
-<li><p>Basicos y más importantes</p></li>
-<li><p>Profundización (Lectura y pratica)</p></li>
+<li><p>Conceptos rapidos de Python</p>
+<ol class="simple">
+<li><p>Básicos y más importantes</p></li>
+<li><p>Profundización (Lectura y práctica)</p></li>
+</ol>
+</li>
+<li><p>Manejo de vectores y matrices en NumPy</p>
+<ol class="simple">
+<li><p>Básicos y más importantes</p></li>
+<li><p>Profundización (Lectura y práctica)</p></li>
+</ol>
+</li>
+<li><p>Manejo de estructuras de datos en pandas. Graficos en matplolib</p>
+<ol class="simple">
+<li><p>Básicos y más importantes</p></li>
+<li><p>Profundización (Lectura y práctica)</p></li>
+</ol>
+</li>
 <li><p>Estructuras de los laboratorios</p></li>
 </ol>
 <p>En cada una de las secciones pueden encontrar diferentes ejercicios para ir practicando y afianzado los conceptos presentados.</p>
@@ -659,7 +643,7 @@ lab configured
 <p>Sin embargo también ha logrado una buena pouplaridad en otros entornos. inlcusive, se ha discuito que <a class="reference external" href="https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/">pueden ser una buena alternativa para susbtituir el formato estandar del paper cientifico</a>.</p>
 <p>De la misma manera los jupyter notebook son la base para productos comerciales de los principales proveedores de computación en la nube como lo son:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://cloud.google.com/ai-platform/?hl=es-419">AI Platform</a> De Google Computing Platform</p></li>
+<li><p><a class="reference external" href="https://cloud.google.com/ai-platform/?hl=es-419">AI Platform</a> De Google Computing Platform. O <a class="reference external" href="https://cloud.google.com/vertex-ai">VertexAI</a></p></li>
 <li><p><a class="reference external" href="https://aws.amazon.com/es/sagemaker/">Amazon SageMaker</a> de Amazon Web Services</p></li>
 <li><p><a class="reference external" href="https://notebooks.azure.com/">Azure Notebooks</a> de Microsoft Azure</p></li>
 <li><p>Y otros servicios usados en entornos de Big Data como son <a class="reference external" href="https://databricks.com/">Databricks</a>, <a class="reference external" href="https://www.cloudera.com/products/data-science-and-engineering/data-science-workbench.html">Cloudera</a> y <a class="reference external" href="https://zeppelin.apache.org/">Apache Zepelin</a>.</p></li>
@@ -694,11 +678,6 @@ lab configured
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86400
-</pre></div>
-</div>
-</div>
 </div>
 <p>Para editar el código, solo haz clic en la celda y comienza a editar. Las variables que defines en una celda pueden usarse en otras:</p>
 <div class="cell docutils container">
@@ -726,8 +705,8 @@ Haz click en la opción “+ Texto” (en la parte de arriba o al final de la ce
 <h2>Conceptos de Python<a class="headerlink" href="#conceptos-de-python" title="Permalink to this headline">¶</a></h2>
 <p>En esta sección se hace una presentación de conceptos utiles de Python, si bien para el desarrollo del curso no es necesario y no se busca que las practicas esten enfocadas a desarrollar habilidades especificas de Python, si es de utilidad tener claras algunas capacidades de Python.</p>
 <p>Durante nuestra sesión</p>
-<div class="section" id="basicos-y-mas-importantes">
-<h3>Basicos y más importantes<a class="headerlink" href="#basicos-y-mas-importantes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="basicos">
+<h3>Básicos<a class="headerlink" href="#basicos" title="Permalink to this headline">¶</a></h3>
 <p>Aca solo veremos conceptos que van ser muy comunes en nuestro laboratorio. Se recomienda leer y praticas la siguiente subsección.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -765,11 +744,11 @@ Haz click en la opción “+ Texto” (en la parte de arriba o al final de la ce
 <span class="n">age</span><span class="o">=</span><span class="mi">17</span>
 
 <span class="k">if</span> <span class="n">age</span><span class="o">&gt;</span><span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;you can enter&quot;</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;you can enter to concert&quot;</span> <span class="p">)</span>
 <span class="k">elif</span> <span class="n">age</span><span class="o">==</span><span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;go see Pink Floyd&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can enter after listen Pink Floyd&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;go see Black pink / BTS&quot;</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You cannot enter, instead you can listen Black pink / BTS&quot;</span> <span class="p">)</span>
     
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;move on&quot;</span><span class="p">)</span>
@@ -817,11 +796,6 @@ Haz click en la opción “+ Texto” (en la parte de arriba o al final de la ce
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 3, &#39;hola&#39;}
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -856,20 +830,10 @@ Haz click en la opción “+ Texto” (en la parte de arriba o al final de la ce
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_a_sum_with_bonus</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 </div>
@@ -891,13 +855,6 @@ Haz click en la opción “+ Texto” (en la parte de arriba o al final de la ce
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>welcome to Python
-is Python!is Python!
-This is test number 15
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -911,14 +868,6 @@ This is test number 15
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fi
-rst second third
-st
-d
 </pre></div>
 </div>
 </div>
@@ -945,19 +894,11 @@ d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1020
-30
- 
-w
-23
-</pre></div>
-</div>
 </div>
 </div>
 </div>
 <div class="section" id="manejo-vectores-y-matrices-en-numpy">
-<h3>Manejo vectores y matrices en NumPy<a class="headerlink" href="#manejo-vectores-y-matrices-en-numpy" title="Permalink to this headline">¶</a></h3>
+<h2>Manejo vectores y matrices en NumPy<a class="headerlink" href="#manejo-vectores-y-matrices-en-numpy" title="Permalink to this headline">¶</a></h2>
 <p>NumPy es un paquete que proporciona herramientas y técnicas para manipular estructuras de datos con matrices, es mucho mejor que las listas de Python, tiene acceso y escritura más rápida. Posee una amplia colección de herramientas y técnicas que se pueden utilizar para resolver problemas mátematicos, además de que contiene todas las funciones para trabajar con matrices.</p>
 <p>A continuación encontrá algunas funciones muy útiles para los laboratorios, tales como:</p>
 <ul class="simple">
@@ -968,9 +909,9 @@ w
 <li><p>Multiplicación matricial</p></li>
 <li><p>Indexación de matrices</p></li>
 </ul>
-</div>
-<div class="section" id="creacion-de-matrices">
-<h3>Creación de matrices<a class="headerlink" href="#creacion-de-matrices" title="Permalink to this headline">¶</a></h3>
+<p>Y en la subsección Siguiente se da algunos ejemplos para profundizar en el manejo de numpy.</p>
+<div class="section" id="id1">
+<h3>Básicos<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>El paquete NumPy introdujo los arrays N-dimensionales, acontinuación se mostrará las rutinas más utilizadas en los laboratorios. (Más rutinas <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html">aquí</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1189,9 +1130,6 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="indexacion">
-<h3>Indexación<a class="headerlink" href="#indexacion" title="Permalink to this headline">¶</a></h3>
 <p>Para hacer una indexación en matrices se accede con los corchetes y siempre se define así: [filas,columnas]. Observa que la separación se realiza con una coma ( , )</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = matrix[filas, columnas]
 </pre></div>
@@ -1241,9 +1179,7 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="concatenar-vectores-y-matrices">
-<h3>Concatenar vectores y matrices<a class="headerlink" href="#concatenar-vectores-y-matrices" title="Permalink to this headline">¶</a></h3>
+<p>Concatenar vectores y matrices</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span>
@@ -1286,9 +1222,52 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 </div>
+<p>Recordar que el uso de numpy es preferido para la implementación, de los algoritmos,  ya que al usar la libreria, los codigos son mas efecientes y se logran los beneficios de la <strong>vectorización</strong>, por ejemplo, al realizar la siguiente operación, es posible realizarla con ciclos <strong>for</strong>. pero al usar la representación matricial y las librerias de numpy tenemos algunos beneficios.</p>
+<p><span class="math notranslate nohighlight">\(m = a \cdot b \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape de a&quot;</span><span class="p">,</span> <span class="n">matriz_a_for</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape de b&quot;</span><span class="p">,</span> <span class="n">matriz_b_for</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="otras-funcionalidades-de-numpy">
-<h3>Otras funcionalidades de Numpy<a class="headerlink" href="#otras-funcionalidades-de-numpy" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<p>Usando esta imagen entendemos, un poco mas la operación</p>
+<p><img alt="vectorization" src="https://github.com/jdariasl/ML_2020/blob/master/Labs/commons/images/vectorization.png?raw=1" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># implementacion con numpy</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matriz_a_for</span><span class="p">,</span> <span class="n">matriz_b_for</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time en ms&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> results </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Implementacion la operacion mediante ciclos for</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+      <span class="n">aa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">matriz_a_for</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">*</span><span class="n">matriz_b_for</span><span class="p">)</span>
+      <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">aa</span>
+  <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time en ms&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> results </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con ciclos <strong>for</strong> tenemos una implementación que es casi 200 %  más lenta que la implementación “vectorizada”.</p>
+</div>
+<div class="section" id="profundizacion-en-numpy">
+<h3>Profundización en numpy<a class="headerlink" href="#profundizacion-en-numpy" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Calculo del promedio</span>
@@ -1374,53 +1353,12 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </div>
 </div>
 </div>
-<p>Recordar que el uso de numpy es preferido para la implementación, de los algoritmos,  ya que al usar la libreria, los codigos son mas efecientes y se logran los beneficios de la <strong>vectorización</strong>, por ejemplo, al realizar la siguiente operación, es posible realizarla con ciclos <strong>for</strong>. pero al usar la representación matricial y las librerias de numpy tenemos algunos beneficios.</p>
-<p><span class="math notranslate nohighlight">\(m = a \cdot b \)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape de a&quot;</span><span class="p">,</span> <span class="n">matriz_a_for</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape de b&quot;</span><span class="p">,</span> <span class="n">matriz_b_for</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
-</div>
-<p>Usando esta imagen entendemos, un poco mas la operación</p>
-<p><img alt="vectorization" src="https://github.com/jdariasl/ML_2020/blob/master/Labs/commons/images/vectorization.png?raw=1" /></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># implementacion con numpy</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-  <span class="n">s</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matriz_a_for</span><span class="p">,</span> <span class="n">matriz_b_for</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-  <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time en ms&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> results </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Implementacion la operacion mediante ciclos for</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-  <span class="n">s</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-      <span class="n">aa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">matriz_a_for</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">*</span><span class="n">matriz_b_for</span><span class="p">)</span>
-      <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">aa</span>
-  <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time en ms&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> results </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Con ciclos <strong>for</strong> tenemos una implementación que es casi 200 %  más lenta que la implementación “vectorizada”.</p>
-</div>
-</div>
-<div class="section" id="manejo-de-estructuras-de-datos-en-pandas">
-<h2>Manejo de estructuras de datos en Pandas<a class="headerlink" href="#manejo-de-estructuras-de-datos-en-pandas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manejo-de-estructuras-de-datos-en-pandas-graficos-en-matplotlib">
+<h2>Manejo de estructuras de datos en Pandas. Graficos en matplotlib<a class="headerlink" href="#manejo-de-estructuras-de-datos-en-pandas-graficos-en-matplotlib" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>Básicos<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># en la configuracion inical se hace import pandas as pd</span>
@@ -1439,148 +1377,6 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>job</th>
-      <th>marital</th>
-      <th>education</th>
-      <th>default</th>
-      <th>balance</th>
-      <th>housing</th>
-      <th>loan</th>
-      <th>contact</th>
-      <th>day</th>
-      <th>month</th>
-      <th>duration</th>
-      <th>campaign</th>
-      <th>pdays</th>
-      <th>previous</th>
-      <th>poutcome</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>30</td>
-      <td>unemployed</td>
-      <td>married</td>
-      <td>primary</td>
-      <td>no</td>
-      <td>1787</td>
-      <td>no</td>
-      <td>no</td>
-      <td>cellular</td>
-      <td>19</td>
-      <td>oct</td>
-      <td>79</td>
-      <td>1</td>
-      <td>-1</td>
-      <td>0</td>
-      <td>unknown</td>
-      <td>no</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>33</td>
-      <td>services</td>
-      <td>married</td>
-      <td>secondary</td>
-      <td>no</td>
-      <td>4789</td>
-      <td>yes</td>
-      <td>yes</td>
-      <td>cellular</td>
-      <td>11</td>
-      <td>may</td>
-      <td>220</td>
-      <td>1</td>
-      <td>339</td>
-      <td>4</td>
-      <td>failure</td>
-      <td>no</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>35</td>
-      <td>management</td>
-      <td>single</td>
-      <td>tertiary</td>
-      <td>no</td>
-      <td>1350</td>
-      <td>yes</td>
-      <td>no</td>
-      <td>cellular</td>
-      <td>16</td>
-      <td>apr</td>
-      <td>185</td>
-      <td>1</td>
-      <td>330</td>
-      <td>1</td>
-      <td>failure</td>
-      <td>no</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>30</td>
-      <td>management</td>
-      <td>married</td>
-      <td>tertiary</td>
-      <td>no</td>
-      <td>1476</td>
-      <td>yes</td>
-      <td>yes</td>
-      <td>unknown</td>
-      <td>3</td>
-      <td>jun</td>
-      <td>199</td>
-      <td>4</td>
-      <td>-1</td>
-      <td>0</td>
-      <td>unknown</td>
-      <td>no</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>59</td>
-      <td>blue-collar</td>
-      <td>married</td>
-      <td>secondary</td>
-      <td>no</td>
-      <td>0</td>
-      <td>yes</td>
-      <td>no</td>
-      <td>unknown</td>
-      <td>5</td>
-      <td>may</td>
-      <td>226</td>
-      <td>1</td>
-      <td>-1</td>
-      <td>0</td>
-      <td>unknown</td>
-      <td>no</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1589,68 +1385,6 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>job</th>
-      <th>marital</th>
-      <th>education</th>
-      <th>default</th>
-      <th>balance</th>
-      <th>housing</th>
-      <th>loan</th>
-      <th>contact</th>
-      <th>day</th>
-      <th>month</th>
-      <th>duration</th>
-      <th>campaign</th>
-      <th>pdays</th>
-      <th>previous</th>
-      <th>poutcome</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>3380</th>
-      <td>33</td>
-      <td>blue-collar</td>
-      <td>single</td>
-      <td>secondary</td>
-      <td>no</td>
-      <td>142</td>
-      <td>yes</td>
-      <td>no</td>
-      <td>cellular</td>
-      <td>14</td>
-      <td>may</td>
-      <td>123</td>
-      <td>1</td>
-      <td>360</td>
-      <td>3</td>
-      <td>other</td>
-      <td>no</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1663,32 +1397,6 @@ En este  ejercicio tambien vas observar en funcionamiento un concepto de <em>num
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>puedes ver los datos de shape  (4521, 17)
-en forma de renglon 10 todas las columnas, pero retorna una serie
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age                43
-job          services
-marital       married
-education     primary
-default            no
-balance           -88
-housing           yes
-loan              yes
-contact      cellular
-day                17
-month             apr
-duration          313
-campaign            1
-pdays             147
-previous            2
-poutcome      failure
-y                  no
-Name: 9, dtype: object
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1697,71 +1405,6 @@ Name: 9, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>en forma de renglon 10 todas las columnas, pero retorna una df una tabla
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>job</th>
-      <th>marital</th>
-      <th>education</th>
-      <th>default</th>
-      <th>balance</th>
-      <th>housing</th>
-      <th>loan</th>
-      <th>contact</th>
-      <th>day</th>
-      <th>month</th>
-      <th>duration</th>
-      <th>campaign</th>
-      <th>pdays</th>
-      <th>previous</th>
-      <th>poutcome</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>9</th>
-      <td>43</td>
-      <td>services</td>
-      <td>married</td>
-      <td>primary</td>
-      <td>no</td>
-      <td>-88</td>
-      <td>yes</td>
-      <td>yes</td>
-      <td>cellular</td>
-      <td>17</td>
-      <td>apr</td>
-      <td>313</td>
-      <td>1</td>
-      <td>147</td>
-      <td>2</td>
-      <td>failure</td>
-      <td>no</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1774,108 +1417,6 @@ Name: 9, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>primer filtro
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>job</th>
-      <th>marital</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>9</th>
-      <td>43</td>
-      <td>services</td>
-      <td>married</td>
-    </tr>
-  </tbody>
-</table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>segundo filtro
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>job</th>
-      <th>marital</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>9</th>
-      <td>43</td>
-      <td>services</td>
-      <td>married</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>39</td>
-      <td>services</td>
-      <td>married</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>43</td>
-      <td>admin.</td>
-      <td>married</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>36</td>
-      <td>technician</td>
-      <td>married</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>20</td>
-      <td>student</td>
-      <td>single</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>31</td>
-      <td>blue-collar</td>
-      <td>married</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1886,24 +1427,8 @@ Name: 9, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        18
-1       350
-2       346
-3         2
-4         4
-       ... 
-4516     29
-4517      8
-4518     18
-4519    217
-4520    252
-Length: 4521, dtype: int64
-</pre></div>
 </div>
-</div>
-</div>
-<p>Vamos aprovechar tambien los df, para hacer tablas para nuesros experimentos. Podemos ir agregando resultados a la tabla</p>
+<p>Vamos aprovechar tambien los df, para hacer tablas para nuestros experimentos. Podemos ir agregando resultados a la tabla</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creacion de una tabla</span>
@@ -1929,86 +1454,8 @@ Length: 4521, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>parametro</th>
-      <th>error</th>
-      <th>tipo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1.0</td>
-      <td>0.10</td>
-      <td>entrenamiento</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2.0</td>
-      <td>0.20</td>
-      <td>entrenamiento</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3.0</td>
-      <td>0.30</td>
-      <td>entrenamiento</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5.0</td>
-      <td>0.01</td>
-      <td>entrenamiento</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>0.10</td>
-      <td>validacion</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2.0</td>
-      <td>0.20</td>
-      <td>validacion</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>3.0</td>
-      <td>0.30</td>
-      <td>validacion</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>5.0</td>
-      <td>0.01</td>
-      <td>validacion</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
-</div>
-<div class="section" id="manejo-de-graficas-en-matplotlib-y-pandas">
-<h2>Manejo de gráficas en matplotlib y pandas<a class="headerlink" href="#manejo-de-graficas-en-matplotlib-y-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Manejo de gráficas en matplotlib y pandas</p>
 <p>Ahora utilizaremos la librería matplotlib para hacer algunos ejemplos de gráficas básicas:</p>
 <div class="math notranslate nohighlight">
 \[ y = x \]</div>
@@ -2034,9 +1481,6 @@ Length: 4521, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_90_0.png" src="../../_images/Intro_90_0.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2046,9 +1490,6 @@ Length: 4521, dtype: int64
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_91_0.png" src="../../_images/Intro_91_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2062,9 +1503,6 @@ Length: 4521, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_92_0.png" src="../../_images/Intro_92_0.png" />
-</div>
 </div>
 <p>Generando gráfica punteada</p>
 <div class="cell docutils container">
@@ -2077,9 +1515,6 @@ Length: 4521, dtype: int64
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_94_0.png" src="../../_images/Intro_94_0.png" />
 </div>
 </div>
 <p>Dos gráficas en el mismo plano</p>
@@ -2095,9 +1530,6 @@ Length: 4521, dtype: int64
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_96_0.png" src="../../_images/Intro_96_0.png" />
 </div>
 </div>
 <p>Agregando el legend al gráfico</p>
@@ -2115,10 +1547,32 @@ Length: 4521, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_98_0.png" src="../../_images/Intro_98_0.png" />
+</div>
+<p>De igual manera, si tenemos un pandas dataframe, se puede simplificar nuestros codigos, y podemos hacer plots con menos lineas de codigo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span><span class="s1">&#39;tipo&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;tipo&#39;</span><span class="p">])[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Profundización<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Graficas de barras</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2139,9 +1593,6 @@ Length: 4521, dtype: int64
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_100_0.png" src="../../_images/Intro_100_0.png" />
 </div>
 </div>
 <p>Gráficos para problemas de clasificación en Machine learning. Scatter plots</p>
@@ -2173,9 +1624,6 @@ Length: 4521, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_102_0.png" src="../../_images/Intro_102_0.png" />
-</div>
 </div>
 <p>También representar gráficas para visualizar relaciones matemáticas útiles</p>
 <p><span class="math notranslate nohighlight">\(P(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma }exp-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}\)</span></p>
@@ -2192,9 +1640,6 @@ Length: 4521, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_104_0.png" src="../../_images/Intro_104_0.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2204,73 +1649,28 @@ Length: 4521, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Intro_105_0.png" src="../../_images/Intro_105_0.png" />
-</div>
-</div>
-<p>De igual manera, si tenemos un pandas dataframe, se puede simplificar nuestros codigos, y podemos hacer plots con menos lineas de codigo.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f00bb8c30b8&gt;
-</pre></div>
-</div>
-<img alt="../../_images/Intro_107_1.png" src="../../_images/Intro_107_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span><span class="s1">&#39;tipo&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f00ba5a2278&gt;
-</pre></div>
-</div>
-<img alt="../../_images/Intro_108_1.png" src="../../_images/Intro_108_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;tipo&#39;</span><span class="p">])[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f00b6577358&gt;
-</pre></div>
-</div>
-<img alt="../../_images/Intro_109_1.png" src="../../_images/Intro_109_1.png" />
-</div>
 </div>
 <p>Ejercicio!</p>
 <p><a class="reference external" href="https://pandas.pydata.org/">Explora un poco más la librería de pandas</a></p>
 <p><a class="reference external" href="https://seaborn.pydata.org/">Explora esta librería de visualizacion que se integra con pandas</a></p>
 </div>
+</div>
 <div class="section" id="estructura-de-los-laboratorios">
 <h2>Estructura de los laboratorios<a class="headerlink" href="#estructura-de-los-laboratorios" title="Permalink to this headline">¶</a></h2>
+<p>En los laboratorios van encontrar diferentes clases de ejercicios, estos se pueden resumir en los siguientes puntos</p>
 <ol class="simple">
 <li><p>Contextualización del problema y entedimiento de los datos</p></li>
 </ol>
-<p>Se busca que tenga un contexto del problema que se está abordando, de modo que les ayude a resolver los ejercicios. Es de suma importancia entender de fondo si es un problema de clasificación o regresión, y en cuanto a los datos con los que trabajaremos, el número de clases, muestras y carácteristicas, esto le ayudará para entender los resultados una vez complete los algoritmos y para hacer las gráficas, entre otros.</p>
+<p>Se busca que tenga un contexto del problema que se está abordando, de modo que les ayude a resolver los ejercicios. Es de suma importancia entender de fondo si es un problema de clasificación o regresión. En cuanto a los datos con los que trabajaremos, identificar el número de clases, muestras y carácteristicas. Esto les ayudará para entender los resultados una vez completen los algoritmos y hacer gráficas, responder preguntas abiertas entre otros.</p>
 <ol class="simple">
 <li><p>Completar el código</p></li>
 </ol>
 <p>Hacer la implemetación del algoritmo del modelo. Son modelos que se explicaron en la teoría vista en clase, una vez comprenda su funcionamiento se completa ya sea el algoritmo o la implementación correcta de las librerías usando los recursos que ya tiene el laboratorio.</p>
 <ol class="simple">
-<li><p>Entrenamiento</p></li>
+<li><p>Entrenamiento y resultados</p></li>
 </ol>
-<p>En este punto debe hacer uso de las funciones escritas en el punto anterior para realizar el proceso de modelamiento y simulación de los datos de cargados en el punto 1</p>
-<ol class="simple">
-<li><p>Resultados</p></li>
-</ol>
-<p>Completar la tabla de resultados y derivar conclusiones de estos mismos.</p>
-<p>En cada uno de esta sesiones, vas encontrar ejercicios de codigo similares al siguiente:</p>
+<p>En este punto debe hacer uso de las funciones escritas en el punto anterior para realizar el proceso de modelamiento y simulación de los datos de cargados en el punto 1. En escencia tambien es un ejercicio de completar código, pero usando funciones previas y/o completar código para generar una tabla de resultados y derivar conclusiones de estos mismos.</p>
+<p>Los ejercicios para completar parte del código, son similares al siguiente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#La celda comenzara con este aviso:</span>
@@ -2302,11 +1702,6 @@ Length: 4521, dtype: int64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># seguido de la celda siempre encontraras el codigo para testear si tu implementacion fue correcta</span>
 <span class="c1">## Es muy importante que esta celda de codigo NO la modifiques</span>
 <span class="n">GRADER_INTRO_LAB</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio1&quot;</span><span class="p">,</span> <span class="n">mult_matrices</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TEST EXITOSO!
 </pre></div>
 </div>
 </div>
@@ -2342,12 +1737,6 @@ Length: 4521, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Todos los test pasaron!
-TEST EXITOSO!
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2380,11 +1769,6 @@ TEST EXITOSO!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TEST EXITOSO!
-</pre></div>
-</div>
-</div>
 </div>
 <p>De igual manera, en cada notebook van a encontrar <strong>preguntas abiertas</strong>, Que deberán ser respondidas con:</p>
 <ul class="simple">
@@ -2401,17 +1785,14 @@ TEST EXITOSO!
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>Recuerda seguir el código del honor y responder concientemente:
-- son un es espacio de aprendizaje
-- sirven para afianzar tus conocimientos
-- sirve para validar como interpretas lo que haces
-- son revisadas (hay algoritmos que me ayudan a detectar respuestas similares... ¡incluso de semestres pasados!)
-</pre></div>
-</div>
-</div>
-</div>
+<p>Recuerda seguir el código del honor y responder concientemente:</p>
+<ul class="simple">
+<li><p>son un es espacio de aprendizaje</p></li>
+<li><p>sirven para afianzar tus conocimientos</p></li>
+<li><p>sirve para validar como interpretas lo que haces</p></li>
+<li><p>sirven para practicar la síntesis de tu entedimiento</p></li>
+<li><p>son revisadas (hay algoritmos que me ayudan a detectar respuestas similares… ¡incluso de semestres pasados!)</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># en las ultimas  partes del laboratorio vas encontrar esta linea de codigo</span>
@@ -2420,12 +1801,16 @@ TEST EXITOSO!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Todo se ve ok. Asegurate de responder las preguntas en el formualario y envialo ¡buen trabajo!
-</pre></div>
 </div>
-</div>
-</div>
+<p><strong>NOTA de test automaticos y preguntas abiertas</strong></p>
+<ul class="simple">
+<li><p>Los test miden que tu código más que simplemente se ejecute se esté comportando como se debe.</p></li>
+<li><p>Sin embargo debido a que podemos relizar varias soluciones que pueden no estar cubiertas en los tests (adicionado que estos test fueron escritos por un profersor que es humano) se hadn detectado algunos casos que el test no evalúa de manera totalmente correcta la función que se está pidiendo. Esto puede influenciar respuestas no validadas en las preguntas abiertas</p></li>
+<li><p>En estos casos la calificación del código es correcta y se ganan los puntos. Pero en la pregunta abierta no aplicaría lo mismo.
+La idea de las preguntas abiertas es saber que  estamos entendiendo qué está haciendo el código no simplemente que se ejecute bien o que pase el test.
+si hay un error que no se detecta antes de iniciar nuestra sesión de laboratorio, si el test era exitoso los puntos son válidos</p></li>
+<li><p>Ante la duda, de observar que un test este pasando pero los resultados no coinciden con lo que esperamos, <strong>preguntar</strong>.</p></li>
+</ul>
 <p>Finalmente al final de cada notebook, encontrarán un formulario que debe ser diligenciado con la información correspondiente.</p>
 <p><strong>USAR LAS CEDULAS</strong></p>
 <div class="cell docutils container">
@@ -2450,10 +1835,10 @@ TEST EXITOSO!
 <ol class="simple">
 <li><p>Los espacios para laboratorio son para <strong>ustedes</strong>, traten de aprovecharlos al máximo.</p></li>
 <li><p>Es invalido enviar los laboratorios vía correo electronico y otro medio que no haya sido especificado. Se debe seguir el proceso descrito en la anterior sección.</p></li>
-<li><p><strong>Muy buena practica</strong>:  cuando se confirma que todos los tests estan correctos, reinicar el kernel, y dar en ejecutar todas las lineas de codigo. De esta manera te aseguras que todo esta correcto para el envio del laboratorio.</p></li>
-<li><p>Tener en cuenta, que si bien hay tests automáticos, los notebooks serán revisados y ejecutados de <strong>manera manual</strong>. Hagan los ejercicios a <strong>conciencia y con toda la dispocisión para aprender y generar habilidades</strong>.</p></li>
+<li><p>Muy buena práctica: cuando se confirma que todos los tests están correctos, reiniciar el kernel, y dar en ejecutar todas las líneas de código. De esta manera te aseguras que todo está correcto para el envío del laboratorio.</p></li>
+<li><p>Tener en cuenta, que si bien hay tests automáticos, los notebooks serán revisados (<strong>manera manual</strong> preguntas abiertas) y van a ser ejecutados (In notebook con errores pueden determinar una mala calficación) . Hagan los ejercicios a <strong>conciencia y con toda la dispocisión para aprender y generar habilidades</strong>.</p></li>
 <li><p>Es muy importante revisar las guias de laboratorio con anterioridad. Es muy factible que si el primer vistazo que le hacen a la guia es durante la sesión conjunta, el tiempo no sera un aliado.</p></li>
-<li><p>En cada sección se especificara la fecha/hora limite de entrega. Debemos respetar las  reglas definidas para el grupo. <strong>De antemano se entienden que todos podemos tener condiciones/situaciones diferentes, sin embargo no habrá excepciones si no se siguen las pautas descritas en el estatuto estudiantíl</strong>.</p></li>
+<li><p>Las fechas/horas limites de entrega estan definidas. Debemos respetar las  reglas para el grupo. <strong>De antemano se entienden que todos podemos tener condiciones/situaciones diferentes, sin embargo no habrá excepciones si no se siguen las pautas descritas en el estatuto estudiantíl</strong>.</p></li>
 </ol>
 <hr class="docutils" />
 <div class="cell docutils container">

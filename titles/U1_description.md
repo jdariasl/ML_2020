@@ -17,7 +17,7 @@
 
 **06 - Regresión múltiple**: [Video 31mins](https://www.youtube.com/watch?v=CIEMbXPYNoE) <br/> Se repasa el modelo de regresión múltiple y de los tres componentes básicos del modelo de acuerdo con las ideas discutidas en la sesión anterior, desde una perspectiva de alto nivel.
 
-**07 - Algoritmo de gradiente descendente**: [Video 20mins]() <br/> Se continúa con el análisis de la regresión múltiple desde perspectivas de mediano y bajo nivel, y para esta última se explica el funcionamiento del algoritmo de gradiente descendente.
+**07 - Algoritmo de gradiente descendente**: [Video 32mins](https://www.youtube.com/watch?v=vcNw2McLCxU) <br/> Se continúa con el análisis de la regresión múltiple desde perspectivas de mediano y bajo nivel, y para esta última se explica el funcionamiento del algoritmo de gradiente descendente.
 
 **08 - Regresión logística**: [Video 30mins]() <br/> Con base en un modelo de regresión y en el algoritmo de gradiente descedente se introduce el modelo de regresión logística que sirve para resolver problemas de clasificación.
 

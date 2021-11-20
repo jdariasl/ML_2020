@@ -194,16 +194,21 @@ def genarete_data2():
 @unknow_error
 def test_ejercicio_1_p2(func):
     xtrain, x, ytrain, y, _ ,_= genarete_data2()
-    tests = {'Debes retornar el numero de muestras y columnas': func (x, y) == (500, 2, 2),
-             'Recuerda que la funcion debe recibir la variable  como parametro':  func (xtrain, ytrain) == (100,2,1) }
+    tests = {'Debes retornar el numero de muestras y columnas': func (x, y) == (2, 500, 2),
+             'Recuerda que la funcion debe recibir la variable  como parametro':  func (xtrain, ytrain) == (1,100,2) }
     test_res = ut.test_conditions_and_methods(tests)
     return (test_res)
 
 @unknow_error
 def test_ejercicio_2_p2(func):
-    code_to_look = ['scatter', 'X[:,0]', "X[:,1]", "c=Y"]
+    xtrain, x, ytrain, y, _ ,_= genarete_data2()
+    code_to_look = [['scatter', 'X[:,0]', "X[:,1]", "c=Y", "cmap="], ]
     res2 = ut.check_code(code_to_look, func, 'revisar la funcion que se uso de plt')
-    return (res2)
+    tests = {'revisa tu implementacion': ut.work_well(func, X=xtrain, Y=ytrain)}
+
+    test_res = ut.test_conditions_and_methods(tests)
+
+    return (res2 and test_res)
 
 @unknow_error
 def test_sigmoide(func):

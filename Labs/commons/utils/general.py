@@ -144,6 +144,16 @@ class Utils():
 
     def __init__(self):
             pass
+    
+    def work_well(self,func, *args, **kw):
+        try:
+            func(*args, **kw)
+            return True
+        except Exception as e:
+            print("error!")
+            traceback.print_exc()
+            return False
+
 
     def is_func_tester(self, f):
         import types
@@ -321,8 +331,6 @@ class Utils():
         else:
             print (msg)
             return (False)
-
-
 
 
 ### decorators

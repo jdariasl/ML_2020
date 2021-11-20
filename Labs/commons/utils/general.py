@@ -220,15 +220,16 @@ class Utils():
         #print( df1.shape, shape_val)
         cols_test = list(df1.columns) == col_val
         error_t = True
-        for c_e in col_error:
-            error_t = (df1[c_e].nunique() > 1) and (error_t)
-        
-        #print(df1)
-        if len(col_error)>1:
-            error_t = error_t and not(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
-            #print(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
-        else:
-            error_t = error_t
+        if col_error is not None: 
+            for c_e in col_error:
+                error_t = (df1[c_e].nunique() > 1) and (error_t)
+            
+            #print(df1)
+            if len(col_error)>1:
+                error_t = error_t and not(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
+                #print(df1[col_error].eq(df1[col_error].iloc[:, 0], axis=0).all().all())
+            else:
+                error_t = error_t
 
         #print()
         tests = {'Recuerda la funcion debe retornar un dataframe': self.is_dataframe_tester(df1),

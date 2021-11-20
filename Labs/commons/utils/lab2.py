@@ -44,11 +44,11 @@ def test_KNN_Clasificacion(func):
                       [0.9900505 , 1.99002513, 0.01414214, 0.9900505 , 0.84480767],
                       [1.36014705, 2.10950231, 1.11803399, 0.2236068 , 0.26925824]])
     
-    lr1, dr1 =  func(np.random.rand(10,2),  np.random.choice(2,10), np.random.rand(3,2), 5)
-    lr2, dr2 =  func(np.random.rand(10,2),  np.random.choice(2,10), np.random.rand(3,2), 5)
-    r2 =  func(xtrains, ytrains, xtests, 2)
-    r3 =  func(xtrains, ytrains, xtests, 3)
-    r5 =  func(xtrains, ytrains, xtests, 5)
+    lr1, dr1 =  func(5,np.random.rand(10,2),  np.random.choice(2,10), np.random.rand(3,2))
+    lr2, dr2 =  func(5,np.random.rand(10,2),  np.random.choice(2,10), np.random.rand(3,2))
+    r2 =  func(2, xtrains, ytrains, xtests)
+    r3 =  func(3,xtrains, ytrains, xtests)
+    r5 =  func(5,xtrains, ytrains, xtests)
     t2 =  ut.are_np_equal(r2[1], dists) and ut.are_np_equal(r2[0], ytests_should2) 
     t3 =  ut.are_np_equal(r3[1], dists) and ut.are_np_equal(r3[0], ytests_should3) 
     t5 =  ut.are_np_equal(r5[1], dists) and ut.are_np_equal(r5[0], ytests_should5)
@@ -69,8 +69,8 @@ def test_train_test_split_fix(func):
     x1,x2,y1,y2 = func(np.random.rand(10,2),np.random.choice(2,10))
     x11,x21,y11,y21 = func(np.random.rand(50,3),np.random.choice(2,50))
 
-    tests = {'test 1 fallo': x1.shape == (7,2) and x2.shape == (3,2) and y1.shape[0] == 7 and y2.shape[0] == 3,
-             'test 2 fallo': x11.shape == (35,3) and x21.shape == (15,3) and y11.shape[0] == 35 and y21.shape[0] == 15 
+    tests = {'test 1 fallo': x1.shape == (8,2) and x2.shape == (2,2) and y1.shape[0] == 8 and y2.shape[0] == 2,
+             'test 2 fallo': x11.shape == (40,3) and x21.shape == (10,3) and y11.shape[0] == 40 and y21.shape[0] == 10 
             }
     return (ut.test_conditions_and_methods(tests))
 
@@ -109,9 +109,9 @@ def test_parzenClass(func):
                     [0.99433113, 0.99697336, 0.99988751],
                     [0.99711896, 0.99697777, 0.99689282]])
     
-    l1,f1 =  func(xtrains, ytrains,xtests, 0.1)
-    l2, f2 =  func(xtrains, ytrains,xtests, 1)
-    l3, f3 =  func(xtrains, ytrains,xtests, 10)
+    l1,f1 =  func( 0.1, xtrains, ytrains,xtests)
+    l2, f2 =  func(1, xtrains, ytrains,xtests)
+    l3, f3 =  func(10, xtrains, ytrains,xtests)
     t1 =  ut.are_np_equal(l1, ytests_should1) and ut.are_np_equal(f1, fdp1)
     t2 =  ut.are_np_equal(l2, ytests_should1) and ut.are_np_equal(f2, fdp2)
     t3 =  ut.are_np_equal(l3, ytests_should2) and ut.are_np_equal(f3, fdp3)
@@ -128,11 +128,11 @@ def test_parzenClass(func):
 @unknow_error
 def test_parzen_exp(func):
     xx = np.array([[0,1], [1,1], [-1,1], [-1,0], [-0.9,0.15], [0.01,0.9], [0.9,0.9], [-0.99,0.99], [-0.8,-0.1]])
-    yy =  np.array([0,0,0,0,1, 1,1,1,1])
+    yy =  np.array([0,0,1,1,2,2,1,1,0])
     hs = [0.1,1,5]    
-    res = ut.test_experimento_oneset(func,  shape_val=(len(hs), 3), 
-                                    col_error = ['error de prueba(media)', 'error de prueba(desviación estandar)'],
-                                    col_val=['ancho de ventana', 'error de prueba(media)', 'error de prueba(desviación estandar)'],
+    res = ut.test_experimento_oneset(func,  shape_val=(len(hs), 2), 
+                                    col_error = None,
+                                    col_val=['ancho de ventana', 'error de prueba'],
                                     X = xx, Y=yy,
                                     hs = hs)
     code_to_look = ['parzenClass', "ErrorClas"]

@@ -576,7 +576,7 @@
     <span class="n">N</span><span class="p">,</span><span class="n">nf</span> <span class="o">=</span> 
     <span class="n">clases</span> <span class="o">=</span> 
     
-    <span class="k">return</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">nf</span><span class="p">,</span><span class="n">clases</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">clases</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">nf</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -589,7 +589,11 @@
 </div>
 </div>
 </div>
-<p>En los problemas de clasificación, que lo permiten, es de utilidad visualizar los datos. De esta manera uno puede determinar que modelos o algortimos pueden tener mejor rendimiento. En la siguiente función, debera, graficar los datos usando la función <a class="reference external" href="https://matplotlib.org/gallery/shapes_and_collections/scatter.html">scatter</a> de matplotlib.</p>
+<p>En los problemas de clasificación, que lo permiten, es de utilidad visualizar los datos. De esta manera se puede determinar que modelos o algortimos pueden tener mejor rendimiento. En la siguiente función, se debe:</p>
+<ol class="simple">
+<li><p>graficar los datos usando la función <a class="reference external" href="https://matplotlib.org/gallery/shapes_and_collections/scatter.html">scatter</a> de matplotlib. <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter">Recuerda consultar la documentación de la función</a></p></li>
+<li><p>Asginar un color Map diferente al de defecto. <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">Aca pueder los valores posibles</a>.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejercicio de Codigo</span>
@@ -608,9 +612,9 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">## puedes acceder con plt a la funcion adecuacada</span>
     <span class="c1">## Pista: recuerda como indexar matrices</span>
+    <span class="c1">## Consulta como pasar el Color Map</span>
     <span class="n">plt</span><span class="o">.</span>
     <span class="c1"># para mostrar el grafico</span>
-    <span class="n">figure</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
    
     <span class="k">return</span> <span class="p">(</span><span class="kc">None</span><span class="p">)</span>
@@ -630,6 +634,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usarla para ver el grafico</span>
+<span class="c1"># se debe ver dos nubes de puntos diferenciadas</span>
 <span class="n">scatter_plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -686,7 +691,7 @@
 </div>
 </div>
 </div>
-<p>El la siguiente celda se sugiere la implementación de 3 métodos que nos ayudaran a implementar los otros conceptos.</p>
+<p>La siguiente celda se sugiere la implementación de 3 métodos que nos ayudaran a implementar los otros conceptos.</p>
 <ol class="simple">
 <li><p>Modelo de regresión logística(Esta función usa nuestra <code class="docutils literal notranslate"><span class="pre">sigmoidal</span></code>)</p></li>
 <li><p>Extensión de matriz</p></li>
@@ -748,6 +753,25 @@
     <span class="n">f2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y_lest</span><span class="p">)</span>
     <span class="n">error</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ten en cuenta la salida de esta prueba para responder la pregunta abierta siguiente</span>
+<span class="n">vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
+<span class="n">potenciaPolinomio</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown  Analizando lo anterior y asumiendo que el vector es representado como [x1, x2] ¿Cual seria la representación de `potenciaPolinomio(vector, 3)`? (usa ** para representar potencia, i.e x1**2 simboliza x1 elevado al cuadrado)</span>
+<span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
@@ -843,8 +867,8 @@
 </div>
 </div>
 </div>
-<p>Veamos de manera preliminar, si nuestro gradiente se esta acercando al un costo óptimo.
-Vamos entrenar con 100 iteraciones y vemos el costo logistico como cambia de acuerdo a las iteraciones.
+<p>Veamos de manera preliminar, si nuestro algortimo de gradiente esta optimizando el costo.
+Vamos entrenar con 100 iteraciones y vamos a graficar el costo logistico y verificar como cambia de acuerdo a las iteraciones.
 ¿Que pasa si cambias el grado?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -852,6 +876,15 @@ Vamos entrenar con 100 iteraciones y vemos el costo logistico como cambia de acu
 <span class="n">w</span><span class="p">,</span> <span class="n">costos_logistico</span> <span class="o">=</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="n">grado</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">eta</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">iteraciones</span> <span class="o">=</span> <span class="n">iteraciones</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;este las dimensiones de w son:&quot;</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">iteraciones</span><span class="p">),</span> <span class="n">costos_logistico</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown  ¿con base a los resultados anteriores, qué efecto tiene el grado en el comportamiento del costo? justifique</span>
+<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
@@ -905,7 +938,7 @@ Vamos entrenar con 100 iteraciones y vemos el costo logistico como cambia de acu
 </div>
 <div class="section" id="ejercicio-3-experimentar">
 <h2>Ejercicio 3: Experimentar<a class="headerlink" href="#ejercicio-3-experimentar" title="Permalink to this headline">¶</a></h2>
-<p>En nuestro primer experimento vamos a evaluar el rendimiento del modelo usando varias tasas de aprendizaje y grados de polinimios. Vamos a dejar por ahora un numero de iteraciones fijas = 500. Para ello completa la siguiente función. Recuerda usar las funciones anteriores.</p>
+<p>En nuestro primer experimento vamos a evaluar el rendimiento del modelo usando varias tasas de aprendizaje y grados de polinimios. Vamos a dejar por ahora un numero de iteraciones fijas = 30. Para ello completa la siguiente función. Recuerda usar las funciones anteriores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## ejercicio de codigo</span>
@@ -921,7 +954,7 @@ Vamos entrenar con 100 iteraciones y vemos el costo logistico como cambia de acu
 <span class="sd">        para realizar los experimentos</span>
 <span class="sd">    retorna: un dataframe con el resultados de los experimentos</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">numero_iter</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="n">numero_iter</span> <span class="o">=</span> <span class="mi">30</span>
 
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># indice</span>
@@ -954,7 +987,7 @@ Vamos entrenar con 100 iteraciones y vemos el costo logistico como cambia de acu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tasas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span>
-<span class="n">grados</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">grados</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">resultados</span> <span class="o">=</span> <span class="n">experimentar</span> <span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">,</span> <span class="n">tasas</span><span class="p">,</span> <span class="n">grados</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -971,17 +1004,8 @@ Vamos entrenar con 100 iteraciones y vemos el costo logistico como cambia de acu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown  ¿con base a los resultados anteriores, qué efecto tiene el grado en los errores de entrenamiento y de prueba? justifique</span>
-<span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown  ¿es normal que los errores de entrenamiento y prueba sean diferentes? justifique</span>
-<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="c1">#@markdown  ¿con base a los resultados anteriores, qué efecto tiene la  tasa de aprendizaje en los errores de entrenamiento y de prueba? justifique</span>
+<span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
@@ -1000,7 +1024,7 @@ Vamos entrenar con 100 iteraciones y vemos el costo logistico como cambia de acu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
 <span class="c1">#@markdown ¿por qué se uso el error de prueba para ordenar la tabla de resultados en lugar del error de entrenamiento?</span>
-<span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
@@ -1009,21 +1033,20 @@ Vamos entrenar con 100 iteraciones y vemos el costo logistico como cambia de acu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ignoramos el costo!</span>
-<span class="n">W</span><span class="p">,</span><span class="n">_</span><span class="o">=</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="n">grado</span> <span class="o">=</span>  <span class="p">,</span><span class="n">eta</span> <span class="o">=</span>  <span class="p">,</span> <span class="n">iteraciones</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">W</span><span class="p">,</span><span class="n">_</span><span class="o">=</span> <span class="n">gradiente_descendente_logistic_poly</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="n">grado</span> <span class="o">=</span>  <span class="p">,</span><span class="n">eta</span> <span class="o">=</span>  <span class="p">,</span> <span class="n">iteraciones</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;estos son los pesos para el modelo entrenando </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Debemos recordar que el modelo creado se puede resumir en una ecuación usando los pesos de <span class="math notranslate nohighlight">\(w\)</span>:</p>
+<p>Debemos recordar que el modelo creado se puede resumir en una ecuación usando los pesos de <span class="math notranslate nohighlight">\(w\)</span>. En el  siguiente ejemplo la ecuación estaria dada como: 2.0 + 3.0<em>x1 + 4.0</em>x2, para el caso del polinomio grado 1.</p>
 <p><img alt="vectorization" src="https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/images/frontera_logistic.jpg" /></p>
-<p>En el ejemplo la ecuación estaria dada como: 2.0<em>x1 + 3.0</em>x2 + 4.0, para el caso del polinomio grado 1.</p>
 <p>Usando los valores del ultimo <span class="math notranslate nohighlight">\(w\)</span> entrenado podriamos construir la función que define nuestra frontera.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
 <span class="c1">#@markdown Escribe el modelo completo con sus variables y coeficientes de f(**x**,**w**) con la mejor frontera de decisión que encontró. Recuerda tener presente el grado del polinomio.</span>
-<span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;0.0x1 + 1.0x1**2 + 2.0x2 + 3.0x2**3&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">respuesta_6</span> <span class="o">=</span> <span class="s2">&quot;0.0x1 + 1.0x1**2 + 2.0x2 + 3.0x2**3&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>

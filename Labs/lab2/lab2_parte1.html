@@ -613,7 +613,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown  ¿dependiendo de los resultados de la informacion anterior, cuantas caracteristicas tiene el problema, muestras y como calficaria la distribución de clases?</span>
+<span class="c1">#@markdown  ¿dependiendo de los resultados de la informacion anterior, como calificaria la distribución de clases desde el punto de vista de la factibilidad de usarlo este dataset para el problema planteado?</span>
 <span class="n">respuesta_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -653,13 +653,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de codigo</span>
-<span class="k">def</span> <span class="nf">KNN_Clasificacion</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">KNN_Clasificacion</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Funcion que implementa el modelo de K-Vecino mas cercanos</span>
 <span class="sd">        para clasificación</span>
+<span class="sd">    k (int): valor de vecinos a usar</span>
 <span class="sd">    X_train: es la matriz con las muestras de entrenamiento</span>
 <span class="sd">    Y_train: es un vector con los valores de salida pra cada una de las muestras de entrenamiento</span>
 <span class="sd">    X_test: es la matriz con las muestras de validación</span>
-<span class="sd">    k (int): valor de vecinos a usar</span>
 <span class="sd">    retorna: las estimaciones del modelo KNN para el conjunto X_test </span>
 <span class="sd">             esta matriz debe tener un shape de [row/muestras de X_test] </span>
 <span class="sd">             y las distancias de X_test respecto a X_train, estan matrix</span>
@@ -692,14 +692,16 @@
 </div>
 <div class="section" id="ejercicio-3-experimentos-de-knn">
 <h2>Ejercicio 3: Experimentos de KNN<a class="headerlink" href="#ejercicio-3-experimentos-de-knn" title="Permalink to this headline">¶</a></h2>
-<p>Ahora vamos a probar nuestro algoritmo. Pero antes de esto vamos a tener que dividir nuestro conjunto de datos, vamos a usar una función llamada train_test_split de la libreria sklearn. <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">Aca puedes ver la ayuda</a>. Entiende su funcionamiento. Vamos a usarla para crear una función con una propoción fija  de 70%-30% entre nuestro conjunto de entrenamiento y de pruebas.</p>
+<p>Ahora vamos a probar nuestro algoritmo. Pero antes de esto vamos a tener que dividir nuestro conjunto de datos, vamos a usar una función llamada train_test_split de la libreria sklearn. <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">Aca puedes ver la ayuda</a>. Entiende su funcionamiento. Vamos a usarla para crear una función con una propoción fija  de 80%-20% entre nuestro conjunto de entrenamiento y de pruebas.</p>
+<p><strong>NOTA</strong></p>
+<p>cuando se este usando SKlearn, se quiere incentivar la lectura de la documentación, por lo tanto el calificador va buscar siempre que se llamen de manera explicita los parametros que se estan usando. Ejemplo si se va usar un parametro llamado <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> se debe llamar como <code class="docutils literal notranslate"><span class="pre">funcion_a_usar(shuffle</span> <span class="pre">=</span> <span class="pre">True)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de codigo</span>
 <span class="k">def</span> <span class="nf">train_test_split_fix</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;funcion que divide el conjunto de datos en</span>
 <span class="sd">        entrenamiento y pruebas</span>
-<span class="sd">        usando un proporcion fija de 30 %</span>
+<span class="sd">        usando un proporcion fija de 20 %</span>
 <span class="sd">        para el conjunto de pruebas.</span>
 
 <span class="sd">    X: matriz de numpy con las muestras y caractersiticas</span>
@@ -710,7 +712,7 @@
 <span class="sd">        Ytrain: conjunto  de etiquetas para entrenamiento</span>
 <span class="sd">        Ytest: conjunto de etiquetas para prueba </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="o">...</span><span class="p">)</span>
+    <span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span> <span class="o">=</span> <span class="p">(</span> <span class="o">...</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">)</span>
 </pre></div>
@@ -729,20 +731,26 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejercicio de código</span>
-<span class="k">def</span> <span class="nf">experimentar</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">ks</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">experimentar</span> <span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Función que realiza los experimentos con knn usando</span>
 <span class="sd">       una estrategia de validacion entrenamiento y pruebas</span>
+<span class="sd">       </span>
+<span class="sd">    ks: List[int/float] lista con los valores de k-vecinos a usar</span>
 <span class="sd">    X: matriz de numpy conjunto con muestras y caracteristicas</span>
 <span class="sd">    Y: vector de numpy con los valores de las etiquetas</span>
-<span class="sd">    ks: List[int/float] lista con los valores de k-vecinos a usar</span>
+<span class="sd">    </span>
 <span class="sd">    retorna: dataframe con los resultados</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># dividimos usando la función</span>
     <span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span> <span class="o">=</span> <span class="n">train_test_split_fix</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
 
+    <span class="c1"># se llama el objeto</span>
     <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+    <span class="c1"># Se calculan los parametros</span>
     <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
+    <span class="c1"># se usa el objeto con los parametros calculados</span>
+    <span class="c1"># realizar la normalización</span>
     <span class="n">Xtrain</span><span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
     <span class="n">Xtest</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
 
@@ -764,7 +772,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown como se observo en nuestros experimentos usamos una metodologia basica de dividir el conjunto de entrenamiento y pruebas. ¿Cual es la diferencia si quisieramos aplicar una metodologia de validación cruzada?</span>
+<span class="c1">#@markdown ¿qué tipo de normalización ejecuta la función `StandardScaler`?</span>
 <span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -781,7 +789,7 @@
 <p>Ahora ejecuta los experimentos con k = 2,3,4,5,6,7,10</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados</span> <span class="o">=</span> <span class="n">experimentar</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados</span> <span class="o">=</span> <span class="n">experimentar</span> <span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,)</span>
 <span class="n">resultados</span>
 </pre></div>
 </div>
@@ -790,7 +798,7 @@
 </div>
 <div class="section" id="ejercicio-4-ventana-de-parzen">
 <h2>Ejercicio 4: ventana de Parzen<a class="headerlink" href="#ejercicio-4-ventana-de-parzen" title="Permalink to this headline">¶</a></h2>
-<p>Ahora vamos a utilizar el metodo de ventana de parzen. Recuerde de las clases teoricas, quedemos usar una función kernel. En la siguiente celda se proponen dos funciones para:</p>
+<p>Ahora vamos a utilizar el metodo de ventana de parzen. Recordar de las clases teoricas, que para aplicar este metodo, debemos usar una función kernel. En la siguiente celda se proponen dos funciones para:</p>
 <ol class="simple">
 <li><p>calculo de un kernel gausiano</p></li>
 <li><p>calculo de la ventana de parzen, es decir el termino: <span class="math notranslate nohighlight">\( \sum_{i=1}^{N} K(u_i)\)</span>, siendo <span class="math notranslate nohighlight">\(\;\; u_i = \frac{d({\bf{x}}^*,{\bf{x}}_i)}{h}\)</span> y la función <span class="math notranslate nohighlight">\(K\)</span> el kernel gausiano</p></li>
@@ -822,17 +830,27 @@
 </div>
 </div>
 </div>
-<p>Entiendalos la implementación de las anteriores funciones y uselas para resolver el ejercicio de código.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown ¿qué función tiene la función kernel? Contestar en el contexto del método de la ventana de parzen </span>
+<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez entendidos los anteriores metodos, los vamos a usar para resolver el ejercicio de código.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejercicio de código</span>
-<span class="k">def</span> <span class="nf">parzenClass</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">parzenClass</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Funcion que implementa metodo de ventana de parzen para</span>
 <span class="sd">        para clasificación</span>
+<span class="sd">    h (float): ancho de h de la ventana</span>
 <span class="sd">    X_train: es la matriz con las muestras de entrenamiento</span>
 <span class="sd">    Y_train: es un vector con los valores de salida pra cada una de las muestras de entrenamiento</span>
 <span class="sd">    X_test: es la matriz con las muestras de validación</span>
-<span class="sd">    h (float): ancho de h de la ventana</span>
+<span class="sd">  </span>
 <span class="sd">    retorna: - las estimaciones del modelo parzen para el conjunto X_test </span>
 <span class="sd">              esta matriz debe tener un shape de [row/muestras de X_test]</span>
 <span class="sd">             - las probabilidades de la vetana [row/muestras de X_test, número de clases]  </span>
@@ -871,59 +889,41 @@
 </div>
 <div class="section" id="ejercicio-5-experimentos-con-parzen">
 <h2>Ejercicio 5 - Experimentos con Parzen<a class="headerlink" href="#ejercicio-5-experimentos-con-parzen" title="Permalink to this headline">¶</a></h2>
-<p>Ahora vamos a realizar los experimentos, pero esta vez, debemos implementar otro tipo de validación. Dentro del código se encuentra ya esta implementación sugerida, usando <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html">esta función</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿cual es la metodologia de validación usada en el experimento? ¿qué diferencia tiene respecto a una validación cruzada?</span>
-<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Ahora vamos a realizar los experimentos, recordar usar la misma metodologia de validación, usando la función previamente creada.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de codigo</span>
-<span class="k">def</span> <span class="nf">experimentarParzen</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">hs</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">experimentarParzen</span> <span class="p">(</span><span class="n">hs</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Función que realiza los experimentos con knn usando</span>
 <span class="sd">       una estrategia de validacion entrenamiento y pruebas</span>
+<span class="sd">       </span>
+<span class="sd">    hs: List[int/float] lista con los valores de h a usar</span>
 <span class="sd">    X: matriz de numpy conjunto con muestras y caracteristicas</span>
 <span class="sd">    Y: vector de numpy con los valores de las etiquetas</span>
-<span class="sd">    ks: List[int/float] lista con los valores de k-vecinos a usar</span>
+<span class="sd">    </span>
 <span class="sd">    retorna: dataframe con los resultados, debe contener las siguientes columnas:</span>
 <span class="sd">        - el ancho de ventana, el error medio de prueba, la desviacion estandar del error</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     
-    <span class="c1"># se usa la función para implementar la estrategia de validación.</span>
-    <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+    <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+    <span class="c1">#normalizamos los datos</span>
+    <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
+    <span class="n">Xtrain</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
+    <span class="n">Xtest</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
+
     <span class="c1"># iteramos sobre los valores de hs</span>
     <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hs</span><span class="p">:</span>
-        <span class="c1"># lista para almacenar los errores de cada iteración</span>
-        <span class="c1"># de la validación</span>
-        <span class="n">error_temp</span> <span class="o">=</span> <span class="p">[]</span>
         
-        <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-
-            <span class="n">Xtrain</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">train</span><span class="p">,:]</span>
-            <span class="n">Ytrain</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">train</span><span class="p">]</span>
-            <span class="n">Xtest</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">test</span><span class="p">,:]</span>
-            <span class="n">Ytest</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">test</span><span class="p">]</span>
-            <span class="c1">#normalizamos los datos</span>
-            <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-            <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
-            <span class="n">Xtrain</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
-            <span class="n">Xtest</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
-            
-            <span class="n">Yest</span><span class="p">,</span> <span class="n">probabilidades</span> <span class="o">=</span> 
-            <span class="n">errorTest</span> <span class="o">=</span>
-            <span class="n">error_temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errorTest</span><span class="p">)</span>
+        <span class="n">Yest</span><span class="p">,</span> <span class="n">probabilidades</span> <span class="o">=</span> 
+        <span class="n">errorTest</span> <span class="o">=</span> 
     
         <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;ancho de ventana&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> 
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba(media)&#39;</span><span class="p">]</span> <span class="o">=</span> 
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba(desviación estandar)&#39;</span><span class="p">]</span> <span class="o">=</span> 
+        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> 
+
         <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
 </pre></div>
@@ -941,7 +941,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="n">experimentos_parzen</span> <span class="o">=</span> <span class="n">experimentarParzen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">hs</span><span class="p">)</span>
+<span class="n">experimentos_parzen</span> <span class="o">=</span> <span class="n">experimentarParzen</span><span class="p">(</span><span class="n">hs</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="n">experimentos_parzen</span>
 </pre></div>
 </div>
@@ -950,7 +950,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿por qué usando una ventana de parzen, no hay necesidad de definir un número de vecinos cercanos? </span>
+<span class="c1">#@markdown ¿En el método de ventana de parzen, porqué no hay necesidad de definir el número de vecinos cercanos? </span>
 <span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -959,7 +959,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿De acuerdo al problema, cual de las dos metodologias de validación usadas en los experimentos es la más recomendada?</span>
+<span class="c1">#@markdown ¿por qué el KNN y la ventana de parzen son modelos no parámetricos? </span>
 <span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>

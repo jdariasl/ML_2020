@@ -570,39 +570,29 @@
 </div>
 <p>En los problemas de regresión, es muy util explorar la distribución de la variable objetivo. Nuestro primer ejercicio consiste en:</p>
 <ol class="simple">
-<li><p>visualizar un histograma de la variable y</p></li>
-<li><p>retornar los intervalo de datos mas frecuente.</p></li>
+<li><p>visualizar un histograma de la variable. Vamos a realizar el histograma con 20 “cajones”.</p></li>
+<li><p>Usar el histograma para confirmar como estan distribuidos los datos</p></li>
 </ol>
 <p>Pistas:</p>
 <ol class="simple">
-<li><p>explorar la documentación de <a class="reference external" href="https://matplotlib.org/3.3.1/api/_as_gen/matplotlib.pyplot.hist.html">plt.hist</a>. Maneje los valores por defecto. ¿como se puede usar la salida del histograma para retorna el intervalo de datos mas frecuente?</p></li>
-<li><p>¿ <code class="docutils literal notranslate"><span class="pre">np.argsort(numpy_array)[::-1]</span></code> que efecto tiene?</p></li>
+<li><p>explorar la documentación de <a class="reference external" href="https://matplotlib.org/3.3.1/api/_as_gen/matplotlib.pyplot.hist.html">plt.hist</a>. Maneje los valores por defecto.</p></li>
 </ol>
+<p><strong>NOTA</strong>
+Se quiere incentivar la lecutra de la documentación de las librerias, se debe hacer llamado explicito al parametro a usar. Ejemplo si se necesita usar el parametro <code class="docutils literal notranslate"><span class="pre">density</span></code>, se debe llamar como <code class="docutils literal notranslate"><span class="pre">plt.hist(density=True</span> <span class="pre">....)</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
-<span class="k">def</span> <span class="nf">plot_hist_and_get_freq_int</span><span class="p">(</span><span class="n">Y</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">plot_hist_20</span><span class="p">(</span><span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;función que grafica el histograma de la variable &#39;Y&#39;</span>
-<span class="sd">        y retorna el intervalo donde ocurren con mas frecuencia los</span>
-<span class="sd">        valores de &#39;Y&#39;</span>
-<span class="sd">        Y: numpy array con la variable a graficar</span>
-<span class="sd">        retorna: una tupla (int/float, int/float, int/float) </span>
-<span class="sd">            el primer elemento es al limite inferior del intervalo donde ocurren los valores</span>
-<span class="sd">            mas frecuentes</span>
-<span class="sd">            el segundo elemento es al limite superior del intervalo donde ocurren los valores</span>
-<span class="sd">            mas frecuentes</span>
-<span class="sd">            el tercer elemento es el la frecuencia del intervalo</span>
-<span class="sd">            va observar un cuarto elemento a retornar, el cual es usado para confirmar que</span>
-<span class="sd">            se realizo la grafica correctamente</span>
+<span class="sd">        teniendo como valor fijo 20 en el parametro que controla</span>
+<span class="sd">        el numero de &quot;cajones&quot;</span>
+
+<span class="sd">        No retorna nada</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+   
     <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
-    <span class="n">lim_inf</span> <span class="o">=</span> 
-    <span class="n">lim_sup</span> <span class="o">=</span> 
-    <span class="n">freqs</span> <span class="o">=</span>
-    
-    <span class="c1"># el cuarto elemento debe dejarlo</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">lim_inf</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
 </div>
@@ -611,7 +601,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
 <span class="c1">#ignora las graficas!!</span>
-<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio1&quot;</span><span class="p">,</span> <span class="n">plot_hist_and_get_freq_int</span><span class="p">)</span>
+<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio1&quot;</span><span class="p">,</span> <span class="n">plot_hist_20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -619,7 +609,10 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver el histograma!</span>
-<span class="n">plot_hist_and_get_freq_int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plot_hist_20</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="c1"># vamos realizar la representacion de la media y mediana</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -627,7 +620,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿evaluando **solo** el histograma, podria decirse que nuestra variable &#39;y&#39; podria modelarse de manera **totalmente exacta** con una sola distribución de probabilidad gausiana? justifique su respuesta</span>
+<span class="c1">#@markdown Evaluando **solo** el histograma, ¿qué tan bien representa el valor promedio de `y` a todo el posible rango de valores de este mismo?</span>
 <span class="n">respuesta_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -651,13 +644,15 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
-<span class="k">def</span> <span class="nf">KNN_regresion</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">KNN_regresion</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Funcion que implementa el modelo de K-Vecino mas cercanos</span>
 <span class="sd">        para regresión</span>
+<span class="sd">        </span>
+<span class="sd">    k (int): valor de vecinos a usar</span>
 <span class="sd">    X_train: es la matriz con las muestras de entrenamiento</span>
 <span class="sd">    Y_train: es un vector con los valores de salida pra cada una de las muestras de entrenamiento</span>
 <span class="sd">    X_test: es la matriz con las muestras de validación</span>
-<span class="sd">    k (int): valor de vecinos a usar</span>
+<span class="sd">    </span>
 <span class="sd">    retorna: las estimaciones del modelo KNN para el conjunto X_test </span>
 <span class="sd">             esta matriz debe tener un shape de [row/muestras de X_test] </span>
 <span class="sd">             y las distancias de X_test respecto a X_train, estan matrix</span>
@@ -705,30 +700,31 @@
 </div>
 </div>
 </div>
-<p>Y ahora, si, vamos a crear la función para experimentar.</p>
-<p>En el ejercicio de código, se puede observar que usamos nuevamente la funciónes de la libreria <strong>sklearn</strong>:</p>
-<ol class="simple">
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">StandardScaler</a> para normalizar.</p></li>
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">train_test_split</a>. Para dividir el conjunto de datos. Entiende como estamos usando esta función.</p></li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown si bien, dentro del código es usada la función train_test_split, que metodologia de validación es implementada usando esta función? justifique</span>
+<span class="c1">#@markdown En sus palabras, ¿como se puede explicar el MAPE? ¿Cuales son los valores para el caso de un modelo perfecto? ¿cuales son los valores para un modelo con falta de entreamiento?</span>
 <span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Y ahora, si, vamos a crear la función para experimentar.</p>
+<p>En el ejercicio de código, se puede observar que usamos nuevamente la funciónes de la libreria <strong>sklearn</strong>:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">StandardScaler</a> para normalizar.</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">train_test_split</a>. Para dividir el conjunto de datos. Entiende como estamos usando esta función y completa el codigo para realizar 5 particiones.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejercicio de código</span>
-<span class="k">def</span> <span class="nf">experimentar</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">ks</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">experimentar</span> <span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Función que realiza los experimentos con knn usando</span>
 <span class="sd">       una estrategia de validacion entrenamiento y pruebas</span>
+
+<span class="sd">    ks: List[int/float] lista con los valores de k-vecinos a usar</span>
 <span class="sd">    X: matriz de numpy conjunto con muestras y caracteristicas</span>
 <span class="sd">    Y: vector de numpy con los valores a predecir</span>
-<span class="sd">    ks: List[int/float] lista con los valores de k-vecinos a usar</span>
 <span class="sd">    retorna: dataframe con los resultados, debe contener las siguientes columnas:</span>
 <span class="sd">        - los k-vecinos, el error-mape medio de prueba, la desviacion estandar del error-mape</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -737,12 +733,11 @@
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="c1"># iteramos sobre la lista de k&#39;s</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ks</span><span class="p">:</span>
-        <span class="c1"># lista para almacenar los errores de cada iteración</span>
-        <span class="c1"># de la validación</span>
-        <span class="n">error_temp</span> <span class="o">=</span> <span class="p">[]</span>
         
         <span class="c1"># iteramos para validar</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> 
+        <span class="c1"># sobre las particiones</span>
+        <span class="c1"># ¿que numero debemos asignar para lograr las particiones?</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">...</span><span class="p">):</span> 
             <span class="c1"># dividimos usando la función</span>
             <span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">,</span> <span class="n">Ytest</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
             <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
@@ -750,14 +745,14 @@
             <span class="n">Xtrain</span><span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
             <span class="n">Xtest</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
 
-            <span class="n">Yest</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">KNN_regresion</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-            <span class="n">errorTest</span> <span class="o">=</span>
-            <span class="n">error_temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errorTest</span><span class="p">)</span>
+            <span class="n">Yest</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+            <span class="n">errorTest</span> <span class="o">=</span> <span class="n">MAPE</span><span class="p">(</span><span class="o">...</span><span class="p">,</span><span class="o">...</span><span class="p">)</span>
     
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;k-vecinos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span> 
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba(media)&#39;</span><span class="p">]</span> <span class="o">=</span>
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba(desviación estandar)&#39;</span><span class="p">]</span> <span class="o">=</span>
-        <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;k-vecinos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span> 
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="c1">#asignamos la particion</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;particion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+            <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
 
     <span class="k">return</span> <span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
 </pre></div>
@@ -772,10 +767,19 @@
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown si bien, dentro del código es usada la función train_test_split, que metodologia de validación es implementada usando esta función? justifique</span>
+<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Ahora ejecuta los experimentos con k = 2,3,4,5,6,7,10</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados</span> <span class="o">=</span> <span class="n">experimentar</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados</span> <span class="o">=</span> <span class="n">experimentar</span> <span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">resultados</span>
 </pre></div>
 </div>
@@ -858,25 +862,27 @@
 <p>En el ejercicio de código, se puede observar que usamos nuevamente la funciónes de la libreria <strong>sklearn</strong>:</p>
 <ol class="simple">
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">StandardScaler</a> para normalizar.</p></li>
-<li><p>Y se debe usar la función <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html?highlight=kfold#sklearn.model_selection.KFold">KFold</a> para realizar la validación. Tener en cuenta la documentación para poder completar el código de manera correcta.</p></li>
+<li><p>Y se debe usar la función <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html?highlight=kfold#sklearn.model_selection.KFold">KFold</a> para realizar la validación. Tener en cuenta la documentación para poder completar el código de manera correcta y usar 3 particiones.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
 <span class="c1">#@markdown ¿cual es la metodologia de validación usada en el experimento? ¿qué diferencia tiene respecto a la metodologia usada en el primer experimento?</span>
-<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">experimentarParzen</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">hs</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">experimentarParzen</span> <span class="p">(</span><span class="n">hs</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Función que realiza los experimentos con knn usando</span>
 <span class="sd">       una estrategia de validacion entrenamiento y pruebas</span>
+<span class="sd">    </span>
+<span class="sd">    hs: List[int/float] lista con los valores de h a usar</span>
 <span class="sd">    X: matriz de numpy conjunto con muestras y caracteristicas</span>
 <span class="sd">    Y: vector de numpy con los valores de las etiquetas</span>
-<span class="sd">    ks: List[int/float] lista con los valores de k-vecinos a usar</span>
+<span class="sd">    </span>
 <span class="sd">    retorna: dataframe con los resultados, debe contener las siguientes columnas:</span>
 <span class="sd">        - el ancho de ventana, </span>
 <span class="sd">        - el error medio de prueba</span>
@@ -884,23 +890,24 @@
 <span class="sd">        - número de promedio en el conjunto de prueba/validacion</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># se usa la función para implementar la estrategia de validación.</span>
-    <span class="n">kfolds</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="c1"># asgine el valor acorde</span>
+    <span class="n">kfolds</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=...</span><span class="p">)</span>
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="c1"># iteramos sobre los valores de hs</span>
+    
     <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hs</span><span class="p">:</span>
-        <span class="c1"># lista para almacenar los errores y numero de muestras</span>
-        <span class="c1"># de cada iteración</span>
-        <span class="c1"># de la validación</span>
-        <span class="n">error_temp</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">numero_muestras</span> <span class="o">=</span> <span class="p">[]</span>
-        
-        <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">kfolds</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="p">):</span>
 
-            <span class="n">Xtrain</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,:]</span>
-            <span class="n">Ytrain</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[]</span>
-            <span class="n">Xtest</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,:]</span>
-            <span class="n">Ytest</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[]</span>
+        <span class="c1">#contador para cada particion</span>
+        <span class="n">particion</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># asigne el valor al parametro X </span>
+        <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">kfolds</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="o">...</span><span class="p">):</span>
+
+            <span class="c1"># como usar train y test ?</span>
+            <span class="n">Xtrain</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="o">...</span><span class="p">,:]</span>
+            <span class="n">Ytrain</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
+            <span class="n">Xtest</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="o">...</span><span class="p">,:]</span>
+            <span class="n">Ytest</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
             <span class="c1">#normalizamos los datos</span>
             <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
             <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
@@ -908,15 +915,14 @@
             <span class="n">Xtest</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
             
             <span class="n">Yest</span> <span class="o">=</span> <span class="n">Nadaraya_Watson</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-            <span class="n">errorTest</span> <span class="o">=</span> 
-            <span class="n">error_temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errorTest</span><span class="p">)</span>
-            <span class="n">numero_muestras</span><span class="o">.</span><span class="n">append</span><span class="p">()</span>
+            <span class="n">errorTest</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">Yest</span><span class="p">,</span> <span class="n">Ytest</span><span class="p">)</span>
+
     
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;ancho de ventana&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> 
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba(media)&#39;</span><span class="p">]</span> <span class="o">=</span> 
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba(desviación estandar)&#39;</span><span class="p">]</span> <span class="o">=</span>
-        <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;muestras en conjunto de pruebas (media)&#39;</span><span class="p">]</span> <span class="o">=</span> 
-        <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;ancho de ventana&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> 
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;particion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">particion</span>
+            <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="n">particion</span><span class="o">+=</span><span class="mi">1</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -934,7 +940,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejecute para ver los experimentos</span>
 <span class="n">hs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.5</span> <span class="p">,</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="n">experimentos_parzen</span> <span class="o">=</span> <span class="n">experimentarParzen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">hs</span><span class="p">)</span>
+<span class="n">experimentos_parzen</span> <span class="o">=</span> <span class="n">experimentarParzen</span><span class="p">(</span><span class="n">hs</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="n">experimentos_parzen</span>
 </pre></div>
 </div>
@@ -942,8 +948,22 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># para ver el mejor modelo</span>
+<span class="c1"># vamos a calcular el valor medio</span>
+<span class="c1"># Y order acorde y observamos</span>
+<span class="c1"># el primer valor</span>
+<span class="p">(</span><span class="n">experimentos_parzen</span>
+ <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ancho de ventana&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿es normal que el la media de muestra en el cojunto de pruebas siempre es la misma? justifique</span>
+<span class="c1">#@markdown ¿por qué tuvimos que realizar el promedio del error de prueba y organizar el dataframe de manera ascendente ? Justifique usando los concepts teoricos, no el código.</span>
 <span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -952,7 +972,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿que metodo podria usarse para estimar el valor de h?</span>
+<span class="c1">#@markdown ¿En que consiste el metodo Silverman bandwidth? Explique brevemente y en sus palabras</span>
 <span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>

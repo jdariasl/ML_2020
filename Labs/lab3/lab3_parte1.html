@@ -576,21 +576,21 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
-<span class="k">def</span> <span class="nf">get_muestras_by_cv</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_muestras_by_cv</span> <span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;función que devuelve el numero de muestras promedios</span>
 <span class="sd">    dependiendo de la metodologia de validación (method).</span>
-<span class="sd">    los conjuntos de datos deben dividirse **4 veces**</span>
-<span class="sd">    X: matriz numpy con los valores de las caracteristicas</span>
-<span class="sd">    Y: vector numpy con las etiquetas de con conjunto de caracteriticas X</span>
+<span class="sd">    los conjuntos de datos deben dividirse **3 veces**</span>
+
 <span class="sd">    method (int): solo puede tomar dos valores:</span>
 <span class="sd">        1: se debe usar el metodo de validación Bootstrapping</span>
 <span class="sd">        2: se debe usar el metodo valicacion cruzada estratificada</span>
+<span class="sd">    X: matriz numpy con los valores de las caracteristicas</span>
+<span class="sd">    Y: vector numpy con las etiquetas de con conjunto de caracteriticas X</span>
 <span class="sd">    retorna: dataframe con las siguientes columnas:</span>
 <span class="sd">        - etiqueta de clase</span>
 <span class="sd">        - fold</span>
 <span class="sd">        - # muestras en entrenamiento</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     
@@ -641,9 +641,9 @@
 <p>Aca vamos a crear un dataframe para observar el numero de muestras de entrenamiento logradas por cada uno de los metodos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv1</span> <span class="o">=</span> <span class="n">get_muestras_by_cv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv1</span> <span class="o">=</span> <span class="n">get_muestras_by_cv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="n">cv1</span><span class="p">[</span><span class="s1">&#39;validación&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Bootstrapping&#39;</span>
-<span class="n">cv2</span> <span class="o">=</span> <span class="n">get_muestras_by_cv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">cv2</span> <span class="o">=</span> <span class="n">get_muestras_by_cv</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="n">cv2</span><span class="p">[</span><span class="s1">&#39;validación&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Estratificada&#39;</span>
 <span class="n">cvs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cv1</span><span class="p">,</span> <span class="n">cv2</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">cvs</span>
@@ -661,10 +661,11 @@
 </div>
 </div>
 </div>
+<p>En la grafica, las barras representan la variación del numero de muestras en cada fold/partición. Y el punto es el valor medio.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown  ¿con base en los resultados anteriores y al tipo de problema, qué tecnica de validación es más adecuada? justifique.</span>
+<span class="c1">#@markdown  En sus palabras, usando el grafico anterior y su conocimiento, ¿por qué Boostrapping no es la metodologia más adecuada?</span>
 <span class="n">respuesta_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -681,14 +682,15 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
-<span class="k">def</span> <span class="nf">GMMClassifierTrain</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">tipo</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">GMMClassifierTrain</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">tipo</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;metodo para entrenar un modelo de mezclas de gausianas</span>
-<span class="sd">    X: Matriz de caracteristicas</span>
-<span class="sd">    Y : Matriz con las clases</span>
 <span class="sd">    M: Número de componentes</span>
 <span class="sd">    tipo (str): Tipo de matriz de covarianza (los parametros que se</span>
 <span class="sd">          aceptan son los nombres de la  misma libreria:</span>
 <span class="sd">          &#39;full&#39;, &#39;tied&#39;, &#39;diag&#39;, &#39;spherical&#39;)</span>
+<span class="sd">    X: Matriz de caracteristicas</span>
+<span class="sd">    Y : Matriz con las clases</span>
+<span class="sd">   </span>
 <span class="sd">    retorna: diccionario de con la estructura:</span>
 <span class="sd">        {etiqueta_clase: modelo_gmm_entrenado}</span>
 <span class="sd">    &quot;&quot;&quot;</span> 
@@ -707,6 +709,15 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
 <span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio2&quot;</span><span class="p">,</span> <span class="n">GMMClassifierTrain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown En sus palabras, ¿por qué debemos entrenar un modelo por cada clase?</span>
+<span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
@@ -758,17 +769,19 @@
 <ol class="simple">
 <li><p>retornar errores de entrenamiento y pruebas</p></li>
 <li><p>retornar intervalos de confianza (desviacion estandar) para cada una de la configuración de experimentos</p></li>
-<li><p>en el código, ya se sugiere la metodologia de validación (usando 4 folds) y se usa, como es usual el standard scaler para normalizar los datos.</p></li>
+<li><p>en el código, ya se sugiere la metodologia de validación (usando 3 folds) y se usa, como es usual el standard scaler para normalizar los datos.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
-<span class="k">def</span> <span class="nf">experimentar</span><span class="p">(</span><span class="n">covariance_types</span><span class="p">,</span><span class="n">num_components</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">experimentar</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">covariance_types</span><span class="p">,</span><span class="n">num_components</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;función que realiza experimentos del GMM</span>
-<span class="sd">    covariance_types: list[str] con las matrices de covarianza a probar</span>
-<span class="sd">    num_components: list[int] con el numero de componente a probar</span>
+<span class="sd">    </span>
 <span class="sd">    X: matriz con las caractersiticas</span>
 <span class="sd">    Y: matriz de numpy con etiquetas</span>
+<span class="sd">    covariance_types: list[str] con las matrices de covarianza a probar</span>
+<span class="sd">    num_components: list[int] con el numero de componente a probar</span>
+<span class="sd">  </span>
 <span class="sd">    retorna: dataframe con:</span>
 <span class="sd">        - matriz de covarianza</span>
 <span class="sd">        - numero de componentes</span>
@@ -777,7 +790,8 @@
 <span class="sd">        - eficiencia de prueba</span>
 <span class="sd">        - desviacion estandar eficiencia de prueba</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">folds</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="c1"># asignar los folds</span>
+    <span class="n">folds</span> <span class="o">=</span> 
     <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">folds</span><span class="p">)</span>
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
@@ -833,8 +847,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="s1">&#39;tied&#39;</span><span class="p">,</span> <span class="s1">&#39;diag&#39;</span><span class="p">,</span> <span class="s1">&#39;spherical&#39;</span><span class="p">]</span>
-<span class="n">componentes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">resultados</span> <span class="o">=</span> <span class="n">experimentar</span><span class="p">(</span><span class="n">matrices</span><span class="p">,</span> <span class="n">componentes</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">componentes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">resultados</span> <span class="o">=</span> <span class="n">experimentar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">matrices</span><span class="p">,</span> <span class="n">componentes</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -850,16 +864,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown La tabla incluye un tipo de matriz de covarianza no vista en clase, Atada(tied), ¿En qué consiste este tipo de matriz según la documentación en scikit-learn?</span>
-<span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿Qué método se utilizó para la incialización de los parámetros del modelo GMM? ¿Cual es la diferencia entre el usado y la otra opción de la libreria?</span>
+<span class="c1">#@markdown ¿a que corresponde el parametro init_params de la función GaussianMixture y cual fue el valor usado en nuestros experimentos?</span>
 <span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -957,7 +962,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown  ¿Tiene sentido realizar experimentos con una configuraración de n_clusters!=5? justifique </span>
+<span class="c1">#@markdown  ¿Qué es el meotodo elbow y por qué en nuestro caso no es util? Pista: tiene sentido buscar un numero de grupo != 5 ?</span>
 <span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>

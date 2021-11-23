@@ -23,6 +23,8 @@
 
 **09 - Análisis del entrenamiento de una regresión logística**: [Video 11mins](https://www.youtube.com/watch?v=vZZLf2SZqwc) <br/> Se presentan algunos resultados de la ejecución del proceso de entrenamiento de un modelo de regresión logística, para ayudar a comprender el proceso de minimización de la función de costo a partir del algoritmo de gradiente descendente, la modificación iterativa de la frontera de decisión hasta alcanzar la ubicación óptima (de acuerdo con la función de costo) y su correspondiente interpretación en el espacio de búsqueda.
 
+**10 - Fronteras no lineales con regresión logística**: [Video 14mins](https://www.youtube.com/watch?v=dSHtZ-FAOXg) <br/> Se discute cómo se pueden obtener fronteras de decisión no lineales usando el modelo de regresión logística y los ajustes que deben realizarse para su implementación.
+
 ## Modelos discriminativos vs modelos generativos
 
-**10 - Funciones discriminantes Gausianas**: [Video 30mins]() <br/> Se discuten los modelos generativos los cuales utilizan un principio de funcionamiento diferente para resolver los problemas de clasificación y se presenta el modelo de funcionaes discriminantes Gausianas.
+**11 - Funciones discriminantes Gausianas**: [Video 30mins]() <br/> Se discuten los modelos generativos los cuales utilizan un principio de funcionamiento diferente para resolver los problemas de clasificación y se presenta el modelo de funcionaes discriminantes Gausianas.

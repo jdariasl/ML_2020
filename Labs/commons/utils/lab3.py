@@ -36,36 +36,39 @@ def plot_digits(data):
 def test_get_muestras_by_cv(func):
 
     Y = np.random.choice(3,100)
-    cv1 = func(np.ones((100,2)),Y, 1)
-    cv2= func(np.ones((100,2)),Y, 2)  
+    cv1 = func(1,np.ones((100,2)),Y)
+    cv2= func(2, np.ones((100,2)),Y)  
     met = cv2['numero de muestras entrenamiento'].mean() <= cv1['numero de muestras entrenamiento'].mean()
-
-    tests = {'recuerda dividir en 4 folds': (cv1.shape[0] == len(np.unique(Y))*4 ) and (cv2.shape[0] == len(np.unique(Y))*4) ,
+    tests = {'recuerda dividir en 3 folds': (cv1.shape[0] == len(np.unique(Y))*3 ) and (cv2.shape[0] == len(np.unique(Y))*3) ,
              'recuerda que metodo corresponde a la metodologia de validacion': met
              }
     test_res = ut.test_conditions_and_methods(tests)
- 
-    res = ut.test_experimento_oneset(func,  shape_val=(len(np.unique(Y))*4, 3), 
+    code_to_look = ['ShuffleSplit', 'StratifiedKFold']
+    res2 = ut.check_code(code_to_look, func)
+    res = ut.test_experimento_oneset(func,  shape_val=(len(np.unique(Y))*3, 3), 
                                     col_error = ['etiqueta de clase'],
                                     col_val=['etiqueta de clase', 'folds', 'numero de muestras entrenamiento'],
                                     X = np.ones((100,2)), Y=Y,
                                     method = 1)
-    return (res and test_res )
+    return (res and test_res and res)
 
 @unknow_error
 def test_GMMClassifierTrain(func):
     y1 = np.random.choice(3,20)
-    g1 = func(np.random.rand(20,2), y1, 2, 'full')
-    g2 = func(np.random.rand(20,2), np.random.choice(3,20), 2, 'diag')
-    g3 = func(np.random.rand(20,2), np.random.choice(3,20), 2, 'tied')
-    g4 = func(np.random.rand(10,2), np.random.choice(2,10), 2, 'spherical')
+    g1 = func(2, 'full', np.random.rand(20,2), y1)
+    g2 = func( 2, 'diag', np.random.rand(20,2), np.random.choice(3,20),)
+    g3 = func( 2, 'tied', np.random.rand(20,2), np.random.choice(3,20))
+    g4 = func(2, 'spherical',np.random.rand(10,2), np.random.choice(2,10))
     t1 =  len(np.array([np.mean(m.means_) for m in g1.values()])) == len(np.unique([np.mean(m.means_) for m in g1.values()]))
+
+    code_to_look = ['n_components=', 'covariance_type=']
+    res2 = ut.check_code(code_to_look, func)
 
     tests = {'debes entrenar un GMM por cada clase (valor unico de Y)': t1,
              'la clave del dict debe ser la etiqueta de Y':  (list(g1.keys()) == np.unique(y1)).all(),
              'no debes dejear codigo estatico.':  g1 != g2 }
 
-    return (ut.test_conditions_and_methods(tests))
+    return (ut.test_conditions_and_methods(tests) and res2)
 
 @unknow_error
 def test_GMMClassfierVal(func):
@@ -102,13 +105,17 @@ def test_experimentar(func):
     errs = ['eficiencia de entrenamiento',
             'eficiencia de prueba']
 
+    
+    code_to_look = ['folds=3']
+    res2 = ut.check_code(code_to_look, func)       
+
     res = ut.test_experimento_oneset(func,  shape_val=(len(mts)*len(ms), 6), 
                                     col_error = errs,
                                     col_val=cols,
                                     X = xx, Y=yy,
                                     covariance_types = mts,
                                     num_components = ms)
-    return (res)
+    return (res and res2)
 
 @unknow_error
 def test_experimentar_kmeans(func):

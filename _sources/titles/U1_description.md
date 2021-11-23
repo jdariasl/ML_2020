@@ -19,9 +19,10 @@
 
 **07 - Algoritmo de gradiente descendente**: [Video 32mins](https://www.youtube.com/watch?v=vcNw2McLCxU) <br/> Se continúa con el análisis de la regresión múltiple desde perspectivas de mediano y bajo nivel, y para esta última se explica el funcionamiento del algoritmo de gradiente descendente.
 
-**08 - Regresión logística**: [Video 30mins]() <br/> Con base en un modelo de regresión y en el algoritmo de gradiente descedente se introduce el modelo de regresión logística que sirve para resolver problemas de clasificación.
+**08 - Regresión logística**: [Video 33mins](https://www.youtube.com/watch?v=Rf6in29cVNI) <br/> Con base en un modelo de regresión y en el algoritmo de gradiente descedente se introduce el modelo de regresión logística que sirve para resolver problemas de clasificación y se explica su función de costo conocida como <em>cross-entropy</em>.
 
+**09 - Análisis del entrenamiento de una regresión logística**: [Video 11mins](https://www.youtube.com/watch?v=vZZLf2SZqwc) <br/> Se presentan algunos resultados de la ejecución del proceso de entrenamiento de un modelo de regresión logística, para ayudar a comprender el proceso de minimización de la función de costo a partir del algoritmo de gradiente descendente, la modificación iterativa de la frontera de decisión hasta alcanzar la ubicación óptima (de acuerdo con la función de costo) y su correspondiente interpretación en el espacio de búsqueda.
 
 ## Modelos discriminativos vs modelos generativos
 
-**09 - Funciones discriminantes Gausianas**: [Video 30mins]() <br/> Se discuten los modelos generativos los cuales utilizan un principio de funcionamiento diferente para resolver los problemas de clasificación y se presenta el modelo de funcionaes discriminantes Gausianas.
+**10 - Funciones discriminantes Gausianas**: [Video 30mins]() <br/> Se discuten los modelos generativos los cuales utilizan un principio de funcionamiento diferente para resolver los problemas de clasificación y se presenta el modelo de funcionaes discriminantes Gausianas.

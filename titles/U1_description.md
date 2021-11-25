@@ -29,4 +29,4 @@
 
 **11 - Funciones discriminantes Gausianas**: [Video 38mins](https://www.youtube.com/watch?v=-UFjjeVb_9o) <br/> Se discuten los modelos generativos los cuales utilizan un principio de funcionamiento diferente para resolver los problemas de clasificación y se presenta el modelo de funcionaes discriminantes Gausianas, además se explica el criterio de Máxima Verosimilitud a partir del cual se estiman los parámetros del modelo.
 
-**12 - Modelos discriminante lineal, discriminante cuadrático y Naïve Bayes**: [Video 20mins]() <br/> Se presentan varios modelos derivados de las funciones discriminantes Gausianas a partir de diferentes configuraciones de la matriz de covarianza del modelo.
+**12 - Modelos discriminante lineal, discriminante cuadrático y Naïve Bayes**: [Video 22mins](https://www.youtube.com/watch?v=voN5m1G6MH4) <br/> Se presentan varios modelos derivados de las funciones discriminantes Gausianas a partir de diferentes configuraciones de la matriz de covarianza del modelo.

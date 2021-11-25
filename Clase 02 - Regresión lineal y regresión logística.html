@@ -838,11 +838,11 @@ w_j(iter) = w_j(iter-1) - \eta \frac{\partial E({\bf{w}})}{\partial w_j}
 <p>La regla de actualización de los pesos en cada iteración estará entonces dada por:</p>
 <div class="math notranslate nohighlight">
 \[
-w_j(iter) = w_j(iter-1) - \eta \sum_{i=1}^{N}\left( f({\bf{x}}_i,{\bf{w}}) - y_i\right)x_{ij}
+w_j(iter) = w_j(iter-1) - \frac{\eta}{N} \sum_{i=1}^{N}\left( f({\bf{x}}_i,{\bf{w}}) - y_i\right)x_{ij}
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-w_j(iter) = w_j(iter-1) - \eta \sum_{i=1}^{N}\left( \sum_{k=0}^{d} w_k x_{ik} - y_i\right)x_{ij} 
+w_j(iter) = w_j(iter-1) - \frac{\eta}{N} \sum_{i=1}^{N}\left( \sum_{k=0}^{d} w_k x_{ik} - y_i\right)x_{ij} 
 \]</div>
 <p>Si la solución de un problema requiere que sigamos una estrategia de más bajo nivel, entonces se hacen más importantes conceptos de algebra lineal y cálculo, en muchos casos no sólo para comprender los algoritmos, sino también para realizar implementaciones computacionalmente más eficientes.</p>
 <div class="section" id="gradiente-descendetente">

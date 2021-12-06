@@ -173,8 +173,8 @@ def test_experimentar_dt(func):
                                     X = xx, Y=yy,
                                     depths = depths,
                                     normalize = True)
-    code_to_look = [['DecisionTreeClassifier', 'max_depth=', ".fit", ".predict", 'criterion="entropy"'],
-                    ['DecisionTreeClassifier', 'max_depth=', ".fit", ".predict", "criterion='entropy'"]]
+    code_to_look = [['DecisionTreeClassifier', 'max_depth=', ".fit", ".predict", 'criterion="gini"'],
+                    ['DecisionTreeClassifier', 'max_depth=', ".fit", ".predict", "criterion='gini'"]]
     res2 = ut.check_code(code_to_look, func)
 
     return (res and res2)
@@ -194,7 +194,7 @@ def test_experimentar_rf(func):
                                     X = xx, Y=yy,
                                     num_trees = trees,
                                     numero_de_variables = num_vars)
-    code_to_look = ['RandomForestClassifier', 'n_estimators=', 'max_features=',  ".fit", ".predict", 'min_samples_leaf=2']
+    code_to_look = ['RandomForestClassifier', 'n_estimators=', 'max_features=',  ".fit", ".predict", 'min_samples_leaf=3']
     res2 = ut.check_code(code_to_look, func)
     return (res and res2)
 
@@ -210,7 +210,7 @@ def test_experimentar_gbt(func):
                                     col_val=cols,
                                     X = xx, Y=yy,
                                     num_trees = trees)
-    code_to_look = ['GradientBoostingClassifier', 'n_estimators=',  ".fit", ".predict"]
+    code_to_look = ['GradientBoostingClassifier', 'n_estimators=',  ".fit", ".predict", "min_samples_split=3"]
     res2 = ut.check_code(code_to_look, func)
     return (res and res2)
 

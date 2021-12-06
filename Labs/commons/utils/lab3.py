@@ -206,7 +206,7 @@ def test_experimentar_gbt(func):
        'desviacion estandar entrenamiento', 'eficiencia de prueba',
        'desviacion estandar prueba']
     res = ut.test_experimento_oneset(func,  shape_val=(len(trees), len(cols)), 
-                                    col_error = cols_errs,
+                                    col_error = None,
                                     col_val=cols,
                                     X = xx, Y=yy,
                                     num_trees = trees)

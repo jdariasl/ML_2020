@@ -14,7 +14,7 @@ Este archivo es generado automaticamente.
 from imports import *
 from sklearn.neural_network import MLPRegressor
 from sklearn.model_selection import ShuffleSplit
-from sklearn.metrics import mean_absolute_error, accuracy_score, mean_absolute_percentage_error
+from sklearn.metrics import mean_absolute_error, accuracy_score, mean_absolute_percentage_error,classification_report
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import StratifiedKFold, train_test_split
@@ -67,12 +67,13 @@ def test_experimetar_mlp(func):
                                     num_hidden_layers = capas,
                                     num_neurons= neu)
     code_to_look = [['MLPRegressor', 'hidden_layer_sizes=', 'activation=', "'tanh'",  
-                    'max_iter=' , ".fit", ".predict(Xtest)", "X=Xtrain,", 
+                    'max_iter=300' , ".fit", ".predict(Xtest)", "X=Xtrain,", 
                     "hidden_layers*[neurons]", "mean_absolute_percentage_error", 'multioutput=',
-                    "np.mean(ErrorY1)", "np.mean(ErrorY2)"],
+                    "np.mean(ErrorY1)", "np.mean(ErrorY2)", "y_true=", "y_pred"],
                     ['MLPRegressor', 'hidden_layer_sizes=', 'activation=', '"tanh"',  
-                    'max_iter=' , ".fit", ".predict(Xtest)", "X=Xtrain,", 
+                    'max_iter=300' , ".fit", ".predict(Xtest)", "X=Xtrain,", 
                     "hidden_layers*[neurons]", "mean_absolute_percentage_error", 'multioutput=',
+                    "y_true=", "y_pred",
                     "np.mean(ErrorY1)", "np.mean(ErrorY2)"]]
     res2 = ut.check_code(code_to_look, func)
     return (res and res2)
@@ -106,10 +107,10 @@ def test_experimetar_mlpc(func):
                                     num_hidden_layers = capas,
                                     num_neurons= neu)
     code_to_look = [['MLPClassifier', 'hidden_layer_sizes=', 'activation=', "'tanh'",  
-                    'max_iter=' , ".fit", ".predict(Xtest)", "X=Xtrain,",  
+                    'max_iter=350' , ".fit", ".predict(Xtest)", "X=Xtrain,",  
                      'accuracy_score', "hidden_layers*[neurons]"],
                      ['MLPClassifier', 'hidden_layer_sizes=', 'activation=', '"tanh"',  
-                    'max_iter=' , ".fit", ".predict(Xtest)", "X=Xtrain,",  
+                    'max_iter=350' , ".fit", ".predict(Xtest)", "X=Xtrain,",  
                      'accuracy_score', "hidden_layers*[neurons]"]] 
     res2 = ut.check_code(code_to_look, func)
     return (res and res2)

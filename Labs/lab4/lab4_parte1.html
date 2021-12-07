@@ -559,7 +559,7 @@
 <div class="section" id="ejercicio-1-experimentar-con-mlp-para-regresion">
 <h2>Ejercicio 1 - Experimentar con MLP para regresión<a class="headerlink" href="#ejercicio-1-experimentar-con-mlp-para-regresion" title="Permalink to this headline">¶</a></h2>
 <p>Para porder implementar nuestra función, lo primero que debemos entender la estrucutra de la red.</p>
-<p>Como mencionamos, vamos a solucionar un problema de multiples salidas. Estas salidas con valores continuos. Por lo tanto debemos garantizar que la capa de salida de nuestra red tenga la capacidad de modelar. este tipo de datos.</p>
+<p>Como mencionamos, vamos a solucionar un problema de multiples salidas. Estas salidas con valores continuos. Por lo tanto debemos garantizar que la capa de salida de nuestra red tenga la capacidad de modelar este tipo de datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
@@ -594,7 +594,6 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## la funcion que prueba tu implementacion</span>
-<span class="c1">#ignora las graficas!!</span>
 <span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio1&quot;</span><span class="p">,</span> <span class="n">output_activation</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -611,7 +610,7 @@
 <p>Vamos completar la función con el código necesario para usar una red neuronal tipo MLP para solucionar el problema de regresión propuesto.</p>
 <ol class="simple">
 <li><p>Como función de activación en las capas ocultas use la función ‘tanh’.</p></li>
-<li><p>Ajuste el número máximo de épocas a 400.</p></li>
+<li><p>Ajuste el número máximo de épocas a 300.</p></li>
 <li><p>Dejamos como variables el número de capas ocultas y el número de neuronas por capa</p></li>
 <li><p>debemos seleccionar la función adecuada del <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html?highlight=metrics#module-sklearn.metrics">modulo de sklearn para calcular el Error Porcentual Absoluto Medio (MAPE en sigla en ingles)</a>. Tener en cuenta que parametros usar.</p></li>
 <li><p>Debemos usar los nombres explicitos, por ejemplo si para el MLP es necesario usar el parametro <code class="docutils literal notranslate"><span class="pre">activation</span></code>, debe ser llamado: <code class="docutils literal notranslate"><span class="pre">MLPRegressor(activation=...)</span></code></p></li>
@@ -622,13 +621,13 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejercicio de código</span>
 
-<span class="k">def</span> <span class="nf">experimetar_mlp</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">num_hidden_layers</span><span class="p">,</span> <span class="n">num_neurons</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">experimetar_mlp</span><span class="p">(</span><span class="n">num_hidden_layers</span><span class="p">,</span> <span class="n">num_neurons</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; función para realizar experimentos con el MLP</span>
-<span class="sd">    x: matriz de numpy con caracteristicas</span>
-<span class="sd">    y: vector numpy con las variables a predecir</span>
 <span class="sd">    num_hidden_layers: list de enteros con el numero de capdas</span>
 <span class="sd">        ocultas a usar</span>
 <span class="sd">    num_neurons: list de enteros con el numero de neuronas a usar</span>
+<span class="sd">    X: matriz de numpy con caracteristicas</span>
+<span class="sd">    Y: vector numpy con las variables a predecir</span>
 <span class="sd">    </span>
 <span class="sd">    Retorna: dataframe con 6 columnas:</span>
 <span class="sd">        - numero de capas, numero de neuronas</span>
@@ -637,7 +636,7 @@
 <span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#Validamos el modelo</span>
-    <span class="n">Folds</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">Folds</span> <span class="o">=</span> <span class="mi">3</span>
     <span class="n">ss</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">Folds</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
@@ -658,10 +657,10 @@
                 <span class="c1">#Haga el llamado a la función para crear y entrenar el modelo usando los datos de entrenamiento</span>
                 <span class="c1"># prestar atención a los parametros, correctos.</span>
                 <span class="n">hidden_layer_sizes</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
-                <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span> <span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span> <span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mf">1.</span><span class="o">..</span><span class="p">)</span>
                 <span class="c1"># entrena el MLP</span>
                 <span class="n">mlp</span>
-                <span class="c1">#Use para el modelo para hacer predicciones sobre el conjunto Xtest</span>
+                <span class="c1"># Use para el modelo para hacer predicciones sobre el conjunto Xtest</span>
                 <span class="n">Yest</span> <span class="o">=</span> <span class="n">mlp</span>
                 <span class="c1"># Mida el MAPE para cada una de las dos salidas</span>
                 <span class="c1"># Observe bien la documentación. recordar que esta resolviendo</span>
@@ -694,10 +693,11 @@
 </div>
 </div>
 </div>
+<p>vamos a realizar los experimentos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tarda unos minutos!!</span>
-<span class="n">resultados_mlpr</span> <span class="o">=</span> <span class="n">experimetar_mlp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">resultados_mlpr</span> <span class="o">=</span> <span class="n">experimetar_mlp</span><span class="p">(</span><span class="n">num_hidden_layers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">num_neurons</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">],</span> <span class="n">X</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -715,8 +715,17 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown  ¿como influencian los parametros de numero de capas y el numero de neuronas? explique de acuerdo a los resultados, recuerde concentrarse en los patrones no en valores especificos</span>
+<span class="c1">#@markdown con base a los reusltados, ¿podriamos saber a priori los mejores parametros (capas ocultas, # de neuronas), que tan correcto es asumir patrones en los valores de los parametros?</span>
 <span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown que occurre si cambiamos el valor de random state? los resultados deberian ser iguales? justifique su respuesta usando los conceptos teoricos.</span>
+<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
@@ -741,8 +750,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown  ¿Qué tipo de función de activación usa el modelo en la capa de salida para un problema de clasificación? </span>
-<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="c1">#@markdown  ¿Qué tipo de función de activación usa el modelo en la capa de salida para un problema de clasificación?</span>
+<span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
@@ -788,12 +797,12 @@
 <p>Vamos completar la función con el código necesario para usar una red neuronal tipo MLP para solucionar el problema de clasificación propuesto.</p>
 <ol class="simple">
 <li><p>Como función de activación en las capas ocultas use la función tangencial hiperbólica.</p></li>
-<li><p>Ajuste el número máximo de épocas a 400.</p></li>
+<li><p>Ajuste el número máximo de épocas a 350.</p></li>
 <li><p>Dejamos como variables el número de capas ocultas y el número de neuronas por capa</p></li>
-<li><p>Selecciones la función adecuada del <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html?highlight=metrics#module-sklearn.metrics">modulo de sklearn para calcular la exactitud del clasificador</a>. Tener en cuenta que parametros usar.</p></li>
+<li><p>Seleccione la función adecuada del <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html?highlight=metrics#module-sklearn.metrics">modulo de sklearn para calcular la exactitud del clasificador</a>. Tener en cuenta que parametros usar.</p></li>
 <li><p>Debemos usar los nombres explicitos, por ejemplo si para el MLP es necesario usar el parametro <code class="docutils literal notranslate"><span class="pre">activation</span></code>, debe ser llamado: <code class="docutils literal notranslate"><span class="pre">MLPClassifier(activation=...)</span></code></p></li>
 </ol>
-<p><strong>NOTA</strong>: cuando observe el el parametro <code class="docutils literal notranslate"><span class="pre">random_state=1</span></code> por favor conservarlo, ya que esto hace que los resultados sean similares a lo largo de las ejecucciones.</p>
+<p><strong>NOTA</strong>: cuando observe el el parametro <code class="docutils literal notranslate"><span class="pre">random_state=1</span></code> por favor conservarlo, ya que esto hace que los resultados sean similares a lo largo de las ejecucciones. *tener en cuenta esta observación para una de las preguntas abiertas que encuentras mas adelante del laboratorio.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejercicio de código</span>
@@ -862,7 +871,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tarda unos minutos!!</span>
-<span class="n">resultados_mlpc</span> <span class="o">=</span> <span class="n">experimetar_mlpc</span><span class="p">(</span><span class="n">Xd</span><span class="p">,</span><span class="n">Yd</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">24</span><span class="p">])</span>
+<span class="n">resultados_mlpc</span> <span class="o">=</span> <span class="n">experimetar_mlpc</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="n">Xd</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">Yd</span><span class="p">,</span> <span class="n">num_hidden_layers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">num_neurons</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -872,7 +881,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ver los resultados</span>
 <span class="c1"># notar como las capas ocultas y el # de neuronas influyen</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">resultados_mlpc</span><span class="p">,</span>  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuronas en capas ocultas&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;error de prueba(media)&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span> <span class="s1">&#39;capas ocultas&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">resultados_mlpc</span><span class="p">,</span>  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;neuronas en capas ocultas&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;exactitud en prueba(media)&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span> <span class="s1">&#39;capas ocultas&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -881,12 +890,21 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
 <span class="c1">#@markdown ¿Cuántas neuronas en la capa de salida tiene el modelo? ¿Porqué debe tener ese número?</span>
-<span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>nota rapida</strong> En la practica sklearn no es una la libreria indicada para desarollar redes neuronales, para practicas mas avanzadas y realizar modelos en el “mundo real” <a class="reference external" href="https://colab.research.google.com/github/lexfridman/mit-deep-learning/blob/master/tutorial_deep_learning_basics/deep_learning_basics.ipynb">se deben usar conceptos de deep learning y una libreria llamada Keras</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown Llegas a una nueva compañia y observas que solo tienen perceptrones multicapa entrenados usado sklearn ¿que recomiendas?</span>
+<span class="n">respuesta_6</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>recordatorio</strong> En la practica sklearn no es una la libreria indicada para desarollar redes neuronales, para practicas mas avanzadas y realizar modelos en el “mundo real” <a class="reference external" href="https://colab.research.google.com/github/lexfridman/mit-deep-learning/blob/master/tutorial_deep_learning_basics/deep_learning_basics.ipynb">se deben usar conceptos de deep learning y una libreria llamada Keras</a>. Adicional tener en cuenta <a class="reference external" href="https://jdariasl.github.io/ML_2020/Clase%2012%20-%20Redes%20Neuronales%20Artificiales.html#desventajas-de-las-aproximaciones-clasicas">lo visto en teoria</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">check_tests</span><span class="p">()</span>

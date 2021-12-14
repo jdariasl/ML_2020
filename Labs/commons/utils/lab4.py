@@ -18,7 +18,7 @@ from sklearn.metrics import mean_absolute_error, accuracy_score, mean_absolute_p
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import StratifiedKFold, train_test_split
-from sklearn.datasets import load_digits, load_iris
+from sklearn.datasets import load_digits, load_iris, load_wine
 from sklearn.linear_model import LogisticRegression
 from sklearn.decomposition import PCA
 import warnings
@@ -137,8 +137,8 @@ def test_diff_train_test(func):
     xx, yy, xxt, yyt = generate_data2()
     m = MLPClassifier(hidden_layer_sizes=[20,20], max_iter=500, alpha =1e-6, random_state=1)
     m.fit(xx, yy)
-    res = func(m,xx,yy, xxt, yyt)
-    res_ran = func(m,np.random.randn(30,3),np.random.choice(3,30), xxt, yyt)
+    res = func(xx,yy, xxt, yyt, m)
+    res_ran = func(np.random.randn(30,3),np.random.choice(3,30), xxt, yyt, m)
 
     tests = {'no estas retornado lo requerido': res == (1.0, 0.5, 0.5),
              'evitar dejar código estatico': res_ran != res}
@@ -220,12 +220,12 @@ def test_exp_reg_l2(func):
 
     res = ut.test_experimento_oneset(func,  shape_val=(len(l2_values), len(cols)), 
                                     col_error = cols_errs,
-                                    col_val=cols,
+                                    col_val = cols,
                                     Xtrain = xx,
                                     Xtest = xxt,
                                     Ytrain = yy , 
                                     Ytest = yyt, 
-                                    l2_values= l2_values)
+                                    l2_values = l2_values)
     code_to_look = ['LogisticRegression', 'diff_train_test', 'random_state=1', 
                     'C=' , ".fit"] 
     res2 = ut.check_code(code_to_look, func)
@@ -253,7 +253,7 @@ def test_train_size_experiments(func):
                                     Y = yy , 
                                     sk_estimator = m,
                                     train_pcts = train_pcts)
-    code_to_look = ['diff_train_test', 'random_state=10'] 
+    code_to_look = ['diff_train_test', 'random_state=10', 'stratify=Y'] 
     res2 = ut.check_code(code_to_look, func)
 
     if not(ut.is_inc_dec(df['tamaño de entrenamiento'].values , increasing = True )):

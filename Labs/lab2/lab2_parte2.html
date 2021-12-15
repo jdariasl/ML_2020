@@ -827,16 +827,17 @@ Se quiere incentivar la lecutra de la documentación de las librerias, se debe h
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejercicio de código</span>
-<span class="k">def</span> <span class="nf">Nadaraya_Watson</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">Nadaraya_Watson</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Funcion que implementa metodo de ventana de parzen para</span>
 <span class="sd">        para clasificación</span>
+<span class="sd">    </span>
+<span class="sd">    h (float): ancho de h de la ventana</span>
 <span class="sd">    X_train: es la matriz con las muestras de entrenamiento</span>
 <span class="sd">    Y_train: es un vector con los valores de salida pra cada una de las muestras de entrenamiento</span>
 <span class="sd">    X_test: es la matriz con las muestras de validación</span>
-<span class="sd">    h (float): ancho de h de la ventana</span>
+<span class="sd">  </span>
 <span class="sd">    retorna: - las estimaciones del modelo parzen para el conjunto X_test </span>
 <span class="sd">              esta matriz debe tener un shape de [row/muestras de X_test]</span>
-<span class="sd">             - las probabilidades de la vetana [row/muestras de X_test, numero de clases]  </span>
 <span class="sd">    &quot;&quot;&quot;</span>
         
     <span class="n">Yest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>

@@ -45,6 +45,38 @@ def test_create_rnn_model (func):
 
 
 @unknow_error
+def test_create_dataset(func):
+    data1 = pd.DataFrame(data = {'passengers': {0: 112, 1: 118, 2: 132, 3: 129, 4: 121, 5: 135}})
+    data2 = pd.DataFrame(data = {'passengers': {0: 100, 1: 101, 2: 102, 3: 103, 4: 104, 5: 105, 6:106}})
+    inp1 = np.array([[112, 118, 132],
+                   [118, 132, 129],
+                   [132, 129, 121]])
+    
+    inp2 = np.array([[100, 101],
+       [101, 102],
+       [102, 103],
+       [103, 104]])
+
+
+    out1= np.array([[129],
+        [121],
+        [135]])
+    out2 = np.array([[102],
+       [103],
+       [104],
+       [105]])
+    i1, o1 = func(data1, look_back=3)
+    i2, o2 = func(data2, look_back=2)
+
+    tests = {'No se esta construyendo adecuadamente los valores ': not(np.isclose(i1, inp1)) or not(np.isclose(i2, inp2)),
+             'No se esta construyendo adecuadamente las salidas ': not(np.isclose(o1, out1)) or not(np.isclose(o2, out2))
+
+             }
+    
+    return (ut.test_conditions_and_methods(tests))
+
+
+@unknow_error
 def test_experimentar_rnn(func):
     xx, yy = generate_data(True)
     looksbacks = [1,2]
@@ -56,8 +88,8 @@ def test_experimentar_rnn(func):
 
     code_to_look = ['epochs=50', 'x=trainX', 'y=trainY', 
                     'create_rnn_model', '.predict(trainX)', 'create_dataset',
-                    '.predict(testX)' , 'mean_absolute_error(testY', 
-                    'mean_absolute_error(trainY']
+                    '.predict(testX)' ,  
+                    "r2_score(y_true=testY", "r2_score(y_true=trainY"] 
 
     res2 = ut.check_code(code_to_look, func, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
 
@@ -88,7 +120,7 @@ def test_experimetar_mlp(func):
                                     hidden_neurons= neu)
     code_to_look = ['MLPRegressor',  'hidden_layer_sizes=(num_hidden_neurons',
                     "max_iter=50", 'random_state=10', '.fit', '.predict',
-                    "mean_absolute_error(testY", "mean_absolute_error(trainY"] 
+                    "r2_score(y_true=testY", "r2_score(y_true=trainY"] 
     res2 = ut.check_code(code_to_look, func, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
     return (res and res2)
 
@@ -112,7 +144,7 @@ def test_experimentar_LSTM(func):
                                     hidden_neurons= neu)
     code_to_look = ['create_lstm_model',   'epochs=50', 
                     '.predict(trainX)', '.predict(testX)',
-                    "mean_absolute_error(testY", "mean_absolute_error(trainY"] 
+                     "r2_score(y_true=testY", "r2_score(y_true=trainY"] 
     res2 = ut.check_code(code_to_look, func, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
     return (res and res2)
 
@@ -123,10 +155,11 @@ def part_1 ():
     dataset.columns =[ 'passengers']
     os.system("pip install neurolab")
     os.system("pip install statsmodels==0.12")
-    GRADER.add_test("ejercicio1", Tester(test_create_rnn_model))
-    GRADER.add_test("ejercicio2", Tester(test_experimentar_rnn))
-    GRADER.add_test("ejercicio3", Tester(test_experimetar_mlp))
-    GRADER.add_test("ejercicio4", Tester(test_experimentar_LSTM))
+    GRADER.add_test("ejercicio1", Tester(test_create_dataset))
+    GRADER.add_test("ejercicio2", Tester(test_create_rnn_model))
+    GRADER.add_test("ejercicio3", Tester(test_experimentar_rnn))
+    GRADER.add_test("ejercicio4", Tester(test_experimetar_mlp))
+    GRADER.add_test("ejercicio5", Tester(test_experimentar_LSTM))
 
 
     return(GRADER, dataset)

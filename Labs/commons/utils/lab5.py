@@ -78,7 +78,8 @@ def test_create_dataset(func):
 
 @unknow_error
 def test_experimentar_rnn(func):
-    xx, yy = generate_data(True)
+    xx, _ = generate_data(False)
+    xx = pd.DataFrame(data = {'values': xx[:, 0]}, index = range(len(xx[:, 0])))
     looksbacks = [1,2]
     neu = [5,7]
     cols =['lags', 'neuronas por capa', 'error de entrenamiento',
@@ -104,7 +105,8 @@ def test_experimentar_rnn(func):
 
 @unknow_error
 def test_experimetar_mlp(func):
-    xx, yy = generate_data(True)
+    xx, _ = generate_data(False)
+    xx = pd.DataFrame(data = {'values': xx[:, 0]}, index = range(len(xx[:, 0])))
     looksbacks = [1,2]
     neu = [5,10]
     cols =['lags', 'neuronas por capa', 'error de entrenamiento',
@@ -128,7 +130,8 @@ def test_experimetar_mlp(func):
 
 @unknow_error
 def test_experimentar_LSTM(func):
-    xx, yy = generate_data(True)
+    xx, _ = generate_data(False)
+    xx = pd.DataFrame(data = {'values': xx[:, 0]}, index = range(len(xx[:, 0])))
     looksbacks = [1,2]
     neu = [5]
     cols =['lags', 'neuronas por capa', 'error de entrenamiento',

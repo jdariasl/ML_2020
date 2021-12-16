@@ -49,8 +49,7 @@ def test_create_dataset(func):
     data1 = pd.DataFrame(data = {'passengers': {0: 112, 1: 118, 2: 132, 3: 129, 4: 121, 5: 135}})
     data2 = pd.DataFrame(data = {'passengers': {0: 100, 1: 101, 2: 102, 3: 103, 4: 104, 5: 105, 6:106}})
     inp1 = np.array([[112, 118, 132],
-                   [118, 132, 129],
-                   [132, 129, 121]])
+                   [118, 132, 129]])
     
     inp2 = np.array([[100, 101],
        [101, 102],
@@ -59,22 +58,20 @@ def test_create_dataset(func):
 
 
     out1= np.array([[129],
-        [121],
-        [135]])
+        [121]])
     out2 = np.array([[102],
        [103],
        [104],
        [105]])
     i1, o1 = func(data1.values, look_back=3)
     i2, o2 = func(data2.values, look_back=2)
-
-    tests = {'No se esta construyendo adecuadamente los valores ': not(np.isclose(i1, inp1)) or not(np.isclose(i2, inp2)),
-             'No se esta construyendo adecuadamente las salidas ': not(np.isclose(o1, out1)) or not(np.isclose(o2, out2))
+    tests = {'No se esta construyendo adecuadamente los valores ': np.allclose(i1, inp1) or np.allclose(i2, inp2),
+             'No se esta construyendo adecuadamente las salidas ': np.allclose(o1, out1) or np.allclose(o2, out2)
 
              }
     
     return (ut.test_conditions_and_methods(tests))
-
+    
 
 @unknow_error
 def test_experimentar_rnn(func):

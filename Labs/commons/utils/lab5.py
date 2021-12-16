@@ -12,7 +12,7 @@ Este archivo es generado automaticamente.
 """
 
 from imports import *
-from sklearn.metrics import mean_absolute_error, accuracy_score, mean_squared_error, mean_absolute_percentage_error
+from sklearn.metrics import mean_absolute_error, accuracy_score, mean_squared_error, mean_absolute_percentage_error,r2_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.multiclass import OneVsRestClassifier

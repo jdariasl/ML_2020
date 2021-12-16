@@ -65,8 +65,8 @@ def test_create_dataset(func):
        [103],
        [104],
        [105]])
-    i1, o1 = func(data1, look_back=3)
-    i2, o2 = func(data2, look_back=2)
+    i1, o1 = func(data1.values, look_back=3)
+    i2, o2 = func(data2.values, look_back=2)
 
     tests = {'No se esta construyendo adecuadamente los valores ': not(np.isclose(i1, inp1)) or not(np.isclose(i2, inp2)),
              'No se esta construyendo adecuadamente las salidas ': not(np.isclose(o1, out1)) or not(np.isclose(o2, out2))
@@ -97,7 +97,7 @@ def test_experimentar_rnn(func):
     res = ut.test_experimento_oneset(func,  shape_val=(len(looksbacks)*len(neu), len(cols)), 
                                     col_error = cols_errs,
                                     col_val=cols,
-                                    data = xx,
+                                    data = xx.values,
                                     look_backs = looksbacks,
                                     hidden_neurons= neu)
     return (res and res2)
@@ -117,7 +117,7 @@ def test_experimetar_mlp(func):
     res = ut.test_experimento_oneset(func,  shape_val=(len(looksbacks)*len(neu), len(cols)), 
                                     col_error = cols_errs,
                                     col_val=cols,
-                                    data = xx,
+                                    data = xx.values,
                                     look_backs = looksbacks,
                                     hidden_neurons= neu)
     code_to_look = ['MLPRegressor',  'hidden_layer_sizes=(num_hidden_neurons',
@@ -142,7 +142,7 @@ def test_experimentar_LSTM(func):
     res = ut.test_experimento_oneset(func,  shape_val=(len(looksbacks)*len(neu), len(cols)), 
                                     col_error = cols_errs,
                                     col_val=cols,
-                                    data = xx,
+                                    data = xx.values,
                                     look_backs = looksbacks,
                                     hidden_neurons= neu)
     code_to_look = ['create_lstm_model',   'epochs=50', 

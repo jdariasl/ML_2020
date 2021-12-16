@@ -536,18 +536,33 @@
 <span class="c1"># Ejecuta esta celda!</span>
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
-<span class="c1">#for local </span>
-<span class="c1">#import sys ; sys.path.append(&#39;../commons/utils/&#39;)</span>
-<span class="o">!</span>wget https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py -O general.py --no-cache
-<span class="kn">from</span> <span class="nn">general</span> <span class="kn">import</span> <span class="n">configure_lab5_1</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">in_colab</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">in_colab</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span> <span class="p">;</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../commons/utils/&#39;</span><span class="p">);</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../commons/utils/data&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py -O general.py&#39;</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">general</span> <span class="kn">import</span> <span class="n">configure_lab5_1</span>
+    <span class="n">configure_lab5_1</span><span class="p">()</span>
+
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TF_CPP_MIN_LOG_LEVEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;3&#39;</span> 
 <span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">plot_model</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">set_verbosity</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span> 
-<span class="n">configure_lab5_1</span><span class="p">()</span>
 <span class="kn">from</span> <span class="nn">lab5</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">GRADER</span><span class="p">,</span> <span class="n">dataset</span> <span class="o">=</span> <span class="n">part_1</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="p">,</span> <span class="n">dataset</span> <span class="o">=</span> <span class="n">part_1</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -564,7 +579,6 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creamos una variable para</span>
 <span class="c1"># el tiempo</span>
 <span class="n">Time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;1949-01&#39;</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;1961-01&#39;</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tenemos dispnible nuestra base de datos en el pandas DF &#39;dataset&#39; </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Time</span><span class="p">,</span><span class="n">dataset</span><span class="p">)</span>
@@ -581,7 +595,7 @@
 <p>La libreria statsmodel <a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.graphics.tsaplots.plot_acf.html">tiene una función que nos sirve para analizar esta relación</a>.</p>
 <div class="section" id="ejercicio-1-exploracion-del-problema">
 <h2>Ejercicio 1 - Exploración del problema<a class="headerlink" href="#ejercicio-1-exploracion-del-problema" title="Permalink to this headline">¶</a></h2>
-<p>Este plot realiza una operación cuyos detalles son explicados en mayor profundidad en <a class="reference external" href="https://machinelearningmastery.com/gentle-introduction-autocorrelation-partial-autocorrelation/">esta buena entrada de blog</a>. Pero nuestro laboratorio lo que no interesa es entender:</p>
+<p>Este plot realiza una operación cuyos detalles son explicados en mayor profundidad en <a class="reference external" href="https://machinelearningmastery.com/gentle-introduction-autocorrelation-partial-autocorrelation/">esta buena entrada de blog</a>. Pero nuestro laboratorio lo que no interesa entender:</p>
 <ol class="simple">
 <li><p>El valor varia entre 1.0 y -1.0.</p></li>
 <li><p>Cuando el valor de la correlación es 1.0, corresponde el valor maximo indicando una relación positiva entre la variable y su correspondiente lag o retraso.</p></li>
@@ -604,7 +618,7 @@
 </div>
 </div>
 </div>
-<p>reforzando el entendimiento de lo anterior,en la grafica podemos ver lo siguiente:</p>
+<p>reforzando el entendimiento, observando la grafica anterior:</p>
 <ol class="simple">
 <li><p>cuando hay un lag = 5 (es decir evaluar que tan relacionadas estas las 5 muestras anteriores), tenemos una autocorrelación <span class="math notranslate nohighlight">\(\approx\)</span> 0.75</p></li>
 <li><p>cuando hay un lag = 25 (es decir evaluar que tan relacionadas estas las 25 muestras anteriores), tenemos una autocorrelación <span class="math notranslate nohighlight">\(\approx\)</span> 0.5</p></li>
@@ -638,31 +652,42 @@
 </div>
 </div>
 </div>
-<p>Finalmente, se propone la siguiente función para realizar la transformación</p>
+<p>Ahora, realicemos el ejercicio de transformar nuestros datos a la forma requerida.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert an array of values into a dataset matrix</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de codigo</span>
 <span class="k">def</span> <span class="nf">create_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">look_back</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;funcion que crea dataset apto para RNN</span>
 <span class="sd">    </span>
-<span class="sd">    dataset: pandas dataframe con una sola columna</span>
+<span class="sd">    dataset: matriz numpy con el conjunto de datos</span>
 <span class="sd">    look_back: numero de retrasos con los cuales queremos construir</span>
 <span class="sd">        las caracteristicas</span>
+<span class="sd">    </span>
+<span class="sd">    Retorna:</span>
+<span class="sd">      un numpy array con los valores de X (debe ser una matrix)</span>
+<span class="sd">      un numpy array con los valores de Y </span>
+<span class="sd">        (debe ser un vector columna, el # de renglones debe ser igual de renglones del numpy de X)</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">dataX</span><span class="p">,</span> <span class="n">dataY</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">-</span><span class="n">look_back</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">look_back</span><span class="p">),</span> <span class="mi">0</span><span class="p">]</span>
-        <span class="n">dataX</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-        <span class="n">dataY</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">look_back</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="o">...</span>
+      <span class="o">...</span>
     
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataX</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataY</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataY</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="o">....</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># observemos el funcionamiento</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio1&quot;</span><span class="p">,</span> <span class="n">create_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># observemos el funcionamiento de nuestra funcion</span>
 <span class="n">x_to_see</span><span class="p">,</span> <span class="n">y_to_see</span> <span class="o">=</span>  <span class="n">create_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="s2">&quot;primeras muestras de x&quot;</span><span class="p">,</span> <span class="n">x_to_see</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">display</span><span class="p">(</span><span class="s2">&quot;primeras muestras de y&quot;</span><span class="p">,</span> <span class="n">y_to_see</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
@@ -674,7 +699,7 @@
 <div class="section" id="ejercicio-2-experimentar-con-rnn">
 <h2>Ejercicio 2 - Experimentar con RNN<a class="headerlink" href="#ejercicio-2-experimentar-con-rnn" title="Permalink to this headline">¶</a></h2>
 <p>En este laboratorio vamos a explorar una libreria muy popular pero un poco más avanzada, para construir redes neuronales llamadas <a class="reference external" href="https://www.tensorflow.org/?hl=es-419">TensorFlow</a>.</p>
-<p>En el siguiente ejercicio vamos a crear una función para construir una RNN usando la libreria mencionada.</p>
+<p>En el siguiente ejercicio vamos a crear una función para construir una RNN usando la libreria mencionada.  Ssingar como funcion de perdida el valor dfel error  medio absoluto</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ejercicio de código </span>
@@ -690,10 +715,10 @@
 <span class="sd">    como funcion de perdida</span>
 <span class="sd">    RNN con base al número de lags y numero de neuronas</span>
 
-<span class="sd">    </span>
 <span class="sd">    parametros</span>
-<span class="sd">    look_back (int): numero de retrasos a ejecutar</span>
-<span class="sd">    num_hidden_neurons (int): numero neuronas en la capa oculta</span>
+<span class="sd">      look_back (int): numero de retrasos a ejecutar</span>
+<span class="sd">      num_hidden_neurons (int): numero neuronas en la capa oculta</span>
+<span class="sd">    </span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># se inicializa el modelo</span>
@@ -702,8 +727,9 @@
     <span class="c1"># adicionar una capa RNN</span>
     <span class="c1"># reemplace los valores</span>
     <span class="c1"># asigna el nombre de rnn_layer</span>
-    <span class="n">rnn_layer</span> <span class="o">=</span> <span class="n">SimpleRNN</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">input_shape</span> <span class="o">=</span> <span class="o">...</span><span class="p">),</span> 
-                          <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span> 
+    <span class="n">rnn_layer</span> <span class="o">=</span> <span class="n">SimpleRNN</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> 
+                          <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">...</span><span class="p">),</span> 
+                          <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;rnn_layer&#39;</span><span class="p">)</span> 
     <span class="c1"># en tensorflow debemos adicionar la capa </span>
     <span class="c1"># al modelo</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
@@ -718,7 +744,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio1&quot;</span><span class="p">,</span> <span class="n">create_rnn_model</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio2&quot;</span><span class="p">,</span> <span class="n">create_rnn_model</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -734,7 +760,7 @@
     <span class="n">create_rnn_model</span><span class="p">(</span><span class="n">look_back</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">num_hidden_neurons</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> 
     <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s2">&quot;4 retraso, 1 neuronas ocultas&quot;</span><span class="p">,</span> <span class="n">plot_model</span><span class="p">(</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;4 retraso, 1 neurona ocultas&quot;</span><span class="p">,</span> <span class="n">plot_model</span><span class="p">(</span>
     <span class="n">create_rnn_model</span><span class="p">(</span><span class="n">look_back</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span><span class="n">num_hidden_neurons</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> 
     <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
@@ -749,7 +775,7 @@
 <p>Otras condiciones:</p>
 <ul class="simple">
 <li><p>Vamos a dejar fijo el # de epocas 50.</p></li>
-<li><p>Usaremos la metrica Error absoluto. Recordar que solo usamos la implementaciones de <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">sklearn</a></p></li>
+<li><p>Usaremos la metrica del score <span class="math notranslate nohighlight">\(R^{2}\)</span>. Recordar que solo usamos la implementaciones de <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">sklearn</a></p></li>
 <li><p>En la celda de codigo se propone la implementacion para cambiar las dimensiones de nuestras matrices. Este cambio es requerimiento de Tensorflow.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -792,20 +818,20 @@
             <span class="c1"># aplicar la transformacion</span>
             <span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
             <span class="n">testX</span><span class="p">,</span> <span class="n">testY</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
-            <span class="n">trainX</span><span class="p">,</span> <span class="n">testX</span> <span class="o">=</span> <span class="n">datas_as_tensorflow</span><span class="p">(</span><span class="n">trainX</span><span class="p">,</span> <span class="n">testX</span><span class="p">)</span>
+            <span class="n">trainX</span><span class="p">,</span> <span class="n">testX</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">trainX</span><span class="p">,</span> <span class="n">testX</span><span class="p">)</span>
             <span class="c1"># creemos el modelo</span>
-            <span class="n">model</span> <span class="o">=</span> <span class="o">....</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">create_rnn_model</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">....</span><span class="p">)</span>
             <span class="c1"># entrenemos el modelo</span>
-            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="o">....</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="o">....</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=...</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
             <span class="c1"># predecimos en los conjuntos</span>
-            <span class="n">trainYPred</span>  <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-            <span class="n">testYPred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-            <span class="n">errorPrueba</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="o">...</span><span class="p">,</span><span class="o">...</span><span class="p">)</span>
-            <span class="n">errorEntrenamiento</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="o">....</span><span class="p">,</span> <span class="o">....</span><span class="p">)</span>
+            <span class="n">trainYPred</span>  <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">trainX</span><span class="p">)</span>
+            <span class="n">testYPred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">testX</span><span class="p">)</span>
+            <span class="n">errorPrueba</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span>
+            <span class="n">errorEntrenamiento</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span>
             <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;lags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">look_back</span>
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;neuronas por capa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_hidden_neurons</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;neuronas por capa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
             <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de entrenamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">..</span>
             <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;termina para&quot;</span><span class="p">,</span> <span class="n">look_back</span><span class="p">,</span> <span class="n">num_hidden_neurons</span><span class="p">)</span>
     
@@ -816,7 +842,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio2&quot;</span><span class="p">,</span> <span class="n">experimentar_rnn</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio3&quot;</span><span class="p">,</span> <span class="n">experimentar_rnn</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -876,7 +902,7 @@
 <li><p>vamos a dejar solo una capa oculta y vamos a variar el número de neuronas en esta capa</p></li>
 <li><p>el número de epocas también va ser de 50</p></li>
 <li><p>el valor por defecto sera usado para el resto de parámetros</p></li>
-<li><p>utilizar como medida de error el error absoluto medio.  <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">recordar usar la implementación del modulo de metricas de sklearn</a></p></li>
+<li><p>Usaremos la metrica del score <span class="math notranslate nohighlight">\(R^{2}\)</span>. Recordar que solo usamos la implementaciones de <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">sklearn</a></p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -915,24 +941,23 @@
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">num_hidden_neurons</span> <span class="ow">in</span> <span class="n">hidden_neurons</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">look_back</span> <span class="ow">in</span> <span class="n">look_backs</span><span class="p">:</span>
-            <span class="c1"># reshape into X=t-look_back+1:t and Y=t+1</span>
-            <span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
-            <span class="n">testX</span><span class="p">,</span> <span class="n">testY</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>          
+            <span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+            <span class="n">testX</span><span class="p">,</span> <span class="n">testY</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>          
             <span class="c1"># define el MLP para Regresion pasando los parametros adecuados</span>
             <span class="c1"># pasar random_state = 10 para lograr resultados reproducibles</span>
-            <span class="n">net</span> <span class="o">=</span>  <span class="o">...</span><span class="p">(</span><span class="o">....=</span> <span class="p">(</span><span class="n">num_hidden_neurons</span><span class="p">),</span> <span class="o">...</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="n">net</span> <span class="o">=</span>  <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span> <span class="p">(</span><span class="n">num_hidden_neurons</span><span class="p">),</span> <span class="o">...</span> <span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
             <span class="c1"># Entrenar la red con los datos de entrenamiento</span>
-            <span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span><span class="p">)</span>
+            <span class="n">net</span><span class="o">...</span>
             <span class="c1"># Evaluar la red con los datos de entrenamiento y test</span>
-            <span class="n">trainYPred</span> <span class="o">=</span> <span class="n">net</span><span class="o">...</span><span class="p">(</span><span class="n">trainX</span><span class="p">)</span>
-            <span class="n">testYPred</span> <span class="o">=</span> <span class="n">net</span><span class="o">...</span><span class="p">(</span><span class="n">testX</span><span class="p">)</span>
+            <span class="n">trainYPred</span> <span class="o">=</span> <span class="n">net</span><span class="o">....</span>
+            <span class="n">testYPred</span> <span class="o">=</span> <span class="n">net</span><span class="o">...</span>
             <span class="c1"># Calculo de error</span>
-            <span class="n">errorPrueba</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">testY</span><span class="p">,</span> <span class="n">testYPred</span><span class="p">)</span>
-            <span class="n">errorEntrenamiento</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">trainY</span><span class="p">,</span> <span class="n">trainYPred</span><span class="p">)</span>
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;lags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">look_back</span>
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;neuronas por capa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_hidden_neurons</span>
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de entrenamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">errorEntrenamiento</span>
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">errorPrueba</span>
+            <span class="n">errorPrueba</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">testY</span><span class="p">,</span><span class="o">...</span><span class="p">)</span>
+            <span class="n">errorEntrenamiento</span> <span class="o">=</span> <span class="o">....</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">trainY</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">trainYPred</span><span class="p">)</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;lags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;neuronas por capa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de entrenamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
             <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
     
     <span class="k">return</span> <span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
@@ -942,7 +967,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio3&quot;</span><span class="p">,</span> <span class="n">experimentar_MLP</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio4&quot;</span><span class="p">,</span> <span class="n">experimentar_MLP</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -997,7 +1022,7 @@
 <ol class="simple">
 <li><p>Epocas = 50</p></li>
 <li><p>Pasar los parametros el la función <code class="docutils literal notranslate"><span class="pre">create_tf_model</span></code></p></li>
-<li><p>utilizar como medida de error el error absoluto medio.  <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">recordar usar la implementación del modulo de metricas de sklearn</a></p></li>
+<li><p>Usaremos la metrica del score <span class="math notranslate nohighlight">\(R^{2}\)</span>. Recordar que solo usamos la implementaciones de <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">sklearn</a></p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1028,25 +1053,24 @@
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">num_hidden_neurons</span> <span class="ow">in</span> <span class="n">hidden_neurons</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">look_back</span> <span class="ow">in</span> <span class="n">look_backs</span><span class="p">:</span>
-            <span class="c1"># reshape into X=t-look_back+1:t and Y=t+1</span>
-            <span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
-            <span class="n">testX</span><span class="p">,</span> <span class="n">testY</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+            <span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+            <span class="n">testX</span><span class="p">,</span> <span class="n">testY</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
             <span class="c1"># adaptar para compatibilidad con tensorflow</span>
             <span class="n">trainX</span><span class="p">,</span> <span class="n">testX</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">trainX</span><span class="p">,</span> <span class="n">testX</span><span class="p">)</span>
             <span class="c1"># llama la función definida anteriormente</span>
-            <span class="n">model</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">look_back</span><span class="p">,</span> <span class="n">num_hidden_neurons</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="o">....</span><span class="p">(</span><span class="n">look_back</span><span class="p">,</span> <span class="n">num_hidden_neurons</span><span class="p">)</span>
             <span class="c1"># pasa el las epocas requeridas</span>
-            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=...</span><span class="p">,</span>  <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trainX</span><span class="p">,</span> <span class="n">trainY</span><span class="p">,</span> <span class="o">....</span><span class="p">,</span>  <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
             <span class="c1"># Evaluar la red con los datos de test y entrenamiento </span>
-            <span class="n">trainYPred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-            <span class="n">testYPred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+            <span class="n">trainYPred</span> <span class="o">=</span> <span class="n">model</span><span class="o">....</span>
+            <span class="n">testYPred</span> <span class="o">=</span> <span class="n">model</span><span class="o">...</span>
             <span class="c1"># Calculo de error</span>
-            <span class="n">errorTrain</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">trainYPred</span><span class="p">)</span>
-            <span class="n">errorTest</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">testYPred</span><span class="p">)</span>
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;lags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">look_back</span>
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;neuronas por capa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_hidden_neurons</span> 
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de entrenamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">errorTrain</span>
-            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">errorTest</span>
+            <span class="n">errorTest</span> <span class="o">=</span> <span class="o">....</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="o">....</span><span class="p">)</span>
+            <span class="n">errorTrain</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="o">....</span><span class="p">)</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;lags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">....</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;neuronas por capa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">....</span> 
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de entrenamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">resultados</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
             <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;termina para&quot;</span><span class="p">,</span> <span class="n">look_back</span><span class="p">,</span> <span class="n">num_hidden_neurons</span><span class="p">)</span>
     
@@ -1058,7 +1082,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ignorar los prints!</span>
-<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio4&quot;</span><span class="p">,</span> <span class="n">experimentar_LSTM</span><span class="p">)</span>
+<span class="n">GRADER</span><span class="o">.</span><span class="n">run_test</span><span class="p">(</span><span class="s2">&quot;ejercicio5&quot;</span><span class="p">,</span> <span class="n">experimentar_LSTM</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1076,14 +1100,14 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># para ver los resultados</span>
 <span class="c1"># en esta instruccion se va resaltar el mejor</span>
 <span class="c1"># error y tiempo de entrenamiento</span>
-<span class="n">resultadosLSTM</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">highlight_min</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">])</span>
+<span class="n">resultadosLSTM</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">highlight_max</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compremos nuevamente con RNN simple</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># comparemos nuevamente con un RNN simple</span>
 <span class="n">resultadosRNN</span> <span class="o">=</span> <span class="n">experimentar_rnn</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">look_backs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">36</span><span class="p">],</span> <span class="n">hidden_neurons</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1091,12 +1115,10 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># observa el comportamiento de los lags y comparar con elman</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">resultadosRNN</span><span class="p">[</span><span class="s1">&#39;tipo_de_red&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LSTM&#39;</span>
-<span class="n">resultadosLSTM</span><span class="p">[</span><span class="s1">&#39;tipo_de_red&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RNN&#39;</span>
-<span class="n">lstm_vs_elman</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">resultadosLSTM</span><span class="p">,</span> <span class="n">resultadosRNN</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span> <span class="mi">0</span> <span class="p">,</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="n">lstm_vs_elman</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;lags&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;error de prueba&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;tipo_de_red&#39;</span><span class="p">,</span>  <span class="n">height</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="p">,</span> <span class="n">aspect</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">row</span> <span class="o">=</span> <span class="s1">&#39;neuronas por capa&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># para ver los resultados</span>
+<span class="c1"># en esta instruccion se va resaltar el mejor</span>
+<span class="c1"># error y tiempo de entrenamiento</span>
+<span class="n">resultadosRNN</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">highlight_max</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;error de prueba&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>

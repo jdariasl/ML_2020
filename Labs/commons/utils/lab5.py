@@ -220,7 +220,7 @@ def experiementarSVR(func):
 
     code_to_look = ['KFold', 'kernel=kernel', 'gamma=gamma', 'C=param_reg', 'SVR',
                     'StandardScaler()', '.fit(X=X_train', 
-                    '.predict(X=X_test', 
+                    '.predict(X=X_test', "n_splits=4",
                     '.support_', 'mean_absolute_percentage_error'] 
     res2 = ut.check_code(code_to_look, func, debug = False)
 

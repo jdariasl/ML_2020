@@ -523,25 +523,34 @@
                 
   <p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras almacenar tu progreso</strong></p>
 <p>Nota: no olvide ir ejecutando las celdas de código de arriba hacia abajo para que no tenga errores de importación de librerías o por falta de definición de variables.</p>
-<div class="section" id="laboratorio-5-parte-2-maquinas-de-vectores-de-soporte">
-<h1>Laboratorio 5 - Parte 2. Máquinas de Vectores de Soporte<a class="headerlink" href="#laboratorio-5-parte-2-maquinas-de-vectores-de-soporte" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#configuración del laboratorio</span>
 <span class="c1"># Ejecuta esta celda!</span>
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
-<span class="c1">#for local </span>
-<span class="c1">#import sys ; sys.path.append(&#39;../commons/utils/&#39;)</span>
-<span class="o">!</span>wget https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py -O general.py --no-cache
-<span class="kn">from</span> <span class="nn">general</span> <span class="kn">import</span> <span class="n">configure_lab5_2</span>
-<span class="n">configure_lab5_2</span><span class="p">()</span>
+<span class="n">in_colab</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">in_colab</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span> <span class="p">;</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../commons/utils/&#39;</span><span class="p">);</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../commons/utils/data&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py -O general.py&#39;</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">general</span> <span class="kn">import</span> <span class="n">configure_lab5_2</span>
+    <span class="n">configure_lab5_2</span><span class="p">()</span>
 <span class="kn">from</span> <span class="nn">lab5</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">GRADER</span><span class="p">,</span> <span class="n">dataset</span> <span class="o">=</span> <span class="n">part_2</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="section" id="laboratorio-5-parte-2-maquinas-de-vectores-de-soporte">
+<h1>Laboratorio 5 - Parte 2. Máquinas de Vectores de Soporte<a class="headerlink" href="#laboratorio-5-parte-2-maquinas-de-vectores-de-soporte" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="ejercicio-1-limipiar-base-de-datos-y-completar-codigo">
 <h2>Ejercicio 1: Limipiar base de datos y completar código<a class="headerlink" href="#ejercicio-1-limipiar-base-de-datos-y-completar-codigo" title="Permalink to this headline">¶</a></h2>
 <p>En este ejercicio usaremos la regresión por vectores de soporte para resolver el problema de regresión de la base de datos AirQuality (<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Air+Quality">https://archive.ics.uci.edu/ml/datasets/Air+Quality</a>). Tener en cuenta que vamos a usar solo 2000 muestras.</p>
@@ -563,7 +572,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 </ol>
 <p>informacion de utilidad:</p>
 <ol class="simple">
-<li><p>Aca puede ser de utilidad recordar lo que observamos en esta <a class="reference external" href="https://jdariasl.github.io/ML_2020/Labs/Extra/Basic_Preprocessing_FeatureEngineering.html">sesión extra</a>.</p></li>
+<li><p>Aca puede ser de utilidad recordar nuestra <a class="reference external" href="https://jdariasl.github.io/ML_2020/Labs/Extra/Basic_Preprocessing_FeatureEngineering.html">sesión extra</a>.</p></li>
 <li><p>Para transformar columnas de pandas a arreglos de numpy se puede usar <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> / <code class="docutils literal notranslate"><span class="pre">.loc</span></code> y . <code class="docutils literal notranslate"><span class="pre">.values</span></code>, por ejemplo  para devolver una matriz con los valores de las primeras dos columnas es posible hacerlo asi: <code class="docutils literal notranslate"><span class="pre">dataset_df.iloc[:</span> <span class="pre">,</span> <span class="pre">0:2].values</span></code> o <code class="docutils literal notranslate"><span class="pre">dataset_df.loc[:</span> <span class="pre">,</span> <span class="pre">['col_1',</span> <span class="pre">'col_2']].values</span></code></p></li>
 <li><p>Para cambiar valores faltantes, podemos usar la <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html">librería sklearn</a></p></li>
 </ol>
@@ -651,7 +660,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 <ol class="simple">
 <li><p>Usar la libreria de sklearn <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html">https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html</a>.</p></li>
 <li><p>Vamos a variar tres parámetros del SVR: kernel,  gamma y el parametro de regularización.</p></li>
-<li><p>Utilizar la metodología cross-validation con 5 folds.</p></li>
+<li><p>Utilizar la metodología cross-validation con 4 folds.</p></li>
 <li><p>Usar normalización de datos estandar implementada por sklearn</p></li>
 <li><p>Extraer los vectores de soporte (observe los <em>atributos</em> del modelo SVR de sklearn). Recuerde que estos atributos son accesibles, una vez el modelo es entrenado</p></li>
 <li><p>Utilizar el metrica para calcular el MAPE (usar sklearn).</p></li>
@@ -686,7 +695,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 <span class="sd">        - % de Vectores de Soporte promedio para los 5 folds (0 a 100)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">kf</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">kf</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=...</span><span class="p">)</span>
     <span class="c1"># crear una lista con la combinaciones de los elementos de cada list</span>
     <span class="n">kernels_gammas_regs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">kernels</span><span class="p">,</span> <span class="n">gammas</span><span class="p">,</span> <span class="n">params_reg</span><span class="p">))</span>
     <span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -765,7 +774,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿Cual es el objetivo de las las funciones kernel?</span>
+<span class="c1">#@markdown ¿Cual es el objetivo de las las funciones kernel? Contestar dentro del contexto de las máquinas de sporte vectorial</span>
 <span class="n">respuesta_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -774,7 +783,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿el parámetro gamma afecta el kernel lineal? justificar teniendo cuenta la teoria y la documentación de la libreria.</span>
+<span class="c1">#@markdown Explique en sus palabras ¿qué representan los vectores de soporte en un problema de regresión?</span>
 <span class="n">respuesta_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -792,7 +801,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 
 <span class="c1">#predicciones</span>
 <span class="c1"># OJO: Reemplazar los valores!</span>
-<span class="n">Ypred</span> <span class="o">=</span>  <span class="n">predict_svr</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">param_reg</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">Ypred</span> <span class="o">=</span>  <span class="n">predict_svr</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="p">)</span>
 
 <span class="c1"># plots</span>
 
@@ -821,13 +830,23 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 </div>
 <div class="section" id="ejercicio-3-experimentar-svm-para-clasificacion">
 <h2>Ejercicio 3: Experimentar SVM para clasificación<a class="headerlink" href="#ejercicio-3-experimentar-svm-para-clasificacion" title="Permalink to this headline">¶</a></h2>
-<p>En este ejercicio vamos a volver a resolver el problema de calsificacion de dígitos. Vamos usar solo 4 clases y realizaremos un pre-procesamiento mediante PCA (una tecnica proxima a practicar en el laboratorio)</p>
+<p>En este ejercicio vamos a volver a resolver el problema de clasificación de dígitos. Vamos usar solo 5 clases y realizaremos un pre-procesamiento:</p>
+<ol class="simple">
+<li><p>mediante PCA (una tecnica proxima a practicar en el laboratorio)</p></li>
+<li><p>Vamos a convertirlo en problema biclase (vamos a diferenciar entre 0, 1 y el resto)</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xcl</span><span class="p">,</span> <span class="n">Ycl</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">(</span><span class="n">n_class</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xcl</span><span class="p">,</span> <span class="n">Ycl</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">(</span><span class="n">n_class</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#--------- preprocesamiento--------------------</span>
 <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">whiten</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">Xcl</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xcl</span><span class="p">)</span>
+<span class="c1"># cambiar problema de clases</span>
+<span class="n">unique</span><span class="p">,</span> <span class="n">counts</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Ycl</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;distribución original (claves las etiquetas, valores el número de muestras): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">unique</span><span class="p">,</span> <span class="n">counts</span> <span class="p">)))</span>
+<span class="n">Ycl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">Ycl</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">Ycl</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">unique</span><span class="p">,</span> <span class="n">counts</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Ycl</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nueva distribución  (claves las etiquetas, valores el número de muestras): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">unique</span><span class="p">,</span> <span class="n">counts</span> <span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -949,6 +968,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 </div>
 </div>
 </div>
+<p>Veamos la estrategia OVR</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vamos a realizar los experimentos</span>
@@ -969,6 +989,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 </div>
 </div>
 </div>
+<p>Ahora vamos a ver la estrategia OVO</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vamos a realizar los experimentos</span>
@@ -992,7 +1013,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown Explique en sus palabras ¿qué representan los vectores de soporte en un problema de clasificación? ¿Esa misma explicación se puede aplicar a un problema de regresión? justifique</span>
+<span class="c1">#@markdown Explique en sus palabras ¿qué representan los vectores de soporte en un problema de clasificación?</span>
 <span class="n">respuesta_4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -1001,7 +1022,7 @@ Para ello vamos a completar la siguiente función para realizar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown ¿por que en los experiementos de la SVM para clasificación ordenamos diferentes los resultados?</span>
+<span class="c1">#@markdown Segun el tipo de problema (enfocarse en la distribución de clases) ¿La metrica usada es la adecuada? ¿Cual otra metrica del modulo de sklearn podria ser usada?</span>
 <span class="n">respuesta_5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>

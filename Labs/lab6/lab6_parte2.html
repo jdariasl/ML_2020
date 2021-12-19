@@ -534,11 +534,20 @@
 <span class="c1"># Ejecuta esta celda!</span>
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
-<span class="c1">#for local </span>
-<span class="c1">#import sys ; sys.path.append(&#39;../commons/utils/&#39;)</span>
-<span class="o">!</span>wget https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py -O general.py --no-cache
-<span class="kn">from</span> <span class="nn">general</span> <span class="kn">import</span> <span class="n">configure_lab6</span>
-<span class="n">configure_lab6</span><span class="p">()</span>
+<span class="n">in_colab</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">in_colab</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span> <span class="p">;</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../commons/utils/&#39;</span><span class="p">);</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../commons/utils/data&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget https://raw.githubusercontent.com/jdariasl/ML_2020/master/Labs/commons/utils/general.py -O general.py&#39;</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">general</span> <span class="kn">import</span> <span class="n">configure_lab6</span>
+    <span class="n">configure_lab6</span><span class="p">()</span>
 <span class="kn">from</span> <span class="nn">lab6</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">GRADER</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">part_2</span><span class="p">()</span>
 </pre></div>
@@ -556,8 +565,8 @@
 </div>
 </div>
 </div>
-<p>Este ejercicio tiene como objetivo implementar varias técnicas de extracción de características (PCA y LDA) y usar RF para resolver un problema de clasificación multietiqueta o multiclase.</p>
-<p>**observación para las librerias sklearn **</p>
+<p>Este ejercicio tiene como objetivo implementar varias técnicas de extracción de características (PCA y LDA)</p>
+<p><strong>observación para las librerias sklearn</strong></p>
 <p>Llamar explicitamente los parametros de las librerias de sklearn (e.j. si se quiere usar el parametro <code class="docutils literal notranslate"><span class="pre">kernel</span></code> del <code class="docutils literal notranslate"><span class="pre">SVC</span></code>, se debe llamar <code class="docutils literal notranslate"><span class="pre">SVC(kernel='rbf'</span></code>)</p>
 <p>En la siguiente celda se define una función para entrenar un SVM para resolver el problema. Esta función la vamos a usar como base para comparar nuestros metodos de selección de características.</p>
 <div class="cell docutils container">
@@ -567,12 +576,12 @@
 <span class="sd">    Función que ejecuta el entrenamiento del modelo sin una selección particular</span>
 <span class="sd">    de las características</span>
 
-<span class="sd">      Parámetros:splits : numero de particiones  a realizar</span>
+<span class="sd">      Parámetros:</span>
+<span class="sd">        splits : numero de particiones  a realizar</span>
 <span class="sd">      Retorna:</span>
-<span class="sd">      1. El modelo entreando</span>
-<span class="sd">      2. El vector de errores</span>
-<span class="sd">      3. El Intervalo de confianza</span>
-<span class="sd">      4. El tiempo de procesamiento</span>
+<span class="sd">        - El vector de errores</span>
+<span class="sd">        - El Intervalo de confianza</span>
+<span class="sd">        - El tiempo de procesamiento</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#Implemetamos la metodología de validación</span>
     <span class="n">Errores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">splits</span><span class="p">)</span>
@@ -607,7 +616,7 @@
 <ol class="simple">
 <li><p>Vamos a usar el modulo <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">PCA de sklearn</a>. El cual ya se encuentra importado (se pueda acceder a el como <code class="docutils literal notranslate"><span class="pre">PCA(....)</span></code>)</p></li>
 <li><p>Tener en cuenta la respuesta de la siguiente pregunta abierta y completar el código de acuerdo a la respuesta usando la libreria y modulo de sklearn correspondiente (El cual tambien deberia ya estar importado en la configuración).</p></li>
-<li><p>Usar 5 particiones en la metodologia de validación</p></li>
+<li><p>Usar el parametro adecuado para las particiones en la metodologia de validación</p></li>
 <li><p>Usar la exactitud como medida de error del modulo <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">metrics de sklearn</a></p></li>
 <li><p>Vamos a calcular el costo computacional de aplicar la PCA.</p></li>
 <li><p>Recordar que PCA se debe “ajustar” con el conjunto de entrenamiento. Pero la transformación se debe hacer para las particiones de entrenamiento y test.</p></li>
@@ -633,25 +642,25 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
-<span class="k">def</span> <span class="nf">entrenamiento_pca_ext_caracteristicas</span><span class="p">(</span><span class="n">n_comp</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">entrenamiento_pca_ext_caracteristicas</span><span class="p">(</span><span class="n">n_comp</span><span class="p">,</span> <span class="n">n_sets</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Esta función realiza la reducción de la dimensionalidad sobre el conjunto de</span>
 <span class="sd">    datos de entrenamiento, de acuerdo con las particiones especificadas usando PCA</span>
 
 <span class="sd">    Parámetros:</span>
-<span class="sd">    n_comp, int, Número de componentes para reducción</span>
-<span class="sd">    n_sets,int, Número de particiones</span>
-<span class="sd">    X: numpy Array de características</span>
-<span class="sd">    Y: numpy Array  Vector de etiquetas</span>
+<span class="sd">        n_comp, int, Número de componentes para reducción</span>
+<span class="sd">        n_sets,int, Número de particiones</span>
+<span class="sd">        X: numpy Array de características</span>
+<span class="sd">        Y: numpy Array  Vector de etiquetas</span>
 
 <span class="sd">    Retorna: </span>
-<span class="sd">    ErrorValidacion: El valor medio de errores</span>
-<span class="sd">    IC_Validacion: Intervalo de confianza</span>
-<span class="sd">    T_ejec:  El  valor medio del tiempo de ejecución</span>
+<span class="sd">        El valor medio de errores</span>
+<span class="sd">        Intervalo de confianza del error</span>
+<span class="sd">        El  valor medio del tiempo de ejecución</span>
 <span class="sd">    &quot;&quot;&quot;</span>  
     <span class="c1">#Implemetamos la metodología de validación </span>
-    <span class="n">Errores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">Errores</span> <span class="o">=</span> <span class="n">np</span><span class="o">...</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">...</span>
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>  
@@ -717,16 +726,14 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
 <span class="k">def</span> <span class="nf">experimentar_PCA</span><span class="p">(</span><span class="n">n_feats</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Esta función realiza la comparación del desempeño de RFE utilizando diferente </span>
-<span class="sd">    número de feats y particionando el conjunto de datos en diferente número de </span>
-<span class="sd">    subconjuntos</span>
+<span class="sd">    Esta función realiza la comparación del desempeño de PCA utilizando diferente </span>
+<span class="sd">    número de caracteristicas y particionando el conjunto de datos en 5 conjuntos</span>
 
 <span class="sd">    Parámetros:</span>
-<span class="sd">    X (numpy.array), El arreglo numpy de características</span>
-<span class="sd">    Y (numpy.array), El vector de etiquetas</span>
-<span class="sd">    n_feats, Vector de números enteros que indica el número de características</span>
-<span class="sd">              que debe utilizar el modelo</span>
-<span class="sd">    n_sets, Vector de números enteros que indica el número de particiones</span>
+<span class="sd">        X (numpy.array), El arreglo numpy de características</span>
+<span class="sd">        Y (numpy.array), El vector de etiquetas</span>
+<span class="sd">        n_feats, Vector de números enteros que indica el número de características</span>
+<span class="sd">                que debe utilizar el modelo</span>
 
 <span class="sd">    Retorna:  </span>
 <span class="sd">    - DataFrame con las columnas: CON_SEL, NUM_VAR, T_EJECUCION, ERROR_VALIDACION y IC_STD_VALIDACION. </span>
@@ -748,7 +755,7 @@
     
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">n_feats</span><span class="p">:</span>
         <span class="c1">#Implemetamos la metodología de validación </span>
-        <span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_comp</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">X</span><span class="o">=...</span><span class="p">,</span><span class="n">Y</span><span class="o">=...</span><span class="p">)</span>
+        <span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span> <span class="o">=</span> <span class="o">...</span><span class="p">(</span><span class="n">n_comp</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">X</span><span class="o">=...</span><span class="p">,</span><span class="n">Y</span><span class="o">=...</span> <span class="n">n_sets</span><span class="o">...</span><span class="p">)</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;CON_SEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SI&#39;</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="s1">&#39;NUM_VAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
         <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;T_EJECUCION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
@@ -788,15 +795,6 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown  ¿Como se relaciona el mejor número de componentes encontrado en los experimentos con la curva de varianza explicada? Explicar con base a los resultados, la grafica y la teoria</span>
-<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>ahora recordemos que el PCA tambien nos sirve para explorar y visualizar los datos en pocas dimensiones. En la siguiente celda vamos a visualizar nuestro conjunto de datos usando los dos primeros componentes principales</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -817,7 +815,30 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
-<span class="c1">#@markdown Aunque PCA nos sirve para ver los datos en dimensiones menores a la base de datos original, sabiendo la varianza acumulada obtenida para 2 componentes principales ¿que tan cercana es la aproximación para este problema en específico?</span>
+<span class="c1">#@markdown Aunque PCA nos nos ofrece una visualizacion aproximada de nuestro conjunto de datos, conociendo la varianza acumulada obtenida para 2 componentes principales ¿que tan cercana es la aproximación para este problema en específico?</span>
+<span class="n">respuesta_3</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En nuestros laboratorios anteriores, hemos usado el siguiente codigo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">(</span><span class="n">n_class</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1">#--------- preprocesamiento--------------------</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">whiten</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape antes pca&quot;</span><span class="p">,</span> <span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape luego pca&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aplicando los conceptos que manejamos en este laboratorio, responde la siguiente pregunta abierta</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Pregunta Abierta</span>
+<span class="c1">#@markdown En nuestros laboratorios pasados y usando el codigo ejecutado anteriomente ¿Las 40 caracteristicas representaban bien la varianza del conjunto original?</span>
 <span class="n">respuesta_4</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 </pre></div>
 </div>
@@ -853,15 +874,15 @@
 <span class="sd">    datos de entrenamiento, de acuerdo con las particiones especificadas usando PCA</span>
 
 <span class="sd">    Parámetros:</span>
-<span class="sd">    n_comp, int, Número de componentes para reducción</span>
-<span class="sd">    n_sets,int, Número de particiones</span>
-<span class="sd">    X: numpy Array de características</span>
-<span class="sd">    Y: numpy Array  Vector de etiquetas</span>
+<span class="sd">        n_comp, int, Número de componentes para reducción</span>
+<span class="sd">        X: numpy Array de características</span>
+<span class="sd">        Y: numpy Array  Vector de etiquetas</span>
 
 <span class="sd">    Retorna:</span>
-<span class="sd">    T_ejec:  El  valor medio del tiempo de ejecución</span>
-<span class="sd">    ErrorValidacion: El valor medio de errores</span>
-<span class="sd">    IC_Validacion: Intervalo de confianza</span>
+<span class="sd">        tupla con:</span>
+<span class="sd">        El  valor medio del tiempo de ejecución,</span>
+<span class="sd">        El valor medio de errores</span>
+<span class="sd">        Intervalo de confianza de los errores</span>
 <span class="sd">    &quot;&quot;&quot;</span>
    
 
@@ -932,39 +953,21 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejercicio de código</span>
 <span class="k">def</span> <span class="nf">experimentar_LDA</span><span class="p">(</span><span class="n">n_feats</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Esta función realiza la comparación del desempeño de RFE utilizando diferente </span>
-<span class="sd">    número de feats y particionando el conjunto de datos en diferente número de </span>
-<span class="sd">    subconjuntos</span>
+<span class="sd">    Esta función realiza la comparación del desempeño de LDA utilizando diferente </span>
+<span class="sd">    número de feats y particionando el conjunto de datos en diferente en 5 subconjuntos</span>
 
 <span class="sd">    Parámetros:</span>
 <span class="sd">    X (numpy.array), El arreglo numpy de características</span>
 <span class="sd">    Y (numpy.array), El vector de etiquetas</span>
 <span class="sd">    n_feats, Vector de números enteros que indica el número de características</span>
 <span class="sd">              que debe utilizar el modelo</span>
-<span class="sd">    n_sets, Vector de números enteros que indica el número de particiones</span>
 
 <span class="sd">    Retorna:  </span>
-<span class="sd">    - DataFrame con las columnas: DESCRIPCION, ERROR_VALIDACION, IC_STD_VALIDACION, </span>
+<span class="sd">    - DataFrame con las columnas: CON_SEL, NUM_VAR, ERROR_VALIDACION, IC_STD_VALIDACION, </span>
 <span class="sd">    y T_EJECUCION. </span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Esta función realiza la comparación del desempeño de RFE utilizando diferente </span>
-<span class="sd">    número de feats y particionando el conjunto de datos en diferente número de </span>
-<span class="sd">    subconjuntos</span>
 
-<span class="sd">    Parámetros:</span>
-<span class="sd">    X (numpy.array), El arreglo numpy de características</span>
-<span class="sd">    Y (numpy.array), El vector de etiquetas</span>
-<span class="sd">    n_feats, Vector de números enteros que indica el número de características</span>
-<span class="sd">              que debe utilizar el modelo</span>
-<span class="sd">    n_sets, Vector de números enteros que indica el número de particiones</span>
-
-<span class="sd">    Retorna:  </span>
-<span class="sd">    - DataFrame con las columnas: DESCRIPCION, ERROR_VALIDACION, IC_STD_VALIDACION, </span>
-<span class="sd">    y T_EJECUCION. </span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">split_number</span> <span class="o">=</span> <span class="mi">5</span>

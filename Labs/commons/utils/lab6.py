@@ -38,7 +38,7 @@ def test_entrenamiento_sin_seleccion_caracteristicas(function):
                    ['KFold(n_splits=', 'roc_auc_score', '.predict_proba', '.fit', 'multi_class="ovr"']]
     res2 = ut.check_code(code_to_look, function, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
     xx, yy = generate_data(is_class=True)
-    a = function(3,xx,yy)
+    a = function(xx,yy,3)
     tests = {'*** No se retorno el modelo entrenado ***': len(a[0].classes_ ) >0 ,
              '*** No se retorno el error ***': a[1]>0.25,
              '*** No se retorno el desviacion estandar del error ***':  isinstance(a[2], float) and a[1]!=a[2],
@@ -47,8 +47,6 @@ def test_entrenamiento_sin_seleccion_caracteristicas(function):
 
     test_res = ut.test_conditions_and_methods(tests)
     return(test_res and res2)
-
-
 
 
 @unknow_error

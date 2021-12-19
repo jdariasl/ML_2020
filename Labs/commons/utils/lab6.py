@@ -20,6 +20,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.decomposition import PCA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.metrics import accuracy_score, roc_auc_score
+from sklearn.datasets import load_digits
 import warnings
 import sklearn   
 warnings.filterwarnings('ignore')
@@ -128,14 +129,17 @@ def test_entrenamiento_pca_seleccion_caracteristicas(function):
     Esta función determina si el estudiante logró utilizar la función planteada
     """
     code_to_look = ['StandardScaler()', 'PCA', "n_components=", "pca.fit_transform", 
-                    "pca.transform", ".fit", ".predict", "n_splits=5", "accuracy_score", "np.mean", "np.std"]
+                    "pca.transform", ".fit", ".predict", "n_splits=n_sets", "accuracy_score", "np.mean", "np.std"]
     res2 = ut.check_code(code_to_look, function, msg = "**** recordar usar las funciones sugeridas ***", debug = False)
 
     xx = np.array([[-1,0,0.0], [-1,-1,0.0], [1,1,0.1], [1,0.5,0.1], [0.1,0.1,0]])
+    xx = np.vstack([xx,xx])
     yy = np.array([1,1,2,2,2])
-    a = function(1,xx, yy)
+    yy = np.hstack([yy,yy])
+    a = function(n_comp=1,n_sets=3, X=xx, Y= yy)
+    test_mean = np.isclose(a[0], 0.80555, 3) and np.isclose(a[1], 0.141, 3)
 
-    tests = {'***  hay un error en la funcion, revisa si se esta aplicando la media o el pca es entrenado y usado para transformar ***': a[0] == 0.8 and a[1] == 0.4,
+    tests = {'*** hay un error en la funcion, revisa si se esta aplicando la media o el pca es entrenado y usado para transformar ***': test_mean,
             "*** No se retorno el tiempo de entrenamiento ***": isinstance(a[2], float) and a[2]<=0.1}
 
     test_res = ut.test_conditions_and_methods(tests)

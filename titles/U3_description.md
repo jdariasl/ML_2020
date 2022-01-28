@@ -2,7 +2,7 @@
 
 ## Métricas de evaluación para clasificación
 
-**16 - Tipos de error y matriz de confusión**: [Video 30mins]() <br/> Se introducen las convenciones sobre Falsos Positivos y Falsos Negativos, la matriz de cinfusión y su impacto en el análisis de los errores que comete un sistema de clasificación.
+**16 - Tipos de error y matrices de confusión**: [Video 21mins](https://youtu.be/OZEmICWJ3EU) <br/> Se introducen las convenciones sobre Falsos Positivos y Falsos Negativos, la matriz de confusión y su uso en el análisis de los errores que comete un sistema de clasificación.
 
 **17 - Medidas de error para problemas de clasificación**: [Video 17mins]() <br/> Se introducen las diferentes medidas de error para problemas de clasificación y su importancia en la interpretación del desempeño del sistema.
 

@@ -494,6 +494,16 @@
    Métricas de evaluación para regresión
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complejidad-de-datos-y-complejidad-de-modelos">
+   Complejidad de datos y complejidad de modelos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodologias-de-validacion">
+   Metodologías de validación
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -524,6 +534,16 @@
    Métricas de evaluación para regresión
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complejidad-de-datos-y-complejidad-de-modelos">
+   Complejidad de datos y complejidad de modelos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodologias-de-validacion">
+   Metodologías de validación
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -538,13 +558,24 @@
 <div class="section" id="metricas-de-evaluacion-para-clasificacion">
 <h2>Métricas de evaluación para clasificación<a class="headerlink" href="#metricas-de-evaluacion-para-clasificacion" title="Permalink to this headline">¶</a></h2>
 <p><strong>16 - Tipos de error y matrices de confusión</strong>: <a class="reference external" href="https://youtu.be/OZEmICWJ3EU">Video 21mins</a> <br/> Se introducen las convenciones sobre Falsos Positivos y Falsos Negativos, la matriz de confusión y su uso en el análisis de los errores que comete un sistema de clasificación.</p>
-<p><strong>17 - Medidas de error para problemas de clasificación</strong>: <span class="xref myst">Video 17mins</span> <br/> Se introducen las diferentes medidas de error para problemas de clasificación y su importancia en la interpretación del desempeño del sistema.</p>
-<p><strong>18 - Medidas de error para problemas desbalanceados</strong>: <span class="xref myst">Video 21mins</span> <br/> Se discute el problema de sesgo en la medición del error de clasificación en problemas desbalanceados y las medidas apropiadas para estos casos.</p>
-<p><strong>19 - Figuras de mérito: Curva ROC</strong>: <span class="xref myst">Video 21mins</span> <br/> Se presenta una figura típicamente usada para la evaluación de desempeño de sistemas de clasificación, su interpretación y cáluclo.</p>
+<p><strong>17 - Medidas de error para problemas de clasificación</strong>: <a class="reference external" href="https://youtu.be/hTD5LLTMNrM">Video 7mins</a> <br/> Se introducen las principales medidas de error para problemas de clasificación y su importancia en la interpretación del desempeño del sistema.</p>
+<p><strong>18 - Medidas de error para problemas desbalanceados</strong>: <a class="reference external" href="https://youtu.be/xlOCd84qvEU">Video 11mins</a> <br/> Se discute el problema de sesgo en la medición del error de clasificación en problemas desbalanceados y las medidas de error apropiadas para estos casos.</p>
+<p><strong>19 - Figuras de mérito: Curva ROC</strong>: <a class="reference external" href="https://youtu.be/G6U-hjQHp_E">Video 14mins</a> <br/> Se presenta una figura típicamente usada para la evaluación del desempeño de sistemas de clasificación, su interpretación y forma de cálculo.</p>
 </div>
 <div class="section" id="metricas-de-evaluacion-para-regresion">
 <h2>Métricas de evaluación para regresión<a class="headerlink" href="#metricas-de-evaluacion-para-regresion" title="Permalink to this headline">¶</a></h2>
-<p><strong>20 - Medidas de error para problemas de regresión</strong>: <span class="xref myst">Video 17mins</span> <br/> Se introducen las principales medidas de error para problemas de regresión y se discuten sus ventajas y desventajas.</p>
+<p><strong>20 - Medidas de error para problemas de regresión</strong>: <a class="reference external" href="https://youtu.be/rsad5A2BVFw">Video 10mins</a> <br/> Se introducen las principales medidas de error para problemas de regresión y se discuten sus ventajas y desventajas.</p>
+</div>
+<div class="section" id="complejidad-de-datos-y-complejidad-de-modelos">
+<h2>Complejidad de datos y complejidad de modelos<a class="headerlink" href="#complejidad-de-datos-y-complejidad-de-modelos" title="Permalink to this headline">¶</a></h2>
+<p><strong>21 - Complejidad de modelos y tamaño de muestra</strong>: <span class="xref myst">Video 10mins</span> <br/> Se analiza la complejidad de los modelos en términos de las funciones que pueden reconstruir y el efecto que tiene la cantidad de muestras en la complejidad del modelo resultante.</p>
+<p><strong>22 - Sesgo vs Varianza</strong>: <span class="xref myst">Video 10mins</span> <br/> Se introducen los conceptos de error por sesgo y varianza y su relación con los fenómenos de sobreajuste y subajuste.</p>
+</div>
+<div class="section" id="metodologias-de-validacion">
+<h2>Metodologías de validación<a class="headerlink" href="#metodologias-de-validacion" title="Permalink to this headline">¶</a></h2>
+<p><strong>23 - k-fold crossvalidations vs Bootstrapping (shuffle split)</strong>: <span class="xref myst">Video 10mins</span> <br/> Se presentan los principios de funcionamiento de las metodologías de validación más usadas y algunas de sus variantes.</p>
+<p><strong>24 - Metodologías de validación estratificadas</strong>: <span class="xref myst">Video 10mins</span> <br/> Se discute la necesidad de utilizar variantes apropiadas de las metodologías de validación para problemas de clasificación desbalanceados.</p>
+<p><strong>25 - Metodologíass de validación por grupos</strong>: <span class="xref myst">Video 10mins</span> <br/> Se presentan variantes de las metodologías de validación que deben ser usadas en problemas donde las muestras provienen de fuentes similares (grupos de muestras) o en problemas de múltiples instancias (multi-instance learning), en los cuales las suposiciones de independencia entre las muestras no se satisface para todas las muestras y que pueden dar lugar a estimaciones erróneas del desempeño del sistema si no se usan metodologías de validación apropiadas.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>

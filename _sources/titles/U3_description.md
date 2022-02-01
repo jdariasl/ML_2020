@@ -33,8 +33,8 @@
 
 ## Sobreajuste y regularización
 
-**26 - Sobreajuste**: [Video 10mins]() <br/> Se define el problema de sobreajuste tanto en problemas de clasifiación como de regresión y se introducen algunas de las estrategias básicas para evitarlo.
+**26 - Sobreajuste**: [Video 19mins](https://youtu.be/vx7Gh-OolvU) <br/> Se define el problema de sobreajuste tanto en problemas de clasifiación como de regresión y se introduce la estrategia de parada anticipada que ayuda a evitar el sobreajuste en modelos cuyo algoritmo de entrenamiento se basa en la optimización de una función de costo de manera iterativa.
 
 
-**27 - Regularización**: [Video 10mins]() <br/> Se presenta una de las estrategias más ampliamente usadas para evitar el problema de sobreajuste y se muestra su efecto en un modelo de regresión logística.
+**27 - Regularización**: [Video 21mins](https://youtu.be/UQFz7Fpkqvo) <br/> Se presenta una de las estrategias más ampliamente usadas para evitar el problema de sobreajuste y se muestra su efecto en un modelo de regresión logística.
 
